@@ -7,3 +7,8 @@
 ## Basic Overview
 
 <a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a Java based shopping cart (desktop) application where registered users could buy products. The  uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. 
+
+
+## System Architecture
+
+<div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
