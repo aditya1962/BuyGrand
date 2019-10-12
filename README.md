@@ -4,6 +4,14 @@
 [![GitHub stars](https://img.shields.io/github/stars/aditya1962/BuyGrand)](https://github.com/aditya1962/BuyGrand/stargazers)
 [![GitHub license](https://img.shields.io/github/license/aditya1962/BuyGrand)](https://github.com/aditya1962/BuyGrand/blob/master/LICENSE)
 
+## Technologies used
+
+<ul>
+  <li> Java - For front-end GUI display using JFrame and File writing during invoice generation </li>
+  <li> Python  - For face detection during the invoice generation process </li>
+  <li> MSSQL - As the relational database management system </li>
+</ul>
+
 ## Basic Overview
 
 <a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a Java based shopping cart (desktop) application where registered users could buy products. The  uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. 
