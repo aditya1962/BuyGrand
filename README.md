@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/aditya1962/BuyGrand)](https://github.com/aditya1962/BuyGrand/stargazers)
 [![GitHub license](https://img.shields.io/github/license/aditya1962/BuyGrand)](https://github.com/aditya1962/BuyGrand/blob/master/LICENSE)
 
-
+:star: Star BuyGrand on Github. It helps a lot.
 
 ## Technologies used
 
