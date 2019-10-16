@@ -65,7 +65,7 @@ which python
 Then copy the path up to the last slash (excluding the "python" name at the end of the path) and navigating to 
 
 ```
-cmd path/Scripts/
+cd path/Scripts/
 ```
 (replace the "path" with the path where your python is installed as obtained by the git command above)
 
