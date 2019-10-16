@@ -29,14 +29,18 @@
 ## Table of Contents
 
 <ol>
-  <li> <a href="installation">Installation </a></li>
-  <li> <a href="system-architecture">System Architecture</a></li>
-  <li> <a href="license">License</a></li>
+  <li> <a href="#installation">Installation </a></li>
+  <li> <a href="#system-architecture">System Architecture</a></li>
+  <li> <a href="#license">License</a></li>
 </ol>
 
 
 <h3 id="installation">Installation</h3>
-
+<br/>
+<b> Prerequisites </b>
+<br/>
+<p>Make sure Java and Python (version 3.0 upwards) are installed and class path set. Also Git Bash should be installed to clone and perform git related operations
+<br/><br/>
 The latest version of BuyGrand can be cloned using
 
 ```git
@@ -49,6 +53,38 @@ cd BuyGrand
 ```
 Then open project using your favorite Java IDE or editor
 
+<b> Installing dependencies - Python </b>
+
+The python script uses following dependencies: dlib, numpy, cv2, imageio, PIL and CMake. (Please note: Additional dependencies for the aforementioned dependencies may have to be installed based on the python configuration of the machine in which it will be installed. For more clarifications watch for any warning or error messages while installing the above packages)
+
+These can be installed by first navigating to the python configuration in the git bash
+
+```git
+which python
+```
+Then copy the path up to the last slash (excluding the "python" name at the end of the path) and navigating to 
+
+```
+cmd path/Scripts/
+```
+(replace the "path" with the path where your python is installed as obtained by the git command above)
+
+Then install dependencies using "pip install"
+
+```python
+pip install dlib, numpy, cv2, imageio, PIL, CMake
+```
+
+<b> Installing dependencies  - Java </b>
+
+Java dependencies include iText PDF libraries. These are packaged in the project and can be found at BuyGrand\Order_Application_Java\dist\lib
+
+In your favorite IDE click on libraries and right click and select Add JAR. (Note that this option may be different for different IDEs. In that case select an alternative approach to install JAR files in the Java project) Then navigate to 
+
+<i>Project path</i>\dist\lib\ and select the JAR files one by one.
+
+If any project errors occur due to missing libraries follow the same procedure in Resolve Project Problems.
+</p>
 <h3 id="system-architecture">System Architecture</h3>
 
 <div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
