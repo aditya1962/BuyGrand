@@ -5,8 +5,10 @@
  */
 package order_application_java;
 
+import com.itextpdf.text.log.Level;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,7 +29,9 @@ public class ConnectionClass {
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            System.err.println("Could not connect to database");
+            Logger.getLogger(ConnectionClass.class.getName()).
+                    log(java.util.logging.Level.SEVERE, "Could not connect to database");
         }
         return conn;
     }

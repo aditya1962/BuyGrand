@@ -19,17 +19,21 @@ public class PopulateCart {
     {
         ConnectionClass cc = new ConnectionClass();
         Connection conn = cc.getConnection();
-        PreparedStatement stmt = conn.prepareStatement ("SELECT productID,"+
-         "productName, quantity, itemPrice, totalPrice from user_cart where username=?");
-        stmt.setString(1, username);
-        ResultSet rs = stmt.executeQuery();
+        ResultSet rs = null;
+        if(conn!=null)
+        {
+            PreparedStatement stmt = conn.prepareStatement ("SELECT productID,"+
+             "productName, quantity, itemPrice, totalPrice from user_cart where username=?");
+            stmt.setString(1, username);
+            rs = stmt.executeQuery();
+        }
         return rs;
     }
     public int getRowCount(String username) throws SQLException
     {
         ResultSet rs = this.populate(username);
         int count = 0;
-        while(rs.next())
+        while(rs!=null && rs.next())
         {
             count++;
         }
