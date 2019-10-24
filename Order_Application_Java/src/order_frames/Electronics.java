@@ -5,7 +5,7 @@
  */
 package order_frames;
 
-import electronics.*;
+import java.util.ArrayList;
 
 
 /**
@@ -24,12 +24,21 @@ public class Electronics extends javax.swing.JFrame {
     
     public final void initializeTabs()
     {
-        tabs.addTab("Camera", new Camera());
-        tabs.addTab("Cell Phones", new CellPhones());
-        tabs.addTab("Head Phones", new HeadPhones());
-        tabs.addTab("Computers", new Computers());
-        tabs.addTab("Televisions", new TV());
-        tabs.addTab("Radios", new Radios());
+        ArrayList <String> tabNames = new ArrayList <String> ();
+        
+        //tab names are added for temporarily only
+        //populate sub categories using database 
+        tabNames.add("Camera");
+        tabNames.add("Cell Phones");
+        tabNames.add("Head Phones");
+        tabNames.add("Computers");
+        tabNames.add("Televisions");
+        tabNames.add("Radios");
+        
+        for(String tab: tabNames)
+        {
+            tabs.addTab(tab, new ProductDisplay(getContentPane().getWidth(),tab));
+        }
         getContentPane().add(tabs);
     }
             
@@ -95,6 +104,7 @@ public class Electronics extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                new Electronics().pack();
                 new Electronics().setVisible(true);
             }
         });
