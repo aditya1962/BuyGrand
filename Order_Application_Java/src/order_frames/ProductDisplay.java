@@ -7,6 +7,7 @@ package order_frames;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -14,6 +15,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.MatteBorder;
 
 /**
@@ -21,16 +24,30 @@ import javax.swing.border.MatteBorder;
  * @author Aditya
  */
 public class ProductDisplay extends JPanel {
-    public ProductDisplay(int width, String subcategory) {
-        components(width);
+    
+    private final int width;
+    
+    public ProductDisplay(int width,String subcategory)
+    {
+        this.width = width;
+        JPanel panel = components();
+        //JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+        //ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        //scrollPane.setPreferredSize(new Dimension(800,800));
+        //scrollPane.getViewport().revalidate();
+        //add(scrollPane);
     }
-    public void components(int width)
+    
+    
+    public final JPanel components()
     {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        //this.setLayout(new FlowLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        for(int i = 0; i< 3; i++)
-        {
-            JPanel panel = new JPanel();
+        JPanel panel = new JPanel();
+        
+        for(int i = 0; i< 8; i++)
+        {           
             JPanel panelInside  = new JPanel();
             panelInside.setLayout(new GridBagLayout());
             gbc.insets = new Insets(5,5,5,5);
@@ -39,11 +56,12 @@ public class ProductDisplay extends JPanel {
             panelInside = quantityComponents(gbc,panelInside);
             panelInside.setPreferredSize(new Dimension(width,100));
             panel.add(panelInside);
-            panel.setBorder(new MatteBorder(1,1,1,1,Color.GRAY));
+            panel.setBorder(new MatteBorder(0,0,1,0,Color.GRAY));
             this.add(panel);
-        }       
+        }  
+        return panel;
     }
-    public JPanel firstColumn(GridBagConstraints gbc, JPanel panelInside)
+    public static JPanel firstColumn(GridBagConstraints gbc, JPanel panelInside)
     {
         //placing the icon
         JLabel icon = new JLabel("icon");
