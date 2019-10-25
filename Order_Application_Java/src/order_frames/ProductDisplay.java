@@ -25,46 +25,62 @@ import javax.swing.border.MatteBorder;
  */
 public class ProductDisplay extends JPanel {
     
+    //width of the panel and inside panels
     private final int width;
+    
+    //height of inside panels
+    private final int HEIGHT = 100;
     
     public ProductDisplay(int width,String subcategory)
     {
         this.width = width;
         JPanel panel = components();
-        //JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-        //ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        //scrollPane.setPreferredSize(new Dimension(800,800));
-        //scrollPane.getViewport().revalidate();
-        //add(scrollPane);
+        JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+        ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setPreferredSize(new Dimension(800,800));
+        scrollPane.getViewport().revalidate();
+        add(scrollPane);
     }
     
+    public int[] getPanelInsets()
+    {
+        int top = 5, left = 0, bottom = 5, right = 5;
+        int [] insets = {top,left,bottom,right};
+        return insets;
+    }
     
     public final JPanel components()
     {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-        //this.setLayout(new FlowLayout());
+        
         GridBagConstraints gbc = new GridBagConstraints();
         JPanel panel = new JPanel();
-        
-        for(int i = 0; i< 8; i++)
+        int count = 21;
+        int [] panelInsetValues = getPanelInsets();
+        int panelHeight = count*(HEIGHT+panelInsetValues[0] + panelInsetValues[2]);
+        panel.setPreferredSize(new Dimension(width,panelHeight));
+        for(int i = 0; i< count; i++)
         {           
             JPanel panelInside  = new JPanel();
             panelInside.setLayout(new GridBagLayout());
-            gbc.insets = new Insets(5,5,5,5);
-            panelInside = firstColumn(gbc,panelInside);
+            
+            gbc.insets = new Insets(panelInsetValues[0],panelInsetValues[1],
+                    panelInsetValues[2],panelInsetValues[3]);
+            panelInside = firstColumn(gbc,panelInside,i);
             panelInside = secondColumn(gbc,panelInside);
             panelInside = quantityComponents(gbc,panelInside);
-            panelInside.setPreferredSize(new Dimension(width,100));
+            panelInside.setPreferredSize(new Dimension(width,HEIGHT));
             panel.add(panelInside);
+            panelInside.setBorder(new MatteBorder(0,0,1,0,Color.GRAY));
             panel.setBorder(new MatteBorder(0,0,1,0,Color.GRAY));
             this.add(panel);
         }  
         return panel;
     }
-    public static JPanel firstColumn(GridBagConstraints gbc, JPanel panelInside)
+    public static JPanel firstColumn(GridBagConstraints gbc, JPanel panelInside, int i)
     {
         //placing the icon
-        JLabel icon = new JLabel("icon");
+        JLabel icon = new JLabel("icon" +i);
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridheight = 2;

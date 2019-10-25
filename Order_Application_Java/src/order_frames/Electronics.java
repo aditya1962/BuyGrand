@@ -6,6 +6,7 @@
 package order_frames;
 
 import java.util.ArrayList;
+import javax.swing.BoxLayout;
 
 
 /**
@@ -18,7 +19,9 @@ public class Electronics extends javax.swing.JFrame {
      * Creates new form Electronics
      */
     public Electronics() {
+        
         initComponents();
+        //this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         initializeTabs();
     }
     
@@ -148,6 +151,7 @@ public class Electronics extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 //new Electronics().add(ProductDisplay.components());
+                //new Electronics().setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
                 new Electronics().pack();
                 new Electronics().setVisible(true);
             }
