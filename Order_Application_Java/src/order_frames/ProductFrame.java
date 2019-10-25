@@ -6,23 +6,26 @@
 package order_frames;
 
 import java.util.ArrayList;
-import javax.swing.BoxLayout;
-
 
 /**
  *
  * @author Aditya
  */
-public class Electronics extends javax.swing.JFrame {
+public class ProductFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form Electronics
+     * Creates new form ProductFrame
      */
-    public Electronics() {
+    public ProductFrame() {
         
         initComponents();
         //this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         initializeTabs();
+    }
+    
+    public void setFrameTitle(String name)
+    {
+        this.setName(name);
     }
     
     public final void initializeTabs()
@@ -64,6 +67,7 @@ public class Electronics extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Electronics");
+        setResizable(false);
 
         tabs.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
@@ -137,23 +141,23 @@ public class Electronics extends javax.swing.JFrame {
 //                }
 //            }
 //        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Electronics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProductFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Electronics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProductFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Electronics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProductFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Electronics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProductFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 //        }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new Electronics().add(ProductDisplay.components());
-                //new Electronics().setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-                new Electronics().pack();
-                new Electronics().setVisible(true);
+                //new ProductFrame().add(ProductDisplay.components());
+                //new ProductFrame().setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+                new ProductFrame().pack();
+                new ProductFrame().setVisible(true);
             }
         });
     }
