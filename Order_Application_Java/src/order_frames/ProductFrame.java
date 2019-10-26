@@ -16,6 +16,7 @@ public class ProductFrame extends javax.swing.JFrame {
     /**
      * Creates new form ProductFrame
      */
+    private String frameCategory;
     public ProductFrame() {
         
         initComponents();
@@ -25,7 +26,8 @@ public class ProductFrame extends javax.swing.JFrame {
     
     public void setFrameTitle(String name)
     {
-        this.setName(name);
+        frameCategory = name;
+        this.setTitle(name);
     }
     
     public final void initializeTabs()
@@ -66,7 +68,6 @@ public class ProductFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Electronics");
         setResizable(false);
 
         tabs.setTabPlacement(javax.swing.JTabbedPane.LEFT);

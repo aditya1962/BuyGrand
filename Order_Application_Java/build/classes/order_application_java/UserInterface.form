@@ -39,13 +39,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="174" max="-2" attributes="0"/>
+                      <Component id="viewProducts" min="-2" pref="174" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="169" max="-2" attributes="0"/>
+                      <Component id="viewCart" min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="changeAccountSettings" min="-2" pref="160" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="190" max="32767" attributes="0"/>
@@ -66,11 +66,11 @@
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton2" pref="68" max="32767" attributes="0"/>
-                  <Component id="jButton3" max="32767" attributes="0"/>
+                  <Component id="viewProducts" pref="68" max="32767" attributes="0"/>
+                  <Component id="viewCart" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="jButton4" min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="changeAccountSettings" min="-2" pref="75" max="-2" attributes="0"/>
               <EmptySpace pref="72" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -103,20 +103,23 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="viewProducts">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Products"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewProductsActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="viewCart">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Cart"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewCartActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="changeAccountSettings">
       <Properties>
         <Property name="text" type="java.lang.String" value="Change Account Settings"/>
       </Properties>

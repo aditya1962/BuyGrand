@@ -7,11 +7,11 @@ package order_application_java;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
+import order_frames.ProductFrame;
 
 /**
  *
@@ -43,16 +43,27 @@ public class Category extends javax.swing.JFrame {
         category.setLayout(new FlowLayout());
         int width = getContentPane().getWidth();
         int height = 4*HEIGHT;
-        
-        System.out.println(height);
         category.setPreferredSize(new Dimension(((width*85)/100),height));
         for(String name: buttons)
         {
             JButton button = new JButton(name);
             button.setPreferredSize(new Dimension(width/(buttons.size()-2),HEIGHT));
+            button.setActionCommand(name);
+            button.addActionListener(new ActionListener(){
+               public void actionPerformed(ActionEvent e)
+                {
+                    ProductFrame frame = new ProductFrame();
+                    frame.setFrameTitle(e.getActionCommand());
+                    frame.setVisible(true);
+                    dispose();
+                }
+            });
+            //button.setActionListener(this);
             category.add(button);
         }              
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
