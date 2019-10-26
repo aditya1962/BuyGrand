@@ -130,7 +130,7 @@ public class UserInterface extends javax.swing.JFrame {
 
     private void viewProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProductsActionPerformed
         // TODO add your handling code here:
-        Category category = new Category();
+        Category category = new Category();       
         category.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_viewProductsActionPerformed

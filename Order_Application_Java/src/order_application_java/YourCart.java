@@ -53,6 +53,7 @@ public class YourCart extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         printReceipt = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Your Cart");
@@ -94,6 +95,13 @@ public class YourCart extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Here are the items you have added to cart:");
 
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +114,9 @@ public class YourCart extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addComponent(printReceipt))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
+                        .addGap(30, 30, 30)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(158, 158, 158)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
@@ -118,8 +128,13 @@ public class YourCart extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
@@ -139,6 +154,13 @@ public class YourCart extends javax.swing.JFrame {
         FaceDetect f = new FaceDetect(this.getUsername());
         f.start();
     }//GEN-LAST:event_printReceiptActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        UserInterface frame = new UserInterface();
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backBtnActionPerformed
     
     public void initializeTable(String username) throws SQLException
     {
@@ -203,6 +225,7 @@ public class YourCart extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
