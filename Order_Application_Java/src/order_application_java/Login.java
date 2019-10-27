@@ -5,6 +5,14 @@
  */
 package order_application_java;
 
+import controllers.LoginController;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aditya
@@ -29,9 +37,9 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        password = new javax.swing.JPasswordField();
         login = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         registerbtn = new javax.swing.JButton();
@@ -46,7 +54,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel3.setText("Password");
 
-        jPasswordField1.setText("jPasswordField1");
+        password.setText("jPasswordField1");
 
         login.setText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -88,8 +96,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                            .addComponent(username)
+                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(310, 310, 310)
                         .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -111,11 +119,11 @@ public class Login extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
@@ -131,6 +139,31 @@ public class Login extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
+        String usernameText = username.getText();
+        String passwordText = Arrays.toString(password.getPassword());
+        LoginController controller = new LoginController(usernameText,passwordText);
+        try {
+            int valid = controller.login();
+            if(valid==-1)
+            {
+                JOptionPane.showMessageDialog(null,"Username/ Password does not exist");
+            }
+            else if(valid==0)
+            {
+                JOptionPane.showMessageDialog(null,"Invalid username/password");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Login successful");
+                UserInterface userInterface  = new UserInterface();
+                userInterface.setVisible(true);
+                this.dispose();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     private void registerbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerbtnActionPerformed
@@ -188,9 +221,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton login;
+    private javax.swing.JPasswordField password;
     private javax.swing.JButton registerbtn;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
