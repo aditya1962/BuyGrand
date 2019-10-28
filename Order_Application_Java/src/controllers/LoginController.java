@@ -25,7 +25,7 @@ public class LoginController {
         this.password = password;
     }
     
-    public boolean validateUsername(Connection conn) throws SQLException
+    public static boolean validateUsername(Connection conn, String username) throws SQLException
     {
         PreparedStatement statement = conn.prepareStatement("SELECT * FROM loggedUser WHERE username = ?");
         statement.setString(1, username);
@@ -43,7 +43,7 @@ public class LoginController {
         int valid = 0;
         ConnectionClass connection = new ConnectionClass();
         Connection connect = connection.getConnection();
-        boolean exists = validateUsername(connect);
+        boolean exists = validateUsername(connect,username);
         if(!exists)
         {
             valid = -1;
@@ -66,6 +66,7 @@ public class LoginController {
                 valid = 1;
             }
         }
+        connect.close();
         return valid;
     }
 }

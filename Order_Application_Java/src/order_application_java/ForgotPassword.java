@@ -5,6 +5,13 @@
  */
 package order_application_java;
 
+import controllers.ConfirmPasswordController;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aditya
@@ -32,10 +39,14 @@ public class ForgotPassword extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        username = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        confirmPassword = new javax.swing.JPasswordField();
+        updatePassword = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        secretQuestion = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        answer = new javax.swing.JTextField();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -50,11 +61,22 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         jLabel4.setText("Confirm Password");
 
-        jPasswordField2.setText("jPasswordField2");
+        password.setText("jPasswordField2");
 
-        jPasswordField3.setText("jPasswordField3");
+        confirmPassword.setText("jPasswordField3");
 
-        jButton1.setText("Update Password");
+        updatePassword.setText("Update Password");
+        updatePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePasswordActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Secret Question");
+
+        secretQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel6.setText("Answer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,15 +93,19 @@ public class ForgotPassword extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                            .addComponent(jPasswordField3)))
+                            .addComponent(username)
+                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                            .addComponent(confirmPassword)
+                            .addComponent(secretQuestion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(answer)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(254, 254, 254)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(updatePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,22 +116,73 @@ public class ForgotPassword extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(secretQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(answer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addComponent(updatePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void updatePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePasswordActionPerformed
+        // TODO add your handling code here:
+        String usernameText = username.getText();
+        String passwordText = Arrays.toString(password.getPassword());
+        String confirmPasswordText = Arrays.toString(confirmPassword.getPassword());
+        if(!(passwordText.equals(confirmPasswordText)))
+        {
+            JOptionPane.showMessageDialog(null, "Password and Confirm Password should be equal");
+        }
+        else
+        {
+            String questionText = secretQuestion.getSelectedItem().toString();
+            String answerText = answer.getText();
+            ConfirmPasswordController confirmPasswordController 
+                    = new ConfirmPasswordController(usernameText,passwordText,questionText,answerText);
+            try {
+                int updated = confirmPasswordController.updateUser();
+                if(updated==-1)
+                {
+                    JOptionPane.showMessageDialog(null,"User does not exist");
+                }
+                else if(updated==0)
+                {
+                    JOptionPane.showMessageDialog(null,"Error occured while updating password");
+                }
+                else if(updated==-2)
+                {
+                    JOptionPane.showMessageDialog(null,"Invalid secret question/answer");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null,"Password updated successfully");
+                    Login login  = new Login();
+                    login.setVisible(true);
+                    this.dispose();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+    }//GEN-LAST:event_updatePasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,14 +220,18 @@ public class ForgotPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField answer;
+    private javax.swing.JPasswordField confirmPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JComboBox secretQuestion;
+    private javax.swing.JButton updatePassword;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
