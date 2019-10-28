@@ -5,7 +5,14 @@
  */
 package order_frames;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import order_application_java.ConnectionClass;
 import order_application_java.UserInterface;
 
 /**
@@ -18,7 +25,7 @@ public class ProductFrame extends javax.swing.JFrame {
      * Creates new form ProductFrame
      */
     private String frameCategory;
-    public ProductFrame() {
+    public ProductFrame() throws SQLException {
         
         initComponents();
         //this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -31,18 +38,19 @@ public class ProductFrame extends javax.swing.JFrame {
         this.setTitle(name);
     }
     
-    public final void initializeTabs()
+    public final void initializeTabs() throws SQLException
     {
         ArrayList <String> tabNames = new ArrayList <String> ();
         
-        //tab names are added for temporarily only
-        //populate sub categories using database 
-        tabNames.add("Cameras");
-        tabNames.add("Cell Phones");
-        tabNames.add("Head Phones");
-        tabNames.add("Computers");
-        tabNames.add("Televisions");
-        tabNames.add("Radios");
+        ConnectionClass connection = new ConnectionClass();
+        Connection connect = connection.getConnection();
+        PreparedStatement statement = connect.prepareStatement("SELECT subcategory FROM itemCategory WHERE category = ?");
+        statement.setString(1, frameCategory);
+        ResultSet results = statement.executeQuery();
+        while(results.next())
+        {
+            tabNames.add(results.getString(1));
+        }
         
         for(String tab: tabNames)
         {
@@ -168,10 +176,15 @@ public class ProductFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new ProductFrame().add(ProductDisplay.components());
-                //new ProductFrame().setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-                new ProductFrame().pack();
-                new ProductFrame().setVisible(true);
+                try {
+                    //new ProductFrame().add(ProductDisplay.components());
+                    //new ProductFrame().setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+                    new ProductFrame().pack();
+                    new ProductFrame().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         });
     }
