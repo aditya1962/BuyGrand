@@ -9,6 +9,10 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,21 +29,22 @@ public class Category extends javax.swing.JFrame {
      * Creates new form Category
      */
     private final int HEIGHT = 100;
-    public Category() {
+    public Category() throws SQLException {
         initComponents();
         items();
     }
     
-    public void items()
+    public void items() throws SQLException
     {
         ArrayList <String> buttons = new ArrayList <String> ();
-        //following are added for testing purposes only
-        //generate buttons through database loads
-        buttons.add("Electronics");
-        buttons.add("Health and Beauty");
-        buttons.add("House Hold Items");
-        buttons.add("Fashion");
-        buttons.add("Sports Equipments");
+        ConnectionClass connection = new ConnectionClass();
+        Connection connect = connection.getConnection();
+        PreparedStatement statement = connect.prepareStatement("SELECT category FROM itemCategory");
+        ResultSet results = statement.executeQuery();
+        while(results.next())
+        {
+            buttons.add(results.getString(0));                
+        }
        
         category.setLayout(new FlowLayout());
         int width = getContentPane().getWidth();
@@ -194,7 +199,11 @@ public class Category extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Category().setVisible(true);
+                try {
+                    new Category().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

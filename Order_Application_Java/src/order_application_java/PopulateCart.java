@@ -22,8 +22,9 @@ public class PopulateCart {
         ResultSet rs = null;
         if(conn!=null)
         {
-            PreparedStatement stmt = conn.prepareStatement ("SELECT productID,"+
-             "productName, quantity, itemPrice, totalPrice from user_cart where username=?");
+            PreparedStatement stmt = conn.prepareStatement ("SELECT userCart.itemID,"+
+             "description,quantity, price,totalPrice FROM userCart INNER JOIN item "
+                    + "ON userCart.itemID=item.itemID where username=? ");
             stmt.setString(1, username);
             rs = stmt.executeQuery();
         }
