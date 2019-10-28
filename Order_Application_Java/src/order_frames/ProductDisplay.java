@@ -10,6 +10,12 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -17,6 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.MatteBorder;
+import order_application_java.ConnectionClass;
 
 /**
  *
@@ -29,16 +36,23 @@ public class ProductDisplay extends JPanel {
     
     //height of inside panels
     private final int HEIGHT = 100;
+    private String subcategory;
     
     public ProductDisplay(int width,String subcategory)
     {
         this.width = width;
-        JPanel panel = components();
-        JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
-        ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setPreferredSize(new Dimension(800,800));
-        scrollPane.getViewport().revalidate();
-        add(scrollPane);
+        this.subcategory = subcategory;
+        try {
+            JPanel panel = components();
+            JScrollPane scrollPane = new JScrollPane(panel,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
+            ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            scrollPane.setPreferredSize(new Dimension(800,800));
+            scrollPane.getViewport().revalidate();
+            add(scrollPane);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDisplay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     public int[] getPanelInsets()
@@ -48,26 +62,51 @@ public class ProductDisplay extends JPanel {
         return insets;
     }
     
-    public final JPanel components()
+    public ResultSet getItem() throws SQLException
+    {
+        ConnectionClass connection = new ConnectionClass();
+        Connection connect = connection.getConnection();
+        PreparedStatement statement = connect.prepareStatement("SELECT imagePath,"
+                + "name,price,discount FROM item INNER JOIN itemCategory "
+                + "ON item.itemID = itemCategory.itemID WHERE subcategory = ?");
+        statement.setString(1, subcategory);
+        ResultSet results = statement.executeQuery();
+        connect.close();
+        return results;
+    }
+    
+    public int getCount() throws SQLException
+    {
+        int count  = 0; 
+        ResultSet results = getItem();
+        while(results.next())
+        {
+            count++;
+        }
+        return count;
+    }
+    
+    public final JPanel components() throws SQLException
     {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
         
         GridBagConstraints gbc = new GridBagConstraints();
         JPanel panel = new JPanel();
-        int count = 21;
         int [] panelInsetValues = getPanelInsets();
-        int panelHeight = count*(HEIGHT+panelInsetValues[0] + panelInsetValues[2]);
+        int panelHeight = getCount()*(HEIGHT+panelInsetValues[0] + panelInsetValues[2]);
         panel.setPreferredSize(new Dimension(width,panelHeight));
-        for(int i = 0; i< count; i++)
-        {           
+        ResultSet resultSets = getItem(); 
+        while(resultSets.next())    
+        {
             JPanel panelInside  = new JPanel();
             panelInside.setLayout(new GridBagLayout());
             
             gbc.insets = new Insets(panelInsetValues[0],panelInsetValues[1],
                     panelInsetValues[2],panelInsetValues[3]);
-            panelInside = firstColumn(gbc,panelInside,i);
-            panelInside = secondColumn(gbc,panelInside);
+            panelInside = firstColumn(gbc,panelInside,resultSets.getString(1));
+            panelInside = secondColumn(gbc,panelInside,resultSets.getString(2),resultSets.getInt(3));
             panelInside = quantityComponents(gbc,panelInside);
+            panelInside = discountComponents(gbc,panelInside,resultSets.getDouble(4));
             panelInside.setPreferredSize(new Dimension(width,HEIGHT));
             panel.add(panelInside);
             panelInside.setBorder(new MatteBorder(0,0,1,0,Color.GRAY));
@@ -76,10 +115,10 @@ public class ProductDisplay extends JPanel {
         }  
         return panel;
     }
-    public static JPanel firstColumn(GridBagConstraints gbc, JPanel panelInside, int i)
+    public static JPanel firstColumn(GridBagConstraints gbc, JPanel panelInside, String path)
     {
         //placing the icon
-        JLabel icon = new JLabel("icon" +i);
+        JLabel icon = new JLabel(path);
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridheight = 2;
@@ -87,22 +126,22 @@ public class ProductDisplay extends JPanel {
         panelInside.add(icon,gbc);
         return panelInside;
     }
-    public JPanel secondColumn(GridBagConstraints gbc, JPanel panelInside)
+    public JPanel secondColumn(GridBagConstraints gbc, JPanel panelInside, String name, int price)
     {
         //placing the product name
-        JButton name = new JButton("Product name");
+        JButton product = new JButton(name);
         gbc.gridx = 1;
         gbc.gridy = 0;
-        panelInside.add(name,gbc);
+        panelInside.add(product,gbc);
         
         //placing the price label name
-        JLabel price = new JLabel("Price : ");
+        JLabel priceLbl = new JLabel("Price : ");
         gbc.gridx = 1;
         gbc.gridy = 2;
-        panelInside.add(price,gbc);
+        panelInside.add(priceLbl,gbc);
         
         //placing the price label name
-        JLabel priceValue = new JLabel("price");
+        JLabel priceValue = new JLabel(String.valueOf(price));
         gbc.gridx = 2;
         gbc.gridy = 3;
         panelInside.add(priceValue,gbc);
@@ -138,16 +177,16 @@ public class ProductDisplay extends JPanel {
         return panelInside;
     }
     
-    public JPanel discountComponents(GridBagConstraints gbc, JPanel panelInside)
+    public JPanel discountComponents(GridBagConstraints gbc, JPanel panelInside, double discount)
     {
         //placing the discount label name
-        JLabel discount = new JLabel("Discount : ");
+        JLabel discountLabel = new JLabel("Discount : ");
         gbc.gridx = 7;
         gbc.gridy = 3;
-        panelInside.add(discount,gbc);
+        panelInside.add(discountLabel,gbc);
         
         //placing the discount value
-        JLabel discountValue = new JLabel("discount");
+        JLabel discountValue = new JLabel(String.valueOf(discount));
         gbc.gridx = 8;
         gbc.gridy = 3;
         panelInside.add(discountValue,gbc);

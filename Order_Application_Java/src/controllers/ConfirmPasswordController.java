@@ -72,6 +72,7 @@ public class ConfirmPasswordController {
                updated = stmt.executeUpdate();
            }
         }
+        connect.close();
         return updated;
     }
 }

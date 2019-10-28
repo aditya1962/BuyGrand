@@ -58,14 +58,19 @@ public class Category extends javax.swing.JFrame {
             button.addActionListener(new ActionListener(){
                public void actionPerformed(ActionEvent e)
                 {
-                    ProductFrame frame = new ProductFrame();
-                    frame.setFrameTitle(e.getActionCommand());
-                    frame.setVisible(true);
-                    dispose();
+                   try {
+                        ProductFrame frame = new ProductFrame();
+                        frame.setFrameTitle(e.getActionCommand());
+                        frame.setVisible(true);
+                        dispose();
+                   } catch (SQLException ex) {
+                       Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                    
                 }
             });
-            //button.setActionListener(this);
             category.add(button);
+            connect.close();
         }              
     }
     
