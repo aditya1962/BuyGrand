@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import order_frames.ProductFrame;
 
 /**
@@ -29,6 +30,7 @@ public class Category extends javax.swing.JFrame {
      * Creates new form Category
      */
     private final int HEIGHT = 100;
+    private final int PANELPADDING = 85;
     public Category() throws SQLException {
         initComponents();
         items();
@@ -41,37 +43,49 @@ public class Category extends javax.swing.JFrame {
         Connection connect = connection.getConnection();
         PreparedStatement statement = connect.prepareStatement("SELECT category FROM itemCategory");
         ResultSet results = statement.executeQuery();
+        int count = 0;
         while(results.next())
         {
-            buttons.add(results.getString(0));                
+            buttons.add(results.getString(0));
+            count++;
         }
-       
+        
         category.setLayout(new FlowLayout());
-        int width = getContentPane().getWidth();
-        int height = 4*HEIGHT;
-        category.setPreferredSize(new Dimension(((width*85)/100),height));
-        for(String name: buttons)
+        int width = getContentPane().getWidth()*PANELPADDING/100;
+        int height = count*HEIGHT/2 + HEIGHT;
+        System.out.println(height);
+        category.setPreferredSize(new Dimension(width,height));
+        if(count==0)
         {
-            JButton button = new JButton(name);
-            button.setPreferredSize(new Dimension(width/(buttons.size()-2),HEIGHT));
-            button.setActionCommand(name);
-            button.addActionListener(new ActionListener(){
-               public void actionPerformed(ActionEvent e)
-                {
-                   try {
-                        ProductFrame frame = new ProductFrame();
-                        frame.setFrameTitle(e.getActionCommand());
-                        frame.setVisible(true);
-                        dispose();
-                   } catch (SQLException ex) {
-                       Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
-                   }
-                    
-                }
-            });
-            category.add(button);
+            JLabel error = new JLabel("Categories cannot be displayed!");
+            category.add(error);
             connect.close();
-        }              
+        }
+        else
+        {
+            for(String name: buttons)
+            {
+                JButton button = new JButton(name);
+                button.setPreferredSize(new Dimension(width*(50-((100-PANELPADDING)/3))/100,HEIGHT));
+                button.setActionCommand(name);
+                button.addActionListener(new ActionListener(){
+                   public void actionPerformed(ActionEvent e)
+                    {
+                       try {
+                            ProductFrame frame = new ProductFrame();
+                            frame.setFrameTitle(e.getActionCommand());
+                            frame.setVisible(true);
+                            dispose();
+                       } catch (SQLException ex) {
+                           Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+                       }
+
+                    }
+                });
+                category.add(button);
+                connect.close();
+            }
+        }
     }
     
     
@@ -85,11 +99,14 @@ public class Category extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
         backBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         category = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,11 +133,30 @@ public class Category extends javax.swing.JFrame {
         category.setLayout(categoryLayout);
         categoryLayout.setHorizontalGroup(
             categoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 617, Short.MAX_VALUE)
+            .addGap(0, 652, Short.MAX_VALUE)
         );
         categoryLayout.setVerticalGroup(
             categoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGap(0, 283, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(category);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,22 +164,22 @@ public class Category extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel1)
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144)
+                .addComponent(jLabel1)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(26, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,9 +196,12 @@ public class Category extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jButton2))))
-                .addGap(26, 26, 26)
-                .addComponent(category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(357, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(194, 194, 194)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
@@ -220,5 +259,8 @@ public class Category extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

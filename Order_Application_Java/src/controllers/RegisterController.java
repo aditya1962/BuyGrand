@@ -42,7 +42,7 @@ public class RegisterController {
     public int personalInformation(Connection conn,List <String> fieldValues) throws SQLException
     {
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO loggedUser VALUES"
-                + "(?,?,?,?,?,?,?");
+                + "(?,?,?,?,?,?,?,?");
         stmt.setString(1, fieldValues.get(6));
         stmt.setString(2, fieldValues.get(0));
         stmt.setString(3, fieldValues.get(1));
@@ -50,6 +50,7 @@ public class RegisterController {
         stmt.setString(5, fieldValues.get(3));
         stmt.setString(6, fieldValues.get(4));
         stmt.setString(7, fieldValues.get(5));
+        stmt.setString(8, fieldValues.get(7));
         int user = stmt.executeUpdate();
         return user;
     }
