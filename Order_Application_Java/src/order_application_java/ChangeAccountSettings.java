@@ -6,6 +6,7 @@
 package order_application_java;
 
 import order_frames.LoginSettingsPanels;
+import order_frames.PersonalSettingsPanel;
 
 /**
  *
@@ -23,8 +24,8 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
     
     public final void tabs()
     {
-        String [] tabNames = {"Login Info", "Personal Info"};
-        accountTabs.addTab("Login Info", new LoginSettingsPanels() );         
+        accountTabs.addTab("Login Info", new LoginSettingsPanels() ); 
+        accountTabs.addTab("Personal Info", new PersonalSettingsPanel() );
     }
 
     /**

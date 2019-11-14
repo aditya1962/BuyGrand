@@ -6,6 +6,7 @@
 package order_application_java;
 
 import controllers.RegisterController;
+import controllers.SecretQuestionController;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
@@ -31,6 +32,13 @@ public class Register extends javax.swing.JFrame {
         {
             Locale countryObj = new Locale("",country);
             countryCombo.addItem(countryObj.getDisplayCountry());
+        }
+        SecretQuestionController sq = new SecretQuestionController();
+        sq.setSecretQuestions();
+        List <String> secretQuestionList = sq.getQuestions();
+        for(String question: secretQuestionList)
+        {
+            secretQuestion.addItem(question);
         }
     }
 
@@ -182,7 +190,7 @@ public class Register extends javax.swing.JFrame {
 
         confirmPassword.setText("jPasswordField2");
 
-        secretQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        secretQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Question", " " }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -296,7 +304,14 @@ public class Register extends javax.swing.JFrame {
         }
         fieldValues.add(username.getText());
         fieldValues.add(Arrays.toString(password.getPassword()));
-        fieldValues.add(secretQuestion.getSelectedItem().toString());
+        if(secretQuestion.getSelectedItem().toString().equals("Select Question"))
+        {
+          JOptionPane.showMessageDialog(null,"Select a secret question");  
+        }
+        else
+        {
+            fieldValues.add(secretQuestion.getSelectedItem().toString());
+        }
         fieldValues.add(answer.getText());
         RegisterController registerController = new RegisterController();
         try {
