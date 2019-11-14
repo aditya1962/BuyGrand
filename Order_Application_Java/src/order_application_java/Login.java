@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +27,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.getContentPane().setBackground(new Color(255,255,255));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/files/Logo.png"));
+        this.setIconImage(icon.getImage());
     }
 
     /**
