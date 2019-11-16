@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import order_frames.ProductFrame;
 
 /**
@@ -41,50 +42,56 @@ public class Category extends javax.swing.JFrame {
         ArrayList <String> buttons = new ArrayList <String> ();
         ConnectionClass connection = new ConnectionClass();
         Connection connect = connection.getConnection();
-        PreparedStatement statement = connect.prepareStatement("SELECT category FROM itemCategory");
-        ResultSet results = statement.executeQuery();
-        int count = 0;
-        while(results.next())
+        if(!(connect==null))
         {
-            buttons.add(results.getString(0));
-            count++;
-        }
-        
-        category.setLayout(new FlowLayout());
-        int width = getContentPane().getWidth()*PANELPADDING/100;
-        int height = count*HEIGHT/2 + HEIGHT;
-        System.out.println(height);
-        category.setPreferredSize(new Dimension(width,height));
-        if(count==0)
-        {
-            JLabel error = new JLabel("Categories cannot be displayed!");
-            category.add(error);
-            connect.close();
+            PreparedStatement statement = connect.prepareStatement("SELECT category FROM itemCategory");
+            ResultSet results = statement.executeQuery();
+            int count = 0;
+            while(results.next())
+            {
+                buttons.add(results.getString(0));
+                count++;
+            }
+
+            category.setLayout(new FlowLayout());
+            int width = getContentPane().getWidth()*PANELPADDING/100;
+            int height = count*HEIGHT/2 + HEIGHT;
+            System.out.println(height);
+            category.setPreferredSize(new Dimension(width,height));
+            if(count==0)
+            {
+                JLabel error = new JLabel("Categories cannot be displayed!");
+                category.add(error);
+                connect.close();
+            }
+            else
+            {
+                for(String name: buttons)
+                {
+                    JButton button = new JButton(name);
+                    button.setPreferredSize(new Dimension(width*(50-((100-PANELPADDING)/3))/100,HEIGHT));
+                    button.setActionCommand(name);
+                    button.addActionListener(new ActionListener(){
+                       public void actionPerformed(ActionEvent e)
+                        {
+                           try {
+                                ProductFrame frame = new ProductFrame();
+                                frame.setFrameTitle(e.getActionCommand());
+                                frame.setVisible(true);
+                                dispose();
+                           } catch (SQLException ex) {
+                               Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
+                           }
+                        }
+                    });
+                    category.add(button);
+                    connect.close();
+                }
+            }
         }
         else
         {
-            for(String name: buttons)
-            {
-                JButton button = new JButton(name);
-                button.setPreferredSize(new Dimension(width*(50-((100-PANELPADDING)/3))/100,HEIGHT));
-                button.setActionCommand(name);
-                button.addActionListener(new ActionListener(){
-                   public void actionPerformed(ActionEvent e)
-                    {
-                       try {
-                            ProductFrame frame = new ProductFrame();
-                            frame.setFrameTitle(e.getActionCommand());
-                            frame.setVisible(true);
-                            dispose();
-                       } catch (SQLException ex) {
-                           Logger.getLogger(Category.class.getName()).log(Level.SEVERE, null, ex);
-                       }
-
-                    }
-                });
-                category.add(button);
-                connect.close();
-            }
+            JOptionPane.showMessageDialog(null, "Could not load categories");
         }
     }
     
@@ -205,6 +212,7 @@ public class Category extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed

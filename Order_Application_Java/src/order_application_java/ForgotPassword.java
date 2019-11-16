@@ -8,6 +8,7 @@ package order_application_java;
 import controllers.ConfirmPasswordController;
 import controllers.SecretQuestionController;
 import java.awt.Color;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
@@ -70,6 +71,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         confirmPassword = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+        errorLabel = new javax.swing.JLabel();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -212,6 +214,9 @@ public class ForgotPassword extends javax.swing.JFrame {
                 .addComponent(jButton2))
         );
 
+        errorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        errorLabel.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,14 +251,19 @@ public class ForgotPassword extends javax.swing.JFrame {
                                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(updatePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(0, 109, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(154, 154, 154))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(206, 206, 206)
                         .addComponent(jLabel8)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(154, 154, 154))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(errorLabel)
+                                .addGap(252, 252, 252))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,13 +297,16 @@ public class ForgotPassword extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel4)))
-                .addGap(50, 50, 50)
+                .addGap(18, 18, 18)
+                .addComponent(errorLabel)
+                .addGap(18, 18, 18)
                 .addComponent(updatePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void updatePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePasswordActionPerformed
@@ -323,15 +336,15 @@ public class ForgotPassword extends javax.swing.JFrame {
                 int updated = confirmPasswordController.updateUser();
                 if(updated==-1)
                 {
-                    JOptionPane.showMessageDialog(null,"User does not exist");
+                    errorLabel.setText("User does not exist");
                 }
                 else if(updated==0)
                 {
-                    JOptionPane.showMessageDialog(null,"Error occured while updating password");
+                    errorLabel.setText("Error occured while updating password");
                 }
                 else if(updated==-2)
                 {
-                    JOptionPane.showMessageDialog(null,"Invalid secret question/answer");
+                    errorLabel.setText("Invalid secret question/answer");
                 }
                 else
                 {
@@ -340,7 +353,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                     login.setVisible(true);
                     this.dispose();
                 }
-            } catch (SQLException ex) {
+            } catch (SQLException | NoSuchAlgorithmException ex) {
                 Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -421,6 +434,7 @@ public class ForgotPassword extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField answer;
     private javax.swing.JPasswordField confirmPassword;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;

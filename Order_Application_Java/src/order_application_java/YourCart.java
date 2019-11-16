@@ -5,12 +5,7 @@
  */
 package order_application_java;
 
-import com.itextpdf.text.BadElementException;
-import com.itextpdf.text.DocumentException;
 import face_detection.FaceDetect;
-import face_detection.PrintReceipt;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -25,6 +20,7 @@ public class YourCart extends javax.swing.JFrame {
 
     /**
      * Creates new form YourCart
+     * @throws java.sql.SQLException
      */
     
     public YourCart() throws SQLException {       
@@ -141,6 +137,7 @@ public class YourCart extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void printReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReceiptActionPerformed

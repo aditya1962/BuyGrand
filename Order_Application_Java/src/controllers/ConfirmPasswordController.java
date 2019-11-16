@@ -5,6 +5,8 @@
  */
 package controllers;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,7 +49,7 @@ public class ConfirmPasswordController {
         return valid;
     }
     
-    public int updateUser() throws SQLException
+    public int updateUser() throws SQLException, NoSuchAlgorithmException
     {
         int updated = 0;
         ConnectionClass connection = new ConnectionClass();
@@ -67,7 +69,10 @@ public class ConfirmPasswordController {
            else
            {
                PreparedStatement stmt = connect.prepareStatement("UPDATE login SET password = ? WHERE username = ?");
-               stmt.setString(1, password);
+               MessageDigest digest = MessageDigest.getInstance("SHA-256");
+               digest.update(password.getBytes());
+               String hashedPassword = new String(digest.digest());
+               stmt.setString(1, hashedPassword);
                stmt.setString(2, username);
                updated = stmt.executeUpdate();
            }
