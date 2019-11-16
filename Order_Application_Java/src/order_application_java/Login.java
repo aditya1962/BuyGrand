@@ -263,9 +263,13 @@ public class Login extends javax.swing.JFrame {
             {
                 ErrorLabel.setText("Username/ Password does not exist");
             }
-            else if(valid==0)
+            else if(valid==-2)
             {
                 ErrorLabel.setText("Invalid username/password");
+            }
+            else if(valid==0)
+            {
+                ErrorLabel.setText("Error in login");
             }
             else
             {

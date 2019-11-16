@@ -43,30 +43,37 @@ public class LoginController {
         int valid = 0;
         ConnectionClass connection = new ConnectionClass();
         Connection connect = connection.getConnection();
-        boolean exists = validateUsername(connect,username);
-        if(!exists)
+        if(!(connect==null))
         {
-            valid = -1;
-        }
-        else
-        {
-            PreparedStatement statement = connect.prepareStatement("SELECT password FROM loggedUser WHERE username = ?");
-            statement.setString(1, username);
-            ResultSet results = statement.executeQuery();
-            String passwordHashed = "";
-            while(results.next())
+            boolean exists = validateUsername(connect,username);
+            if(!exists)
             {
-                passwordHashed = results.getString(0);                
+                valid = -1;
             }
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            digest.update(password.getBytes());
-            String hashedPassword = new String(digest.digest());
-            if(hashedPassword.equals(passwordHashed))
+            else
             {
-                valid = 1;
+                PreparedStatement statement = connect.prepareStatement("SELECT password FROM loggedUser WHERE username = ?");
+                statement.setString(1, username);
+                ResultSet results = statement.executeQuery();
+                String passwordHashed = "";
+                while(results.next())
+                {
+                    passwordHashed = results.getString(0);                
+                }
+                MessageDigest digest = MessageDigest.getInstance("SHA-256");
+                digest.update(password.getBytes());
+                String hashedPassword = new String(digest.digest());
+                if(hashedPassword.equals(passwordHashed))
+                {
+                    valid = 1;
+                }
+                else
+                {
+                    valid = -2;
+                }
             }
+            connect.close();
         }
-        connect.close();
         return valid;
     }
 }

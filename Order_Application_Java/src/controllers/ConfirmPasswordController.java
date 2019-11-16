@@ -54,30 +54,33 @@ public class ConfirmPasswordController {
         int updated = 0;
         ConnectionClass connection = new ConnectionClass();
         Connection connect = connection.getConnection();
-        boolean exists = LoginController.validateUsername(connect,username);
-        if(!exists)
+        if(!(connect==null))
         {
-            updated = -1;
+            boolean exists = LoginController.validateUsername(connect,username);
+            if(!exists)
+            {
+                updated = -1;
+            }
+            else
+            {
+               boolean fields = validateFields(connect);
+               if(!fields)
+               {
+                   updated = -2;
+               }
+               else
+               {
+                   PreparedStatement stmt = connect.prepareStatement("UPDATE login SET password = ? WHERE username = ?");
+                   MessageDigest digest = MessageDigest.getInstance("SHA-256");
+                   digest.update(password.getBytes());
+                   String hashedPassword = new String(digest.digest());
+                   stmt.setString(1, hashedPassword);
+                   stmt.setString(2, username);
+                   updated = stmt.executeUpdate();
+               }
+            }
+            connect.close();
         }
-        else
-        {
-           boolean fields = validateFields(connect);
-           if(!fields)
-           {
-               updated = -2;
-           }
-           else
-           {
-               PreparedStatement stmt = connect.prepareStatement("UPDATE login SET password = ? WHERE username = ?");
-               MessageDigest digest = MessageDigest.getInstance("SHA-256");
-               digest.update(password.getBytes());
-               String hashedPassword = new String(digest.digest());
-               stmt.setString(1, hashedPassword);
-               stmt.setString(2, username);
-               updated = stmt.executeUpdate();
-           }
-        }
-        connect.close();
         return updated;
     }
 }

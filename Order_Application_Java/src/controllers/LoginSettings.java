@@ -22,14 +22,18 @@ public class LoginSettings {
     {
         ConnectionClass conn = new ConnectionClass();
         Connection con = conn.getConnection();
-        PreparedStatement stmt = con.prepareStatement("UPDATE login SET password = ? WHERE username = ?");
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        digest.update(password.getBytes());
-        String hashedPassword = new String(digest.digest());
-        stmt.setString(1, hashedPassword);
-        stmt.setString(2, username);
-        int update = stmt.executeUpdate();
-        con.close();
+        int update = 0;
+        if(!(con==null))
+        {
+            PreparedStatement stmt = con.prepareStatement("UPDATE login SET password = ? WHERE username = ?");
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.update(password.getBytes());
+            String hashedPassword = new String(digest.digest());
+            stmt.setString(1, hashedPassword);
+            stmt.setString(2, username);
+            update = stmt.executeUpdate();
+            con.close();
+        }
         return update;
     }
     
@@ -37,12 +41,16 @@ public class LoginSettings {
     {
         ConnectionClass conn = new ConnectionClass();
         Connection con = conn.getConnection();
-        PreparedStatement stmt = con.prepareStatement("UPDATE login SET secretQuestion = ? AND answer = ? WHERE username = ?");
-        stmt.setString(1, question);
-        stmt.setString(2, answer);
-        stmt.setString(3, username);
-        int update = stmt.executeUpdate();
-        con.close();
+        int update = 0;
+        if(!(con==null))
+        {
+            PreparedStatement stmt = con.prepareStatement("UPDATE login SET secretQuestion = ? AND answer = ? WHERE username = ?");
+            stmt.setString(1, question);
+            stmt.setString(2, answer);
+            stmt.setString(3, username);
+            update = stmt.executeUpdate();
+            con.close();
+        }
         return update;
     }
 }
