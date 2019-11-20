@@ -16,29 +16,7 @@ import order_application_java.ConnectionClass;
  * @author Aditya
  */
 public class RegisterController {
-    
-    public int register(List <String> fieldValues) throws SQLException
-    {
-        ConnectionClass connection = new ConnectionClass();
-        Connection connect = connection.getConnection();
-        int added = 0;
-        boolean valid = LoginController.validateUsername(connect,fieldValues.get(6));
-        if(valid)
-        {
-            added = -1;
-        }
-        else 
-        {
-            int personal = personalInformation(fieldValues);
-            int login = loginInformation(fieldValues);
-            if(personal==1 && login==1)
-            {
-                added = 1;
-            }
-        }
-        return added;
-    }
-    
+        
     public int personalInformation(List <String> fieldValues) throws SQLException
     {
         ConnectionClass connection = new ConnectionClass();
@@ -67,7 +45,12 @@ public class RegisterController {
         ConnectionClass connection = new ConnectionClass();
         Connection connect = connection.getConnection();
         int user  = 0;
-        if(!(connect == null))
+        boolean valid = LoginController.validateUsername(connect,fieldValues.get(6));
+        if(!valid)
+        {
+            user = -1;
+        }
+        if(valid && !(connect == null))
         {
             PreparedStatement stmt = connect.prepareStatement("INSERT INTO login VALUES"
                     + "(?,?,?,?,?,?,?,?");

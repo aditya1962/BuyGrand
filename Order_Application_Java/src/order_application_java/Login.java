@@ -285,7 +285,7 @@ public class Login extends javax.swing.JFrame {
 
     private void registerbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerbtnActionPerformed
         // TODO add your handling code here:
-        Register register  = new Register();
+        RegisterLogin register  = new RegisterLogin();
         register.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_registerbtnActionPerformed
