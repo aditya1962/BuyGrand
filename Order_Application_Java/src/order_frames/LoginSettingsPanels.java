@@ -7,6 +7,7 @@ package order_frames;
 
 import controllers.LoginSettings;
 import controllers.SecretQuestionController;
+import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import order_application_java.UI;
 
 /**
  *
@@ -34,6 +36,9 @@ public class LoginSettingsPanels extends javax.swing.JPanel {
         {
             secretQuestion.addItem(question);
         }
+        int [] background = UI.buttonBackground();
+        changePassword.setBackground(new Color(background[0],background[1],background[2]));
+        changeSecret.setBackground(new Color(background[0],background[1],background[2]));
     }
 
     /**
@@ -76,6 +81,7 @@ public class LoginSettingsPanels extends javax.swing.JPanel {
         jLabel3.setText("Confirm Password");
 
         changePassword.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        changePassword.setForeground(new java.awt.Color(255, 255, 255));
         changePassword.setText("Change Password");
         changePassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +100,7 @@ public class LoginSettingsPanels extends javax.swing.JPanel {
         answer.setToolTipText("Enter Answer");
 
         changeSecret.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        changeSecret.setForeground(new java.awt.Color(255, 255, 255));
         changeSecret.setText("Change Secret Question");
         changeSecret.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

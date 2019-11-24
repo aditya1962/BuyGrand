@@ -5,6 +5,7 @@
  */
 package order_application_java;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -34,10 +35,12 @@ public class Category extends javax.swing.JFrame {
     private final int PANELPADDING = 85;
     public Category() throws SQLException {
         initComponents();
+        int [] background = UI.frameBackGround();
+        this.getContentPane().setBackground(new Color(background[0],background[1],background[2]));
         items();
     }
     
-    public void items() throws SQLException
+    public final void items() throws SQLException
     {
         ArrayList <String> buttons = new ArrayList <String> ();
         ConnectionClass connection = new ConnectionClass();
@@ -54,10 +57,9 @@ public class Category extends javax.swing.JFrame {
             }
 
             category.setLayout(new FlowLayout());
-            int width = getContentPane().getWidth()*PANELPADDING/100;
-            int height = count*HEIGHT/2 + HEIGHT;
-            System.out.println(height);
-            category.setPreferredSize(new Dimension(width,height));
+            int panelWidth = getContentPane().getWidth()*PANELPADDING/100;
+            int panelHeight = count*HEIGHT/2 + HEIGHT;
+            category.setPreferredSize(new Dimension(panelWidth,panelHeight));
             if(count==0)
             {
                 JLabel error = new JLabel("Categories cannot be displayed!");
@@ -69,7 +71,9 @@ public class Category extends javax.swing.JFrame {
                 for(String name: buttons)
                 {
                     JButton button = new JButton(name);
-                    button.setPreferredSize(new Dimension(width*(50-((100-PANELPADDING)/3))/100,HEIGHT));
+                    button.setBackground(new Color(255,102,0));
+                    button.setForeground(new Color(255,255,255));
+                    button.setPreferredSize(new Dimension(panelWidth*(50-((100-PANELPADDING)/3))/100,HEIGHT));
                     button.setActionCommand(name);
                     button.addActionListener(new ActionListener(){
                        public void actionPerformed(ActionEvent e)
@@ -118,6 +122,7 @@ public class Category extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Categories");
+        setBackground(new java.awt.Color(0, 110, 38));
 
         backBtn.setText("Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +139,9 @@ public class Category extends javax.swing.JFrame {
 
         jButton2.setText("Logout");
 
+        jPanel1.setOpaque(false);
+
+        category.setBackground(new java.awt.Color(255, 255, 255));
         category.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Category", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP));
 
         javax.swing.GroupLayout categoryLayout = new javax.swing.GroupLayout(category);

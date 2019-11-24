@@ -5,6 +5,7 @@
  */
 package order_frames;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +29,7 @@ public class ProductFrame extends javax.swing.JFrame {
     public ProductFrame() throws SQLException {
         
         initComponents();
-        //this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        this.getContentPane().setBackground(new Color(0,110,38));
         initializeTabs();
     }
     
@@ -79,7 +80,9 @@ public class ProductFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        tabs.setBackground(new java.awt.Color(255, 255, 255));
         tabs.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        tabs.setOpaque(true);
 
         jLabel1.setText("Hi, username");
 

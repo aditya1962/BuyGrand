@@ -36,6 +36,11 @@ public class RegisterPersonal extends javax.swing.JFrame {
         else
         {                 
             this.getContentPane().setBackground(new Color(255,255,255));
+            int [] background = UI.frameBackGround();
+            jPanel5.setBackground(new Color(background[0],background[1],background[2]));
+            int [] backgroundBtn = UI.buttonBackground();
+            previousBtn.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
+            registerBtn.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
             String [] countries = Locale.getISOCountries();
             for(String country:countries)
             {
@@ -90,6 +95,8 @@ public class RegisterPersonal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Register - Personal");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -143,7 +150,6 @@ public class RegisterPersonal extends javax.swing.JFrame {
         countryCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Country" }));
         countryCombo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 1, true));
 
-        previousBtn.setBackground(new java.awt.Color(255, 51, 0));
         previousBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         previousBtn.setText("Previous");
         previousBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +158,6 @@ public class RegisterPersonal extends javax.swing.JFrame {
             }
         });
 
-        registerBtn.setBackground(new java.awt.Color(255, 51, 0));
         registerBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         registerBtn.setText("Register");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {

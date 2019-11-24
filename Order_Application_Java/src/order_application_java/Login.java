@@ -27,6 +27,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.getContentPane().setBackground(new Color(255,255,255));
+        int [] background = UI.frameBackGround();
+        jPanel1.setBackground(new Color(background[0],background[1],background[2]));
+        int [] backgroundBtn = UI.buttonBackground();
+        login.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
         ImageIcon icon = new ImageIcon(getClass().getResource("/files/Logo.png"));
         this.setIconImage(icon.getImage());
     }

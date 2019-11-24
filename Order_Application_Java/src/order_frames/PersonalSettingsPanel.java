@@ -6,11 +6,13 @@
 package order_frames;
 
 import controllers.PersonalSettings;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import order_application_java.UI;
 
 /**
  *
@@ -23,6 +25,8 @@ public class PersonalSettingsPanel extends javax.swing.JPanel {
      */
     public PersonalSettingsPanel() {
         initComponents();
+        int [] background = UI.buttonBackground();
+        updateButton.setBackground(new Color(background[0],background[1],background[2]));
     }
 
     /**
@@ -74,6 +78,7 @@ public class PersonalSettingsPanel extends javax.swing.JPanel {
 
         emailAddress.setToolTipText("Enter address");
 
+        updateButton.setForeground(new java.awt.Color(255, 255, 255));
         updateButton.setText("Update ");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

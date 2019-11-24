@@ -32,6 +32,10 @@ public class ForgotPassword extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource("/files/Logo.png"));
         this.setIconImage(icon.getImage());
         this.getContentPane().setBackground(new Color(255,255,255));
+        int [] background = UI.frameBackGround();
+        jPanel1.setBackground(new Color(background[0],background[1],background[2]));
+        int [] backgroundBtn = UI.buttonBackground();
+        updatePassword.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
         SecretQuestionController sq = new SecretQuestionController();
         sq.setSecretQuestions();
         List <String> secretQuestionList = sq.getQuestions();
@@ -91,7 +95,6 @@ public class ForgotPassword extends javax.swing.JFrame {
         username.setToolTipText("Enter username");
         username.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 1, true));
 
-        updatePassword.setBackground(new java.awt.Color(205, 102, 0));
         updatePassword.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         updatePassword.setForeground(new java.awt.Color(255, 255, 255));
         updatePassword.setText("Update Password");
@@ -112,8 +115,6 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         answer.setToolTipText("Enter answer ");
         answer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 1, true));
-
-        jPanel1.setBackground(new java.awt.Color(0, 110, 38));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/Logo.png"))); // NOI18N
 

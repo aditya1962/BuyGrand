@@ -5,6 +5,7 @@
  */
 package order_application_java;
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import order_frames.LoginSettingsPanels;
 import order_frames.PersonalSettingsPanel;
@@ -21,6 +22,8 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
     public ChangeAccountSettings() {
         initComponents();
         ImageIcon icon = new ImageIcon(getClass().getResource("/files/Logo.png"));
+        int [] background = UI.frameBackGround();
+        this.getContentPane().setBackground(new Color(background[0],background[1],background[2]));
         this.setIconImage(icon.getImage());
         tabs();
     }
@@ -50,6 +53,8 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
         accountTabs = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Change Account Settings");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         backBtn.setText("Back");
 
@@ -61,7 +66,13 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
 
         jButton2.setText("Logout");
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        accountTabs.setBackground(new java.awt.Color(255, 255, 255));
         accountTabs.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        accountTabs.setOpaque(true);
         jScrollPane1.setViewportView(accountTabs);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
