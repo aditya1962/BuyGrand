@@ -124,6 +124,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Change Account Settings"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="changeAccountSettingsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="logoutBtn">
       <Properties>

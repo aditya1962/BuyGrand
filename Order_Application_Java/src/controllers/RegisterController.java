@@ -25,14 +25,14 @@ public class RegisterController {
         if(!(connect == null))
         {
             PreparedStatement stmt = connect.prepareStatement("INSERT INTO loggedUser VALUES"
-                    + "(?,?,?,?,?,?,?,?");
-            stmt.setString(1, fieldValues.get(6));
-            stmt.setString(2, fieldValues.get(0));
-            stmt.setString(3, fieldValues.get(1));
-            stmt.setString(4, fieldValues.get(2));
-            stmt.setString(5, fieldValues.get(3));
-            stmt.setString(6, fieldValues.get(4));
-            stmt.setString(7, fieldValues.get(5));
+                    + "(?,?,?,?,?,?,?,?)");
+            stmt.setString(1, fieldValues.get(0));
+            stmt.setString(2, fieldValues.get(1));
+            stmt.setString(3, fieldValues.get(2));
+            stmt.setString(4, fieldValues.get(3));
+            stmt.setString(5, fieldValues.get(4));
+            stmt.setString(6, fieldValues.get(5));
+            stmt.setString(7, fieldValues.get(6));
             stmt.setString(8, fieldValues.get(7));
             user = stmt.executeUpdate();
             connect.close();
@@ -44,11 +44,11 @@ public class RegisterController {
     {
         ConnectionClass connection = new ConnectionClass();
         Connection connect = connection.getConnection();
-        int user  = 0;
-        boolean valid = LoginController.validateUsername(connect,fieldValues.get(6));
+        int user  = 1;
+        boolean valid = LoginController.validateUsername(connect,fieldValues.get(1));
         if(!valid)
         {
-            user = -1;
+            user = 0;
         }
         if(valid && !(connect == null))
         {

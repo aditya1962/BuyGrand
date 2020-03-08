@@ -10,7 +10,8 @@ create table dbo.loggedUser
 	address varchar(150),
 	phoneNumber varchar(15),
 	emailAddress varchar(50),
-	gender varchar(8)
+	gender varchar(8),
+	country varchar(50)
 );
 
 create table dbo.login
@@ -70,3 +71,4 @@ create table dbo.itemReport
 	username varchar(15) not null constraint username_itemReport_loggedUser references dbo.loggedUser(username),
 	generatedTime datetime not null
 );
+

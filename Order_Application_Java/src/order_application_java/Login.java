@@ -310,12 +310,12 @@ public class Login extends javax.swing.JFrame {
         if(clicked==0)
         {
             clicked = 1;
-            password.setEchoChar((char)0);
+            password.setEchoChar('*');
         }
         else
         {
             clicked = 0;
-            password.setEchoChar('*');
+            password.setEchoChar((char)0);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -75,6 +75,11 @@ public class UserInterface extends javax.swing.JFrame {
 
         changeAccountSettings.setForeground(new java.awt.Color(255, 255, 255));
         changeAccountSettings.setText("Change Account Settings");
+        changeAccountSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeAccountSettingsActionPerformed(evt);
+            }
+        });
 
         logoutBtn.setText("Logout");
 
@@ -150,6 +155,13 @@ public class UserInterface extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_viewCartActionPerformed
+
+    private void changeAccountSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeAccountSettingsActionPerformed
+        // TODO add your handling code here:
+            ChangeAccountSettings cas = new ChangeAccountSettings();
+            cas.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_changeAccountSettingsActionPerformed
 
     /**
      * @param args the command line arguments

@@ -28,7 +28,8 @@ public class RegisterPersonal extends javax.swing.JFrame {
     public RegisterPersonal(String username) { 
         initComponents();
         this.username = username;
-        System.out.println(username);
+        male.setActionCommand("Male");
+        female.setActionCommand("Female");
         if(username==null)
         {
             loadRegister();
@@ -327,6 +328,7 @@ public class RegisterPersonal extends javax.swing.JFrame {
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
         List <String> fieldValues = new ArrayList <String>();
+        fieldValues.add(username);
         fieldValues.add(firstName.getText());
         fieldValues.add(lastName.getText());
         fieldValues.add(address.getText());
@@ -351,6 +353,7 @@ public class RegisterPersonal extends javax.swing.JFrame {
             else
             {
                 JOptionPane.showMessageDialog(null,"User added successfuly");
+                this.dispose();
                 Login login  = new Login();
                 login.setVisible(true);
             }

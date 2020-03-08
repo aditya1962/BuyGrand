@@ -325,7 +325,12 @@ public class RegisterLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         List <String> fieldValues = new ArrayList <String>();
         fieldValues.add(username.getText());
-        fieldValues.add(Arrays.toString(password.getPassword()));
+        String passwordString = "";
+        for(int i = 0; i < password.getPassword().length; i++)
+        {
+            passwordString += password.getPassword()[i];
+        }
+        fieldValues.add(passwordString);
         if(secretQuestion.getSelectedItem().toString().equals("Select Question"))
         {
             JOptionPane.showMessageDialog(null,"Select a secret question");
@@ -338,19 +343,20 @@ public class RegisterLogin extends javax.swing.JFrame {
         RegisterController registerController = new RegisterController();
         try {
             int user = registerController.loginInformation(fieldValues);
-            if(user==-1)
+            
+            if(user==1)
             {
                 JOptionPane.showMessageDialog(null,"Choose a different username");
             }
-            else if(user==0)
-            {
-                JOptionPane.showMessageDialog(null,"Could not register user");
-            }
-            else
+            else if(user== 0)
             {
                 RegisterPersonal registerPersonal = new RegisterPersonal(username.getText());
                 registerPersonal.setVisible(true);
                 this.dispose();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Could not register user");
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegisterLogin.class.getName()).log(Level.SEVERE, null, ex);
@@ -363,11 +369,13 @@ public class RegisterLogin extends javax.swing.JFrame {
         {
             clickedPassword = 1;
             password.setEchoChar((char)0);
+            jButton1.setText("Hide");
         }
         else
         {
             clickedPassword = 0;
             password.setEchoChar('*');
+            jButton1.setText("Show");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -377,11 +385,13 @@ public class RegisterLogin extends javax.swing.JFrame {
         {
             clickedPasswordTwo = 1;
             confirmPassword.setEchoChar((char)0);
+            jButton2.setText("Hide");
         }
         else
         {
             clickedPasswordTwo = 0;
             confirmPassword.setEchoChar('*');
+            jButton2.setText("Show");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
