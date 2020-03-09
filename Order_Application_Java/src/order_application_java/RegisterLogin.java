@@ -8,6 +8,9 @@ package order_application_java;
 import controllers.RegisterController;
 import controllers.SecretQuestionController;
 import java.awt.Color;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -330,7 +333,20 @@ public class RegisterLogin extends javax.swing.JFrame {
         {
             passwordString += password.getPassword()[i];
         }
-        fieldValues.add(passwordString);
+        String passwordHashed = "";
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte [] passwordBytes = digest.digest(passwordString.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for(byte b: passwordBytes)
+            {
+                sb.append(String.format("%02x", b));
+            }
+            passwordHashed = sb.toString();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(RegisterLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        fieldValues.add(passwordHashed);
         if(secretQuestion.getSelectedItem().toString().equals("Select Question"))
         {
             JOptionPane.showMessageDialog(null,"Select a secret question");
@@ -341,25 +357,21 @@ public class RegisterLogin extends javax.swing.JFrame {
         }
         fieldValues.add(answer.getText());
         RegisterController registerController = new RegisterController();
-        try {
-            int user = registerController.loginInformation(fieldValues);
-            
-            if(user==1)
-            {
-                JOptionPane.showMessageDialog(null,"Choose a different username");
-            }
-            else if(user== 0)
-            {
-                RegisterPersonal registerPersonal = new RegisterPersonal(username.getText());
-                registerPersonal.setVisible(true);
-                this.dispose();
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null,"Could not register user");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterLogin.class.getName()).log(Level.SEVERE, null, ex);
+        int user = registerController.verifyUser(username.getText());
+        if(user==1)
+        {
+            JOptionPane.showMessageDialog(null,"Choose a different username");
+        }
+        else if(user== 0)
+        {
+            RegisterPersonal registerPersonal = new RegisterPersonal(username.getText());
+            registerPersonal.setLoginFieldValues(fieldValues);
+            registerPersonal.setVisible(true);
+            this.dispose();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Could not register user");
         }
     }//GEN-LAST:event_nextBtnActionPerformed
 

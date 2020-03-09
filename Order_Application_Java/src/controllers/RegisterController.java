@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import order_application_java.ConnectionClass;
 
 /**
@@ -40,33 +42,49 @@ public class RegisterController {
         return user;
     }
     
-    public int loginInformation(List <String> fieldValues) throws SQLException
-    {
-        ConnectionClass connection = new ConnectionClass();
-        Connection connect = connection.getConnection();
-        int user  = 1;
-        boolean valid = LoginController.validateUsername(connect,fieldValues.get(1));
-        if(!valid)
-        {
-            user = 0;
+    public int verifyUser(String username)
+    { 
+        int user = 0;
+        try {
+            ConnectionClass connection = new ConnectionClass();
+            Connection connect = connection.getConnection();
+            boolean valid = LoginController.validateUsername(connect,username);
+            if(valid)
+            {
+                user = 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(valid && !(connect == null))
+        return user;
+    }
+    
+    public int loginInformation(List <String> fieldValues) 
+    {
+        int inserted = 0;
+        try
         {
+            ConnectionClass connection = new ConnectionClass();
+            Connection connect = connection.getConnection();
             PreparedStatement stmt = connect.prepareStatement("INSERT INTO login VALUES"
-                    + "(?,?,?,?,?,?,?,?");
-            stmt.setString(1, fieldValues.get(6));
-            stmt.setString(2, fieldValues.get(7));
-            stmt.setString(3, fieldValues.get(8));
-            stmt.setString(4, fieldValues.get(9));
+                    + "(?,?,?,?,?,?,?,?)");
+            stmt.setString(1, fieldValues.get(0));
+            stmt.setString(2, fieldValues.get(1));
+            stmt.setString(3, fieldValues.get(2));
+            stmt.setString(4, fieldValues.get(3));
             stmt.setString(5, "user");
             stmt.setInt(6, 1);
             java.util.Date date = new java.util.Date();
             java.sql.Date today = new java.sql.Date(date.getTime());
             stmt.setDate(7, today);
             stmt.setInt(8, 0);
-            user = stmt.executeUpdate();
+            inserted = stmt.executeUpdate();
             connect.close();
         }
-        return user;
+        catch(SQLException e)
+        {
+            Logger.getLogger(RegisterController.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return inserted;
     }
 }

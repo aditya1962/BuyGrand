@@ -17,7 +17,7 @@ create table dbo.loggedUser
 create table dbo.login
 (
 	username varchar(15) primary key constraint username_loggedUser_login references dbo.loggedUser(username),
-	password varchar(20) not null,
+	password varchar(120) not null,
 	secretQuestion varchar(150) not null,
 	answer varchar(100) not null,
 	role varchar(15) not null,

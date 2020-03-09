@@ -259,7 +259,11 @@ public class Login extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
         String usernameText = username.getText();
-        String passwordText = Arrays.toString(password.getPassword());
+        String passwordText = "";
+        for(int i = 0; i < password.getPassword().length; i++)
+        {
+            passwordText += password.getPassword()[i];
+        }
         LoginController controller = new LoginController(usernameText,passwordText);
         try {
             int valid = controller.login();
@@ -279,6 +283,7 @@ public class Login extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"Login successful");
                 UserInterface userInterface  = new UserInterface();
+                userInterface.setUsername(usernameText);
                 userInterface.setVisible(true);
                 this.dispose();
             }

@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class RegisterPersonal extends javax.swing.JFrame {
     private static String username;
+    private List <String> loginFieldValues;
     /**
      * Creates new form RegisterPersonal
      */
@@ -48,8 +49,12 @@ public class RegisterPersonal extends javax.swing.JFrame {
                 Locale countryObj = new Locale("",country);
                 countryCombo.addItem(countryObj.getDisplayCountry());
             } 
-        }
-        
+        } 
+    }
+    
+    public void setLoginFieldValues(List <String> loginValues)
+    {
+        loginFieldValues = loginValues;
     }
    
     public final void loadRegister()
@@ -345,8 +350,13 @@ public class RegisterPersonal extends javax.swing.JFrame {
         }
         RegisterController registerController = new RegisterController();
         try {
-            int user = registerController.personalInformation(fieldValues);
-            if(user==0)
+            int login = 0;
+            int user = registerController.personalInformation(fieldValues);;
+            if(user==1)
+            {
+               login = registerController.loginInformation(loginFieldValues);  
+            }
+            if(user==0 || login ==0)
             {
                 JOptionPane.showMessageDialog(null,"Could not register user");
             }
@@ -354,8 +364,8 @@ public class RegisterPersonal extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null,"User added successfuly");
                 this.dispose();
-                Login login  = new Login();
-                login.setVisible(true);
+                Login loginView  = new Login();
+                loginView.setVisible(true);
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegisterPersonal.class.getName()).log(Level.SEVERE, null, ex);

@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 import order_application_java.ConnectionClass;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.ResultSetMetaData;
 /**
  *
  * @author Aditya
@@ -52,17 +54,22 @@ public class LoginController {
             }
             else
             {
-                PreparedStatement statement = connect.prepareStatement("SELECT password FROM loggedUser WHERE username = ?");
+                PreparedStatement statement = connect.prepareStatement("SELECT password FROM login WHERE username = ?");
                 statement.setString(1, username);
                 ResultSet results = statement.executeQuery();
                 String passwordHashed = "";
                 while(results.next())
                 {
-                    passwordHashed = results.getString(0);                
+                    passwordHashed = results.getString(1);                
                 }
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
-                digest.update(password.getBytes());
-                String hashedPassword = new String(digest.digest());
+                byte [] passwordBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+                StringBuilder sb = new StringBuilder();
+                for(byte b: passwordBytes)
+                {
+                    sb.append(String.format("%02x", b));
+                }
+                String hashedPassword = sb.toString();
                 if(hashedPassword.equals(passwordHashed))
                 {
                     valid = 1;

@@ -19,6 +19,7 @@ public class UserInterface extends javax.swing.JFrame {
     /**
      * Creates new form UserInterface
      */
+    
     public UserInterface() {
         initComponents();
         int [] background = UI.frameBackGround();
@@ -27,8 +28,13 @@ public class UserInterface extends javax.swing.JFrame {
         viewProducts.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
         viewCart.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
         changeAccountSettings.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
+        
     }
     
+    public void setUsername(String username)
+    {
+        usernameLabel.setText("Hi, " + username);
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +45,7 @@ public class UserInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        usernameLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         viewProducts = new javax.swing.JButton();
@@ -50,7 +56,7 @@ public class UserInterface extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BuyGrand - User");
 
-        jLabel1.setText("Hi, username");
+        usernameLabel.setText("Hi, username");
 
         jLabel2.setText("icon");
 
@@ -93,7 +99,7 @@ public class UserInterface extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(86, 86, 86)
-                        .addComponent(jLabel1)
+                        .addComponent(usernameLabel)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
@@ -116,7 +122,7 @@ public class UserInterface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
+                        .addComponent(usernameLabel)
                         .addComponent(jLabel2)
                         .addComponent(logoutBtn)))
                 .addGap(41, 41, 41)
@@ -200,10 +206,10 @@ public class UserInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton changeAccountSettings;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JLabel usernameLabel;
     private javax.swing.JButton viewCart;
     private javax.swing.JButton viewProducts;
     // End of variables declaration//GEN-END:variables
