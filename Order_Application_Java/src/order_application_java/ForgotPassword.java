@@ -321,6 +321,11 @@ public class ForgotPassword extends javax.swing.JFrame {
         }
         else
         {
+            String passwordString = "";
+            for(int i = 0; i < password.getPassword().length; i++)
+            {
+                passwordString += password.getPassword()[i];
+            }
             String questionText = "";
             if(secretQuestion.getSelectedItem().toString().equals("Select Question"))
             {
@@ -332,7 +337,7 @@ public class ForgotPassword extends javax.swing.JFrame {
             }
             String answerText = answer.getText();
             ConfirmPasswordController confirmPasswordController 
-                    = new ConfirmPasswordController(usernameText,passwordText,questionText,answerText);
+                    = new ConfirmPasswordController(usernameText,passwordString,questionText,answerText);
             try {
                 int updated = confirmPasswordController.updateUser();
                 if(updated==-1)

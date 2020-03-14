@@ -19,6 +19,7 @@ public class UserInterface extends javax.swing.JFrame {
     /**
      * Creates new form UserInterface
      */
+    private String username;
     
     public UserInterface() {
         initComponents();
@@ -33,6 +34,7 @@ public class UserInterface extends javax.swing.JFrame {
     
     public void setUsername(String username)
     {
+        this.username = username;
         usernameLabel.setText("Hi, " + username);
     }
     
@@ -142,6 +144,7 @@ public class UserInterface extends javax.swing.JFrame {
         // TODO add your handling code here:       
         try {
             Category category = new Category();
+            category.setUsername(username);
             category.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(UserInterface.class.getName()).log(Level.SEVERE, null, ex);
@@ -154,6 +157,8 @@ public class UserInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             YourCart cart = new YourCart();
+            cart.setUsername(username);
+            cart.initializeTable(username);
             cart.setVisible(true);
             this.dispose();
         } catch (SQLException ex) {
@@ -165,6 +170,7 @@ public class UserInterface extends javax.swing.JFrame {
     private void changeAccountSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeAccountSettingsActionPerformed
         // TODO add your handling code here:
             ChangeAccountSettings cas = new ChangeAccountSettings();
+            cas.setUsername(username);
             cas.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_changeAccountSettingsActionPerformed

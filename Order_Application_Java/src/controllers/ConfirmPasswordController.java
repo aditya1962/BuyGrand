@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -39,8 +40,8 @@ public class ConfirmPasswordController {
         ResultSet results = statement.executeQuery();
         while(results.next())
         {
-            String questionText = results.getString(0); 
-            String answerText = results.getString(1);
+            String questionText = results.getString(1); 
+            String answerText = results.getString(2);
             if(questionText.equals(question)&&answerText.equals(answer))
             {
                 valid = true;
@@ -72,8 +73,13 @@ public class ConfirmPasswordController {
                {
                    PreparedStatement stmt = connect.prepareStatement("UPDATE login SET password = ? WHERE username = ?");
                    MessageDigest digest = MessageDigest.getInstance("SHA-256");
-                   digest.update(password.getBytes());
-                   String hashedPassword = new String(digest.digest());
+                   byte [] passwordBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+                   StringBuilder sb = new StringBuilder();
+                   for(byte b: passwordBytes)
+                   {
+                       sb.append(String.format("%02x", b));
+                   }
+                   String hashedPassword = sb.toString();
                    stmt.setString(1, hashedPassword);
                    stmt.setString(2, username);
                    updated = stmt.executeUpdate();

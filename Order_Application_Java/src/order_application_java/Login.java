@@ -9,11 +9,9 @@ import controllers.LoginController;
 import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -281,7 +279,6 @@ public class Login extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(null,"Login successful");
                 UserInterface userInterface  = new UserInterface();
                 userInterface.setUsername(usernameText);
                 userInterface.setVisible(true);

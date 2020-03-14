@@ -33,6 +33,8 @@ public class Category extends javax.swing.JFrame {
      */
     private final int HEIGHT = 100;
     private final int PANELPADDING = 85;
+    private String username;
+    
     public Category() throws SQLException {
         initComponents();
         int [] background = UI.frameBackGround();
@@ -99,7 +101,11 @@ public class Category extends javax.swing.JFrame {
         }
     }
     
-    
+    public void setUsername(String username)
+    {
+        this.username = username;
+        jLabel2.setText("Hi, " + username);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -225,6 +231,7 @@ public class Category extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         UserInterface frame = new UserInterface();
+        frame.setUsername(username);
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backBtnActionPerformed

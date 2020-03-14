@@ -24,20 +24,22 @@ public class YourCart extends javax.swing.JFrame {
      * @throws java.sql.SQLException
      */
     
+    private String username;
+    
     public YourCart() throws SQLException {  
         initComponents(); 
         int [] background = UI.frameBackGround();
         this.getContentPane().setBackground(new Color(background[0],background[1],background[2]));
         int [] backgroundBtn = UI.buttonBackground();
         printReceipt.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
-        initializeTable(this.getUsername());
     }
     
-    public String getUsername()
+    public void setUsername(String username)
     {
-        String username = "abc"; 
-        return username;
+        this.username = username;
+        jLabel3.setText("Hi, "+ username);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -175,13 +177,14 @@ public class YourCart extends javax.swing.JFrame {
 
     private void printReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReceiptActionPerformed
         // TODO add your handling code here:
-        FaceDetect f = new FaceDetect(this.getUsername());
+        FaceDetect f = new FaceDetect(username);
         f.start();
     }//GEN-LAST:event_printReceiptActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         UserInterface frame = new UserInterface();
+        frame.setUsername(username);
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backBtnActionPerformed

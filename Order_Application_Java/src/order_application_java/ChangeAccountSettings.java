@@ -19,6 +19,9 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
     /**
      * Creates new form ChangeAccountSettings
      */
+    
+    private String username;
+    
     public ChangeAccountSettings() {
         initComponents();
         ImageIcon icon = new ImageIcon(getClass().getResource("/files/Logo.png"));
@@ -30,8 +33,8 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
     
     public final void tabs()
     {
-        accountTabs.addTab("Login Info", new LoginSettingsPanels() ); 
-        accountTabs.addTab("Personal Info", new PersonalSettingsPanel() );
+        accountTabs.addTab("Login Info", new LoginSettingsPanels()); 
+        accountTabs.addTab("Personal Info", new PersonalSettingsPanel());
     }
 
     /**
@@ -57,6 +60,11 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
 
         backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/files/Logo.png"))); // NOI18N
 
@@ -127,6 +135,20 @@ public class ChangeAccountSettings extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setUsername(String username)
+    {
+        this.username = username;
+        jLabel2.setText("Hi, " + username);
+    }
+    
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        UserInterface frame = new UserInterface();
+        frame.setUsername(username);
+        frame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_backBtnActionPerformed
 
     /**
      * @param args the command line arguments
