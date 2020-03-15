@@ -1,4 +1,4 @@
---create database BuyGrand;
+create database BuyGrand;
 
 use BuyGrand;
 
