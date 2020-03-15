@@ -26,6 +26,8 @@ public class ProductFrame extends javax.swing.JFrame {
      * Creates new form ProductFrame
      */
     private String frameCategory;
+    private String username;
+    
     public ProductFrame() throws SQLException {
         
         initComponents();
@@ -37,6 +39,12 @@ public class ProductFrame extends javax.swing.JFrame {
     {
         frameCategory = name;
         this.setTitle(name);
+    }
+    
+    public void setUsername(String username)
+    {
+        jLabel1.setText("Hi, " + username);
+        this.username = username;
     }
     
     public final void initializeTabs() throws SQLException
@@ -145,6 +153,7 @@ public class ProductFrame extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         UserInterface frame = new UserInterface();
+        frame.setUsername(username);
         frame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backBtnActionPerformed

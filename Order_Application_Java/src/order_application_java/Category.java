@@ -82,6 +82,7 @@ public class Category extends javax.swing.JFrame {
                         {
                            try {
                                 ProductFrame frame = new ProductFrame();
+                                frame.setUsername(username);
                                 frame.setFrameTitle(e.getActionCommand());
                                 frame.setVisible(true);
                                 dispose();
