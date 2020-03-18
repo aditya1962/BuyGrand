@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Add Category</title>
     <link rel="stylesheet" href="Content/bootstrap.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link rel="icon" href="images/logo.ico" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <style type="text/css">
@@ -55,7 +55,7 @@
                                    <label style="display:none;color:red; font-size:15px;">Sub category name cannot be blank</label>
                                </div>
                                <div class="col-md-3 col-lg-3">
-                                   <input type="button" class="btn btn-primary" name="addcategory" value="Add Category" style="font-size:15px;"/>
+                                   <asp:Button ID="addcategory" class="btn btn-primary" text="Add Category" style="font-size:15px;" runat="server"></asp:Button>
                                </div>
                            </div>
                         </div>

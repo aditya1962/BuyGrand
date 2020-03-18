@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Add Subcategory</title>
     <link rel="stylesheet" href="Content/bootstrap.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
     <link rel="icon" href="images/logo.ico" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <style type="text/css">
@@ -20,7 +20,7 @@
 <body>
     <form id="add_subcategory" runat="server">
         <div>
-            <!--HEader Row-->
+            <!--Header Row-->
             <div class="row">
                 <div class="col-md-2 col-lg-2">
                     <!--Vertical Menu -->
@@ -48,7 +48,7 @@
                                     <input type="text" name="subcategory" class="form-control" placeholder="Enter subcategory" style="font-size:15px;" />
                                 </div>
                                 <div class="col-md-3 col-lg-3">
-                                   <input type="button" class="btn btn-primary" name="addsubcategory" value="Add Sub Category" style="font-size:15px;"/>
+                                   <asp:Button ID="addsubcategory" class="btn btn-primary" text="Add Sub Category" style="font-size:15px;" runat="server"></asp:Button>
                                </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                     </asp:dropdownlist>
                                 </div>
                                 <div class="col-md-3 col-lg-3">
-                                    <input type="button" class="btn btn-primary" name="categorysearch" value="Search" style="font-size:15px;"/>
+                                    <asp:Button ID="categorysearch" class="btn btn-primary" text="Search" style="font-size:15px;" runat="server"></asp:Button>
                                 </div>
                             </div>
                             <br />

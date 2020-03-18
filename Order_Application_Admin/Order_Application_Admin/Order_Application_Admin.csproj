@@ -114,6 +114,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Feedbacks.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -159,6 +160,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="ViewSales.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -187,6 +189,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Feedbacks.aspx.cs">
+      <DependentUpon>Feedbacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feedbacks.aspx.designer.cs">
+      <DependentUpon>Feedbacks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageSeller.aspx.cs">
       <DependentUpon>ManageSeller.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,6 +222,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSales.aspx.cs">
+      <DependentUpon>ViewSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSales.aspx.designer.cs">
+      <DependentUpon>ViewSales.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
