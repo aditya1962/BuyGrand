@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSales.aspx.cs" Inherits="Order_Application_Admin.ViewSales" %>
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,18 +30,26 @@
                                    <label style="font-size:15px;">Start Date</label>
                                </div>
                                <div class="col-md-2 col-lg-2"> 
-                                   <input type="date" class="form-control" name="startdate" style="font-size:15px;"/>
+                                   <asp:TextBox ID="startdate" type="date" class="form-control"  style="font-size:15px;" runat="server"></asp:TextBox>
                                </div>
                                <div class="col-md-2 col-lg-2 offset-md-1 offset-lg-1">
                                    <label style="font-size:15px;">End Date</label>
                                    <br />
-                                   <label style="color:red;display:none;">Pick a date after the start date</label>
+                                   <asp:Label ID="dateErrorLabel" style="color:red;font-size:15px;" runat="server" Visible="false">Pick a date after the start date</asp:Label>
                                </div>
                                <div class="col-md-2 col-lg-2">
-                                   <input type="date" class="form-control" name="enddate" style="font-size:15px;"/>
+                                   <asp:TextBox ID="enddate" type="date" class="form-control"  style="font-size:15px;" runat="server"></asp:TextBox>
                                </div>
                                <div class="col-md-3 col-lg-3">
                                    <asp:Button ID="View" class="btn btn-primary" text="View" style="font-size:15px;" runat="server" onclick="View_Click"></asp:Button>
+                               </div>
+                               <asp:ScriptManager ID="ScriptManager1" runat="server">
+                               </asp:ScriptManager>
+                               <div class="row" style="margin:4% 0%;">
+                                   <asp:Label ID="DateNull" Text="" runat="server" style="font-size:15px; margin:4%;" Visible="False"></asp:Label><br />
+                                   <asp:Label ID="ReportDataNull" Text="" runat="server" style="font-size:15px; margin:0% 0% 4% 4%;" Visible="False"></asp:Label>
+                                   <rsweb:reportviewer ID="SalesReport" runat="server" Style="width: 96%; margin-left:25px">                                      
+                                   </rsweb:reportviewer>
                                </div>
                            </div>
                         </div>
@@ -51,6 +61,7 @@
 
             </div>
         </div>
+        
     </form>
 </body>
 </html>
