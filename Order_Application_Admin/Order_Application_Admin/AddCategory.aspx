@@ -15,6 +15,15 @@
             font-size:15px;
             border:1px solid #000000;
         }
+        #manageCategoryHtml td
+        {
+            font-size:15px;
+            border:1px solid #000000;
+        }
+        #manageCategoryHtml td input[type=button]
+        {
+            font-size:15px;
+        }
     </style>
 </head>
 <body>
@@ -39,11 +48,6 @@
                                    <br />
                                    <label style="display:none;color:red; font-size:15px;">Category name cannot be blank</label>
                                </div>
-                               <!--
-                               <div class="col-md-3 col-lg-3">
-                                   <input type="button" class="btn btn-primary" name="addcategory" value="Add Category" style="font-size:15px;"/>
-                               </div>
-                               -->
                            </div>
                             <div class="row" style="padding:10px 0px;">
                                <div class="col-md-2 col-lg-2" style="text-align:center;">
@@ -66,7 +70,16 @@
                     <br />
                     <div class="card">
                         <div class="card-body">
-                           <div id="manageCategoryHtml" runat="server"></div>
+                            <div class="row">
+                                <div class="col-md-1 offset-md-10 col-lg-1 offset-lg-10">
+                                    <asp:Label Text="Filter" style="font-size:15px;" runat="server"></asp:Label>
+                                </div>
+                                <div class="col-md-1 col-lg-1">
+                                    <asp:DropDownList ID="FilterResults" style="font-size:15px;" class="form-control" runat="server">
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                           <div id="manageCategoryHtml" style="margin:4% 0%;" runat="server"></div>
                         </div>
                     </div>
                 </div>

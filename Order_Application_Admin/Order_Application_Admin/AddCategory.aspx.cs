@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using Order_Application_Admin.Data;
 
 namespace Order_Application_Admin
 {
@@ -7,13 +8,19 @@ namespace Order_Application_Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadCategoryDetails();
+            int[] filter = (int []) Enum.GetValues(typeof(Enums.FilterCategories));
+            foreach(int filterVal in filter)
+            {
+                FilterResults.Items.Add(filterVal.ToString());
+            }
+            CategoryReference.CategorySoapClient category = new CategoryReference.CategorySoapClient();
+            DataTable categoryList = category.categories();
+            LoadCategoryDetails(categoryList);
         }
 
-        public void LoadCategoryDetails()
+        public void LoadCategoryDetails(DataTable categories)
         {
             string categoryContent = "";
-            DataTable categories = new DataTable();
 
             string headerRow = "<tr><th style='width:15%;'> Category ID </th><th style='width:25%;'> Category Name </th><th style='width:10%;'> Number of subcategories </th>" +
                                 "<th style='width:10%;'> Number of items </th><th colspan='3'>&nbsp;</th></tr>";
@@ -23,7 +30,7 @@ namespace Order_Application_Admin
                 foreach (DataRow row in categories.Rows)
                 {
                     categoryContent += "<tr><td>" + row["categoryID"] + "</td><td>" + row["category"] +
-                                "<td></td>" + row["subcategoryCount"] + "</td><td>" + row["itemCount"] + "</td><td>" +
+                                "</td><td>" + row["subcategoryCount"] + "</td><td>" + row["itemCount"] + "</td><td>" +
                                 "<input type='button' class='btn btn-primary' id='edit_" + row["categoryID"] +
                                 "' value='Edit'/></td><td><input type='button' class='btn btn-primary' id='" +
                                 "delete_" + row["categoryID"] + "' value='Delete'/></td><td><input type='button'" +
