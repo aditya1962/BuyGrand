@@ -154,8 +154,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Connected Services\CategoryReference\Category.wsdl" />
     <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <None Include="Connected Services\CategoryReference\Category.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

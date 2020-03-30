@@ -22,20 +22,30 @@ namespace Order_Application_Admin
         {
             string categoryContent = "";
 
-            string headerRow = "<tr><th style='width:15%;'> Category ID </th><th style='width:25%;'> Category Name </th><th style='width:10%;'> Number of subcategories </th>" +
+            string headerRow = "<tr><th style='width:25%;'> Category Name </th><th style='width:10%;'> Number of subcategories </th>" +
                                 "<th style='width:10%;'> Number of items </th><th colspan='3'>&nbsp;</th></tr>";
             int categoryCount = categories.Rows.Count;
             if (categoryCount > 0)
             {
+                int rowid = 1;
                 foreach (DataRow row in categories.Rows)
                 {
-                    categoryContent += "<tr><td>" + row["categoryID"] + "</td><td>" + row["category"] +
-                                "</td><td>" + row["subcategoryCount"] + "</td><td>" + row["itemCount"] + "</td><td>" +
-                                "<input type='button' class='btn btn-primary' id='edit_" + row["categoryID"] +
+                    categoryContent += "<tr><td>" + row["category"] +
+                                "</td><td>" + row["subcategoryCount"] + "</td><td>";
+                    if(row["itemCount"]==DBNull.Value)
+                    {
+                        categoryContent += "0";
+                    }
+                    else
+                    {
+                        categoryContent += row["itemCount"];
+                    }
+                    categoryContent+="</td><td><input type='button' class='btn btn-primary' id='edit_" + rowid +
                                 "' value='Edit'/></td><td><input type='button' class='btn btn-primary' id='" +
-                                "delete_" + row["categoryID"] + "' value='Delete'/></td><td><input type='button'" +
-                                "class='btn btn-primary' id='subcategories_" + row["categoryID"] +
+                                "delete_" + rowid + "' value='Delete'/></td><td><input type='button'" +
+                                "class='btn btn-primary' id='subcategories_" + rowid +
                                 "' value='View Subcategories'/></td></tr>";
+                    rowid++;
                 }
             }
             else
