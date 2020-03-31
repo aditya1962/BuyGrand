@@ -259,6 +259,7 @@
     <Compile Include="Feedbacks.aspx.designer.cs">
       <DependentUpon>Feedbacks.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logging.cs" />
     <Compile Include="ManageSeller.aspx.cs">
       <DependentUpon>ManageSeller.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -303,6 +304,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\" />
+    <Folder Include="Logging\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

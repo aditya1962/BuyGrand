@@ -13,6 +13,8 @@ namespace ServiceApplicationBuyGrandAdmin
     public class Category : System.Web.Services.WebService
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+        Logging logging;
+
         [WebMethod]
         public DataTable categories()
         {
@@ -31,7 +33,8 @@ namespace ServiceApplicationBuyGrandAdmin
             }
             catch(Exception ex)
             {
-                //Log issue with ex.Message
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
                 return null;
             }
         }
@@ -78,7 +81,8 @@ namespace ServiceApplicationBuyGrandAdmin
             }
             catch(Exception ex)
             {
-                //Log exception
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
                 return null;
             }
             
@@ -110,7 +114,8 @@ namespace ServiceApplicationBuyGrandAdmin
             }
             catch(Exception ex)
             {
-                //Log exception
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
                 return null;
             }
         }
@@ -135,7 +140,8 @@ namespace ServiceApplicationBuyGrandAdmin
             }
             catch (Exception ex)
             {
-                //Log exception 
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
                 return -99;
             }
         }

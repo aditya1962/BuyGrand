@@ -22,11 +22,13 @@ namespace Order_Application_Admin.Data
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
+                    connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_generatesalesdata", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     adapter.SelectCommand.Parameters.AddWithValue("StartDate", startDate);
                     adapter.SelectCommand.Parameters.AddWithValue("EndDate", endDate);
                     adapter.Fill(salesData);
+                    connection.Close();
                     return salesData;
                 }
             }

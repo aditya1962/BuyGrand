@@ -6,8 +6,10 @@ namespace Order_Application_Admin
 {
     public partial class AddCategory : System.Web.UI.Page
     {
+        Logging logging;
         protected void Page_Load(object sender, EventArgs e)
         {
+            logging = new Logging();
             if (!IsPostBack)
             {
                 int[] filter = (int[])Enum.GetValues(typeof(Enums.FilterCategories));
@@ -23,7 +25,7 @@ namespace Order_Application_Admin
                 }
                 catch (Exception ex)
                 {
-                    //Log exception
+                    logging.logging(ex, "Error", ex.Message);
                 }
             }
             
