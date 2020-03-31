@@ -22,6 +22,13 @@ namespace Order_Application_Admin.CategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/categories", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> categoriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/add", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string add(string category, string subcategory);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/add", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> addAsync(string category, string subcategory);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -57,6 +64,14 @@ namespace Order_Application_Admin.CategoryReference {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> categoriesAsync() {
             return base.Channel.categoriesAsync();
+        }
+        
+        public string add(string category, string subcategory) {
+            return base.Channel.add(category, subcategory);
+        }
+        
+        public System.Threading.Tasks.Task<string> addAsync(string category, string subcategory) {
+            return base.Channel.addAsync(category, subcategory);
         }
     }
 }

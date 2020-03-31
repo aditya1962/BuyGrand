@@ -8,14 +8,25 @@ namespace Order_Application_Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int[] filter = (int []) Enum.GetValues(typeof(Enums.FilterCategories));
-            foreach(int filterVal in filter)
+            if (!IsPostBack)
             {
-                FilterResults.Items.Add(filterVal.ToString());
+                int[] filter = (int[])Enum.GetValues(typeof(Enums.FilterCategories));
+                foreach (int filterVal in filter)
+                {
+                    FilterResults.Items.Add(filterVal.ToString());
+                }
+                try
+                {
+                    CategoryReference.CategorySoapClient category = new CategoryReference.CategorySoapClient();
+                    DataTable categoryList = category.categories();
+                    LoadCategoryDetails(categoryList);
+                }
+                catch (Exception ex)
+                {
+                    //Log exception
+                }
             }
-            CategoryReference.CategorySoapClient category = new CategoryReference.CategorySoapClient();
-            DataTable categoryList = category.categories();
-            LoadCategoryDetails(categoryList);
+            
         }
 
         public void LoadCategoryDetails(DataTable categories)
@@ -53,6 +64,17 @@ namespace Order_Application_Admin
                 categoryContent += "<tr><td colspan='7' style='font-size:15px;'> No categories found </td></tr>";
             }
             manageCategoryHtml.InnerHtml += "<table style='width:100%;'>" + headerRow + categoryContent + "</table>";
+        }
+
+        protected void addcategory_Click(object sender, EventArgs e)
+        {
+            string categoryText = category.Text;
+            string subcategoryText = subcategory.Text;
+
+            CategoryReference.CategorySoapClient addCategory = new CategoryReference.CategorySoapClient();
+            string message = addCategory.add(categoryText, subcategoryText);
+            AddMessage.Text = message;
+            AddMessage.Visible = true;
         }
     }
 }

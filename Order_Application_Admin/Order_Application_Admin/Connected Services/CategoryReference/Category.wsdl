@@ -19,6 +19,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="subcategory" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="categoriesSoapIn">
@@ -27,10 +42,20 @@
   <wsdl:message name="categoriesSoapOut">
     <wsdl:part name="parameters" element="tns:categoriesResponse" />
   </wsdl:message>
+  <wsdl:message name="addSoapIn">
+    <wsdl:part name="parameters" element="tns:add" />
+  </wsdl:message>
+  <wsdl:message name="addSoapOut">
+    <wsdl:part name="parameters" element="tns:addResponse" />
+  </wsdl:message>
   <wsdl:portType name="CategorySoap">
     <wsdl:operation name="categories">
       <wsdl:input message="tns:categoriesSoapIn" />
       <wsdl:output message="tns:categoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addSoapIn" />
+      <wsdl:output message="tns:addSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CategorySoap" type="tns:CategorySoap">
@@ -44,11 +69,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap:operation soapAction="http://localhost/category.asmx/add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CategorySoap12" type="tns:CategorySoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="categories">
       <soap12:operation soapAction="http://localhost/category.asmx/categories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap12:operation soapAction="http://localhost/category.asmx/add" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
