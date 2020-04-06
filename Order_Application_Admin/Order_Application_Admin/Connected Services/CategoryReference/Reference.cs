@@ -29,6 +29,27 @@ namespace Order_Application_Admin.CategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/add", ReplyAction="*")]
         System.Threading.Tasks.Task<string> addAsync(string category, string subcategory);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/updateCategory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string updateCategory(string categoryUpdated, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/updateCategory", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> updateCategoryAsync(string categoryUpdated, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/deleteCategory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string deleteCategory(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/deleteCategory", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> deleteCategoryAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/getSubcategories", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable getSubcategories(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/getSubcategories", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -72,6 +93,30 @@ namespace Order_Application_Admin.CategoryReference {
         
         public System.Threading.Tasks.Task<string> addAsync(string category, string subcategory) {
             return base.Channel.addAsync(category, subcategory);
+        }
+        
+        public string updateCategory(string categoryUpdated, string id) {
+            return base.Channel.updateCategory(categoryUpdated, id);
+        }
+        
+        public System.Threading.Tasks.Task<string> updateCategoryAsync(string categoryUpdated, string id) {
+            return base.Channel.updateCategoryAsync(categoryUpdated, id);
+        }
+        
+        public string deleteCategory(string id) {
+            return base.Channel.deleteCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> deleteCategoryAsync(string id) {
+            return base.Channel.deleteCategoryAsync(id);
+        }
+        
+        public System.Data.DataTable getSubcategories(string id) {
+            return base.Channel.getSubcategories(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string id) {
+            return base.Channel.getSubcategoriesAsync(id);
         }
     }
 }

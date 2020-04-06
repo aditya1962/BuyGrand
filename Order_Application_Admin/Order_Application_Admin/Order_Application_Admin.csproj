@@ -144,6 +144,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Data\ViewSubcategories.aspx" />
     <Content Include="Feedbacks.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -252,6 +253,13 @@
     </Compile>
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\Enums.cs" />
+    <Compile Include="Data\ViewSubcategories.aspx.cs">
+      <DependentUpon>ViewSubcategories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Data\ViewSubcategories.aspx.designer.cs">
+      <DependentUpon>ViewSubcategories.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Feedbacks.aspx.cs">
       <DependentUpon>Feedbacks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

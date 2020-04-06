@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using System.Web.UI.WebControls;
+using System.Windows;
 using Order_Application_Admin.Data;
 
 namespace Order_Application_Admin
@@ -53,11 +57,13 @@ namespace Order_Application_Admin
                     {
                         categoryContent += row["itemCount"];
                     }
-                    categoryContent+="</td><td><input type='button' class='btn btn-primary' id='edit_" + rowid +
-                                "' value='Edit'/></td><td><input type='button' class='btn btn-primary' id='" +
-                                "delete_" + rowid + "' value='Delete'/></td><td><input type='button'" +
-                                "class='btn btn-primary' id='subcategories_" + rowid +
-                                "' value='View Subcategories'/></td></tr>";
+
+                    categoryContent+="</td><td><button type='button' class='btn btn-primary' data-toggle='modal'"+
+                                "data-target='#editModal' id=edit_" + rowid + " onclick=editClick(this.id)>Edit</button></td><td>" + 
+                                "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#deleteModal' " +
+                                "id=delete_" + rowid + " onclick=deleteClick(this.id)>Delete</button></td><td><button type='button'" +
+                                "class='btn btn-primary' data-toggle='modal' data-target='#subcategoryModal' id=subcategory_" + rowid +
+                                " onclick=subcategoryClick(this.id)> View Subcategories</button></td></tr>";
                     rowid++;
                 }
             }
@@ -77,6 +83,108 @@ namespace Order_Application_Admin
             string message = addCategory.add(categoryText, subcategoryText);
             AddMessage.Text = message;
             AddMessage.Visible = true;
+        }
+
+        protected void Edit_Click(object sender, EventArgs e)
+        {
+            string category = EditCategoryName.Text;
+            string username = EditUsername.Text;
+            string password = EditPassword.Text;
+            Boolean invalid = false;
+            if(category=="")
+            {
+                CategoryBlank.Visible = true;
+                invalid = true;
+            }
+            if(username=="")
+            {
+                EditUsernameBlank.Visible = true;
+                invalid = true;
+            }
+            if(password=="")
+            {
+                EditPasswordBlank.Visible = true;
+                invalid = true;
+            }
+            if(!invalid)
+            {
+                int valid = validateUser(username, password);
+                //currently set valid to 1 to portray that username and password exist
+                valid = 1;
+                if(valid==1)
+                {
+                    string id = editValue.Value;
+                    CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
+                    string updated = categoryClient.updateCategory(category,id);
+                    UpdateSuccess.Text = updated;
+                    UpdateSuccess.Visible = true;
+                }
+                else
+                {
+                    EditAccountInvalid.Visible = true;
+                }
+            }
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            string username = DeleteUsername.Text;
+            string password = DeletePassword.Text;
+            Boolean invalid = false;
+            if (username == "")
+            {
+                DeleteUsernameBlank.Visible = true;
+                invalid = true;
+            }
+            if (password == "")
+            {
+                DeletePasswordBlank.Visible = true;
+                invalid = true;
+            }
+            if (!invalid)
+            {
+                int valid = validateUser(username, password);
+                //currently set valid to 1 to portray that username and password exist
+                valid = 1;
+                if (valid == 1)
+                {
+                    string id = deleteValue.Value;
+                    CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
+                    string updated = categoryClient.deleteCategory(id);
+                    UpdateSuccess.Text = updated;
+                    UpdateSuccess.Visible = true;
+                }
+                else
+                {
+                    DeleteAccountInvalid.Visible = true;
+                }
+            }
+        }
+
+        protected int validateUser(string username,string password)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    //hash the password value in the following query
+                    string query = "select * from dbo.login where username='" + username + "' and password='" + password + "'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    int rows = table.Rows.Count;
+                    connection.Close();
+                    return rows;
+                }
+            }
+            catch(Exception ex)
+            {
+                logging.logging(ex, "Error", ex.Message);
+                return -99;
+            }
+            
         }
     }
 }

@@ -34,6 +34,56 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="updateCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categoryUpdated" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateCategoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deleteCategoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSubcategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSubcategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSubcategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="categoriesSoapIn">
@@ -48,6 +98,24 @@
   <wsdl:message name="addSoapOut">
     <wsdl:part name="parameters" element="tns:addResponse" />
   </wsdl:message>
+  <wsdl:message name="updateCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:updateCategory" />
+  </wsdl:message>
+  <wsdl:message name="updateCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:updateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:deleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="deleteCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:deleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSubcategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:getSubcategories" />
+  </wsdl:message>
+  <wsdl:message name="getSubcategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:getSubcategoriesResponse" />
+  </wsdl:message>
   <wsdl:portType name="CategorySoap">
     <wsdl:operation name="categories">
       <wsdl:input message="tns:categoriesSoapIn" />
@@ -56,6 +124,18 @@
     <wsdl:operation name="add">
       <wsdl:input message="tns:addSoapIn" />
       <wsdl:output message="tns:addSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCategory">
+      <wsdl:input message="tns:updateCategorySoapIn" />
+      <wsdl:output message="tns:updateCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCategory">
+      <wsdl:input message="tns:deleteCategorySoapIn" />
+      <wsdl:output message="tns:deleteCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubcategories">
+      <wsdl:input message="tns:getSubcategoriesSoapIn" />
+      <wsdl:output message="tns:getSubcategoriesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CategorySoap" type="tns:CategorySoap">
@@ -78,6 +158,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="updateCategory">
+      <soap:operation soapAction="http://localhost/category.asmx/updateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCategory">
+      <soap:operation soapAction="http://localhost/category.asmx/deleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubcategories">
+      <soap:operation soapAction="http://localhost/category.asmx/getSubcategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CategorySoap12" type="tns:CategorySoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -92,6 +199,33 @@
     </wsdl:operation>
     <wsdl:operation name="add">
       <soap12:operation soapAction="http://localhost/category.asmx/add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCategory">
+      <soap12:operation soapAction="http://localhost/category.asmx/updateCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCategory">
+      <soap12:operation soapAction="http://localhost/category.asmx/deleteCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubcategories">
+      <soap12:operation soapAction="http://localhost/category.asmx/getSubcategories" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

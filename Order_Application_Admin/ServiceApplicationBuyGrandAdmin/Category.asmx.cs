@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.Script.Serialization;
 using System.Web.Services;
 
 namespace ServiceApplicationBuyGrandAdmin
@@ -62,6 +64,120 @@ namespace ServiceApplicationBuyGrandAdmin
                 message = "Category or Subcategory already exists";
             }
             return message;
+        }
+
+        [WebMethod]
+        public string updateCategory(string categoryUpdated,string id)
+        {
+            string message = "";
+            DataTable categories = this.categories();
+            int row = Convert.ToInt32(id) - 1;
+            string category = categories.Rows[row][0].ToString();
+            try
+            {
+                string query = "update dbo.itemCategory set category='" + categoryUpdated + "' where category='" + category + "';";
+                using(SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query,connection);
+                    int x = command.ExecuteNonQuery();
+                    if(x > 0)
+                    {
+                        message = "Category updated successfully";
+                    }
+                    else
+                    {
+                        message = "Could not update category";
+                    }
+                    connection.Close();
+                    return message;
+                }
+            }
+            catch(Exception ex)
+            {
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
+                return null;
+            }
+        }
+
+        [WebMethod]
+        public string deleteCategory(string id)
+        {
+            string message = "";
+            DataTable categories = this.categories();
+            int row = Convert.ToInt32(id) - 1;
+            string category = categories.Rows[row][0].ToString();
+            try
+            {
+                string query = "delete from dbo.itemCategory where category='" + category + "';";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    int x = command.ExecuteNonQuery();
+                    if (x > 0)
+                    {
+                        message = "Category deleted successfully";
+                    }
+                    else
+                    {
+                        message = "Could not delete category";
+                    }
+                    connection.Close();
+                    return message;
+                }
+            }
+            catch (Exception ex)
+            {
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
+                return null;
+            }
+        }
+
+        [WebMethod]
+        public DataTable getSubcategories(string id)
+        {
+            DataTable table = new DataTable("subcategories");
+            DataTable categories = this.categories();
+            int rowID = Convert.ToInt32(id) - 1;
+            string category = categories.Rows[rowID][0].ToString();
+            try
+            {
+                using(SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "select subcategory from dbo.itemCategory where category='" + category + "';";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    adapter.Fill(table);
+                    /*
+                    List<String> subcategories = new List<string>();
+                    foreach(DataRow row in table.Rows)
+                    {
+                        subcategories.Add(row["subcategory"].ToString());
+                    }
+
+                    JavaScriptSerializer serializer = new JavaScriptSerializer();
+                    Context.Response.ContentType = "application/json";
+                    string response = serializer.Serialize(subcategories);
+                    Context.Response.AddHeader("content-length", response.Length.ToString());
+                    Context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+                    Context.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, POST, DELETE, OPTIONS");
+                    Context.Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
+                    Context.Response.Flush();
+                    Context.Response.Write(response);
+                    */
+                    connection.Close();
+                    return table;
+                }
+            }
+            catch(Exception ex)
+            {
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
+                return null;
+            }
         }
 
         public DataTable validateElements(string category, string subcategory)
