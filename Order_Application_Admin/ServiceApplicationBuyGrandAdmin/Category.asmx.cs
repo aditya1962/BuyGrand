@@ -151,23 +151,6 @@ namespace ServiceApplicationBuyGrandAdmin
                     string query = "select subcategory from dbo.itemCategory where category='" + category + "';";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     adapter.Fill(table);
-                    /*
-                    List<String> subcategories = new List<string>();
-                    foreach(DataRow row in table.Rows)
-                    {
-                        subcategories.Add(row["subcategory"].ToString());
-                    }
-
-                    JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    Context.Response.ContentType = "application/json";
-                    string response = serializer.Serialize(subcategories);
-                    Context.Response.AddHeader("content-length", response.Length.ToString());
-                    Context.Response.AddHeader("Access-Control-Allow-Origin", "*");
-                    Context.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, POST, DELETE, OPTIONS");
-                    Context.Response.AddHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization");
-                    Context.Response.Flush();
-                    Context.Response.Write(response);
-                    */
                     connection.Close();
                     return table;
                 }

@@ -15,6 +15,15 @@
             font-size:15px;
             border:1px solid #000000;
         }
+        td
+        {
+           border:1px solid #000000;
+           font-size:15px;
+        }
+        [type=button]
+        {
+            font-size:15px;
+        }
     </style>
 </head>
 <body>
@@ -45,11 +54,12 @@
                                     <label style="font-size:17px;">Sub Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
-                                    <input type="text" name="subcategory" class="form-control" placeholder="Enter subcategory" style="font-size:15px;" />
+                                    <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory" style="font-size:15px;" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="col-md-3 col-lg-3">
-                                   <asp:Button ID="addsubcategory" class="btn btn-primary" text="Add Sub Category" style="font-size:15px;" runat="server"></asp:Button>
+                                   <asp:Button ID="addsubcategory" class="btn btn-primary" text="Add Sub Category" style="font-size:15px;" runat="server" OnClick="addsubcategory_Click"></asp:Button>
                                </div>
+                                <asp:Label ID="AddStatus" runat="server" Text="" Visible="false" style="color:red; font-size:15px;"></asp:Label>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/Subcategories.asmx/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/Subcategories.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/Subcategories.asmx/">
+      <s:element name="getCategories">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSubcategories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSubcategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSubcategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subCategoryExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subcategory" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="subCategoryExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subCategoryExistsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addSubCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="subcategory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addSubCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addSubCategoryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getCategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategories" />
+  </wsdl:message>
+  <wsdl:message name="getCategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSubcategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:getSubcategories" />
+  </wsdl:message>
+  <wsdl:message name="getSubcategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:getSubcategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="subCategoryExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:subCategoryExists" />
+  </wsdl:message>
+  <wsdl:message name="subCategoryExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:subCategoryExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="addSubCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:addSubCategory" />
+  </wsdl:message>
+  <wsdl:message name="addSubCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:addSubCategoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SubcategoriesSoap">
+    <wsdl:operation name="getCategories">
+      <wsdl:input message="tns:getCategoriesSoapIn" />
+      <wsdl:output message="tns:getCategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubcategories">
+      <wsdl:input message="tns:getSubcategoriesSoapIn" />
+      <wsdl:output message="tns:getSubcategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="subCategoryExists">
+      <wsdl:input message="tns:subCategoryExistsSoapIn" />
+      <wsdl:output message="tns:subCategoryExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addSubCategory">
+      <wsdl:input message="tns:addSubCategorySoapIn" />
+      <wsdl:output message="tns:addSubCategorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SubcategoriesSoap" type="tns:SubcategoriesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getCategories">
+      <soap:operation soapAction="http://localhost/Subcategories.asmx/getCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubcategories">
+      <soap:operation soapAction="http://localhost/Subcategories.asmx/getSubcategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subCategoryExists">
+      <soap:operation soapAction="http://localhost/Subcategories.asmx/subCategoryExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSubCategory">
+      <soap:operation soapAction="http://localhost/Subcategories.asmx/addSubCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SubcategoriesSoap12" type="tns:SubcategoriesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getCategories">
+      <soap12:operation soapAction="http://localhost/Subcategories.asmx/getCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubcategories">
+      <soap12:operation soapAction="http://localhost/Subcategories.asmx/getSubcategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subCategoryExists">
+      <soap12:operation soapAction="http://localhost/Subcategories.asmx/subCategoryExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSubCategory">
+      <soap12:operation soapAction="http://localhost/Subcategories.asmx/addSubCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Subcategories">
+    <wsdl:port name="SubcategoriesSoap" binding="tns:SubcategoriesSoap">
+      <soap:address location="http://localhost:60694/Subcategories.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SubcategoriesSoap12" binding="tns:SubcategoriesSoap12">
+      <soap12:address location="http://localhost:60694/Subcategories.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

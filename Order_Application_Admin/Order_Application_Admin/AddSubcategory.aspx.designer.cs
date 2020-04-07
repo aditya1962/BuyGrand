@@ -33,6 +33,15 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.DropDownList categorylist;
 
         /// <summary>
+        /// subcategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox subcategory;
+
+        /// <summary>
         /// addsubcategory control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Order_Application_Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addsubcategory;
+
+        /// <summary>
+        /// AddStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AddStatus;
 
         /// <summary>
         /// categorylist2 control.
