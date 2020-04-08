@@ -43,6 +43,20 @@ namespace Order_Application_Admin.SubcategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/addSubCategory", ReplyAction="*")]
         System.Threading.Tasks.Task<int> addSubCategoryAsync(string subcategory, string category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/editSubCategory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int editSubCategory(string categoryID, string subcategory);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/editSubCategory", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> editSubCategoryAsync(string categoryID, string subcategory);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/deleteSubCategory", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int deleteSubCategory(string categoryID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/deleteSubCategory", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> deleteSubCategoryAsync(string categoryID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -102,6 +116,22 @@ namespace Order_Application_Admin.SubcategoryReference {
         
         public System.Threading.Tasks.Task<int> addSubCategoryAsync(string subcategory, string category) {
             return base.Channel.addSubCategoryAsync(subcategory, category);
+        }
+        
+        public int editSubCategory(string categoryID, string subcategory) {
+            return base.Channel.editSubCategory(categoryID, subcategory);
+        }
+        
+        public System.Threading.Tasks.Task<int> editSubCategoryAsync(string categoryID, string subcategory) {
+            return base.Channel.editSubCategoryAsync(categoryID, subcategory);
+        }
+        
+        public int deleteSubCategory(string categoryID) {
+            return base.Channel.deleteSubCategory(categoryID);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteSubCategoryAsync(string categoryID) {
+            return base.Channel.deleteSubCategoryAsync(categoryID);
         }
     }
 }

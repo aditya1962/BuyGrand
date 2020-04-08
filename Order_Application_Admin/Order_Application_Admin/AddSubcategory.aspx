@@ -7,6 +7,7 @@
     <title>Add Subcategory</title>
     <link rel="stylesheet" href="Content/bootstrap.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="Scripts/jquery-3.4.1.js"></script>
     <link rel="icon" href="images/logo.ico" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <style type="text/css">
@@ -21,6 +22,10 @@
            font-size:15px;
         }
         [type=button]
+        {
+            font-size:15px;
+        }
+        button, label, input[type=text]
         {
             font-size:15px;
         }
@@ -69,6 +74,7 @@
                     <br />
                     <div class="card">
                         <div class="card-body">
+                            <asp:Label ID="SubcategoryUpdate" runat="server" Text="" style="font-size:15px;" visible="false"></asp:Label>
                             <div class="row" style="padding:10px 0px;">
                                 <div class="col-md-2 col-lg-2" style="text-align:center;">
                                     <label style="font-size:17px;">Select Category</label>
@@ -78,16 +84,120 @@
                                     </asp:dropdownlist>
                                 </div>
                                 <div class="col-md-3 col-lg-3">
-                                    <asp:Button ID="categorysearch" class="btn btn-primary" text="Search" style="font-size:15px;" runat="server"></asp:Button>
+                                    <asp:Button ID="categorysearch" class="btn btn-primary" text="Search" style="font-size:15px;" runat="server" OnClick="categorysearch_Click"></asp:Button>
                                 </div>
                             </div>
                             <br />
                             <div id="manageSubCategoryHtml" runat="server"></div>
+                            <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editModalLabel" style="font-size:15px;">Edit Category</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-5 col-lg-5">
+                                                    <label>Sub Category Name</label>
+                                                </div>
+                                                <div class="col-md-5 col-lg-5">
+                                                    <asp:TextBox ID="EditSubCategoryName" placeholder="Enter Sub category name" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                                <asp:Label ID="SubCategoryBlank" runat="server" Text="Sub Category cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-5 col-lg-5">
+                                                    <label>Enter account username</label>
+                                                </div>
+                                                <div class="col-md-5 col-lg-5">
+                                                    <asp:TextBox ID="EditUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                                <asp:Label ID="EditUsernameBlank" runat="server" Text="Username cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-5 col-lg-5">
+                                                    <label>Enter account password</label>
+                                                </div>
+                                                <div class="col-md-5 col-lg-5">
+                                                    <asp:TextBox ID="EditPassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                                <asp:Label ID="EditPasswordBlank" runat="server" Text="Password cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                            </div>
+                                            <asp:Label ID="EditAccountInvalid" runat="server" Text="Username and/or Password incorrect" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Update" style="font-size:15px;" OnClick="Edit_Click"></asp:button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <asp:HiddenField id="editValue" value="0" runat="server"></asp:HiddenField>
+                            <div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel" style="font-size:15px;">Delete Sub Category</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label>Are you sure you want to delete the sub category?</label>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-5 col-lg-5">
+                                                    <label>Enter account username</label>
+                                                </div>
+                                                <div class="col-md-5 col-lg-5">
+                                                    <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                                <asp:Label ID="DeleteUsernameBlank" runat="server" Text="Username cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                            </div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-5 col-lg-5">
+                                                    <label>Enter account password</label>
+                                                </div>
+                                                <div class="col-md-5 col-lg-5">
+                                                    <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                </div>
+                                                <asp:Label ID="DeletePasswordBlank" runat="server" Text="Password cannot be blank" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
+                                            </div>
+                                            <asp:Label ID="DeleteAccountInvalid" runat="server" Text="Username and/or Password incorrect" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Delete" style="font-size:15px;" OnClick="Delete_Click"></asp:button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <asp:HiddenField id="deleteValue" value="0" runat="server"></asp:HiddenField>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
+    <script type="text/javascript">
+        function editClick(id) {
+            var categoryID = id.slice(id.lastIndexOf('_') + 1);
+            $("#editValue").val(categoryID);
+        }
+        function deleteClick(id) {
+            var categoryID = id.slice(id.lastIndexOf('_') + 1);
+            $("#deleteValue").val(categoryID);
+        }
+    </script>
 </body>
 </html>

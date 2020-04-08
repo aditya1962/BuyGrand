@@ -9,6 +9,7 @@ namespace Order_Application_Admin.Data
     public class DataAccess
     {
         private String ConnectionString;
+        Logging logging;
 
         public DataAccess()
         {
@@ -34,9 +35,37 @@ namespace Order_Application_Admin.Data
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message);
+                logging = new Logging();
+                logging.logging(e, "Error", e.Message);
                 return null;
             }
+        }
+
+        public int validateUser(string username, string password)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    //hash the password value in the following query
+                    string query = "select * from dbo.login where username='" + username + "' and password='" + password + "'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    int rows = table.Rows.Count;
+                    connection.Close();
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
+                return -99;
+            }
+
         }
     }
 }

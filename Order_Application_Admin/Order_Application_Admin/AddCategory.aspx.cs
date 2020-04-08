@@ -108,10 +108,11 @@ namespace Order_Application_Admin
             }
             if(!invalid)
             {
-                int valid = validateUser(username, password);
+                Data.DataAccess da = new Data.DataAccess();
+                int valid = da.validateUser(username, password);
                 //currently set valid to 1 to portray that username and password exist
                 valid = 1;
-                if(valid==1)
+                if(valid > 0)
                 {
                     string id = editValue.Value;
                     CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
@@ -143,10 +144,11 @@ namespace Order_Application_Admin
             }
             if (!invalid)
             {
-                int valid = validateUser(username, password);
+                Data.DataAccess da = new Data.DataAccess();
+                int valid = da.validateUser(username, password);
                 //currently set valid to 1 to portray that username and password exist
                 valid = 1;
-                if (valid == 1)
+                if (valid > 0)
                 {
                     string id = deleteValue.Value;
                     CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
@@ -161,30 +163,6 @@ namespace Order_Application_Admin
             }
         }
 
-        protected int validateUser(string username,string password)
-        {
-            try
-            {
-                string connectionString = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    //hash the password value in the following query
-                    string query = "select * from dbo.login where username='" + username + "' and password='" + password + "'";
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-                    DataTable table = new DataTable();
-                    adapter.Fill(table);
-                    int rows = table.Rows.Count;
-                    connection.Close();
-                    return rows;
-                }
-            }
-            catch(Exception ex)
-            {
-                logging.logging(ex, "Error", ex.Message);
-                return -99;
-            }
-            
-        }
+        
     }
 }

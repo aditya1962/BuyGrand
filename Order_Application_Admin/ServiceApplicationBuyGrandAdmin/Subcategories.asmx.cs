@@ -144,5 +144,51 @@ namespace ServiceApplicationBuyGrandAdmin
                 return null;
             }
         }
+
+        [WebMethod]
+        public int editSubCategory(string categoryID, string subcategory)
+        {
+            try
+            {
+                using(SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "update dbo.itemCategory set subcategory='" + subcategory + "' where categoryID='" + categoryID + "'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    int rows = command.ExecuteNonQuery();
+                    connection.Close();
+                    return rows;
+                }
+            }
+            catch(Exception ex)
+            {
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
+                return -99;
+            }
+        }
+
+        [WebMethod]
+        public int deleteSubCategory(string categoryID)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "delete from dbo.itemCategory where categoryID='" + categoryID + "'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    int rows = command.ExecuteNonQuery();
+                    connection.Close();
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
+                return -99;
+            }
+        }
     }
 }

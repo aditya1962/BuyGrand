@@ -21,14 +21,15 @@ namespace Order_Application_Admin
                         categorylist2.Items.Add(new ListItem(row["category"].ToString()));
                     }
                 }
-                LoadSubCategoryDetails();
+                string category = categorylist2.SelectedValue;
+                LoadSubCategoryDetails(category);
             }
         }
 
-        public void LoadSubCategoryDetails()
+        public void LoadSubCategoryDetails(string category)
         {
             string subcategoryContent = "";
-            string category = categorylist2.SelectedValue;
+
             SubcategoryReference.SubcategoriesSoapClient subcategory = new SubcategoryReference.SubcategoriesSoapClient();
             DataTable subcategories = subcategory.getSubcategories(category);
 
@@ -41,9 +42,10 @@ namespace Order_Application_Admin
                 {
                     subcategoryContent += "<tr><td>" + row["categoryID"] + "</td><td>" + row["subcategory"] +
                                     "</td><td>" + row["itemCount"] + "</td><td>" +
-                                    "<input type='button' class='btn btn-primary' id='edit_" + row["categoryID"] +
-                                    "' value='Edit'/></td><td><input type='button' class='btn btn-primary' id='" +
-                                    "delete_" + row["categoryID"] + "' value='Delete'/></td></tr>";
+                                    "<button type='button' class='btn btn-primary' data-toggle='modal'" +
+                                    "data-target='#editModal' id=edit_" + row["categoryID"] +
+                                    " onclick='editClick(this.id)'>Edit</button></td><td><button type='button' class='btn btn-primary' data-toggle='modal'" +
+                                    "data-target='#deleteModal' id=delete_" + row["categoryID"] + " onclick='deleteClick(this.id)'>Delete</button></td></tr>";
                 }
             }
             else
@@ -84,6 +86,105 @@ namespace Order_Application_Admin
                         AddStatus.Text = "Could not add subcategory";
                         AddStatus.Visible = true;
                     }
+                }
+            }
+        }
+
+        protected void categorysearch_Click(object sender, EventArgs e)
+        {
+            string category = categorylist2.SelectedValue;
+            manageSubCategoryHtml.InnerHtml = "";
+            LoadSubCategoryDetails(category);
+        }
+
+        protected void Edit_Click(object sender, EventArgs e)
+        {
+            string categoryID = editValue.Value;
+            string subcategory = EditSubCategoryName.Text;
+            if (subcategory == "")
+            {
+                SubCategoryBlank.Visible = true;
+            }
+            else
+            {
+                string username = EditUsername.Text;
+                string password = EditPassword.Text;
+                if (username == "")
+                {
+                    EditUsernameBlank.Visible = true;
+                }
+                else if (password == "")
+                {
+                    EditPasswordBlank.Visible = true;
+                }
+                else
+                {
+                    //authenticate user
+                    Data.DataAccess da = new Data.DataAccess();
+                    int validate = da.validateUser(username, password);
+                    //currently set valid to 1 to portray that username and password exist
+                    validate = 1;
+                    if (validate > 0)
+                    {
+                        SubcategoryReference.SubcategoriesSoapClient soapClient = new SubcategoryReference.SubcategoriesSoapClient();
+                        int rows = soapClient.editSubCategory(categoryID, subcategory);
+                        if (rows > 0)
+                        {
+                            SubcategoryUpdate.Text = "Sub category updated";
+                            SubcategoryUpdate.Visible = true;
+                        }
+                        else
+                        {
+                            SubcategoryUpdate.Text = "Could not update sub category";
+                            SubcategoryUpdate.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        EditAccountInvalid.Visible = true;
+                    }
+                }
+            }
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            string categoryID = deleteValue.Value;
+            string username = DeleteUsername.Text;
+            string password = DeletePassword.Text;
+            if (username == "")
+            {
+                DeleteUsernameBlank.Visible = true;
+            }
+            else if (password == "")
+            {
+                DeletePasswordBlank.Visible = true;
+            }
+            else
+            {
+                //authenticate user
+                Data.DataAccess da = new Data.DataAccess();
+                int validate = da.validateUser(username, password);
+                //currently set valid to 1 to portray that username and password exist
+                validate = 1;
+                if (validate > 0)
+                {
+                    SubcategoryReference.SubcategoriesSoapClient soapClient = new SubcategoryReference.SubcategoriesSoapClient();
+                    int rows = soapClient.deleteSubCategory(categoryID);
+                    if (rows > 0)
+                    {
+                        SubcategoryUpdate.Text = "Sub category deleted";
+                        SubcategoryUpdate.Visible = true;
+                    }
+                    else
+                    {
+                        SubcategoryUpdate.Text = "Could not delete sub category";
+                        SubcategoryUpdate.Visible = true;
+                    }
+                }
+                else
+                {
+                    DeleteAccountInvalid.Visible = true;
                 }
             }
         }
