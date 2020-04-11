@@ -24,6 +24,15 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm approve_seller;
 
         /// <summary>
+        /// UpdateValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UpdateValue;
+
+        /// <summary>
         /// approveSellerHtml control.
         /// </summary>
         /// <remarks>

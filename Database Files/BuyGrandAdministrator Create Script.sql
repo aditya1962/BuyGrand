@@ -50,3 +50,15 @@ create table dbo.userReport
 	numberOfItems int not null,
 	totalPrice numeric(5,2) not null
 );
+
+create table dbo.loggedUser
+(
+	username varchar(15) primary key constraint username_loggedUser_login references dbo.login(username),
+	firstName varchar(100),
+	lastName varchar(100),
+	address varchar(150),
+	phoneNumber varchar(15),
+	emailAddress varchar(50),
+	gender varchar(8),
+	country varchar(50)
+);

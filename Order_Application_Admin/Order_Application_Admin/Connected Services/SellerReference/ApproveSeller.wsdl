@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/ApproveSeller.asmx/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/ApproveSeller.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ApproveSeller.asmx/">
+      <s:element name="approveSellers">
+        <s:complexType />
+      </s:element>
+      <s:element name="approveSellersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="approveSellersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="approveSeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="approveSellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="approveSellerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="approveSellersSoapIn">
+    <wsdl:part name="parameters" element="tns:approveSellers" />
+  </wsdl:message>
+  <wsdl:message name="approveSellersSoapOut">
+    <wsdl:part name="parameters" element="tns:approveSellersResponse" />
+  </wsdl:message>
+  <wsdl:message name="approveSellerSoapIn">
+    <wsdl:part name="parameters" element="tns:approveSeller" />
+  </wsdl:message>
+  <wsdl:message name="approveSellerSoapOut">
+    <wsdl:part name="parameters" element="tns:approveSellerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ApproveSellerSoap">
+    <wsdl:operation name="approveSellers">
+      <wsdl:input message="tns:approveSellersSoapIn" />
+      <wsdl:output message="tns:approveSellersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="approveSeller">
+      <wsdl:input message="tns:approveSellerSoapIn" />
+      <wsdl:output message="tns:approveSellerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ApproveSellerSoap" type="tns:ApproveSellerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="approveSellers">
+      <soap:operation soapAction="http://localhost/ApproveSeller.asmx/approveSellers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="approveSeller">
+      <soap:operation soapAction="http://localhost/ApproveSeller.asmx/approveSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ApproveSellerSoap12" type="tns:ApproveSellerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="approveSellers">
+      <soap12:operation soapAction="http://localhost/ApproveSeller.asmx/approveSellers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="approveSeller">
+      <soap12:operation soapAction="http://localhost/ApproveSeller.asmx/approveSeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ApproveSeller">
+    <wsdl:port name="ApproveSellerSoap" binding="tns:ApproveSellerSoap">
+      <soap:address location="http://localhost:60694/ApproveSeller.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ApproveSellerSoap12" binding="tns:ApproveSellerSoap12">
+      <soap12:address location="http://localhost:60694/ApproveSeller.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

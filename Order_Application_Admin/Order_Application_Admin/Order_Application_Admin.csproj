@@ -139,10 +139,18 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\SellerReference\ApproveSeller.wsdl" />
     <None Include="Connected Services\SubcategoryReference\Subcategories.disco" />
     <None Include="Connected Services\SubcategoryReference\configuration91.svcinfo" />
     <None Include="Connected Services\SubcategoryReference\configuration.svcinfo" />
     <None Include="Connected Services\SubcategoryReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\SellerReference\ApproveSeller.disco" />
+    <None Include="Connected Services\SellerReference\configuration91.svcinfo" />
+    <None Include="Connected Services\SellerReference\configuration.svcinfo" />
+    <None Include="Connected Services\SellerReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -151,6 +159,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Data\ApproveUser.aspx" />
     <Content Include="Data\ViewSubcategories.aspx" />
     <Content Include="Feedbacks.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -259,10 +268,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SellerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SubcategoryReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ApproveUser.aspx.cs">
+      <DependentUpon>ApproveUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Data\ApproveUser.aspx.designer.cs">
+      <DependentUpon>ApproveUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\Enums.cs" />
@@ -346,6 +367,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CategoryReference\" />
+    <WCFMetadataStorage Include="Connected Services\SellerReference\" />
     <WCFMetadataStorage Include="Connected Services\SubcategoryReference\" />
   </ItemGroup>
   <PropertyGroup>
