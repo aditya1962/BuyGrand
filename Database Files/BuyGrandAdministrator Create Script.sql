@@ -62,3 +62,11 @@ create table dbo.loggedUser
 	gender varchar(8),
 	country varchar(50)
 );
+
+create table dbo.feedbackAdmin
+(
+	feedbackID varchar(15) primary key,
+	username varchar(15) not null constraint username_feedbackAdmin_login references dbo.login(username),
+	message varchar(250) not null,
+	submittedDate datetime not null
+);

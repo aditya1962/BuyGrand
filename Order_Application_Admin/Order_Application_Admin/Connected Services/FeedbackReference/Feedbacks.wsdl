@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/feedbacks.asmx/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/feedbacks.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/feedbacks.asmx/">
+      <s:element name="viewFeedbacks">
+        <s:complexType />
+      </s:element>
+      <s:element name="viewFeedbacksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="viewFeedbacksResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUsername">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="feedbackID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUsernameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getUsernameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addAdminFeedback">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="feedback" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addAdminFeedbackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addAdminFeedbackResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="viewFeedbacksSoapIn">
+    <wsdl:part name="parameters" element="tns:viewFeedbacks" />
+  </wsdl:message>
+  <wsdl:message name="viewFeedbacksSoapOut">
+    <wsdl:part name="parameters" element="tns:viewFeedbacksResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUsernameSoapIn">
+    <wsdl:part name="parameters" element="tns:getUsername" />
+  </wsdl:message>
+  <wsdl:message name="getUsernameSoapOut">
+    <wsdl:part name="parameters" element="tns:getUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="addAdminFeedbackSoapIn">
+    <wsdl:part name="parameters" element="tns:addAdminFeedback" />
+  </wsdl:message>
+  <wsdl:message name="addAdminFeedbackSoapOut">
+    <wsdl:part name="parameters" element="tns:addAdminFeedbackResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FeedbacksSoap">
+    <wsdl:operation name="viewFeedbacks">
+      <wsdl:input message="tns:viewFeedbacksSoapIn" />
+      <wsdl:output message="tns:viewFeedbacksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUsername">
+      <wsdl:input message="tns:getUsernameSoapIn" />
+      <wsdl:output message="tns:getUsernameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addAdminFeedback">
+      <wsdl:input message="tns:addAdminFeedbackSoapIn" />
+      <wsdl:output message="tns:addAdminFeedbackSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FeedbacksSoap" type="tns:FeedbacksSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="viewFeedbacks">
+      <soap:operation soapAction="http://localhost/feedbacks.asmx/viewFeedbacks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsername">
+      <soap:operation soapAction="http://localhost/feedbacks.asmx/getUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAdminFeedback">
+      <soap:operation soapAction="http://localhost/feedbacks.asmx/addAdminFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FeedbacksSoap12" type="tns:FeedbacksSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="viewFeedbacks">
+      <soap12:operation soapAction="http://localhost/feedbacks.asmx/viewFeedbacks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUsername">
+      <soap12:operation soapAction="http://localhost/feedbacks.asmx/getUsername" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAdminFeedback">
+      <soap12:operation soapAction="http://localhost/feedbacks.asmx/addAdminFeedback" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Feedbacks">
+    <wsdl:port name="FeedbacksSoap" binding="tns:FeedbacksSoap">
+      <soap:address location="http://localhost:60694/Feedbacks.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FeedbacksSoap12" binding="tns:FeedbacksSoap12">
+      <soap12:address location="http://localhost:60694/Feedbacks.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

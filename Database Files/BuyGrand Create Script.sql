@@ -47,7 +47,6 @@ create table dbo.item
 	categoryID varchar(10) constraint cateogryID_item_category references dbo.itemCategory(categoryID)
 );
 
-
 create table dbo.userCart
 (
 	username varchar(15) primary key constraint username_userCart_loggedUser references dbo.loggedUser(username),
@@ -72,3 +71,10 @@ create table dbo.itemReport
 	generatedTime datetime not null
 );
 
+create table dbo.feedbackAdmin
+(
+	feedbackID varchar(15) primary key,
+	username varchar(15) not null constraint username_feedbackAdmin_loggedUser references dbo.loggedUser(username),
+	message varchar(250) not null,
+	submittedDate datetime not null
+);
