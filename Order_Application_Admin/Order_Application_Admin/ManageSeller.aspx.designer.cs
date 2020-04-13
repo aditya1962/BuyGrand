@@ -24,6 +24,15 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm managerSeller;
 
         /// <summary>
+        /// deleteSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label deleteSuccess;
+
+        /// <summary>
         /// manageSellerHtml control.
         /// </summary>
         /// <remarks>
@@ -31,5 +40,59 @@ namespace Order_Application_Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl manageSellerHtml;
+
+        /// <summary>
+        /// deleteValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden deleteValue;
+
+        /// <summary>
+        /// DeleteUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DeleteUsername;
+
+        /// <summary>
+        /// DeleteUsernameBlank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DeleteUsernameBlank;
+
+        /// <summary>
+        /// DeletePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DeletePassword;
+
+        /// <summary>
+        /// DeletePasswordBlank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DeletePasswordBlank;
+
+        /// <summary>
+        /// DeleteAccountInvalid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DeleteAccountInvalid;
     }
 }
