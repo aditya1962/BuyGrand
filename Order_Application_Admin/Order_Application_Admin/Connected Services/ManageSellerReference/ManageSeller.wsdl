@@ -33,6 +33,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="manageSellersSoapIn">
@@ -47,6 +61,12 @@
   <wsdl:message name="deleteSoapOut">
     <wsdl:part name="parameters" element="tns:deleteResponse" />
   </wsdl:message>
+  <wsdl:message name="getEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:getEmail" />
+  </wsdl:message>
+  <wsdl:message name="getEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:getEmailResponse" />
+  </wsdl:message>
   <wsdl:portType name="ManageSellerSoap">
     <wsdl:operation name="manageSellers">
       <wsdl:input message="tns:manageSellersSoapIn" />
@@ -55,6 +75,10 @@
     <wsdl:operation name="delete">
       <wsdl:input message="tns:deleteSoapIn" />
       <wsdl:output message="tns:deleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEmail">
+      <wsdl:input message="tns:getEmailSoapIn" />
+      <wsdl:output message="tns:getEmailSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ManageSellerSoap" type="tns:ManageSellerSoap">
@@ -77,6 +101,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getEmail">
+      <soap:operation soapAction="http://localhost/ManageSeller.asmx/getEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ManageSellerSoap12" type="tns:ManageSellerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -91,6 +124,15 @@
     </wsdl:operation>
     <wsdl:operation name="delete">
       <soap12:operation soapAction="http://localhost/ManageSeller.asmx/delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmail">
+      <soap12:operation soapAction="http://localhost/ManageSeller.asmx/getEmail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

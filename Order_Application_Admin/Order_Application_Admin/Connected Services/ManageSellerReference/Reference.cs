@@ -29,6 +29,13 @@ namespace Order_Application_Admin.ManageSellerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/delete", ReplyAction="*")]
         System.Threading.Tasks.Task<int> deleteAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/getEmail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string getEmail(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/getEmail", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> getEmailAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -72,6 +79,14 @@ namespace Order_Application_Admin.ManageSellerReference {
         
         public System.Threading.Tasks.Task<int> deleteAsync(string username) {
             return base.Channel.deleteAsync(username);
+        }
+        
+        public string getEmail(string username) {
+            return base.Channel.getEmail(username);
+        }
+        
+        public System.Threading.Tasks.Task<string> getEmailAsync(string username) {
+            return base.Channel.getEmailAsync(username);
         }
     }
 }

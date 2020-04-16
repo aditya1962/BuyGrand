@@ -320,6 +320,7 @@
     <Compile Include="Data\ViewSubcategories.aspx.designer.cs">
       <DependentUpon>ViewSubcategories.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Email.cs" />
     <Compile Include="Feedbacks.aspx.cs">
       <DependentUpon>Feedbacks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

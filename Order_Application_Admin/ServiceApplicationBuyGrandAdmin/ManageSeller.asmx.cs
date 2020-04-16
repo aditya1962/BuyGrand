@@ -69,5 +69,15 @@ namespace ServiceApplicationBuyGrandAdmin
                 return -1;
             }
         }
+
+        [WebMethod]
+        public string getEmail(string username)
+        {
+            DataTable sellers = manageSellers();
+            string query = "username='" + username + "'";
+            DataRow [] row = sellers.Select(query);
+            string email = row[0][5].ToString();
+            return email;
+        }
     }
 }

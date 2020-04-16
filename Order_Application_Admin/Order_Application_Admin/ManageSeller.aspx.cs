@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Net;
+using System.Net.Mail;
 
 namespace Order_Application_Admin
 {
@@ -37,7 +34,8 @@ namespace Order_Application_Admin
                                 row["gender"] + "</td><td>" + row["emailAddress"] + "</td><td>" +
                                 "<button type='button' class='btn btn-primary' id='delete_" + row["username"] +
                                 "' data-toggle='modal' data-target='#deleteModal' onclick=deleteClick(this.id)>Delete</button></td><td><button type='button' class='btn btn-primary' id='" +
-                                "sendmessage_" + row["username"] + "'>Send Message</button></td></tr>";
+                                "sendmessage_" + row["username"] + "' onclick=sendMessage(this.id) data-toggle='modal' " +
+                                "data-target='#sendMessageModal'>Send Message</button></td></tr>";
                 }
             }
             else
@@ -85,6 +83,59 @@ namespace Order_Application_Admin
                 else
                 {
                     DeleteAccountInvalid.Visible = true;
+                }
+            }
+        }
+
+        public void Send_Click(object sender, EventArgs e)
+        {
+            string user = sendMessageVal.Value;
+            string username = Username.Text;
+            string password = Password.Text;
+            string message = Message.Text;
+            string subject = Subject.Text;
+            string emailUsername = EmailUsername.Text;
+            string emailPassword = EmailPassword.Text;
+
+            if(username=="")
+            {
+                UsernameBlank.Visible = true;
+            }
+            else if(password=="")
+            {
+                PasswordBlank.Visible = true;
+            }
+            else if(message=="")
+            {
+                MessageBlank.Visible = true;
+            }
+            else if(subject=="")
+            {
+                SubjectBlank.Visible = true;
+            }
+            else if(emailUsername == "")
+            {
+                EmailUsernameBlank.Visible = true;
+            }
+            else if(emailPassword=="")
+            {
+                EmailPasswordBlank.Visible = true;
+            }
+            else
+            {
+                Data.DataAccess validate = new Data.DataAccess();
+                int valid = validate.validateUser(username, password);
+                //currently set valid to 1
+                valid = 1;
+                if(valid==1)
+                {
+                    string[] emailValues = {user, subject, emailUsername, emailPassword, message};
+                    Email email = new Email();
+                    email.sendEmail(emailValues);
+                }
+                else
+                {
+                    AccountInvalid.Visible = true;
                 }
             }
         }
