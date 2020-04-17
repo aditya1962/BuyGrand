@@ -250,6 +250,7 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UserControls\VerticalNavigation.ascx" />
     <Content Include="ViewSales.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -362,6 +363,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UserControls\VerticalNavigation.ascx.cs">
+      <DependentUpon>VerticalNavigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\VerticalNavigation.ascx.designer.cs">
+      <DependentUpon>VerticalNavigation.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSales.aspx.cs">
       <DependentUpon>ViewSales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

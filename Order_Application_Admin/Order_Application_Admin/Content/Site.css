@@ -29,3 +29,40 @@ textarea {
         padding: 0;
     }
 }
+
+.navigation-vertical
+{
+    background-color:darkblue;
+    color:white;
+    padding:15% 3% 15% 15%;
+    margin:0% 1%;
+    font-size:17px;
+}
+
+.navigation-vertical a
+{
+    color:white;
+    text-decoration:none;
+}
+
+.navigation-vertical .row
+{
+    height:45px;
+    align-items:center;
+}
+
+.navigation-vertical .flex
+{
+    display:flex;
+}
+
+.navigation-vertical .icon
+{
+    flex:20%;
+}
+
+.navigation-vertical hr
+{
+    border:1px solid;
+    margin:5% 0% 5% -15%;
+}

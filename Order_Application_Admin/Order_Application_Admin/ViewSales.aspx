@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSales.aspx.cs" Inherits="Order_Application_Admin.ViewSales" %>
+<%@ Register TagPrefix="UserControl" TagName="NavigationVertical" Src="~/UserControls/VerticalNavigation.ascx" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
@@ -9,6 +10,7 @@
     <title>View Sales</title>
     <link rel="stylesheet" href="Content/bootstrap.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link href="Content/Site.css" rel="stylesheet" />
     <link rel="icon" href="images/logo.ico" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
 </head>
@@ -18,7 +20,7 @@
             <!--Header Row -->
             <div class="row">
                 <div class="col-md-2 col-lg-2">
-                    <!-- Vertical nav bar -->
+                    <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
                 <div class="col-md-10 col-lg-10">
                     <h3 style="font-size:25px;">View Sales</h3>
