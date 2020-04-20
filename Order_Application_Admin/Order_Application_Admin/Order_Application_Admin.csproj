@@ -187,6 +187,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="images\logo.ico" />
+    <Content Include="images\Logo.png" />
     <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Connected Services\CategoryReference\Category.wsdl" />
     <None Include="Connected Services\SubcategoryReference\Subcategories.wsdl" />
@@ -215,6 +217,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -250,6 +253,7 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UserControls\Navigation.ascx" />
     <Content Include="UserControls\VerticalNavigation.ascx" />
     <Content Include="ViewSales.aspx" />
     <Content Include="Web.config" />
@@ -363,6 +367,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UserControls\Navigation.ascx.cs">
+      <DependentUpon>Navigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Navigation.ascx.designer.cs">
+      <DependentUpon>Navigation.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\VerticalNavigation.ascx.cs">
       <DependentUpon>VerticalNavigation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -380,7 +391,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
     <Folder Include="Logging\" />
   </ItemGroup>
   <ItemGroup>

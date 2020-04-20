@@ -8,7 +8,6 @@
             <a href="../AddCategory.aspx">Add Category</a>
         </div>
     </div>
-    <hr />
     <div class="row flex">
         <div class="icon">
             <img src="" alt="Add Sub Category" style="width: 50px;" />
@@ -17,7 +16,6 @@
             <a href="../AddSubCategory.aspx">Add Sub Category</a>
         </div>
     </div>
-    <hr />
     <div class="row flex">
         <div class="icon">
             <img src="" alt="Approve Seller" style="width: 50px;" />
@@ -26,7 +24,6 @@
             <a href="../ApproveSeller.aspx">Approve Seller</a>
         </div>
     </div>
-    <hr />
     <div class="row flex">
         <div class="icon">
             <img src="" alt="Feedbacks" style="width: 50px;" />
@@ -35,7 +32,6 @@
             <a href="../Feedbacks.aspx">Feedbacks</a>
         </div>
     </div>
-    <hr />
     <div class="row flex">
         <div class="icon">
             <img src="" alt="Manage Seller" style="width: 50px;" />
@@ -44,7 +40,6 @@
             <a href="../ManageSeller.aspx">Manage Seller</a>
         </div>
     </div>
-    <hr />
     <div class="row flex">
         <div class="icon">
             <img src="" alt="View Sales" style="width: 50px;" />
@@ -53,5 +48,4 @@
             <a href="../ViewSales.aspx">View Sales</a>
         </div>
     </div>
-    <hr />
 </div>

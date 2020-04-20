@@ -1,6 +1,5 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -35,7 +34,7 @@ textarea {
     background-color:darkblue;
     color:white;
     padding:15% 3% 15% 15%;
-    margin:0% 1%;
+    margin:0%;
     font-size:17px;
 }
 
@@ -61,8 +60,35 @@ textarea {
     flex:20%;
 }
 
-.navigation-vertical hr
+.navigation-horizontal
 {
-    border:1px solid;
-    margin:5% 0% 5% -15%;
+    padding:0% 0% 0% 3%;
+    background-color:darkblue;
+    color:white;
+}
+
+.user-icon
+{
+    border:0;
+    background-color:transparent;
+}
+
+.navigation-dropdown
+{
+    width:50%;
+    z-index:500;
+    position:absolute;
+    display:none;
+}
+
+.navigation-dropdown a
+{
+    text-decoration:none;
+    color:black;
+    font-size:15px;
+}
+
+.user-div
+{
+    position:relative;
 }

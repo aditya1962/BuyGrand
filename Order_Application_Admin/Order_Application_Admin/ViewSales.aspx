@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSales.aspx.cs" Inherits="Order_Application_Admin.ViewSales" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationVertical" Src="~/UserControls/VerticalNavigation.ascx" %>
+<%@ Register TagPrefix="UserControl" TagName="NavigationHorizontal" Src="~/UserControls/Navigation.ascx" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
@@ -13,16 +14,18 @@
     <link href="Content/Site.css" rel="stylesheet" />
     <link rel="icon" href="images/logo.ico" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/jquery-3.4.1.js"></script>
+    <script src="Scripts/Site.js"></script>
 </head>
 <body>
     <form id="view_sales" runat="server">
         <div>
-            <!--Header Row -->
+            <UserControl:NavigationHorizontal runat="server"></UserControl:NavigationHorizontal>
             <div class="row">
                 <div class="col-md-2 col-lg-2">
                     <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
-                <div class="col-md-10 col-lg-10">
+                <div class="col-md-9 col-lg-9">
                     <h3 style="font-size:25px;">View Sales</h3>
                     <br />
                     <div class="card">
