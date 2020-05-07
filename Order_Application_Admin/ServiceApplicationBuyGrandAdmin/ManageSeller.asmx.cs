@@ -15,7 +15,7 @@ namespace ServiceApplicationBuyGrandAdmin
         private string connectionString = ConfigurationManager.ConnectionStrings["sqlConnectionString"].ConnectionString;
         Logging logging;
         [WebMethod]
-        public DataTable manageSellers()
+        public DataTable manageSellers(int startindex,int endindex)
         {
             try
             {
@@ -24,6 +24,8 @@ namespace ServiceApplicationBuyGrandAdmin
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_manageSellers", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    adapter.SelectCommand.Parameters.AddWithValue("offset", startindex);
+                    adapter.SelectCommand.Parameters.AddWithValue("rowstoreturn", endindex);
                     DataTable sellers = new DataTable("Sellers");
                     adapter.Fill(sellers);
                     connection.Close();
@@ -46,15 +48,13 @@ namespace ServiceApplicationBuyGrandAdmin
                 using(SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query_1 = "delete from dbo.loggedUser where username='" + username + "'";
-                    string query_2 = "delete from dbo.login where username='" + username + "'";
-
-                    SqlCommand command_1 = new SqlCommand(query_1, connection);
-                    SqlCommand command_2 = new SqlCommand(query_2, connection);
-                    int rowsOne = command_1.ExecuteNonQuery();
-                    int rowsTwo = command_2.ExecuteNonQuery();
+                    SqlCommand command = new SqlCommand("sp_deleteSeller", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("username", username);
+                    
+                    int rows = command.ExecuteNonQuery();
                     int deleted = 0;
-                    if(rowsOne==1 && rowsTwo==1)
+                    if(rows>0)
                     {
                         deleted = 1;
                     }
@@ -71,9 +71,9 @@ namespace ServiceApplicationBuyGrandAdmin
         }
 
         [WebMethod]
-        public string getEmail(string username)
+        public string getEmail(string username,int startindex,int endindex)
         {
-            DataTable sellers = manageSellers();
+            DataTable sellers = manageSellers(startindex,endindex);
             string query = "username='" + username + "'";
             DataRow [] row = sellers.Select(query);
             string email = row[0][5].ToString();

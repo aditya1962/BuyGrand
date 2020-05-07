@@ -12,7 +12,7 @@ namespace Order_Application_Admin
         private string host = "smtp.gmail.com";
         private int port = 587;
 
-        public void sendEmail(string [] values)
+        public void sendEmail(string [] values,int startindex,int endindex)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace Order_Application_Admin
                 MailMessage message = new MailMessage { From = new MailAddress(values[2]) };
 
                 ManageSellerReference.ManageSellerSoapClient seller = new ManageSellerReference.ManageSellerSoapClient();
-                string toEmail = seller.getEmail(values[0]);
+                string toEmail = seller.getEmail(values[0],startindex,endindex);
                 message.To.Add(new MailAddress(toEmail));
 
                 message.Subject = values[1];
@@ -41,6 +41,7 @@ namespace Order_Application_Admin
             }
             catch(Exception ex)
             {
+                MessageBox.Show("Could not send message");
                 Logging logging = new Logging();
                 logging.logging(ex, "Error", ex.Message);
             }

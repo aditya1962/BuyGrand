@@ -18,10 +18,10 @@ namespace Order_Application_Admin.ManageSellerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/manageSellers", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable manageSellers();
+        System.Data.DataTable manageSellers(int startindex, int endindex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/manageSellers", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> manageSellersAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> manageSellersAsync(int startindex, int endindex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/delete", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -32,10 +32,10 @@ namespace Order_Application_Admin.ManageSellerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/getEmail", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string getEmail(string username);
+        string getEmail(string username, int startindex, int endindex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ManageSeller.asmx/getEmail", ReplyAction="*")]
-        System.Threading.Tasks.Task<string> getEmailAsync(string username);
+        System.Threading.Tasks.Task<string> getEmailAsync(string username, int startindex, int endindex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -65,12 +65,12 @@ namespace Order_Application_Admin.ManageSellerReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Data.DataTable manageSellers() {
-            return base.Channel.manageSellers();
+        public System.Data.DataTable manageSellers(int startindex, int endindex) {
+            return base.Channel.manageSellers(startindex, endindex);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> manageSellersAsync() {
-            return base.Channel.manageSellersAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> manageSellersAsync(int startindex, int endindex) {
+            return base.Channel.manageSellersAsync(startindex, endindex);
         }
         
         public int delete(string username) {
@@ -81,12 +81,12 @@ namespace Order_Application_Admin.ManageSellerReference {
             return base.Channel.deleteAsync(username);
         }
         
-        public string getEmail(string username) {
-            return base.Channel.getEmail(username);
+        public string getEmail(string username, int startindex, int endindex) {
+            return base.Channel.getEmail(username, startindex, endindex);
         }
         
-        public System.Threading.Tasks.Task<string> getEmailAsync(string username) {
-            return base.Channel.getEmailAsync(username);
+        public System.Threading.Tasks.Task<string> getEmailAsync(string username, int startindex, int endindex) {
+            return base.Channel.getEmailAsync(username, startindex, endindex);
         }
     }
 }

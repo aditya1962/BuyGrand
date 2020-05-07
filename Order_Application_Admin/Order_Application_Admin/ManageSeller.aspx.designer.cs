@@ -24,6 +24,15 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm managerSeller;
 
         /// <summary>
+        /// FilterValues control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList FilterValues;
+
+        /// <summary>
         /// deleteSuccess control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Order_Application_Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl manageSellerHtml;
+
+        /// <summary>
+        /// pagination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination;
 
         /// <summary>
         /// deleteValue control.
@@ -69,13 +87,22 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox DeleteUsername;
 
         /// <summary>
-        /// DeleteUsernameBlank control.
+        /// DeleteUsernameType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DeleteUsernameBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator DeleteUsernameType;
+
+        /// <summary>
+        /// DeleteUsernameValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DeleteUsernameValidate;
 
         /// <summary>
         /// DeletePassword control.
@@ -87,13 +114,22 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox DeletePassword;
 
         /// <summary>
-        /// DeletePasswordBlank control.
+        /// DeletePasswordType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DeletePasswordBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator DeletePasswordType;
+
+        /// <summary>
+        /// DeletePasswordValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DeletePasswordValidate;
 
         /// <summary>
         /// DeleteAccountInvalid control.
@@ -114,13 +150,22 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox Subject;
 
         /// <summary>
-        /// SubjectBlank control.
+        /// SubjectValidateType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SubjectBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator SubjectValidateType;
+
+        /// <summary>
+        /// SubjectValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator SubjectValidate;
 
         /// <summary>
         /// Message control.
@@ -132,13 +177,22 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox Message;
 
         /// <summary>
-        /// MessageBlank control.
+        /// MessageValidateType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MessageBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator MessageValidateType;
+
+        /// <summary>
+        /// MessageValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator MessageValidate;
 
         /// <summary>
         /// Username control.
@@ -150,13 +204,22 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox Username;
 
         /// <summary>
-        /// UsernameBlank control.
+        /// UsernameValidateType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsernameBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator UsernameValidateType;
+
+        /// <summary>
+        /// UsernameValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UsernameValidate;
 
         /// <summary>
         /// Password control.
@@ -168,13 +231,22 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox Password;
 
         /// <summary>
-        /// PasswordBlank control.
+        /// PasswordValidateType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator PasswordValidateType;
+
+        /// <summary>
+        /// PasswordValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordValidate;
 
         /// <summary>
         /// AccountInvalid control.
@@ -195,30 +267,48 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox EmailUsername;
 
         /// <summary>
-        /// EmailUsernameBlank control.
+        /// EmailValidate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmailUsernameBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator EmailValidate;
 
         /// <summary>
-        /// Email Password control.
+        /// EmailUsernameValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailUsernameValidate;
+
+        /// <summary>
+        /// EmailPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox EmailPassword;
-        
+
         /// <summary>
-        /// EmailPasswordBlank control.
+        /// EmailPasswordValidateType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmailPasswordBlank;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator EmailPasswordValidateType;
+
+        /// <summary>
+        /// EmailPasswordValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailPasswordValidate;
     }
 }
