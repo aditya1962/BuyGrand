@@ -11,9 +11,10 @@ namespace Order_Application_Admin.Data
         {
             try
             {
-                string id = Request.QueryString["id"];
+                string category = Request.QueryString["categoryName"];
+                category = category.Replace("_", " ");
                 CategoryReference.CategorySoapClient categories = new CategoryReference.CategorySoapClient();
-                DataTable subcategories = categories.getSubcategories(id);
+                DataTable subcategories = categories.getSubcategories(category);
                 List<String> subcategoryList = new List<string>();
                 foreach (DataRow row in subcategories.Rows)
                 {

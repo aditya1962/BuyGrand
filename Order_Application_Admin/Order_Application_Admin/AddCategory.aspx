@@ -37,6 +37,11 @@
         {
             font-size:15px;
         }
+        button a
+        {
+            color:white;
+            font-size:15px;
+        }
     </style>
 </head>
 <body>
@@ -91,17 +96,20 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-1 offset-md-10 col-lg-1 offset-lg-10">
+                                <div class="col-md-1 offset-md-9 col-lg-1 offset-lg-9">
                                     <asp:Label Text="Filter" Style="font-size: 15px;" runat="server"></asp:Label>
                                 </div>
-                                <div class="col-md-1 col-lg-1">
-                                    <asp:DropDownList ID="FilterResults" Style="font-size: 15px;" class="form-control" runat="server">
+                                <div class="col-md-2 col-lg-2">
+                                    <asp:DropDownList ID="FilterResults" Style="font-size: 15px;" class="form-control" runat="server" OnSelectedIndexChanged="FilterResults_SelectedIndexChanged" AutoPostBack="true">
                                     </asp:DropDownList>
                                 </div>
                             </div>
                             <asp:Label ID="UpdateSuccess" runat="server" Text="Updated Successfully" Visible="false"></asp:Label>
                             <br />
                             <div id="manageCategoryHtml" style="margin: 4% 0%;" runat="server"></div>
+                            <br />
+                            <br />
+                            <div id="paginationDiv" runat="server"></div>
                             <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content" id="EditCategory">
@@ -244,13 +252,11 @@
             var categoryID = id.slice(id.lastIndexOf('_') + 1);
             $("#deleteValue").val(categoryID);
         }
-        function subcategoryClick(id) {
-            var categoryID = id.slice(id.lastIndexOf('_') + 1);
-            $("#subcategoryValue").val(categoryID);
+        function subcategoryClick(category) {
             $.ajax({
                 url: "Data/ViewSubcategories.aspx",
                 dataType: "json",
-                data: {id:categoryID},
+                data: {categoryName:category},
                 method: "get",
                 contentType: "application/json",                
                 success: function (data) {

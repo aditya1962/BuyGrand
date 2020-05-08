@@ -18,7 +18,7 @@ namespace ServiceApplicationBuyGrandAdmin
         Logging logging;
 
         [WebMethod]
-        public DataTable categories()
+        public DataTable categories(int startIndex,int endIndex)
         {
             try
             {                
@@ -28,6 +28,8 @@ namespace ServiceApplicationBuyGrandAdmin
                     DataTable categories = new DataTable("Categories");
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_getCategories", connectionString);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    adapter.SelectCommand.Parameters.AddWithValue("offset", startIndex);
+                    adapter.SelectCommand.Parameters.AddWithValue("rowsToReturn", endIndex);
                     adapter.Fill(categories);
                     connection.Close();
                     return categories;
@@ -67,12 +69,9 @@ namespace ServiceApplicationBuyGrandAdmin
         }
 
         [WebMethod]
-        public string updateCategory(string categoryUpdated,string id)
+        public string updateCategory(string categoryUpdated,string category)
         {
             string message = "";
-            DataTable categories = this.categories();
-            int row = Convert.ToInt32(id) - 1;
-            string category = categories.Rows[row][0].ToString();
             try
             {
                 string query = "update dbo.itemCategory set category='" + categoryUpdated + "' where category='" + category + "';";
@@ -102,12 +101,9 @@ namespace ServiceApplicationBuyGrandAdmin
         }
 
         [WebMethod]
-        public string deleteCategory(string id)
+        public string deleteCategory(string category)
         {
             string message = "";
-            DataTable categories = this.categories();
-            int row = Convert.ToInt32(id) - 1;
-            string category = categories.Rows[row][0].ToString();
             try
             {
                 string query = "delete from dbo.itemCategory where category='" + category + "';";
@@ -137,12 +133,9 @@ namespace ServiceApplicationBuyGrandAdmin
         }
 
         [WebMethod]
-        public DataTable getSubcategories(string id)
+        public DataTable getSubcategories(string category)
         {
             DataTable table = new DataTable("subcategories");
-            DataTable categories = this.categories();
-            int rowID = Convert.ToInt32(id) - 1;
-            string category = categories.Rows[rowID][0].ToString();
             try
             {
                 using(SqlConnection connection = new SqlConnection(connectionString))

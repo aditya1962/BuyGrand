@@ -18,10 +18,10 @@ namespace Order_Application_Admin.CategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/categories", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable categories();
+        System.Data.DataTable categories(int startIndex, int endIndex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/categories", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> categoriesAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> categoriesAsync(int startIndex, int endIndex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/add", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -32,24 +32,24 @@ namespace Order_Application_Admin.CategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/updateCategory", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string updateCategory(string categoryUpdated, string id);
+        string updateCategory(string categoryUpdated, string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/updateCategory", ReplyAction="*")]
-        System.Threading.Tasks.Task<string> updateCategoryAsync(string categoryUpdated, string id);
+        System.Threading.Tasks.Task<string> updateCategoryAsync(string categoryUpdated, string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/deleteCategory", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string deleteCategory(string id);
+        string deleteCategory(string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/deleteCategory", ReplyAction="*")]
-        System.Threading.Tasks.Task<string> deleteCategoryAsync(string id);
+        System.Threading.Tasks.Task<string> deleteCategoryAsync(string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/getSubcategories", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable getSubcategories(string id);
+        System.Data.DataTable getSubcategories(string category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/category.asmx/getSubcategories", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string id);
+        System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string category);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -79,12 +79,12 @@ namespace Order_Application_Admin.CategoryReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Data.DataTable categories() {
-            return base.Channel.categories();
+        public System.Data.DataTable categories(int startIndex, int endIndex) {
+            return base.Channel.categories(startIndex, endIndex);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> categoriesAsync() {
-            return base.Channel.categoriesAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> categoriesAsync(int startIndex, int endIndex) {
+            return base.Channel.categoriesAsync(startIndex, endIndex);
         }
         
         public string add(string category, string subcategory) {
@@ -95,28 +95,28 @@ namespace Order_Application_Admin.CategoryReference {
             return base.Channel.addAsync(category, subcategory);
         }
         
-        public string updateCategory(string categoryUpdated, string id) {
-            return base.Channel.updateCategory(categoryUpdated, id);
+        public string updateCategory(string categoryUpdated, string category) {
+            return base.Channel.updateCategory(categoryUpdated, category);
         }
         
-        public System.Threading.Tasks.Task<string> updateCategoryAsync(string categoryUpdated, string id) {
-            return base.Channel.updateCategoryAsync(categoryUpdated, id);
+        public System.Threading.Tasks.Task<string> updateCategoryAsync(string categoryUpdated, string category) {
+            return base.Channel.updateCategoryAsync(categoryUpdated, category);
         }
         
-        public string deleteCategory(string id) {
-            return base.Channel.deleteCategory(id);
+        public string deleteCategory(string category) {
+            return base.Channel.deleteCategory(category);
         }
         
-        public System.Threading.Tasks.Task<string> deleteCategoryAsync(string id) {
-            return base.Channel.deleteCategoryAsync(id);
+        public System.Threading.Tasks.Task<string> deleteCategoryAsync(string category) {
+            return base.Channel.deleteCategoryAsync(category);
         }
         
-        public System.Data.DataTable getSubcategories(string id) {
-            return base.Channel.getSubcategories(id);
+        public System.Data.DataTable getSubcategories(string category) {
+            return base.Channel.getSubcategories(category);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string id) {
-            return base.Channel.getSubcategoriesAsync(id);
+        public System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string category) {
+            return base.Channel.getSubcategoriesAsync(category);
         }
     }
 }
