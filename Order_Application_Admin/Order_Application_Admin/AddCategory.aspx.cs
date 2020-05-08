@@ -32,7 +32,7 @@ namespace Order_Application_Admin
                     logging.logging(ex, "Error", ex.Message);
                 }
             }
-            
+
         }
 
         public void LoadCategoryDetails(DataTable categories)
@@ -49,7 +49,7 @@ namespace Order_Application_Admin
                 {
                     categoryContent += "<tr><td>" + row["category"] +
                                 "</td><td>" + row["subcategoryCount"] + "</td><td>";
-                    if(row["itemCount"]==DBNull.Value)
+                    if (row["itemCount"] == DBNull.Value)
                     {
                         categoryContent += "0";
                     }
@@ -58,8 +58,8 @@ namespace Order_Application_Admin
                         categoryContent += row["itemCount"];
                     }
 
-                    categoryContent+="</td><td><button type='button' class='btn btn-primary' data-toggle='modal'"+
-                                "data-target='#editModal' id=edit_" + rowid + " onclick=editClick(this.id)>Edit</button></td><td>" + 
+                    categoryContent += "</td><td><button type='button' class='btn btn-primary' data-toggle='modal'" +
+                                "data-target='#editModal' id=edit_" + rowid + " onclick=editClick(this.id)>Edit</button></td><td>" +
                                 "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#deleteModal' " +
                                 "id=delete_" + rowid + " onclick=deleteClick(this.id)>Delete</button></td><td><button type='button'" +
                                 "class='btn btn-primary' data-toggle='modal' data-target='#subcategoryModal' id=subcategory_" + rowid +
@@ -90,40 +90,21 @@ namespace Order_Application_Admin
             string category = EditCategoryName.Text;
             string username = EditUsername.Text;
             string password = EditPassword.Text;
-            Boolean invalid = false;
-            if(category=="")
+            Data.DataAccess da = new Data.DataAccess();
+            int valid = da.validateUser(username, password);
+            //currently set valid to 1 to portray that username and password exist
+            valid = 1;
+            if (valid > 0)
             {
-                CategoryBlank.Visible = true;
-                invalid = true;
+                string id = editValue.Value;
+                CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
+                string updated = categoryClient.updateCategory(category, id);
+                UpdateSuccess.Text = updated;
+                UpdateSuccess.Visible = true;
             }
-            if(username=="")
+            else
             {
-                EditUsernameBlank.Visible = true;
-                invalid = true;
-            }
-            if(password=="")
-            {
-                EditPasswordBlank.Visible = true;
-                invalid = true;
-            }
-            if(!invalid)
-            {
-                Data.DataAccess da = new Data.DataAccess();
-                int valid = da.validateUser(username, password);
-                //currently set valid to 1 to portray that username and password exist
-                valid = 1;
-                if(valid > 0)
-                {
-                    string id = editValue.Value;
-                    CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
-                    string updated = categoryClient.updateCategory(category,id);
-                    UpdateSuccess.Text = updated;
-                    UpdateSuccess.Visible = true;
-                }
-                else
-                {
-                    EditAccountInvalid.Visible = true;
-                }
+                EditAccountInvalid.Visible = true;
             }
         }
 
@@ -131,38 +112,22 @@ namespace Order_Application_Admin
         {
             string username = DeleteUsername.Text;
             string password = DeletePassword.Text;
-            Boolean invalid = false;
-            if (username == "")
+            Data.DataAccess da = new Data.DataAccess();
+            int valid = da.validateUser(username, password);
+            //currently set valid to 1 to portray that username and password exist
+            valid = 1;
+            if (valid > 0)
             {
-                DeleteUsernameBlank.Visible = true;
-                invalid = true;
+                string id = deleteValue.Value;
+                CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
+                string updated = categoryClient.deleteCategory(id);
+                UpdateSuccess.Text = updated;
+                UpdateSuccess.Visible = true;
             }
-            if (password == "")
+            else
             {
-                DeletePasswordBlank.Visible = true;
-                invalid = true;
-            }
-            if (!invalid)
-            {
-                Data.DataAccess da = new Data.DataAccess();
-                int valid = da.validateUser(username, password);
-                //currently set valid to 1 to portray that username and password exist
-                valid = 1;
-                if (valid > 0)
-                {
-                    string id = deleteValue.Value;
-                    CategoryReference.CategorySoapClient categoryClient = new CategoryReference.CategorySoapClient();
-                    string updated = categoryClient.deleteCategory(id);
-                    UpdateSuccess.Text = updated;
-                    UpdateSuccess.Visible = true;
-                }
-                else
-                {
-                    DeleteAccountInvalid.Visible = true;
-                }
+                DeleteAccountInvalid.Visible = true;
             }
         }
-
-        
     }
 }

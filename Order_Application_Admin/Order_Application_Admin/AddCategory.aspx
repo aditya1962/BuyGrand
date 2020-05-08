@@ -59,7 +59,9 @@
                                 <div class="col-md-4 col-lg-4">
                                     <asp:TextBox ID="category" class="form-control" placeholder="Enter category name" Style="font-size: 15px;" runat="server"></asp:TextBox>
                                     <br />
-                                    <label style="display: none; color: red; font-size: 15px;">Category name cannot be blank</label>
+                                    <asp:RequiredFieldValidator ID="CategoryBlank" runat="server" ErrorMessage="Category cannot be blank" ValidationGroup="AddCategory" ControlToValidate="category"></asp:RequiredFieldValidator>
+                                    <br />
+                                    <asp:RegularExpressionValidator ID="CategoryType" runat="server" ErrorMessage="Category cannot be a number" ControlToValidate="category" ValidationGroup="AddCategory" ValidationExpression="(?!^\d+$)^.+$" Display="Dynamic"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
                             <div class="row" style="padding: 10px 0px;">
@@ -69,10 +71,12 @@
                                 <div class="col-md-4 col-lg-4">
                                     <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory name" Style="font-size: 15px;" runat="server"></asp:TextBox>
                                     <br />
-                                    <label style="display: none; color: red; font-size: 15px;">Sub category name cannot be blank</label>
+                                    <asp:RequiredFieldValidator ID="SubCategoryBlank" runat="server" ErrorMessage="Sub category cannot be blank" ControlToValidate="subcategory" ValidationGroup="AddCategory"></asp:RequiredFieldValidator>
+                                    <br />
+                                    <asp:RegularExpressionValidator ID="SubCategoryType" runat="server" ErrorMessage="Sub category cannot be a number" Display="Dynamic" ControlToValidate="subcategory" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddCategory"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class="col-md-3 col-lg-3">
-                                    <asp:Button ID="addcategory" class="btn btn-primary" type="Button" Text="Add Category" Style="font-size: 15px;" runat="server" OnClick="addcategory_Click"></asp:Button>
+                                    <asp:Button ID="addcategory" class="btn btn-primary" type="Button" Text="Add Category" Style="font-size: 15px;" runat="server" OnClick="addcategory_Click" ValidationGroup="AddCategory"></asp:Button>
                                 </div>
                             </div>
                             <div class="row">
@@ -100,7 +104,7 @@
                             <div id="manageCategoryHtml" style="margin: 4% 0%;" runat="server"></div>
                             <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
+                                    <div class="modal-content" id="EditCategory">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="editModalLabel" style="font-size:15px;">Edit Category</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -116,7 +120,9 @@
                                                     <asp:TextBox ID="EditCategoryName" placeholder="Enter category name" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
                                                 </div>
                                                 <br />
-                                                <asp:Label ID="CategoryBlank" runat="server" Text="Category cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                                <asp:RequiredFieldValidator ID="EditCategoryBlank" runat="server" ErrorMessage="Category name cannot be blank" ControlToValidate="EditCategoryName" ValidationGroup="EditCategory"></asp:RequiredFieldValidator>
+                                                <br />
+                                                <asp:RegularExpressionValidator ID="EditCategoryType" runat="server" ErrorMessage="Category name cannot be a number" ControlToValidate="EditCategoryName" Display="Dynamic" ValidationGroup="EditCategory" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                                             </div>
                                             <br />
                                             <div class="row">
@@ -127,7 +133,9 @@
                                                     <asp:TextBox ID="EditUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
                                                 </div>
                                                 <br />
-                                                <asp:Label ID="EditUsernameBlank" runat="server" Text="Username cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                                <asp:RequiredFieldValidator ID="EditUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="EditUsername" ValidationGroup="EditCategory"></asp:RequiredFieldValidator>
+                                                <br />
+                                                <asp:RegularExpressionValidator ID="EditUsernameType" runat="server" ErrorMessage="Username cannot be a number" Display="Dynamic" ControlToValidate="EditUsername" ValidationGroup="EditCategory" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                                             </div>
                                             <br />
                                             <div class="row">
@@ -138,13 +146,15 @@
                                                     <asp:TextBox ID="EditPassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
                                                 </div>
                                                 <br />
-                                                <asp:Label ID="EditPasswordBlank" runat="server" Text="Password cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                                <asp:RequiredFieldValidator ID="EditPasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="EditPassword" ValidationGroup="EditCategory"></asp:RequiredFieldValidator>
+                                                <br />
+                                                <asp:RegularExpressionValidator ID="EditPasswordType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" ControlToValidate="EditPassword" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="EditCategory"></asp:RegularExpressionValidator>
                                             </div>
                                             <asp:Label ID="EditAccountInvalid" runat="server" Text="Username and/or Password incorrect" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Update" style="font-size:15px;" OnClick="Edit_Click"></asp:button>
+                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Update" style="font-size:15px;" OnClick="Edit_Click" ValidationGroup="EditCategory"></asp:button>
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +180,9 @@
                                                     <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
                                                 </div>
                                                 <br />
-                                                <asp:Label ID="DeleteUsernameBlank" runat="server" Text="Username cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
+                                                <asp:RequiredFieldValidator ID="DeleteUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="DeleteUsername" ValidationGroup="DeleteCategory"></asp:RequiredFieldValidator>
+                                                <br />
+                                                <asp:RegularExpressionValidator ID="DeleteUsernameType" runat="server" ErrorMessage="Username cannot be a number" ControlToValidate="DeleteUsername" ValidationGroup="DeleteCategory" ValidationExpression="(?!^\d+$)^.+$" Display="Dynamic"></asp:RegularExpressionValidator>
                                             </div>
                                             <br />
                                             <div class="row">
@@ -180,13 +192,16 @@
                                                 <div class="col-md-5 col-lg-5">
                                                     <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
                                                 </div>
-                                                <asp:Label ID="DeletePasswordBlank" runat="server" Text="Password cannot be blank" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
+                                                <br />
+                                                <asp:RequiredFieldValidator ID="DeletePasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="DeletePassword" ValidationGroup="DeleteCategory"></asp:RequiredFieldValidator>
+                                                <br />
+                                                <asp:RegularExpressionValidator ID="DeletePasswordType" runat="server" ErrorMessage="Password cannot be a number" ControlToValidate="DeletePassword" Display="Dynamic" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="DeleteCategory"></asp:RegularExpressionValidator>
                                             </div>
                                             <asp:Label ID="DeleteAccountInvalid" runat="server" Text="Username and/or Password incorrect" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Delete" style="font-size:15px;" OnClick="Delete_Click"></asp:button>
+                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Delete" style="font-size:15px;" OnClick="Delete_Click" ValidationGroup="DeleteCategory"></asp:button>
                                         </div>
                                     </div>
                                 </div>

@@ -33,6 +33,24 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox category;
 
         /// <summary>
+        /// CategoryBlank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CategoryBlank;
+
+        /// <summary>
+        /// CategoryType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator CategoryType;
+
+        /// <summary>
         /// subcategory control.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,24 @@ namespace Order_Application_Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox subcategory;
+
+        /// <summary>
+        /// SubCategoryBlank control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator SubCategoryBlank;
+
+        /// <summary>
+        /// SubCategoryType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator SubCategoryType;
 
         /// <summary>
         /// addcategory control.
@@ -96,13 +132,22 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.TextBox EditCategoryName;
 
         /// <summary>
-        /// CategoryBlank control.
+        /// EditCategoryBlank control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CategoryBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EditCategoryBlank;
+
+        /// <summary>
+        /// EditCategoryType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator EditCategoryType;
 
         /// <summary>
         /// EditUsername control.
@@ -120,7 +165,16 @@ namespace Order_Application_Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EditUsernameBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EditUsernameBlank;
+
+        /// <summary>
+        /// EditUsernameType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator EditUsernameType;
 
         /// <summary>
         /// EditPassword control.
@@ -138,7 +192,16 @@ namespace Order_Application_Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EditPasswordBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator EditPasswordBlank;
+
+        /// <summary>
+        /// EditPasswordType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator EditPasswordType;
 
         /// <summary>
         /// EditAccountInvalid control.
@@ -174,7 +237,16 @@ namespace Order_Application_Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DeleteUsernameBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DeleteUsernameBlank;
+
+        /// <summary>
+        /// DeleteUsernameType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator DeleteUsernameType;
 
         /// <summary>
         /// DeletePassword control.
@@ -192,7 +264,16 @@ namespace Order_Application_Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DeletePasswordBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DeletePasswordBlank;
+
+        /// <summary>
+        /// DeletePasswordType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator DeletePasswordType;
 
         /// <summary>
         /// DeleteAccountInvalid control.
