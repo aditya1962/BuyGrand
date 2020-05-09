@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddSubcategory.aspx.cs" Inherits="Order_Application_Admin.Add_Subcategories" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddSubcategory.aspx.cs" Inherits="Order_Application_Admin.Add_Subcategory" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationVertical" Src="~/UserControls/VerticalNavigation.ascx" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationHorizontal" Src="~/UserControls/Navigation.ascx" %>
 
@@ -32,6 +32,16 @@
         button, label, input[type=text]
         {
             font-size:15px;
+        }
+        #paginationHtml a
+        {
+            color:white;
+            font-size:15px;
+            text-decoration:none;
+        }
+        #paginationHtml td
+        {
+            border:0px;
         }
     </style>
 </head>
@@ -98,11 +108,13 @@
                                     <label>Filter </label>
                                 </div>
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:DropDownList runat="server" ID="Filter" CssClass="form-control" style="width:100%;font-size:15px;"></asp:DropDownList>
+                                    <asp:DropDownList runat="server" ID="Filter" CssClass="form-control" style="width:100%;font-size:15px;" OnSelectedIndexChanged="Filter_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                 </div>
                             </div>
                             <br />
                             <div id="manageSubCategoryHtml" runat="server"></div>
+                            <br />
+                            <div id="paginationHtml" runat="server"></div>
                             <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">

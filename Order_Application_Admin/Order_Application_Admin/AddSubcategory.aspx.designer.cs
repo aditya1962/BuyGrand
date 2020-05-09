@@ -11,7 +11,7 @@ namespace Order_Application_Admin
 {
 
 
-    public partial class Add_Subcategories
+    public partial class Add_Subcategory
     {
 
         /// <summary>
@@ -121,6 +121,15 @@ namespace Order_Application_Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl manageSubCategoryHtml;
+
+        /// <summary>
+        /// paginationHtml control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paginationHtml;
 
         /// <summary>
         /// EditSubCategoryName control.

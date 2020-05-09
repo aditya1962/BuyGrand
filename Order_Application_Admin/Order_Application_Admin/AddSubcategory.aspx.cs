@@ -5,14 +5,17 @@ using Order_Application_Admin.Data;
 
 namespace Order_Application_Admin
 {
-    public partial class Add_Subcategories : System.Web.UI.Page
+    public partial class Add_Subcategory : System.Web.UI.Page
     {
-        SubcategoryReference.SubcategoriesSoapClient subcategories;
+        SubcategoryReference.SubcategoriesSoapClient subcategorySoapClientRef;
         Data.DataAccess da;
+        int page, filtered;
+        DataTable subcategories;
+
         protected void Page_PreLoad(object sender, EventArgs e)
         {
             da = new Data.DataAccess();
-            subcategories = new SubcategoryReference.SubcategoriesSoapClient();
+            subcategorySoapClientRef = new SubcategoryReference.SubcategoriesSoapClient();
             manageSubCategoryHtml.InnerHtml = "";
             if (!IsPostBack)
             {
@@ -21,7 +24,7 @@ namespace Order_Application_Admin
                 {
                     Filter.Items.Add(new ListItem(value.ToString()));
                 }
-                DataTable categories = subcategories.getCategories();
+                DataTable categories = subcategorySoapClientRef.getCategories();
                 if (categories.Rows.Count > 0)
                 {
                     foreach (DataRow row in categories.Rows)
@@ -42,21 +45,34 @@ namespace Order_Application_Admin
         {
             string category = categorylist2.SelectedValue;
             manageSubCategoryHtml.InnerHtml = "";
+            page = 1;
+            if (!String.IsNullOrEmpty(Request["page"]))
+            {
+                page = Convert.ToInt32(Request["page"]);
+            }
+            if (!String.IsNullOrEmpty(Request["filter"]))
+            {
+                Filter.SelectedValue = Request["filter"];
+            }
+            filtered = Convert.ToInt32(Filter.SelectedValue);
             LoadSubCategoryDetails(category);
+            Pagination();
         }
 
         public void LoadSubCategoryDetails(string category)
         {
             string subcategoryContent = "";
 
-            DataTable subcategory = subcategories.getSubcategories(category);
+            int startIndex = (page - 1) * filtered;
+
+            subcategories = subcategorySoapClientRef.getSubcategories(category, startIndex, filtered);
 
             string headerRow = "<tr><th style='width:15%;'> Category ID </th><th style='width:25%;'> Sub Category Name </th>" +
                                 "<th style='width:15%;'> Number of items </th><th colspan='2'>&nbsp;</th></tr>";
 
-            if (subcategory.Rows.Count > 0)
+            if (subcategories.Rows.Count > 0)
             {
-                foreach (DataRow row in subcategory.Rows)
+                foreach (DataRow row in subcategories.Rows)
                 {
                     subcategoryContent += "<tr><td>" + row["categoryID"] + "</td><td>" + row["subcategory"] +
                                     "</td><td>" + row["itemCount"] + "</td><td>" +
@@ -77,14 +93,14 @@ namespace Order_Application_Admin
         {
             string category = categorylist.SelectedValue;
             string subcategoryText = subcategory.Text;
-            int rows = subcategories.subCategoryExists(subcategoryText);
+            int rows = subcategorySoapClientRef.subCategoryExists(subcategoryText);
             if (rows > 0)
             {
                 AddStatus.Text = "Sub category already exists";
             }
             else
             {
-                int rowsTwo = subcategories.addSubCategory(category, subcategoryText);
+                int rowsTwo = subcategorySoapClientRef.addSubCategory(category, subcategoryText);
                 if (rowsTwo > 0)
                 {
                     AddStatus.Text = "Sub category added";
@@ -95,6 +111,34 @@ namespace Order_Application_Admin
                 }
             }
             AddStatus.Visible = true;
+        }
+
+        public void Pagination()
+        {
+            string paginationContent = "";
+            int previous = 1;
+            int next = 1;
+            double pages = Math.Ceiling((double)subcategories.Rows.Count / filtered);
+
+            if (pages > 1)
+            {
+                previous = page - 1;
+                next = page + 1;
+            }
+
+            paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'>" +
+                                "<a href='AddSubcategory.aspx?page=" + previous + "&filter=" + filtered +
+                                "'>Previous</a></button>";
+            for (int i = 1; i <= pages; i++)
+            {
+                paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'>" +
+                                "<a href='AddSubcategory.aspx?page=1&filter=" + filtered +
+                                "'>" + i + "</a></button>";
+            }
+            paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'>" +
+                                "<a href='AddSubcategory.aspx?page=" + next + "&filter=" + filtered +
+                                "'>Next</a></button>";
+            paginationHtml.InnerHtml = "<table style='margin:auto;border:0px;'><tr>" + paginationContent + "</tr></table>";
         }
 
         protected void categorysearch_Click(object sender, EventArgs e)
@@ -115,7 +159,7 @@ namespace Order_Application_Admin
             validate = 1;
             if (validate > 0)
             {
-                int rows = subcategories.editSubCategory(categoryID, subcategory);
+                int rows = subcategorySoapClientRef.editSubCategory(categoryID, subcategory);
                 if (rows > 0)
                 {
                     SubcategoryUpdate.Text = "Sub category updated";
@@ -143,7 +187,7 @@ namespace Order_Application_Admin
             validate = 1;
             if (validate > 0)
             {
-                int rows = subcategories.deleteSubCategory(categoryID);
+                int rows = subcategorySoapClientRef.deleteSubCategory(categoryID);
                 if (rows > 0)
                 {
                     SubcategoryUpdate.Text = "Sub category deleted";
@@ -158,6 +202,12 @@ namespace Order_Application_Admin
             {
                 DeleteAccountInvalid.Visible = true;
             }
+        }
+
+        protected void Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int filter = Convert.ToInt32(Filter.SelectedValue);
+            Response.Redirect("AddSubCategory.aspx?page=1&filter=" + filter);
         }
     }
 }

@@ -39,7 +39,7 @@ namespace ServiceApplicationBuyGrandAdmin
         }
 
         [WebMethod]
-        public DataTable getSubcategories(string category)
+        public DataTable getSubcategories(string category,int startIndex,int endIndex)
         {
             try
             {
@@ -50,6 +50,8 @@ namespace ServiceApplicationBuyGrandAdmin
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_getSubCategories", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     adapter.SelectCommand.Parameters.AddWithValue("category", category);
+                    adapter.SelectCommand.Parameters.AddWithValue("offset", startIndex);
+                    adapter.SelectCommand.Parameters.AddWithValue("rowsToReturn", endIndex);
                     adapter.Fill(subcategories);
                     connection.Close();
                     return subcategories;

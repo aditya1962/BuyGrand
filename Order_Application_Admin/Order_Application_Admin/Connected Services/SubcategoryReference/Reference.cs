@@ -25,10 +25,10 @@ namespace Order_Application_Admin.SubcategoryReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/getSubcategories", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable getSubcategories(string category);
+        System.Data.DataTable getSubcategories(string category, int startIndex, int endIndex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/getSubcategories", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string category);
+        System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string category, int startIndex, int endIndex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/Subcategories.asmx/subCategoryExists", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -94,12 +94,12 @@ namespace Order_Application_Admin.SubcategoryReference {
             return base.Channel.getCategoriesAsync();
         }
         
-        public System.Data.DataTable getSubcategories(string category) {
-            return base.Channel.getSubcategories(category);
+        public System.Data.DataTable getSubcategories(string category, int startIndex, int endIndex) {
+            return base.Channel.getSubcategories(category, startIndex, endIndex);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string category) {
-            return base.Channel.getSubcategoriesAsync(category);
+        public System.Threading.Tasks.Task<System.Data.DataTable> getSubcategoriesAsync(string category, int startIndex, int endIndex) {
+            return base.Channel.getSubcategoriesAsync(category, startIndex, endIndex);
         }
         
         public int subCategoryExists(string subcategory) {
