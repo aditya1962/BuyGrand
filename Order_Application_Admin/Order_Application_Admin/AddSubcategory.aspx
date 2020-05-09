@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <div class="row" style="padding:10px 0px;">
                                 <div class="col-md-2 col-lg-2" style="text-align:center;">
-                                    <label style="font-size:17px;">Select Category</label>
+                                    <label>Select Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
                                     <asp:dropdownlist id="categorylist" name="category" class="form-control" style="font-size:15px;" runat="server">
@@ -60,13 +60,17 @@
                             <br />
                             <div class="row" style="padding:10px 0px;">
                                 <div class="col-md-2 col-lg-2" style="text-align:center;">
-                                    <label style="font-size:17px;">Sub Category</label>
+                                    <label>Sub Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
                                     <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory" style="font-size:15px;" runat="server"></asp:TextBox>
+                                    <br />
+                                    <asp:RequiredFieldValidator ID="SubCategoryBlank" runat="server" ErrorMessage="Sub category cannot be blank" ControlToValidate="subcategory" ValidationGroup="AddSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
+                                    <br />
+                                    <asp:RegularExpressionValidator ID="SubCategoryType" runat="server" ErrorMessage="Sub category cannot be a number" Display="Dynamic" ControlToValidate="subcategory" ValidationGroup="AddSubcategory" ValidationExpression="(?!^\d+$)^.+$" Font-Size="15px"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class="col-md-3 col-lg-3">
-                                   <asp:Button ID="addsubcategory" class="btn btn-primary" text="Add Sub Category" style="font-size:15px;" runat="server" OnClick="addsubcategory_Click"></asp:Button>
+                                   <asp:Button ID="addsubcategory" class="btn btn-primary" text="Add Sub Category" style="font-size:15px;" runat="server" OnClick="addsubcategory_Click" ValidationGroup="AddSubcategory"></asp:Button>
                                </div>
                                 <asp:Label ID="AddStatus" runat="server" Text="" Visible="false" style="color:red; font-size:15px;"></asp:Label>
                             </div>
@@ -81,14 +85,20 @@
                             <asp:Label ID="SubcategoryUpdate" runat="server" Text="" style="font-size:15px;" visible="false"></asp:Label>
                             <div class="row" style="padding:10px 0px;">
                                 <div class="col-md-2 col-lg-2" style="text-align:center;">
-                                    <label style="font-size:17px;">Select Category</label>
+                                    <label>Select Category</label>
                                 </div>
-                                <div class="col-md-4 col-lg-4">
+                                <div class="col-md-3 col-lg-3">
                                     <asp:dropdownlist id="categorylist2" name="category2" class="form-control" style="font-size:15px;" runat="server">
                                     </asp:dropdownlist>
                                 </div>
-                                <div class="col-md-3 col-lg-3">
+                                <div class="col-md-2 col-lg-2">
                                     <asp:Button ID="categorysearch" class="btn btn-primary" text="Search" style="font-size:15px;" runat="server" OnClick="categorysearch_Click"></asp:Button>
+                                </div>
+                                <div class="col-md-1 col-lg-1 offset-md-1 offset-lg-1">
+                                    <label>Filter </label>
+                                </div>
+                                <div class="col-md-2 col-lg-2">
+                                    <asp:DropDownList runat="server" ID="Filter" CssClass="form-control" style="width:100%;font-size:15px;"></asp:DropDownList>
                                 </div>
                             </div>
                             <br />
@@ -107,39 +117,46 @@
                                                 <div class="col-md-5 col-lg-5">
                                                     <label>Sub Category Name</label>
                                                 </div>
-                                                <div class="col-md-5 col-lg-5">
+                                                <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="EditSubCategoryName" placeholder="Enter Sub category name" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
-                                                </div>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="EditNameBlank" runat="server" ErrorMessage="Subcategory cannot be blank" ControlToValidate="EditSubcategoryName" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="EditNameType" runat="server" ErrorMessage="Subcategory cannot be a number" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="EditSubcategory" Display="Dynamic" ControlToValidate="EditSubCategoryName" Font-Size="15px"></asp:RegularExpressionValidator>
+                                                </div>                                   
                                                 <br />
-                                                <asp:Label ID="SubCategoryBlank" runat="server" Text="Sub Category cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
                                             </div>
                                             <br />
                                             <div class="row">
                                                 <div class="col-md-5 col-lg-5">
                                                     <label>Enter account username</label>
                                                 </div>
-                                                <div class="col-md-5 col-lg-5">
+                                                <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="EditUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="EditUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="EditUsername" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="EditUsernameType" runat="server" ErrorMessage="Username cannot be a number" Display="Dynamic" ControlToValidate="EditUsername" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <br />
-                                                <asp:Label ID="EditUsernameBlank" runat="server" Text="Username cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
                                             </div>
                                             <br />
                                             <div class="row">
                                                 <div class="col-md-5 col-lg-5">
                                                     <label>Enter account password</label>
                                                 </div>
-                                                <div class="col-md-5 col-lg-5">
+                                                <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="EditPassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="EditPasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="EditPassword" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="EditPasswordType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" ControlToValidate="EditPassword" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <br />
-                                                <asp:Label ID="EditPasswordBlank" runat="server" Text="Password cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
                                             </div>
                                             <asp:Label ID="EditAccountInvalid" runat="server" Text="Username and/or Password incorrect" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Update" style="font-size:15px;" OnClick="Edit_Click"></asp:button>
+                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Update" style="font-size:15px;" OnClick="Edit_Click" ValidationGroup="EditSubcategory"></asp:button>
                                         </div>
                                     </div>
                                 </div>
@@ -161,27 +178,32 @@
                                                 <div class="col-md-5 col-lg-5">
                                                     <label>Enter account username</label>
                                                 </div>
-                                                <div class="col-md-5 col-lg-5">
+                                                <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="DeleteUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="DeleteUsername" ValidationGroup="DeleteSubCategory" Font-Size="15px"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="DeleteUsernameType" runat="server" ErrorMessage="Username cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="DeleteUsername" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="DeleteSubCategory"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <br />
-                                                <asp:Label ID="DeleteUsernameBlank" runat="server" Text="Username cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
                                             </div>
                                             <br />
                                             <div class="row">
                                                 <div class="col-md-5 col-lg-5">
                                                     <label>Enter account password</label>
                                                 </div>
-                                                <div class="col-md-5 col-lg-5">
+                                                <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="DeletePasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="DeletePassword" Font-Size="15px" ValidationGroup="DeleteSubCategory"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="DeletePasswordType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="DeletePassword" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="DeleteSubCategory"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <asp:Label ID="DeletePasswordBlank" runat="server" Text="Password cannot be blank" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
                                             </div>
                                             <asp:Label ID="DeleteAccountInvalid" runat="server" Text="Username and/or Password incorrect" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Delete" style="font-size:15px;" OnClick="Delete_Click"></asp:button>
+                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Delete" style="font-size:15px;" OnClick="Delete_Click" ValidationGroup="DeleteSubCategory"></asp:button>
                                         </div>
                                     </div>
                                 </div>

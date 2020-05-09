@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using System.Windows;
+using Order_Application_Admin.Data;
 
 namespace Order_Application_Admin
 {
     public partial class Add_Subcategories : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        SubcategoryReference.SubcategoriesSoapClient subcategories;
+        Data.DataAccess da;
+        protected void Page_PreLoad(object sender, EventArgs e)
         {
+            da = new Data.DataAccess();
+            subcategories = new SubcategoryReference.SubcategoriesSoapClient();
+            manageSubCategoryHtml.InnerHtml = "";
             if (!IsPostBack)
             {
-                SubcategoryReference.SubcategoriesSoapClient subcategories = new SubcategoryReference.SubcategoriesSoapClient();
+                int[] values = (int[])Enum.GetValues(typeof(Data.Enums.FilterCategories));
+                foreach (int value in values)
+                {
+                    Filter.Items.Add(new ListItem(value.ToString()));
+                }
                 DataTable categories = subcategories.getCategories();
                 if (categories.Rows.Count > 0)
                 {
@@ -21,24 +30,33 @@ namespace Order_Application_Admin
                         categorylist2.Items.Add(new ListItem(row["category"].ToString()));
                     }
                 }
-                string category = categorylist2.SelectedValue;
-                LoadSubCategoryDetails(category);
             }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Page_LoadComplete(object sender, EventArgs e)
+        {
+            string category = categorylist2.SelectedValue;
+            manageSubCategoryHtml.InnerHtml = "";
+            LoadSubCategoryDetails(category);
         }
 
         public void LoadSubCategoryDetails(string category)
         {
             string subcategoryContent = "";
 
-            SubcategoryReference.SubcategoriesSoapClient subcategory = new SubcategoryReference.SubcategoriesSoapClient();
-            DataTable subcategories = subcategory.getSubcategories(category);
+            DataTable subcategory = subcategories.getSubcategories(category);
 
             string headerRow = "<tr><th style='width:15%;'> Category ID </th><th style='width:25%;'> Sub Category Name </th>" +
                                 "<th style='width:15%;'> Number of items </th><th colspan='2'>&nbsp;</th></tr>";
 
-            if (subcategories.Rows.Count > 0)
+            if (subcategory.Rows.Count > 0)
             {
-                foreach (DataRow row in subcategories.Rows)
+                foreach (DataRow row in subcategory.Rows)
                 {
                     subcategoryContent += "<tr><td>" + row["categoryID"] + "</td><td>" + row["subcategory"] +
                                     "</td><td>" + row["itemCount"] + "</td><td>" +
@@ -59,41 +77,29 @@ namespace Order_Application_Admin
         {
             string category = categorylist.SelectedValue;
             string subcategoryText = subcategory.Text;
-            if (subcategoryText == "")
+            int rows = subcategories.subCategoryExists(subcategoryText);
+            if (rows > 0)
             {
-                AddStatus.Text = "Sub category cannot be blank";
-                AddStatus.Visible = true;
+                AddStatus.Text = "Sub category already exists";
             }
             else
             {
-                SubcategoryReference.SubcategoriesSoapClient subcategories = new SubcategoryReference.SubcategoriesSoapClient();
-                int rows = subcategories.subCategoryExists(subcategoryText);
-                if (rows > 0)
+                int rowsTwo = subcategories.addSubCategory(category, subcategoryText);
+                if (rowsTwo > 0)
                 {
-                    AddStatus.Text = "Sub category already exists";
-                    AddStatus.Visible = true;
+                    AddStatus.Text = "Sub category added";
                 }
                 else
                 {
-                    int rowsTwo = subcategories.addSubCategory(category, subcategoryText);
-                    if (rowsTwo > 0)
-                    {
-                        AddStatus.Text = "Sub category added";
-                        AddStatus.Visible = true;
-                    }
-                    else
-                    {
-                        AddStatus.Text = "Could not add subcategory";
-                        AddStatus.Visible = true;
-                    }
+                    AddStatus.Text = "Could not add subcategory";
                 }
             }
+            AddStatus.Visible = true;
         }
 
         protected void categorysearch_Click(object sender, EventArgs e)
         {
             string category = categorylist2.SelectedValue;
-            manageSubCategoryHtml.InnerHtml = "";
             LoadSubCategoryDetails(category);
         }
 
@@ -101,49 +107,28 @@ namespace Order_Application_Admin
         {
             string categoryID = editValue.Value;
             string subcategory = EditSubCategoryName.Text;
-            if (subcategory == "")
+            string username = EditUsername.Text;
+            string password = EditPassword.Text;
+            //authenticate user             
+            int validate = da.validateUser(username, password);
+            //currently set validate to 1 to portray that username and password exist
+            validate = 1;
+            if (validate > 0)
             {
-                SubCategoryBlank.Visible = true;
-            }
-            else
-            {
-                string username = EditUsername.Text;
-                string password = EditPassword.Text;
-                if (username == "")
+                int rows = subcategories.editSubCategory(categoryID, subcategory);
+                if (rows > 0)
                 {
-                    EditUsernameBlank.Visible = true;
-                }
-                else if (password == "")
-                {
-                    EditPasswordBlank.Visible = true;
+                    SubcategoryUpdate.Text = "Sub category updated";
                 }
                 else
                 {
-                    //authenticate user
-                    Data.DataAccess da = new Data.DataAccess();
-                    int validate = da.validateUser(username, password);
-                    //currently set valid to 1 to portray that username and password exist
-                    validate = 1;
-                    if (validate > 0)
-                    {
-                        SubcategoryReference.SubcategoriesSoapClient soapClient = new SubcategoryReference.SubcategoriesSoapClient();
-                        int rows = soapClient.editSubCategory(categoryID, subcategory);
-                        if (rows > 0)
-                        {
-                            SubcategoryUpdate.Text = "Sub category updated";
-                            SubcategoryUpdate.Visible = true;
-                        }
-                        else
-                        {
-                            SubcategoryUpdate.Text = "Could not update sub category";
-                            SubcategoryUpdate.Visible = true;
-                        }
-                    }
-                    else
-                    {
-                        EditAccountInvalid.Visible = true;
-                    }
+                    SubcategoryUpdate.Text = "Could not update sub category";
                 }
+                SubcategoryUpdate.Visible = true;
+            }
+            else
+            {
+                EditAccountInvalid.Visible = true;
             }
         }
 
@@ -152,40 +137,26 @@ namespace Order_Application_Admin
             string categoryID = deleteValue.Value;
             string username = DeleteUsername.Text;
             string password = DeletePassword.Text;
-            if (username == "")
+            //authenticate user
+            int validate = da.validateUser(username, password);
+            //currently set validate to 1 to portray that username and password exist
+            validate = 1;
+            if (validate > 0)
             {
-                DeleteUsernameBlank.Visible = true;
-            }
-            else if (password == "")
-            {
-                DeletePasswordBlank.Visible = true;
-            }
-            else
-            {
-                //authenticate user
-                Data.DataAccess da = new Data.DataAccess();
-                int validate = da.validateUser(username, password);
-                //currently set valid to 1 to portray that username and password exist
-                validate = 1;
-                if (validate > 0)
+                int rows = subcategories.deleteSubCategory(categoryID);
+                if (rows > 0)
                 {
-                    SubcategoryReference.SubcategoriesSoapClient soapClient = new SubcategoryReference.SubcategoriesSoapClient();
-                    int rows = soapClient.deleteSubCategory(categoryID);
-                    if (rows > 0)
-                    {
-                        SubcategoryUpdate.Text = "Sub category deleted";
-                        SubcategoryUpdate.Visible = true;
-                    }
-                    else
-                    {
-                        SubcategoryUpdate.Text = "Could not delete sub category";
-                        SubcategoryUpdate.Visible = true;
-                    }
+                    SubcategoryUpdate.Text = "Sub category deleted";
                 }
                 else
                 {
-                    DeleteAccountInvalid.Visible = true;
+                    SubcategoryUpdate.Text = "Could not delete sub category";
                 }
+                SubcategoryUpdate.Visible = true;
+            }
+            else
+            {
+                DeleteAccountInvalid.Visible = true;
             }
         }
     }
