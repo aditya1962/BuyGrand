@@ -7,7 +7,7 @@ namespace Order_Application_Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 LoadFeedbacks();
             }
@@ -30,7 +30,7 @@ namespace Order_Application_Admin
                 {
                     feedbackContent += "<tr><td>" + row["feedbackID"] + "</td><td>" + row["message"] +
                                 "</td><td>" + row["username"] + "</td><td>" + row["submittedDate"] + "</td><td>" +
-                                row["role"]+ "</td><td><button type='button' class='btn btn-primary' id='send_" + row["feedbackID"] +
+                                row["role"] + "</td><td><button type='button' class='btn btn-primary' id='send_" + row["feedbackID"] +
                                 "' data-toggle='modal' data-target='#feedbackModal' onclick=sendFeedback(this.id)>Send Feedback</button></td></tr>";
                 }
             }
@@ -41,7 +41,7 @@ namespace Order_Application_Admin
             feedbacksHtml.InnerHtml += "<table style='width:100%;'>" + headerRow + feedbackContent + "</table>";
         }
 
-        public void Feedback_Click(object sender,EventArgs e)
+        public void Feedback_Click(object sender, EventArgs e)
         {
 
             string feedbackID = feedbackUser.Value;
@@ -49,46 +49,31 @@ namespace Order_Application_Admin
             string username = Username.Text;
             string password = Password.Text;
 
-            if(feedbackTxt=="")
+            Data.DataAccess da = new Data.DataAccess();
+            int validate = da.validateUser(username, password);
+            //set validate currently to 1
+            validate = 1;
+            if (validate == 1)
             {
-                FeedbackBlank.Visible = true;
-            }
-            else if(username=="")
-            {
-                UsernameBlank.Visible = true;
-            }
-            else if(password=="")
-            {
-                PasswordBlank.Visible = true;
+                FeedbackReference.FeedbacksSoapClient feedbackClient = new FeedbackReference.FeedbacksSoapClient();
+
+                string usernameFeedback = feedbackClient.getUsername(feedbackID);
+                int rows = feedbackClient.addAdminFeedback(usernameFeedback, feedbackTxt);
+                if (rows > 0)
+                {
+                    FeedbackAdded.Text = "Feedback added successfully";
+                    FeedbackAdded.Visible = true;
+                }
+                else
+                {
+                    FeedbackAdded.Text = "Could not add feedback";
+                    FeedbackAdded.Visible = true;
+                }
             }
             else
             {
-                Data.DataAccess da = new Data.DataAccess();
-                int validate = da.validateUser(username, password);
-                //set validate currently to 1
-                validate = 1;
-                if(validate == 1)
-                {
-                    FeedbackReference.FeedbacksSoapClient feedbackClient = new FeedbackReference.FeedbacksSoapClient();
-
-                    string usernameFeedback = feedbackClient.getUsername(feedbackID);
-                    int rows = feedbackClient.addAdminFeedback(usernameFeedback, feedbackTxt);
-                    if(rows > 0)
-                    {
-                        FeedbackAdded.Text = "Feedback added successfully";
-                        FeedbackAdded.Visible = true;
-                    }
-                    else
-                    {
-                        FeedbackAdded.Text = "Could not add feedback";
-                        FeedbackAdded.Visible = true;
-                    }
-                }  
-                else
-                {
-                    AccountInvalid.Visible = true;
-                }
-            }           
+                AccountInvalid.Visible = true;
+            }
         }
     }
 }

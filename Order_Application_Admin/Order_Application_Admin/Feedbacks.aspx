@@ -67,9 +67,11 @@
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="feedback" placeholder="Enter feedback" runat="server" TextMode="MultiLine" Columns="20" Rows="5" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="FeedbackBlank" runat="server" ErrorMessage="Feedback cannot be blank" ControlToValidate="feedback" ValidationGroup="SendFeedback" Font-Size="15px"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="FeedbackType" runat="server" ErrorMessage="Feedback cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="feedback" ValidationGroup="SendFeedback" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <br />
-                                                <asp:Label ID="FeedbackBlank" runat="server" Text="Feedback cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
                                             </div>
                                             <br />
                                             <div class="row">
@@ -78,9 +80,11 @@
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="Username" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="UsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="Username" Font-Size="15px" ValidationGroup="SendFeedback"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="UsernameType" runat="server" ErrorMessage="Username cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="Username" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="SendFeedback"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <br />
-                                                <asp:Label ID="UsernameBlank" runat="server" Text="Username cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
                                             </div>
                                             <br />
                                             <div class="row">
@@ -89,15 +93,17 @@
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
                                                     <asp:TextBox ID="Password" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <br />
+                                                    <asp:RequiredFieldValidator ID="PasswordBlank" runat="server" ErrorMessage="Password cannot be blank" Font-Size="15px" ControlToValidate="Password" ValidationGroup="SendFeedback"></asp:RequiredFieldValidator>
+                                                    <br />
+                                                    <asp:RegularExpressionValidator ID="PasswordType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="Password" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="SendFeedback"></asp:RegularExpressionValidator>
                                                 </div>
-                                                <br />
-                                                <asp:Label ID="PasswordBlank" runat="server" Text="Password cannot be blank" style="font-size:15px;color:red;" Visible="false"></asp:Label>
                                             </div>
                                             <asp:Label ID="AccountInvalid" runat="server" Text="Username and/or Password incorrect" Style="font-size: 15px; color: red;" Visible="false"></asp:Label>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Send" style="font-size:15px;" OnClick="Feedback_Click"></asp:button>
+                                            <asp:button type="button" class="btn btn-primary" runat="server" Text="Send" style="font-size:15px;" OnClick="Feedback_Click" ValidationGroup="SendFeedback"></asp:button>
                                         </div>
                                     </div>
                                 </div>

@@ -66,7 +66,16 @@ namespace Order_Application_Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FeedbackBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FeedbackBlank;
+
+        /// <summary>
+        /// FeedbackType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator FeedbackType;
 
         /// <summary>
         /// Username control.
@@ -84,7 +93,16 @@ namespace Order_Application_Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsernameBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator UsernameBlank;
+
+        /// <summary>
+        /// UsernameType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator UsernameType;
 
         /// <summary>
         /// Password control.
@@ -102,7 +120,16 @@ namespace Order_Application_Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordBlank;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordBlank;
+
+        /// <summary>
+        /// PasswordType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator PasswordType;
 
         /// <summary>
         /// AccountInvalid control.
