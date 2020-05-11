@@ -5,9 +5,36 @@ namespace Order_Application_Admin
 {
     public partial class ApproveSeller : System.Web.UI.Page
     {
+        public enum State
+        {
+            Validated,
+            Unvalidated,
+            Invalidated
+        }
+
+        public State UserValidated { get; set; }
+        protected void Page_PreLoad(object sender,EventArgs e)
+        {
+            if(Session["ValidateApprove"]!=null && Session["ValidateApprove"].ToString().Equals("validated"))
+            {
+                ValidateAccount.Visible = false;
+                this.UserValidated = State.Validated;
+            }
+            else
+            {
+                this.UserValidated = State.Unvalidated;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            
+        }
+
+        protected void Page_LoadComplete(object sender,EventArgs e)
+        {
+            State validatedState = this.UserValidated;
+            if(validatedState.Equals(State.Validated))
             {
                 LoadSellerDetails();
             }
@@ -43,9 +70,25 @@ namespace Order_Application_Admin
             approveSellerHtml.InnerHtml += "<table style='width:100%;'>" + headerRow + sellerContent + "</table>";
         }
 
-        public void Approve_Click(object sender,EventArgs e)
+        public void Validate_Click(object sender,EventArgs e)
         {
+            string username = Username.Text;
+            string password = Password.Text;
 
+            Data.DataAccess da = new Data.DataAccess();
+            int validate = da.validateUser(username, password);
+            //currently set validate to 1
+            validate = 1;
+            if(validate==1)
+            {
+                Session["ValidateApprove"] = "validated";
+                Response.Redirect("ApproveSeller.aspx");
+            }
+            else
+            {
+                ValidateUser.Text = "Incorrect username/password";
+                ValidateUser.Visible = true;
+            }
         }
     }
 }
