@@ -19,17 +19,29 @@
             font-size: 15px;
             border: 1px solid #000000;
         }
-        td
-        {
-            border:1px solid #000000;
-            font-size:15px;
+
+        td {
+            border: 1px solid #000000;
+            font-size: 15px;
         }
-        [type=button]
-        {
-            font-size:15px;
+
+        [type=button] {
+            font-size: 15px;
         }
-        label
+
+        label {
+            font-size: 15px;
+        }
+
+        #paginationHtml td
         {
+            border:0px;
+        }
+
+        #paginationHtml a
+        {
+            color:white;
+            text-decoration:none;
             font-size:15px;
         }
     </style>
@@ -49,7 +61,18 @@
                     <div class="card">
                         <div class="card-body">
                             <asp:Label ID="FeedbackAdded" runat="server" Text="" Visible="false" style="font-size:15px;"></asp:Label>
+                            <div class="row">
+                                <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
+                                    <label style="font-size:15px;">Filter</label>
+                                </div>
+                                <div class="col-md-3 col-lg-3">
+                                    <asp:DropDownList ID="FilterValues" style="font-size:15px;" CssClass="form-control" runat="server"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <br />
                             <div id="feedbacksHtml" runat="server"></div>
+                            <br />
+                            <div id="paginationHtml" runat="server"></div>
                             <input type="hidden" id="feedbackUser" value="" runat="server" />
                             <div class="modal" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document" style=""max-width:75%;">

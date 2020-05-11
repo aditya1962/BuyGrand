@@ -33,6 +33,15 @@ namespace Order_Application_Admin
         protected global::System.Web.UI.WebControls.Label FeedbackAdded;
 
         /// <summary>
+        /// FilterValues control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList FilterValues;
+
+        /// <summary>
         /// feedbacksHtml control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Order_Application_Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl feedbacksHtml;
+
+        /// <summary>
+        /// paginationHtml control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paginationHtml;
 
         /// <summary>
         /// feedbackUser control.
