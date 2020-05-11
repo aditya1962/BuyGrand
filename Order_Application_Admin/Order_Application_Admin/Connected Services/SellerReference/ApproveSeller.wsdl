@@ -3,7 +3,12 @@
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ApproveSeller.asmx/">
       <s:element name="approveSellers">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startIndex" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="endIndex" type="s:int" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="approveSellersResponse">
         <s:complexType>

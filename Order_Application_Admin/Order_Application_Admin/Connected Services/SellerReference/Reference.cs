@@ -18,10 +18,10 @@ namespace Order_Application_Admin.SellerReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ApproveSeller.asmx/approveSellers", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable approveSellers();
+        System.Data.DataTable approveSellers(int startIndex, int endIndex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ApproveSeller.asmx/approveSellers", ReplyAction="*")]
-        System.Threading.Tasks.Task<System.Data.DataTable> approveSellersAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> approveSellersAsync(int startIndex, int endIndex);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ApproveSeller.asmx/approveSeller", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -58,12 +58,12 @@ namespace Order_Application_Admin.SellerReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Data.DataTable approveSellers() {
-            return base.Channel.approveSellers();
+        public System.Data.DataTable approveSellers(int startIndex, int endIndex) {
+            return base.Channel.approveSellers(startIndex, endIndex);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> approveSellersAsync() {
-            return base.Channel.approveSellersAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> approveSellersAsync(int startIndex, int endIndex) {
+            return base.Channel.approveSellersAsync(startIndex, endIndex);
         }
         
         public int approveSeller(string id) {

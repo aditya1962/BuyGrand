@@ -29,6 +29,16 @@
         {
             font-size:15px;
         }
+        #paginationHtml td
+        {
+            border:0px;
+        }
+        #paginationHtml a
+        {
+            color:white;
+            text-decoration:none;
+            font-size:15px;
+        }
     </style>
 </head>
 <body>
@@ -56,7 +66,18 @@
                             <br />
                             <asp:Label ID="ValidateUser" runat="server" Text="" style="font-size:15px;" Visible="false"></asp:Label>
                             <br />
+                            <div class="row" id="FilterRow" runat="server" visible="false">
+                                <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
+                                    <label style="font-size:15px;">Filter</label>
+                                </div>
+                                <div class="col-md-3 col-lg-3">
+                                    <asp:DropDownList ID="FilterVal" runat="server" CssClass="form-control" style="font-size:15px;" AutoPostBack="True" OnSelectedIndexChanged="FilterVal_SelectedIndexChanged"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <br />
                            <div id="approveSellerHtml" runat="server"></div>
+                            <br />
+                            <div id="paginationHtml" runat="server"></div>
                             <div class="modal" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document" style=""max-width:75%;">
                                     <div class="modal-content">

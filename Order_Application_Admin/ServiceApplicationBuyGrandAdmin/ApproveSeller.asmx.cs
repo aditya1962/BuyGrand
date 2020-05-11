@@ -16,7 +16,7 @@ namespace ServiceApplicationBuyGrandAdmin
         Logging logging;
 
         [WebMethod]
-        public DataTable approveSellers()
+        public DataTable approveSellers(int startIndex,int endIndex)
         {
             try
             {
@@ -25,6 +25,8 @@ namespace ServiceApplicationBuyGrandAdmin
                     connection.Open();
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_approveSellers", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    adapter.SelectCommand.Parameters.AddWithValue("offset", startIndex);
+                    adapter.SelectCommand.Parameters.AddWithValue("rowsToReturn", endIndex);
                     DataTable sellers = new DataTable("Sellers");
                     adapter.Fill(sellers);
                     connection.Close();
