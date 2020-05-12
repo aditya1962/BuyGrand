@@ -36,6 +36,7 @@ textarea {
     padding:15% 3% 15% 15%;
     margin:0%;
     font-size:17px;
+    height:100%;
 }
 
 .navigation-vertical a
@@ -46,7 +47,7 @@ textarea {
 
 .navigation-vertical .row
 {
-    height:45px;
+    height:55px;
     align-items:center;
 }
 
@@ -57,7 +58,13 @@ textarea {
 
 .navigation-vertical .icon
 {
-    flex:20%;
+    margin:0% 7% 0% 0%;
+}
+
+.navigation-vertical img
+{
+    width:20px;
+    height:20px;
 }
 
 .navigation-horizontal
@@ -91,6 +98,7 @@ textarea {
 .user-div
 {
     position:relative;
+    padding:5%;
 }
 
 .paginationDiv
