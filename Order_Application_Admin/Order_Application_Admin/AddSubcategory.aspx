@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddSubcategory.aspx.cs" Inherits="Order_Application_Admin.Add_Subcategory" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationVertical" Src="~/UserControls/VerticalNavigation.ascx" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationHorizontal" Src="~/UserControls/Navigation.ascx" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="UserControl" TagName="Footer" %>
 
 <!DOCTYPE html>
 
@@ -224,6 +225,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <!--Footer-->
+            <div class="footer">
+                <UserControl:Footer runat="server" id="Footer" />
             </div>
         </div>
     </form>

@@ -1,8 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSales.aspx.cs" Inherits="Order_Application_Admin.ViewSales" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationVertical" Src="~/UserControls/VerticalNavigation.ascx" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationHorizontal" Src="~/UserControls/Navigation.ascx" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="UserControl" TagName="Footer" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
+
 
 <!DOCTYPE html>
 
@@ -63,10 +66,9 @@
             </div>
             <!--Footer-->
             <div class="footer">
-
+                <UserControl:Footer runat="server" ID="Footer" />
             </div>
         </div>
-        
     </form>
 </body>
 </html>

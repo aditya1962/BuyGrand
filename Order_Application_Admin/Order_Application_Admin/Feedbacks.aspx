@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feedbacks.aspx.cs" Inherits="Order_Application_Admin.Feedbacks" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationVertical" Src="~/UserControls/VerticalNavigation.ascx" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationHorizontal" Src="~/UserControls/Navigation.ascx" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="UserControl" TagName="Footer" %>
 
 <!DOCTYPE html>
 
@@ -137,7 +138,7 @@
             </div>
             <!--Footer-->
             <div class="footer">
-
+                <UserControl:Footer runat="server" ID="Footer" />
             </div>
         </div>
     </form>

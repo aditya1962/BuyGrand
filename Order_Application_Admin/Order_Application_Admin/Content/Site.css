@@ -1,6 +1,7 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-    padding-bottom: 20px;
+﻿body
+{
+    font-size:15px;
+    min-height:650px;
 }
 
 /* Wrapping element */
@@ -37,6 +38,7 @@ textarea {
     margin:0%;
     font-size:17px;
     height:100%;
+    min-height:480px;
 }
 
 .navigation-vertical a
@@ -104,4 +106,9 @@ textarea {
 .paginationDiv
 {
     margin:auto;
+}
+
+.footer
+{
+    padding:4% 0% 1% 0%;
 }

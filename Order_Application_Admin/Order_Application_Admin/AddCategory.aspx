@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddCategory.aspx.cs" Inherits="Order_Application_Admin.AddCategory" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationVertical" Src="~/UserControls/VerticalNavigation.ascx" %>
 <%@ Register TagPrefix="UserControl" TagName="NavigationHorizontal" Src="~/UserControls/Navigation.ascx" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="UserControl" TagName="Footer" %>
 
 <!DOCTYPE html>
 
@@ -15,10 +16,6 @@
     <script src="Scripts/Site.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <style type="text/css">
-        body
-        {
-            font-size:15px;
-        }
         th {
             font-size: 15px;
             border: 1px solid #000000;
@@ -240,6 +237,7 @@
             </div>
             <!--Footer-->
             <div class="footer">
+                <UserControl:Footer runat="server" id="Footer" />
             </div>
         </div>
     </form>
