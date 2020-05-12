@@ -147,12 +147,17 @@ namespace Order_Application_Admin
             double pages = Math.Ceiling(Convert.ToDouble(sellerCount) / Convert.ToInt32(filter));
             int previous = 1, next = 1;
 
+            if (page == 1)
+            {
+                previous = 1;
+            }
+            if (page == pages)
+            {
+                next = page;
+            }
             if (page > 1)
             {
                 previous = page - 1;
-            }
-            if (page < pages)
-            {
                 next = page + 1;
             }
 

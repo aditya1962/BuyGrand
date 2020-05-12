@@ -114,14 +114,18 @@ namespace Order_Application_Admin
             int next = 1;
 
             double pages = Math.Ceiling((double)feedbacksData.Rows.Count / filter);
-            if(pages > 1)
+            if (page == 1)
+            {
+                previous = 1;
+            }
+            if (page == pages)
+            {
+                next = page;
+            }
+            if (page > 1)
             {
                 previous = page - 1;
                 next = page + 1;
-            }
-            else if(page==pages)
-            {
-                next = page;
             }
 
             paginationCont += "<td><button class='btn btn-primary' style='margin:0% 3%;'><a href='Feedbacks.aspx?page=" +
