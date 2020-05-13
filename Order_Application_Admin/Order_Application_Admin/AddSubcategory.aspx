@@ -16,23 +16,10 @@
     <link rel="icon" href="images/logo.ico" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <style type="text/css">
-        th
+        .subcategory-values
         {
-            font-size:15px;
-            border:1px solid #000000;
-        }
-        td
-        {
-           border:1px solid #000000;
-           font-size:15px;
-        }
-        [type=button]
-        {
-            font-size:15px;
-        }
-        button, label, input[type=text]
-        {
-            font-size:15px;
+            font-size: 15px;
+            border: 1px solid #000000;
         }
         #paginationHtml a
         {
@@ -54,13 +41,13 @@
                 <div class="col-md-2 col-lg-2">
                     <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
-                <div class="col-md-9 col-lg-9">
+                <div class="col-md-9 col-lg-9 content">
                     <h3 style="font-size:25px;">Add Sub Category</h3>
                     <br />
                     <div class="card">
                         <div class="card-body">
                             <div class="row" style="padding:10px 0px;">
-                                <div class="col-md-2 col-lg-2" style="text-align:center;">
+                                <div class="col-md-2 col-lg-2">
                                     <label>Select Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
@@ -70,7 +57,7 @@
                             </div>
                             <br />
                             <div class="row" style="padding:10px 0px;">
-                                <div class="col-md-2 col-lg-2" style="text-align:center;">
+                                <div class="col-md-2 col-lg-2">
                                     <label>Sub Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">

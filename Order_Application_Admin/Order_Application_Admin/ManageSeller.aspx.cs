@@ -51,8 +51,7 @@ namespace Order_Application_Admin
         {
             string sellerContent = "";
             string headerRow = "<tr><th style='width:15%;'> Username </th><th style='width:20%;'> Name </th>" +
-                                "<th> Country </th><th> Gender </th><th> Email address </th><th> Delete </th>" +
-                                "<th>Send Message</th></tr>";
+                                "<th> Country </th><th> Gender </th><th> Email address </th><th colspan='2'>&nbsp;</th></tr>";
             manageSellers = new ManageSellerReference.ManageSellerSoapClient();
             sellers = manageSellers.manageSellers(startIndex, items);
             sellerCount = sellers.Rows.Count;
@@ -67,13 +66,14 @@ namespace Order_Application_Admin
                     else
                     {
                         DataRow row = sellers.Rows[i];
-                        sellerContent += "<tr><td>" + row["username"] + "</td><td>" + row["firstName"] +
-                                    " " + row["lastName"] + "</td><td>" + row["country"] + "</td><td>" +
-                                    row["gender"] + "</td><td>" + row["emailAddress"] + "</td><td>" +
+                        sellerContent += "<tr><td class='seller-values'>" + row["username"] + "</td><td class='seller-values'>" + row["firstName"] +
+                                    " " + row["lastName"] + "</td><td class='seller-values'>" + row["country"] + "</td><td class='seller-values'>" +
+                                    row["gender"] + "</td><td class='seller-values'>" + row["emailAddress"] + "</td><td class='control-btn'>" +
                                     "<button type='button' class='btn btn-primary' id='delete_" + row["username"] +
-                                    "' data-toggle='modal' data-target='#deleteModal' onclick=deleteClick(this.id)>Delete</button></td><td><button type='button' class='btn btn-primary' id='" +
+                                    "' data-toggle='modal' data-target='#deleteModal' onclick=deleteClick(this.id) title='Delete Seller'>Delete</button></td>" +
+                                    "<td class='control-btn' style='border-right:1px solid #000000;'><button type='button' class='btn btn-primary' id='" +
                                     "sendmessage_" + row["username"] + "' onclick=sendMessage(this.id) data-toggle='modal' " +
-                                    "data-target='#sendMessageModal'>Send Message</button></td></tr>";
+                                    "data-target='#sendMessageModal' title='Send Email to Seller'>Send Message</button></td></tr>";
                     }
                 }
             }
@@ -161,15 +161,15 @@ namespace Order_Application_Admin
                 next = page + 1;
             }
 
-            string pageHtml = "<td><a href='ManageSeller.aspx?page=" + previous +
-                "' class='btn btn-primary'> Previous </a></td>";
+            string pageHtml = "<td><button class='btn btn-primary previous'><a href='ManageSeller.aspx?page=" + previous +
+                "&filter=" + filter + "'> Previous </a></button></td>";
             for (int i = 1; i <= pages; i++)
             {
-                pageHtml += "<td><a href='ManageSeller.aspx?page=" + i +
-                    "' class='btn btn-primary'>" + i + "</a></td>";
+                pageHtml += "<td><button class='btn btn-primary'><a href='ManageSeller.aspx?page=" + i +
+                    "&filter="+ filter + "'>" + i + "</a></button></td>";
             }
-            pageHtml += "<td><a href='ManageSeller.aspx?page=" + next +
-                "' class='btn btn-primary'> Next </a></td>";
+            pageHtml += "<td><button class='btn btn-primary next'><a href='ManageSeller.aspx?page=" + next +
+                "&filter=" + filter + "'> Next </a></button></td>";
             pagination.InnerHtml = "<table style='margin:auto;'><tr>" + pageHtml + "</tr></table>";
         }
 

@@ -53,7 +53,7 @@ namespace Order_Application_Admin
             feedbacksData = feedbackClient.viewFeedbacks();
 
             string headerRow = "<tr><th style='width:15%;'> Feedback ID </th><th style='width:25%;'> Feedback </th><th style='width:10%;'> Username </th>" +
-                                "<th style='width:10%;'> Submitted Date </th><th style='width:15%;'>Role</th><th style='width:15%;'>&nbsp;</th></tr>";
+                                "<th style='width:20%;'> Submitted Date </th><th style='width:10%;'>Role</th><th style='width:15%;'>&nbsp;</th></tr>";
             int feedbackCount = feedbacksData.Rows.Count;
             if (feedbackCount > 0)
             {
@@ -128,16 +128,16 @@ namespace Order_Application_Admin
                 next = page + 1;
             }
 
-            paginationCont += "<td><button class='btn btn-primary' style='margin:0% 3%;'><a href='Feedbacks.aspx?page=" +
+            paginationCont += "<td><button class='btn btn-primary previous'><a href='Feedbacks.aspx?page=" +
                     previous + "&filter=" + filter + "'>Previous</a></button></td>";
 
             for (int i = 1; i <= pages; i++)
             {
-                paginationCont += "<td><button class='btn btn-primary' style='margin:0% 3%;'><a href='Feedbacks.aspx?page=" +
+                paginationCont += "<td><button class='btn btn-primary' style='margin:0% 2%;'><a href='Feedbacks.aspx?page=" +
                                     i + "&filter=" + filter + "'>" + i + "</a></button></td>";
             }
 
-            paginationCont += "<td><button class='btn btn-primary' style='margin:0% 3%;'><a href='Feedbacks.aspx?page=" +
+            paginationCont += "<td><button class='btn btn-primary next'><a href='Feedbacks.aspx?page=" +
                     next + "&filter=" + filter + "'>Next</a></button></td>";
 
             paginationHtml.InnerHtml = "<table style='margin:auto;'><tr>" + paginationCont + "</tr></table>"; 

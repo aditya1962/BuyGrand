@@ -113,16 +113,16 @@ namespace Order_Application_Admin
                 {
                     next = page;
                 }
-                paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'><a href='" +
+                paginationContent += "<td><button class='btn btn-primary previous'><a href='" +
                                         "ApproveSeller.aspx?page=" + previous + "&filter=" + filter + "'>" +
                                         "Previous</a></button></td>";
                 for (int i = 1; i <= pages; i++)
                 {
-                    paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'><a href='" +
+                    paginationContent += "<td><button class='btn btn-primary' style='margin:0% 2%;'><a href='" +
                                          "ApproveSeller.aspx?page=" + i + "&filter=" + filter + "'>" + i + "</a>" +
                                          "</button></td>";
                 }
-                paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'><a href='" +
+                paginationContent += "<td><button class='btn btn-primary next'><a href='" +
                                         "ApproveSeller.aspx?page=" + next + "&filter=" + filter + "'>" +
                                         "Next</a></button></td>";
                 paginationHtml.InnerHtml = "<table style='margin:auto;'><tr>" + paginationContent + "</tr></table>";

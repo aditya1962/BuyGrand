@@ -30,6 +30,60 @@ textarea {
     }
 }
 
+.noscriptdiv
+{
+    text-align:center;
+    background-color:red;
+    padding:5px;
+}
+
+.noscriptdiv p
+{
+    color:white;
+}
+
+.content {
+    padding: 2% 1%;
+}
+
+th
+{
+    font-size: 15px;
+    border: 1px solid #000000;
+}
+
+td
+{
+    border: 1px solid #000000;
+    font-size: 15px;
+}
+
+[type=button]
+{
+    font-size: 15px;
+}
+
+button a
+{
+    color: white;
+    font-size: 15px;
+}
+
+button a:hover
+{
+    color: white;
+    text-decoration: none;
+}
+
+.control-btn
+{
+    font-size: 15px;
+    border-top: 1px solid #000000;
+    border-right: 0px;
+    border-bottom: 1px solid #000000;
+    border-left: 0px;
+}
+
 .navigation-vertical
 {
     background-color:darkblue;
@@ -111,4 +165,14 @@ textarea {
 .footer
 {
     padding:4% 0% 1% 0%;
+}
+
+.previous
+{
+    margin: 0% -2%;
+}
+
+.next
+{
+    margin:0% 5%;
 }

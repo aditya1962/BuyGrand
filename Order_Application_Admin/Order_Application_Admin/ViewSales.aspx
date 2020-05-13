@@ -19,6 +19,12 @@
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <script src="Scripts/jquery-3.4.1.js"></script>
     <script src="Scripts/Site.js"></script>
+    <style type="text/css">
+        td
+        {
+            border:0px;
+        }
+    </style>
 </head>
 <body>
     <form id="view_sales" runat="server">
@@ -28,7 +34,7 @@
                 <div class="col-md-2 col-lg-2">
                     <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
-                <div class="col-md-9 col-lg-9">
+                <div class="col-md-9 col-lg-9 content">
                     <h3 style="font-size:25px;">View Sales</h3>
                     <br />
                     <div class="card">
@@ -37,7 +43,7 @@
                                <div class="col-md-2 col-lg-2">
                                    <label style="font-size:15px;">Start Date</label>
                                </div>
-                               <div class="col-md-2 col-lg-2"> 
+                               <div class="col-md-3 col-lg-3"> 
                                    <asp:TextBox ID="startdate" type="date" class="form-control"  style="font-size:15px;" runat="server"></asp:TextBox>
                                </div>
                                <div class="col-md-2 col-lg-2 offset-md-1 offset-lg-1">
@@ -45,10 +51,10 @@
                                    <br />
                                    <asp:Label ID="dateErrorLabel" style="color:red;font-size:15px;" runat="server" Visible="false">Pick a date after the start date</asp:Label>
                                </div>
-                               <div class="col-md-2 col-lg-2">
+                               <div class="col-md-3 col-lg-3">
                                    <asp:TextBox ID="enddate" type="date" class="form-control"  style="font-size:15px;" runat="server"></asp:TextBox>
                                </div>
-                               <div class="col-md-3 col-lg-3">
+                               <div class="col-md-1 col-lg-1">
                                    <asp:Button ID="View" class="btn btn-primary" text="View" style="font-size:15px;" runat="server" onclick="View_Click"></asp:Button>
                                </div>
                                <asp:ScriptManager ID="ScriptManager1" runat="server">

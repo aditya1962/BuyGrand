@@ -15,29 +15,16 @@
     <script type="text/javascript" src="Scripts/jquery-3.4.1.js"></script>
     <script src="Scripts/Site.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
-    <style type="text/css">
-        th {
+    <style type="text/css">       
+        .category-values
+        {
             font-size: 15px;
             border: 1px solid #000000;
         }
 
-        #manageCategoryHtml td {
-            font-size: 15px;
-            border: 1px solid #000000;
-        }
-
-            #manageCategoryHtml td input[type=button] {
+        #manageCategoryHtml td input[type=button]
+        {
                 font-size: 15px;
-            }
-        
-        [type=button]
-        {
-            font-size:15px;
-        }
-        button a
-        {
-            color:white;
-            font-size:15px;
         }
     </style>
 </head>
@@ -49,35 +36,41 @@
                 <div class="col-md-2 col-lg-2">
                     <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
-                <div class="col-md-9 col-lg-9">
+                <div class="col-md-9 col-lg-9 content">
                     <h3 style="font-size: 25px;">Add Category</h3>
                     <br />
                     <div class="card">
                         <div class="card-body">
                             <div class="row" style="padding: 10px 0px;">
-                                <div class="col-md-2 col-lg-2" style="text-align: center;">
+                                <div class="col-md-2 col-lg-2" style="padding:0% 2%;">
                                     <label style="font-size: 17px;">Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
                                     <asp:TextBox ID="category" class="form-control" placeholder="Enter category name" Style="font-size: 15px;" runat="server"></asp:TextBox>
-                                    <br />
+                                </div>
+                                <div class="col-md-5 col-lg-5 offset-md-1 offset-lg-1">
                                     <asp:RequiredFieldValidator ID="CategoryBlank" runat="server" ErrorMessage="Category cannot be blank" ValidationGroup="AddCategory" ControlToValidate="category"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator ID="CategoryType" runat="server" ErrorMessage="Category cannot be a number" ControlToValidate="category" ValidationGroup="AddCategory" ValidationExpression="(?!^\d+$)^.+$" Display="Dynamic"></asp:RegularExpressionValidator>
                                 </div>
                             </div>
+                            <br />
                             <div class="row" style="padding: 10px 0px;">
-                                <div class="col-md-2 col-lg-2" style="text-align: center;">
-                                    <label style="font-size: 17px;">Sub Category</label>
+                                <div class="col-md-2 col-lg-2" style="padding:0% 2%;">
+                                    <label style="font-size: 17px; ">Sub Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
                                     <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory name" Style="font-size: 15px;" runat="server"></asp:TextBox>
-                                    <br />
+                                </div>
+                                <div class="col-md-5 col-lg-5 offset-md-1 offset-lg-1">
                                     <asp:RequiredFieldValidator ID="SubCategoryBlank" runat="server" ErrorMessage="Sub category cannot be blank" ControlToValidate="subcategory" ValidationGroup="AddCategory"></asp:RequiredFieldValidator>
                                     <br />
                                     <asp:RegularExpressionValidator ID="SubCategoryType" runat="server" ErrorMessage="Sub category cannot be a number" Display="Dynamic" ControlToValidate="subcategory" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddCategory"></asp:RegularExpressionValidator>
                                 </div>
-                                <div class="col-md-3 col-lg-3">
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3 col-lg-3 offset-md-2 offset-lg-2">
                                     <asp:Button ID="addcategory" class="btn btn-primary" type="Button" Text="Add Category" Style="font-size: 15px;" runat="server" OnClick="addcategory_Click" ValidationGroup="AddCategory"></asp:Button>
                                 </div>
                             </div>
@@ -103,8 +96,7 @@
                             </div>
                             <asp:Label ID="UpdateSuccess" runat="server" Text="Updated Successfully" Visible="false"></asp:Label>
                             <br />
-                            <div id="manageCategoryHtml" style="margin: 4% 0%;" runat="server"></div>
-                            <br />
+                            <div id="manageCategoryHtml" style="margin: 2% 0%;" runat="server"></div>
                             <br />
                             <div id="paginationDiv" runat="server"></div>
                             <div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">

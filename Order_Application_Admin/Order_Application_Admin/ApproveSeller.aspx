@@ -16,20 +16,6 @@
     <script src="Scripts/Site.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <style type="text/css">
-        th
-        {
-            font-size:15px;
-            border:1px solid #000000;
-        }
-        td
-        {
-            border: 1px solid #000000;
-            font-size:15px;
-        }
-        [type=button]
-        {
-            font-size:15px;
-        }
         #paginationHtml td
         {
             border:0px;
@@ -50,7 +36,7 @@
                 <div class="col-md-2 col-lg-2">
                     <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
-                <div class="col-md-9 col-lg-9">
+                <div class="col-md-9 col-lg-9 content">
                     <h3 style="font-size:25px;">Approve Sellers</h3>
                     <br />
                     <div class="card">
@@ -66,12 +52,11 @@
                             </div>
                             <br />
                             <asp:Label ID="ValidateUser" runat="server" Text="" style="font-size:15px;" Visible="false"></asp:Label>
-                            <br />
                             <div class="row" id="FilterRow" runat="server" visible="false">
-                                <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
+                                <div class="col-md-1 col-lg-1 offset-md-9 offset-lg-9">
                                     <label style="font-size:15px;">Filter</label>
                                 </div>
-                                <div class="col-md-3 col-lg-3">
+                                <div class="col-md-2 col-lg-2">
                                     <asp:DropDownList ID="FilterVal" runat="server" CssClass="form-control" style="font-size:15px;" AutoPostBack="True" OnSelectedIndexChanged="FilterVal_SelectedIndexChanged"></asp:DropDownList>
                                 </div>
                             </div>

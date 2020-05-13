@@ -17,20 +17,6 @@
     <link rel="icon" href="images/logo.ico" />
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <style type="text/css">
-        th {
-            font-size: 15px;
-            border: 1px solid #000000;
-        }
-
-        td {
-            border: 1px solid #000000;
-            font-size: 15px;
-        }
-
-        [type=button], label, span {
-            font-size: 15px;
-        }
-
         #pagination td {
             border: 0px;
             padding: 0% 3%;
@@ -49,7 +35,7 @@
                 <div class="col-md-2 col-lg-2">
                     <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
-                <div class="col-md-9 col-lg-9">
+                <div class="col-md-9 col-lg-9 content">
                     <h3 style="font-size: 25px;">Manage Sellers</h3>
                     <br />
                     <div class="card">

@@ -74,12 +74,15 @@ namespace Order_Application_Admin
             {
                 foreach (DataRow row in subcategories.Rows)
                 {
-                    subcategoryContent += "<tr><td>" + row["categoryID"] + "</td><td>" + row["subcategory"] +
-                                    "</td><td>" + row["itemCount"] + "</td><td>" +
+                    subcategoryContent += "<tr><td class='subcategory-values'>" + row["categoryID"] +
+                                    "</td><td class='subcategory-values'>" + row["subcategory"] +
+                                    "</td><td class='subcategory-values'>" + row["itemCount"] + "</td><td class='control-btn'>" +
                                     "<button type='button' class='btn btn-primary' data-toggle='modal'" +
                                     "data-target='#editModal' id=edit_" + row["categoryID"] +
-                                    " onclick='editClick(this.id)'>Edit</button></td><td><button type='button' class='btn btn-primary' data-toggle='modal'" +
-                                    "data-target='#deleteModal' id=delete_" + row["categoryID"] + " onclick='deleteClick(this.id)'>Delete</button></td></tr>";
+                                    " onclick='editClick(this.id)' title='Edit Subcategory'>Edit</button></td><td class='control-btn' style='border-right:1px solid #000000;'>" +
+                                    "<button type='button' class='btn btn-primary' data-toggle='modal'" +
+                                    "data-target='#deleteModal' id=delete_" + row["categoryID"] + " onclick='deleteClick(this.id)' title='Delete Subcategory'>" +
+                                    "Delete</button></td></tr>";
                 }
             }
             else
@@ -134,16 +137,16 @@ namespace Order_Application_Admin
                 next = page + 1;
             }
 
-            paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'>" +
+            paginationContent += "<td><button class='btn btn-primary previous'>" +
                                 "<a href='AddSubcategory.aspx?page=" + previous + "&filter=" + filtered +
                                 "'>Previous</a></button>";
             for (int i = 1; i <= pages; i++)
             {
-                paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'>" +
+                paginationContent += "<td><button class='btn btn-primary' style='margin:0% 2%;'>" +
                                 "<a href='AddSubcategory.aspx?page=1&filter=" + filtered +
                                 "'>" + i + "</a></button>";
             }
-            paginationContent += "<td><button class='btn btn-primary' style='margin:0% 3%;'>" +
+            paginationContent += "<td><button class='btn btn-primary next'>" +
                                 "<a href='AddSubcategory.aspx?page=" + next + "&filter=" + filtered +
                                 "'>Next</a></button>";
             paginationHtml.InnerHtml = "<table style='margin:auto;border:0px;'><tr>" + paginationContent + "</tr></table>";

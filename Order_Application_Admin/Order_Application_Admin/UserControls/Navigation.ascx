@@ -1,4 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Navigation.ascx.cs" Inherits="Order_Application_Admin.UserControls.Navigation" %>
+<noscript>
+    <div class="noscriptdiv">
+        <p> JavaScript must be enabled to make the site work properly</p>
+    </div>
+</noscript>
 <div class="navigation-horizontal">
     <div class="row">
         <div class="col-md-2 col-lg-2 logo-image">

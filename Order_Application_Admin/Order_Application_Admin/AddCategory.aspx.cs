@@ -60,8 +60,8 @@ namespace Order_Application_Admin
         {
             string categoryContent = "";
 
-            string headerRow = "<tr><th style='width:25%;'> Category Name </th><th style='width:10%;'> Number of subcategories </th>" +
-                                "<th style='width:10%;'> Number of items </th><th colspan='3'>&nbsp;</th></tr>";
+            string headerRow = "<tr><th style='width:25%;'> Category Name </th><th style='width:20%;'> Number of subcategories </th>" +
+                                "<th style='width:20%;'> Number of items </th><th colspan='3'>&nbsp;</th></tr>";
 
             categories = categoryReference.categories(startIndex, endIndex);
             int categoryCount = categories.Rows.Count;
@@ -71,8 +71,9 @@ namespace Order_Application_Admin
                 foreach (DataRow row in categories.Rows)
                 {
                     string category = row["category"].ToString();
-                    categoryContent += "<tr><td>" + category +
-                                "</td><td>" + row["subcategoryCount"] + "</td><td>";
+                    categoryContent += "<tr><td class='category-values'>" + category +
+                                "</td><td class='category-values'>" + row["subcategoryCount"] + 
+                                "</td><td class='category-values'>";
                     if (row["itemCount"] == DBNull.Value)
                     {
                         categoryContent += "0";
@@ -82,12 +83,13 @@ namespace Order_Application_Admin
                         categoryContent += row["itemCount"];
                     }
                     category = category.Replace(" ", "_");
-                    categoryContent += "</td><td><button type='button' class='btn btn-primary' data-toggle='modal'" +
-                                "data-target='#editModal' id=edit_" + rowid + " onclick=editClick(this.id)>Edit</button></td><td>" +
-                                "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#deleteModal' " +
-                                "id=delete_" + rowid + " onclick=deleteClick(this.id)>Delete</button></td><td><button type='button'" +
-                                "class='btn btn-primary' data-toggle='modal' data-target='#subcategoryModal' id=" + category +
-                                " onclick=subcategoryClick(this.id)> View Subcategories</button></td></tr>";
+                    categoryContent += "</td><td class='control-btn'><button type='button' class='btn btn-primary' data-toggle='modal'" +
+                                "data-target='#editModal' id=edit_" + rowid + " onclick=editClick(this.id) title='Edit Category'>Edit</button>" +
+                                "</td><td class='control-btn'><button type='button' class='btn btn-primary' data-toggle='modal'" +
+                                " data-target='#deleteModal' id=delete_" + rowid + " onclick=deleteClick(this.id) title='Delete Category'>Delete" +
+                                "</button></td><td class='control-btn' style='border-right:1px solid #000000;'>" +
+                                "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#subcategoryModal' id=" + category +
+                                " onclick=subcategoryClick(this.id) title='View subcategories of category'> View Subcategories</button></td></tr>";
                     rowid++;
                 }
             }
@@ -180,14 +182,14 @@ namespace Order_Application_Admin
                 previous = page - 1;
                 next = page + 1;
             }
-            paginationDivHtml += "<td><button class='btn btn-primary' style='margin:0% 2%;'><a href='AddCategory.aspx?page=" + previous +
+            paginationDivHtml += "<td><button class='btn btn-primary previous'><a href='AddCategory.aspx?page=" + previous +
                                     "&filter=" + filter + "'>Previous</a></td>";
             for (int i = 1; i <= pages; i++)
             {
                 paginationDivHtml += "<td><button class='btn btn-primary' style='margin:0% 2%;'><a href='AddCategory.aspx?page=" + i + "&filter=" + filter +
                                     "'>" + i + "</a></td>";
             }
-            paginationDivHtml += "<td><button class='btn btn-primary' style='margin:0% 2%;'><a href='AddCategory.aspx?page=" + next +
+            paginationDivHtml += "<td><button class='btn btn-primary next'><a href='AddCategory.aspx?page=" + next +
                                     "&filter=" + filter + "'>Next</a></td>";
             paginationDiv.InnerHtml = "<table style='margin:auto;'><tr>" + paginationDivHtml + "</tr></table>";
         }
