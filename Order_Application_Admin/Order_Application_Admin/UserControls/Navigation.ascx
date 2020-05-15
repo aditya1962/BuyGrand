@@ -7,7 +7,7 @@
 <div class="navigation-horizontal">
     <div class="row">
         <div class="col-md-2 col-lg-2 logo-image">
-            <img src="../images/Logo.png" alt="Logo" style="width: 90px;padding:3% 0% 0% 0%;" />
+            <a href="../Index.aspx"><img src="../images/Logo.png" alt="Logo" style="width: 90px;padding:3% 0% 0% 0%;" /></a>
         </div>
         <div class="col-md-3 col-lg-3 offset-md-7 offset-md-7">
             <div>

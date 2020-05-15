@@ -46,8 +46,25 @@ textarea {
     padding: 2% 1%;
 }
 
-th
+.dashboard-Div
 {
+    background-color:white;
+    min-height:70px;
+    margin:0% 3%;
+    padding:0px;
+    display:flex;
+}
+.dashboard-icon
+{
+    background-color:orange;
+    width:30%;
+    padding:15% 7%;
+}
+.dashboard-div-content {
+    width: 70%;
+    padding:6%;
+}
+th {
     font-size: 15px;
     border: 1px solid #000000;
 }
