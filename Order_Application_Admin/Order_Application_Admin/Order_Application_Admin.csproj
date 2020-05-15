@@ -140,6 +140,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\DashboardReference\DashboardValues.wsdl" />
     <None Include="Connected Services\FeedbackReference\Feedbacks.wsdl" />
     <None Include="Connected Services\ManageSellerReference\ManageSeller.wsdl" />
     <None Include="Connected Services\SellerReference\ApproveSeller.wsdl" />
@@ -168,6 +169,13 @@
     <None Include="Connected Services\ManageSellerReference\configuration91.svcinfo" />
     <None Include="Connected Services\ManageSellerReference\configuration.svcinfo" />
     <None Include="Connected Services\ManageSellerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\DashboardReference\DashboardValues.disco" />
+    <None Include="Connected Services\DashboardReference\configuration91.svcinfo" />
+    <None Include="Connected Services\DashboardReference\configuration.svcinfo" />
+    <None Include="Connected Services\DashboardReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -295,6 +303,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connected Services\CategoryReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DashboardReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -443,6 +456,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\CategoryReference\" />
+    <WCFMetadataStorage Include="Connected Services\DashboardReference\" />
     <WCFMetadataStorage Include="Connected Services\FeedbackReference\" />
     <WCFMetadataStorage Include="Connected Services\ManageSellerReference\" />
     <WCFMetadataStorage Include="Connected Services\SellerReference\" />

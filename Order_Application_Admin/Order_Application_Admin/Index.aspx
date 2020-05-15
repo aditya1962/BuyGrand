@@ -41,7 +41,7 @@
                              <div class="dashboard-div-content">
                                  <h3>Users</h3>
                                  <br />
-                                 <h3>100</h3>
+                                 <h3><%= users %></h3>
                              </div>
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
@@ -49,7 +49,7 @@
                              <div class="dashboard-div-content">
                                  <h3>Sellers</h3>
                                  <br />
-                                 <h3>100</h3>
+                                 <h3><%= sellers %></h3>
                              </div>                   
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
@@ -57,7 +57,7 @@
                              <div class="dashboard-div-content">
                                  <h3>Items</h3>
                                  <br />
-                                 <h3>100</h3>
+                                 <h3><%= items %></h3>
                              </div>                   
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
@@ -65,7 +65,7 @@
                              <div class="dashboard-div-content">
                                  <h3>Categories</h3>
                                  <br />
-                                 <h3>100</h3>
+                                 <h3><%= categories %></h3>
                              </div>                   
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                              <div class="dashboard-div-content">
                                  <h3>Subcategories</h3>
                                  <br />
-                                 <h3>100</h3>
+                                 <h3><%= subcategories %></h3>
                              </div>
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
@@ -84,7 +84,7 @@
                              <div class="dashboard-div-content">
                                  <h3>Orders</h3>
                                  <br />
-                                 <h3>100</h3>
+                                 <h3><%= orders %></h3>
                              </div>                   
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
@@ -92,7 +92,7 @@
                              <div class="dashboard-div-content">
                                  <h3>Sales</h3>
                                  <br />
-                                 <h3>100</h3>
+                                 <h3><%= sales %></h3>
                              </div>                   
                         </div>
                     </div>
