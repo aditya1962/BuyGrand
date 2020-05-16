@@ -449,9 +449,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\SalesReport.rdlc" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -461,6 +458,9 @@
     <WCFMetadataStorage Include="Connected Services\ManageSellerReference\" />
     <WCFMetadataStorage Include="Connected Services\SellerReference\" />
     <WCFMetadataStorage Include="Connected Services\SubcategoryReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\SalesReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

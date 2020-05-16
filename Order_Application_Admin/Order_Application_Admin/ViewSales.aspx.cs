@@ -26,7 +26,7 @@ namespace Order_Application_Admin
                     ReportDataNull.Visible = false;
 
                     SalesReport.LocalReport.ReportPath = Server.MapPath("~/Reports/SalesReport.rdlc");
-                    ReportDataSource source = new ReportDataSource("SalesReportDataSetData", dt);
+                    ReportDataSource source = new ReportDataSource("SalesReportDataSet", dt);
                     SalesReport.LocalReport.DataSources.Clear();
                     SalesReport.LocalReport.DataSources.Add(source);
                     ReportParameter[] parameters = new ReportParameter[2];

@@ -23,12 +23,11 @@
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="itemID" DataSetColumn="itemID" />
-              <Mapping SourceColumn="name" DataSetColumn="name" />
-              <Mapping SourceColumn="price" DataSetColumn="price" />
-              <Mapping SourceColumn="orderCount" DataSetColumn="orderCount" />
-              <Mapping SourceColumn="category" DataSetColumn="category" />
-              <Mapping SourceColumn="subcategory" DataSetColumn="subcategory" />
+              <Mapping SourceColumn="rowID" DataSetColumn="rowID" />
+              <Mapping SourceColumn="username" DataSetColumn="username" />
+              <Mapping SourceColumn="numberOfItems" DataSetColumn="numberOfItems" />
+              <Mapping SourceColumn="totalPrice" DataSetColumn="totalPrice" />
+              <Mapping SourceColumn="submittedDate" DataSetColumn="submittedDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -43,44 +42,20 @@
         <xs:element name="sp_generatesalesdata" msprop:Generator_TableClassName="sp_generatesalesdataDataTable" msprop:Generator_TableVarName="tablesp_generatesalesdata" msprop:Generator_TablePropName="sp_generatesalesdata" msprop:Generator_RowDeletingName="sp_generatesalesdataRowDeleting" msprop:Generator_RowChangingName="sp_generatesalesdataRowChanging" msprop:Generator_RowEvHandlerName="sp_generatesalesdataRowChangeEventHandler" msprop:Generator_RowDeletedName="sp_generatesalesdataRowDeleted" msprop:Generator_UserTableName="sp_generatesalesdata" msprop:Generator_RowChangedName="sp_generatesalesdataRowChanged" msprop:Generator_RowEvArgName="sp_generatesalesdataRowChangeEvent" msprop:Generator_RowClassName="sp_generatesalesdataRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="itemID" msprop:Generator_ColumnVarNameInTable="columnitemID" msprop:Generator_ColumnPropNameInRow="itemID" msprop:Generator_ColumnPropNameInTable="itemIDColumn" msprop:Generator_UserColumnName="itemID">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="price" msprop:Generator_ColumnVarNameInTable="columnprice" msprop:Generator_ColumnPropNameInRow="price" msprop:Generator_ColumnPropNameInTable="priceColumn" msprop:Generator_UserColumnName="price" type="xs:decimal" />
-              <xs:element name="orderCount" msprop:Generator_ColumnVarNameInTable="columnorderCount" msprop:Generator_ColumnPropNameInRow="orderCount" msprop:Generator_ColumnPropNameInTable="orderCountColumn" msprop:Generator_UserColumnName="orderCount" type="xs:int" minOccurs="0" />
-              <xs:element name="category" msprop:Generator_ColumnVarNameInTable="columncategory" msprop:Generator_ColumnPropNameInRow="category" msprop:Generator_ColumnPropNameInTable="categoryColumn" msprop:Generator_UserColumnName="category">
+              <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="subcategory" msprop:Generator_ColumnVarNameInTable="columnsubcategory" msprop:Generator_ColumnPropNameInRow="subcategory" msprop:Generator_ColumnPropNameInTable="subcategoryColumn" msprop:Generator_UserColumnName="subcategory">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="numberOfItems" msprop:Generator_ColumnVarNameInTable="columnnumberOfItems" msprop:Generator_ColumnPropNameInRow="numberOfItems" msprop:Generator_ColumnPropNameInTable="numberOfItemsColumn" msprop:Generator_UserColumnName="numberOfItems" type="xs:int" />
+              <xs:element name="totalPrice" msprop:Generator_ColumnVarNameInTable="columntotalPrice" msprop:Generator_ColumnPropNameInRow="totalPrice" msprop:Generator_ColumnPropNameInTable="totalPriceColumn" msprop:Generator_UserColumnName="totalPrice" type="xs:decimal" />
+              <xs:element name="submittedDate" msprop:Generator_ColumnVarNameInTable="columnsubmittedDate" msprop:Generator_ColumnPropNameInRow="submittedDate" msprop:Generator_ColumnPropNameInTable="submittedDateColumn" msprop:Generator_UserColumnName="submittedDate" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:sp_generatesalesdata" />
-      <xs:field xpath="mstns:itemID" />
-    </xs:unique>
   </xs:element>
 </xs:schema>

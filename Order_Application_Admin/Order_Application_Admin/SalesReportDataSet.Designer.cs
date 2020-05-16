@@ -279,17 +279,13 @@ namespace Order_Application_Admin {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_generatesalesdataDataTable : global::System.Data.TypedTableBase<sp_generatesalesdataRow> {
             
-            private global::System.Data.DataColumn columnitemID;
+            private global::System.Data.DataColumn columnusername;
             
-            private global::System.Data.DataColumn columnname;
+            private global::System.Data.DataColumn columnnumberOfItems;
             
-            private global::System.Data.DataColumn columnprice;
+            private global::System.Data.DataColumn columntotalPrice;
             
-            private global::System.Data.DataColumn columnorderCount;
-            
-            private global::System.Data.DataColumn columncategory;
-            
-            private global::System.Data.DataColumn columnsubcategory;
+            private global::System.Data.DataColumn columnsubmittedDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -326,49 +322,33 @@ namespace Order_Application_Admin {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn itemIDColumn {
+            public global::System.Data.DataColumn usernameColumn {
                 get {
-                    return this.columnitemID;
+                    return this.columnusername;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
+            public global::System.Data.DataColumn numberOfItemsColumn {
                 get {
-                    return this.columnname;
+                    return this.columnnumberOfItems;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn priceColumn {
+            public global::System.Data.DataColumn totalPriceColumn {
                 get {
-                    return this.columnprice;
+                    return this.columntotalPrice;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn orderCountColumn {
+            public global::System.Data.DataColumn submittedDateColumn {
                 get {
-                    return this.columnorderCount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn categoryColumn {
-                get {
-                    return this.columncategory;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn subcategoryColumn {
-                get {
-                    return this.columnsubcategory;
+                    return this.columnsubmittedDate;
                 }
             }
             
@@ -409,25 +389,16 @@ namespace Order_Application_Admin {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_generatesalesdataRow Addsp_generatesalesdataRow(string itemID, string name, decimal price, int orderCount, string category, string subcategory) {
+            public sp_generatesalesdataRow Addsp_generatesalesdataRow(string username, int numberOfItems, decimal totalPrice, System.DateTime submittedDate) {
                 sp_generatesalesdataRow rowsp_generatesalesdataRow = ((sp_generatesalesdataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        itemID,
-                        name,
-                        price,
-                        orderCount,
-                        category,
-                        subcategory};
+                        username,
+                        numberOfItems,
+                        totalPrice,
+                        submittedDate};
                 rowsp_generatesalesdataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_generatesalesdataRow);
                 return rowsp_generatesalesdataRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_generatesalesdataRow FindByitemID(string itemID) {
-                return ((sp_generatesalesdataRow)(this.Rows.Find(new object[] {
-                            itemID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -447,41 +418,28 @@ namespace Order_Application_Admin {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnitemID = base.Columns["itemID"];
-                this.columnname = base.Columns["name"];
-                this.columnprice = base.Columns["price"];
-                this.columnorderCount = base.Columns["orderCount"];
-                this.columncategory = base.Columns["category"];
-                this.columnsubcategory = base.Columns["subcategory"];
+                this.columnusername = base.Columns["username"];
+                this.columnnumberOfItems = base.Columns["numberOfItems"];
+                this.columntotalPrice = base.Columns["totalPrice"];
+                this.columnsubmittedDate = base.Columns["submittedDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnitemID = new global::System.Data.DataColumn("itemID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnitemID);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprice);
-                this.columnorderCount = new global::System.Data.DataColumn("orderCount", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnorderCount);
-                this.columncategory = new global::System.Data.DataColumn("category", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncategory);
-                this.columnsubcategory = new global::System.Data.DataColumn("subcategory", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsubcategory);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnitemID}, true));
-                this.columnitemID.AllowDBNull = false;
-                this.columnitemID.Unique = true;
-                this.columnitemID.MaxLength = 10;
-                this.columnname.AllowDBNull = false;
-                this.columnname.MaxLength = 50;
-                this.columnprice.AllowDBNull = false;
-                this.columncategory.AllowDBNull = false;
-                this.columncategory.MaxLength = 15;
-                this.columnsubcategory.AllowDBNull = false;
-                this.columnsubcategory.MaxLength = 15;
+                this.columnusername = new global::System.Data.DataColumn("username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusername);
+                this.columnnumberOfItems = new global::System.Data.DataColumn("numberOfItems", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnumberOfItems);
+                this.columntotalPrice = new global::System.Data.DataColumn("totalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotalPrice);
+                this.columnsubmittedDate = new global::System.Data.DataColumn("submittedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubmittedDate);
+                this.columnusername.AllowDBNull = false;
+                this.columnusername.MaxLength = 15;
+                this.columnnumberOfItems.AllowDBNull = false;
+                this.columntotalPrice.AllowDBNull = false;
+                this.columnsubmittedDate.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -624,85 +582,46 @@ namespace Order_Application_Admin {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string itemID {
+            public string username {
                 get {
-                    return ((string)(this[this.tablesp_generatesalesdata.itemIDColumn]));
+                    return ((string)(this[this.tablesp_generatesalesdata.usernameColumn]));
                 }
                 set {
-                    this[this.tablesp_generatesalesdata.itemIDColumn] = value;
+                    this[this.tablesp_generatesalesdata.usernameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string name {
+            public int numberOfItems {
                 get {
-                    return ((string)(this[this.tablesp_generatesalesdata.nameColumn]));
+                    return ((int)(this[this.tablesp_generatesalesdata.numberOfItemsColumn]));
                 }
                 set {
-                    this[this.tablesp_generatesalesdata.nameColumn] = value;
+                    this[this.tablesp_generatesalesdata.numberOfItemsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal price {
+            public decimal totalPrice {
                 get {
-                    return ((decimal)(this[this.tablesp_generatesalesdata.priceColumn]));
+                    return ((decimal)(this[this.tablesp_generatesalesdata.totalPriceColumn]));
                 }
                 set {
-                    this[this.tablesp_generatesalesdata.priceColumn] = value;
+                    this[this.tablesp_generatesalesdata.totalPriceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int orderCount {
+            public System.DateTime submittedDate {
                 get {
-                    try {
-                        return ((int)(this[this.tablesp_generatesalesdata.orderCountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'orderCount\' in table \'sp_generatesalesdata\' is DBNull.", e);
-                    }
+                    return ((global::System.DateTime)(this[this.tablesp_generatesalesdata.submittedDateColumn]));
                 }
                 set {
-                    this[this.tablesp_generatesalesdata.orderCountColumn] = value;
+                    this[this.tablesp_generatesalesdata.submittedDateColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string category {
-                get {
-                    return ((string)(this[this.tablesp_generatesalesdata.categoryColumn]));
-                }
-                set {
-                    this[this.tablesp_generatesalesdata.categoryColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string subcategory {
-                get {
-                    return ((string)(this[this.tablesp_generatesalesdata.subcategoryColumn]));
-                }
-                set {
-                    this[this.tablesp_generatesalesdata.subcategoryColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsorderCountNull() {
-                return this.IsNull(this.tablesp_generatesalesdata.orderCountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetorderCountNull() {
-                this[this.tablesp_generatesalesdata.orderCountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -865,12 +784,11 @@ namespace Order_Application_Admin.SalesReportDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_generatesalesdata";
-            tableMapping.ColumnMappings.Add("itemID", "itemID");
-            tableMapping.ColumnMappings.Add("name", "name");
-            tableMapping.ColumnMappings.Add("price", "price");
-            tableMapping.ColumnMappings.Add("orderCount", "orderCount");
-            tableMapping.ColumnMappings.Add("category", "category");
-            tableMapping.ColumnMappings.Add("subcategory", "subcategory");
+            tableMapping.ColumnMappings.Add("rowID", "rowID");
+            tableMapping.ColumnMappings.Add("username", "username");
+            tableMapping.ColumnMappings.Add("numberOfItems", "numberOfItems");
+            tableMapping.ColumnMappings.Add("totalPrice", "totalPrice");
+            tableMapping.ColumnMappings.Add("submittedDate", "submittedDate");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

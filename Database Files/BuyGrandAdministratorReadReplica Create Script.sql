@@ -48,7 +48,7 @@ create table dbo.userReport
 	rowID varchar(15) primary key,
 	username varchar(15) not null,
 	numberOfItems int not null,
-	totalPrice numeric(5,2) not null,
+	totalPrice numeric(10,2) not null,
 	submittedDate datetime not null 
 );
 
