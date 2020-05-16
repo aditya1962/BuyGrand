@@ -35,7 +35,7 @@
                     <UserControl:NavigationVertical runat="server"></UserControl:NavigationVertical>
                 </div>
                 <div class="col-md-10 col-lg-10 content">
-                    <div class="row">
+                    <div class="row" style="margin:0% 3%;">
                         <div class="dashboard-Div col-md-2 col-lg-2">
                              <div class="dashboard-icon"><img src="" alt="users" /></div>
                              <div class="dashboard-div-content">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <br />
-                     <div class="row">
+                     <div class="row" style="margin:0% 3%;">
                         <div class="dashboard-Div col-md-2 col-lg-2">
                              <div class="dashboard-icon"><img src="" alt="subcategories" /></div>
                              <div class="dashboard-div-content">
@@ -97,13 +97,13 @@
                         </div>
                     </div>
                     <br />
-                    <h3>Sales</h3>
+                    <h2 style="margin:0% 6%;">Sales</h2>
                     <br />
-                    <asp:Chart ID="SalesChart" runat="server">
+                    <asp:Chart ID="SalesChart" runat="server" style="margin:0% 5% 0% 6%; width:40%;height:500px;">
                         <Titles>
                             <asp:Title Text="Sales Data"></asp:Title>
                         </Titles> 
-                        <series><asp:Series Name="SalesSeries" ChartType="Line" ChartArea="ChartArea1" Color="Green"></asp:Series></series>
+                        <Series><asp:Series Name="SalesSeries" ChartType="Line" ChartArea="ChartArea1" Color="Green"></asp:Series></Series>
                         <chartareas><asp:ChartArea Name="ChartArea1"></asp:ChartArea></chartareas>
                     </asp:Chart>
                 </div>

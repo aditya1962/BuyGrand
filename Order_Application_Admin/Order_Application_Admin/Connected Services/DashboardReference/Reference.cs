@@ -22,6 +22,13 @@ namespace Order_Application_Admin.DashboardReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/DashboardValues.asmx/GetDashboardData", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetDashboardDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/DashboardValues.asmx/GetChartDetails", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable GetChartDetails(int months);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/DashboardValues.asmx/GetChartDetails", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetChartDetailsAsync(int months);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -57,6 +64,14 @@ namespace Order_Application_Admin.DashboardReference {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> GetDashboardDataAsync() {
             return base.Channel.GetDashboardDataAsync();
+        }
+        
+        public System.Data.DataTable GetChartDetails(int months) {
+            return base.Channel.GetChartDetails(months);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetChartDetailsAsync(int months) {
+            return base.Channel.GetChartDetailsAsync(months);
         }
     }
 }

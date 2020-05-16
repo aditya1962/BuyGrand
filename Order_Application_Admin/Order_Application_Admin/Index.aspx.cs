@@ -17,31 +17,16 @@ namespace Order_Application_Admin
         Logging logging;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["sqlConnectionString"].ConnectionString;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    SqlCommand command = new SqlCommand("", connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    SalesChart.DataBindTable(reader);
-                }
-                catch(Exception ex)
-                {
-                    logging = new Logging();
-                    logging.logging(ex, "Error", ex.Message);
-                }
-            }
                 
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             DashboardReference.DashboardValuesSoapClient dashboard = new DashboardReference.DashboardValuesSoapClient();
-            DataTable data = dashboard.GetDashboardData();
-            if(data.Rows.Count > 0)
+            DataTable dashboardData = dashboard.GetDashboardData();
+            if(dashboardData.Rows.Count > 0)
             {
-                DataRow row = data.Rows[0];
+                DataRow row = dashboardData.Rows[0];
                 users = row["users"].ToString();
                 sellers = row["sellers"].ToString();
                 items = row["items"].ToString();
@@ -50,6 +35,16 @@ namespace Order_Application_Admin
                 orders = row["orders"].ToString();
                 sales = row["sales"].ToString();
             }
+
+            int months = 6; //currently set months to display as 6
+            DataTable chartData = dashboard.GetChartDetails(months);
+            SalesChart.Series["SalesSeries"].IsValueShownAsLabel = true;
+            SalesChart.Series["SalesSeries"].XValueMember = "SubmittedDate";
+            SalesChart.Series["SalesSeries"].YValueMembers = "TotalPrice";          
+            SalesChart.ChartAreas["ChartArea1"].AxisX.Title = "Month";
+            SalesChart.ChartAreas["ChartArea1"].AxisY.Title = "Total Sales ($)";
+            SalesChart.DataSource = chartData;
+            SalesChart.DataBind();
         }
     }
 }

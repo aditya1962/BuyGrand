@@ -19,6 +19,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetChartDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="months" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChartDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetDashboardDataSoapIn">
@@ -27,10 +48,20 @@
   <wsdl:message name="GetDashboardDataSoapOut">
     <wsdl:part name="parameters" element="tns:GetDashboardDataResponse" />
   </wsdl:message>
+  <wsdl:message name="GetChartDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChartDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChartDetailsResponse" />
+  </wsdl:message>
   <wsdl:portType name="DashboardValuesSoap">
     <wsdl:operation name="GetDashboardData">
       <wsdl:input message="tns:GetDashboardDataSoapIn" />
       <wsdl:output message="tns:GetDashboardDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartDetails">
+      <wsdl:input message="tns:GetChartDetailsSoapIn" />
+      <wsdl:output message="tns:GetChartDetailsSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DashboardValuesSoap" type="tns:DashboardValuesSoap">
@@ -44,11 +75,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetChartDetails">
+      <soap:operation soapAction="http://localhost/DashboardValues.asmx/GetChartDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="DashboardValuesSoap12" type="tns:DashboardValuesSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetDashboardData">
       <soap12:operation soapAction="http://localhost/DashboardValues.asmx/GetDashboardData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartDetails">
+      <soap12:operation soapAction="http://localhost/DashboardValues.asmx/GetChartDetails" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

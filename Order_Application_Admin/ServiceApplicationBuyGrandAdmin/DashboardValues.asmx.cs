@@ -38,5 +38,30 @@ namespace ServiceApplicationBuyGrandAdmin
                 return null;
             }
         }
+
+        [WebMethod]
+        public DataTable GetChartDetails(int months)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlDataAdapter adapter = new SqlDataAdapter("sp_getChartDetails", connection);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    adapter.SelectCommand.Parameters.AddWithValue("monthRange", months);
+                    DataTable chart = new DataTable("ChartData");
+                    adapter.Fill(chart);
+                    connection.Close();
+                    return chart;
+                }
+            }
+            catch (Exception ex)
+            {
+                logging = new Logging();
+                logging.logging(ex, "Error", ex.Message);
+                return null;
+            }
+        }
     }
 }
