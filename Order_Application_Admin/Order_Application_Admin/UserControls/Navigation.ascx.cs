@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,9 +13,15 @@ namespace Order_Application_Admin.UserControls
         public string user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["username"] = "admin";
-            //Get the name of the user from the web service
-            user = Session["username"].ToString();
+            if(Session["username"]!=null)
+            {
+                Data.DataAccess da = new Data.DataAccess();
+                user = da.getUsersName(Session["username"].ToString());
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
     }
 }

@@ -46,6 +46,20 @@ textarea {
     padding: 2% 1%;
 }
 
+.login-card
+{
+    width:35%;
+    margin:10% 35%;
+    padding:2% 0%;
+    background-color:white;
+}
+
+.login-card #Logo
+{
+    width:30%;
+    margin:auto;
+}
+
 .dashboard-Div
 {
     background-color:white;

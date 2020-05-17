@@ -10,7 +10,7 @@ namespace Order_Application_Admin
         {
             HttpContext.Current.Session.Abandon();
             FormsAuthentication.SignOut();
-            Response.Redirect("~/SignIn.aspx");
+            Response.Redirect("~/Login.aspx");
         }
     }
 }

@@ -205,6 +205,7 @@
     <Content Include="images\logo.ico" />
     <Content Include="images\Logo.png" />
     <Content Include="Index.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Connected Services\CategoryReference\Category.wsdl" />
     <None Include="Connected Services\SubcategoryReference\Subcategories.wsdl" />
@@ -364,6 +365,13 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logging.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageSeller.aspx.cs">
       <DependentUpon>ManageSeller.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
