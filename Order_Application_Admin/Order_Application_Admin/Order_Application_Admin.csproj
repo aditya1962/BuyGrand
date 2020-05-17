@@ -143,6 +143,7 @@
     <None Include="Connected Services\DashboardReference\DashboardValues.wsdl" />
     <None Include="Connected Services\FeedbackReference\Feedbacks.wsdl" />
     <None Include="Connected Services\ManageSellerReference\ManageSeller.wsdl" />
+    <None Include="Connected Services\SalesReference\ViewSales.wsdl" />
     <None Include="Connected Services\SellerReference\ApproveSeller.wsdl" />
     <None Include="Connected Services\SubcategoryReference\Subcategories.disco" />
     <None Include="Connected Services\SubcategoryReference\configuration91.svcinfo" />
@@ -176,6 +177,13 @@
     <None Include="Connected Services\DashboardReference\configuration91.svcinfo" />
     <None Include="Connected Services\DashboardReference\configuration.svcinfo" />
     <None Include="Connected Services\DashboardReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\SalesReference\ViewSales.disco" />
+    <None Include="Connected Services\SalesReference\configuration91.svcinfo" />
+    <None Include="Connected Services\SalesReference\configuration.svcinfo" />
+    <None Include="Connected Services\SalesReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -323,6 +331,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SalesReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\SellerReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -464,6 +477,7 @@
     <WCFMetadataStorage Include="Connected Services\DashboardReference\" />
     <WCFMetadataStorage Include="Connected Services\FeedbackReference\" />
     <WCFMetadataStorage Include="Connected Services\ManageSellerReference\" />
+    <WCFMetadataStorage Include="Connected Services\SalesReference\" />
     <WCFMetadataStorage Include="Connected Services\SellerReference\" />
     <WCFMetadataStorage Include="Connected Services\SubcategoryReference\" />
   </ItemGroup>

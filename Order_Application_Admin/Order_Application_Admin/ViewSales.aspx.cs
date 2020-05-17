@@ -69,8 +69,8 @@ namespace Order_Application_Admin
             }
             else
             {
-                DataAccess da = new DataAccess();
-                sales = da.getSalesData(startDate,endDate);
+                SalesReference.ViewSalesSoapClient saleClient = new SalesReference.ViewSalesSoapClient();
+                sales = saleClient.getSalesData(startDate, endDate);
                 return sales;
             }
         }

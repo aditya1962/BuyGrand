@@ -158,6 +158,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Subcategories.asmx" />
+    <Content Include="ViewSales.asmx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -207,6 +208,10 @@
     </Compile>
     <Compile Include="Subcategories.asmx.cs">
       <DependentUpon>Subcategories.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewSales.asmx.cs">
+      <DependentUpon>ViewSales.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">

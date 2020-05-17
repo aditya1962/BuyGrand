@@ -17,31 +17,6 @@ namespace Order_Application_Admin.Data
             
         }
 
-        public DataTable getSalesData(string startDate, string endDate)
-        {
-            DataTable salesData = new DataTable();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlDataAdapter adapter = new SqlDataAdapter("sp_generatesalesdata", connection);
-                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    adapter.SelectCommand.Parameters.AddWithValue("StartDate", startDate);
-                    adapter.SelectCommand.Parameters.AddWithValue("EndDate", endDate);
-                    adapter.Fill(salesData);
-                    connection.Close();
-                    return salesData;
-                }
-            }
-            catch(Exception e)
-            {
-                logging = new Logging();
-                logging.logging(e, "Error", e.Message);
-                return null;
-            }
-        }
-
         public int validateUser(string username, string password)
         {
             try
