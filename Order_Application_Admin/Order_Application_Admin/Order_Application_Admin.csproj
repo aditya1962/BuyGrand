@@ -204,6 +204,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="images\Background-Large.jpg" />
     <Content Include="images\icons\addcategory.png" />
     <Content Include="images\icons\addsubcategory.png" />
     <Content Include="images\icons\approveseller.png" />

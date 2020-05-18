@@ -13,9 +13,10 @@
     <script src="Scripts/Site.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
 </head>
-<body>
+<body style="height:460px;">
     <form id="form1" runat="server">
-        <div>
+        <div style="background-image:url(images/Background-Large.jpg);background-size:100%;
+                    background-repeat:no-repeat; min-height:460px;">
             <div class="card login-card">
                 <div class="card-body">
                     <div class="row">
