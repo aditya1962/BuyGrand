@@ -2,7 +2,7 @@
 <div class="navigation-vertical">
     <div class="row flex">
         <div class="icon">
-            <img src="" alt="Dashboard"/>
+            <img src="../images/icons/dashboard.png" alt="Dashboard"/>
         </div>
         <div>
             <a href="../Index.aspx">Dashboard</a>

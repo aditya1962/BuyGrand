@@ -60,19 +60,22 @@ textarea {
     margin:auto;
 }
 
-.dashboard-Div
-{
-    background-color:white;
-    min-height:70px;
-    margin:0% 3%;
-    padding:0px;
-    display:flex;
+.dashboard-Div {
+    background-color: white;
+    min-height: 70px;
+    margin: 0% 3%;
+    padding: 0px;
+    display: flex;
 }
-.dashboard-icon
+.dashboard-icon {
+    background-color: #f15a24;
+    width: 30%;
+    padding: 15% 7%;
+}
+
+.dashboard-icon img
 {
-    background-color:orange;
-    width:30%;
-    padding:15% 7%;
+    width:100%;
 }
 .dashboard-div-content {
     width: 70%;
@@ -115,15 +118,14 @@ button a:hover
     border-left: 0px;
 }
 
-.navigation-vertical
-{
-    background-color:darkblue;
-    color:white;
-    padding:15% 3% 15% 15%;
-    margin:0%;
-    font-size:17px;
-    height:100%;
-    min-height:480px;
+.navigation-vertical {
+    background-color: #7ac943;
+    color: white;
+    padding: 15% 3% 15% 15%;
+    margin: 0%;
+    font-size: 17px;
+    height: 100%;
+    min-height: 480px;
 }
 
 .navigation-vertical a
@@ -154,17 +156,16 @@ button a:hover
     height:20px;
 }
 
-.navigation-horizontal
-{
-    padding:0% 0% 0% 3%;
-    background-color:darkblue;
-    color:white;
+.navigation-horizontal {
+    padding: 0% 0% 0% 3%;
+    background-color: white;
 }
 
 .user-icon
 {
     border:0;
     background-color:transparent;
+    text-align:left;
 }
 
 .navigation-dropdown

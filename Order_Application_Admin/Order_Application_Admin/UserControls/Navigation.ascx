@@ -4,6 +4,8 @@
         <p> JavaScript must be enabled to make the site work properly</p>
     </div>
 </noscript>
+<script src="https://kit.fontawesome.com/06a6b398d6.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
 <div class="navigation-horizontal">
     <div class="row">
         <div class="col-md-2 col-lg-2 logo-image">
@@ -16,7 +18,7 @@
                         <label style="font-size:15px;">Hi, <%= user %></label></div>
                     <div style="margin: 0% 1%; flex: 25%;">
                         <button type="button" class="user-icon">
-                            <img src="" alt="user" /></button>
+                            <i class="fa fa-caret-square-o-down" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <div class="navigation-dropdown">

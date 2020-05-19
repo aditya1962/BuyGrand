@@ -37,7 +37,7 @@
                 <div class="col-md-10 col-lg-10 content">
                     <div class="row" style="margin:0% 3%;">
                         <div class="dashboard-Div col-md-2 col-lg-2">
-                             <div class="dashboard-icon"><img src="" alt="users" /></div>
+                             <div class="dashboard-icon"><img src="images/icons/users.png" alt="users" /></div>
                              <div class="dashboard-div-content">
                                  <h3>Users</h3>
                                  <br />
@@ -45,7 +45,7 @@
                              </div>
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
-                             <div class="dashboard-icon"><img src="" alt="sellers" /></div>
+                             <div class="dashboard-icon"><img src="images/icons/sellers.png" alt="sellers" /></div>
                              <div class="dashboard-div-content">
                                  <h3>Sellers</h3>
                                  <br />
@@ -53,7 +53,7 @@
                              </div>                   
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
-                             <div class="dashboard-icon"><img src="" alt="items" /></div>
+                             <div class="dashboard-icon"><img src="images/icons/items.png" alt="items" /></div>
                              <div class="dashboard-div-content">
                                  <h3>Items</h3>
                                  <br />
@@ -61,7 +61,7 @@
                              </div>                   
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
-                             <div class="dashboard-icon"><img src="" alt="categories" /></div>
+                             <div class="dashboard-icon"><img src="images/icons/addcategory.png" alt="categories" /></div>
                              <div class="dashboard-div-content">
                                  <h3>Categories</h3>
                                  <br />
@@ -72,7 +72,7 @@
                     <br />
                      <div class="row" style="margin:0% 3%;">
                         <div class="dashboard-Div col-md-2 col-lg-2">
-                             <div class="dashboard-icon"><img src="" alt="subcategories" /></div>
+                             <div class="dashboard-icon"><img src="images/icons/addsubcategory.png" alt="subcategories" /></div>
                              <div class="dashboard-div-content">
                                  <h3>Subcategories</h3>
                                  <br />
@@ -80,7 +80,7 @@
                              </div>
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
-                             <div class="dashboard-icon"><img src="" alt="orders" /></div>
+                             <div class="dashboard-icon"><img src="images/icons/orders.png" alt="orders" /></div>
                              <div class="dashboard-div-content">
                                  <h3>Orders</h3>
                                  <br />
@@ -88,7 +88,7 @@
                              </div>                   
                         </div>
                         <div class="dashboard-Div col-md-2 col-lg-2">
-                             <div class="dashboard-icon"><img src="" alt="sales" /></div>
+                             <div class="dashboard-icon"><img src="images/icons/viewsales.png" alt="sales" /></div>
                              <div class="dashboard-div-content">
                                  <h3>Sales</h3>
                                  <br />

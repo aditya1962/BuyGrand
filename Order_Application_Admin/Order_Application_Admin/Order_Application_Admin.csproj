@@ -208,8 +208,13 @@
     <Content Include="images\icons\addcategory.png" />
     <Content Include="images\icons\addsubcategory.png" />
     <Content Include="images\icons\approveseller.png" />
+    <Content Include="images\icons\dashboard.png" />
     <Content Include="images\icons\feedbacks.png" />
+    <Content Include="images\icons\items.png" />
     <Content Include="images\icons\manageseller.png" />
+    <Content Include="images\icons\orders.png" />
+    <Content Include="images\icons\sellers.png" />
+    <Content Include="images\icons\users.png" />
     <Content Include="images\icons\viewsales.png" />
     <Content Include="images\logo.ico" />
     <Content Include="images\Logo.png" />
