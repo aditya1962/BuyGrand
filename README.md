@@ -38,62 +38,10 @@
 
 There are three systems in this project : 
 
-1. Consumer view  - This uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. 
+1. <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Java">Customer view</a>  - This uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. You can read more <a href="https://github.com/aditya1962/BuyGrand/blob/master/Order_Application_Java/README.md"> here </a>.
 2. Admin view - This uses <a href="https://www.asp.net/">ASP.NET</a> as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. Reports are created using RDLC.
 3. Seller view 
 
-
-
-## Installation
-
-<b> Prerequisites </b>
-<br/>
-<p>Make sure Java and Python (version 3.0 upwards) are installed and class path set. Also Git Bash should be installed to clone and perform git related operations
-<br/><br/>
-The latest version of BuyGrand can be cloned using
-
-```git
-git clone https://github.com/aditya1962/BuyGrand.git 
-```
-Then navigate to BuyGrand Folder
-
-```cmd
-cd BuyGrand
-```
-Then open project using your favorite Java IDE or editor
-
-<b> Installing dependencies - Python </b>
-
-The python script uses following dependencies: dlib, numpy, cv2, imageio, PIL and CMake. (Please note: Additional dependencies for the aforementioned dependencies may have to be installed based on the python configuration of the machine in which it will be installed. For more clarifications watch for any warning or error messages while installing the above packages)
-
-These can be installed by first navigating to the python configuration in the git bash
-
-```git
-which python
-```
-Then copy the path up to the last slash (excluding the "python" name at the end of the path) and navigating to 
-
-```
-cd path/Scripts/
-```
-(replace the "path" with the path where your python is installed as obtained by the git command above)
-
-Then install dependencies using "pip install"
-
-```python
-pip install dlib, numpy, cv2, imageio, PIL, CMake
-```
-
-<b> Installing dependencies  - Java </b>
-
-Java dependencies include iText PDF libraries. These are packaged in the project and can be found at BuyGrand\Order_Application_Java\dist\lib
-
-In your favorite IDE click on libraries and right click and select Add JAR. (Note that this option may be different for different IDEs. In that case select an alternative approach to install JAR files in the Java project) Then navigate to 
-
-<i>Project path</i>\dist\lib\ and select the JAR files one by one.
-
-If any project errors occur due to missing libraries follow the same procedure in Resolve Project Problems.
-</p>
 
 ##  System Architecture
 
