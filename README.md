@@ -9,33 +9,37 @@
 ## Technologies used
 
 ### Customer view
-<ul>
-  <li> Java - For front-end GUI display using JFrame and File writing during invoice generation </li>
-  <li> Python  - For face detection during the invoice generation process </li>
-  <li> MSSQL - As the relational database management system </li>
-  <li> OpenCV - For opening and capturing video streams using the web camera </li>
-</ul>
+
+-  Java - For front-end GUI display using JFrame and File writing during invoice generation 
+-  Python  - For face detection during the invoice generation process 
+-  MSSQL - As the relational database management system 
+-  OpenCV - For opening and capturing video streams using the web camera 
 
 ### Admin view
-<ul>
-  <li> ASP.NET - For UI and back-end connections  </li>
-  <li> MSSQL - As the relational database management system </li>
-  <li> RDLC - Report Definition Language Client-side was used for reports in the application </li>
-  <li> Web Services - Asp.net web services were used to connect the core application with the MSSQL database </li>
-  <li> ASP.NET Charts - Charts were used as a visual display in the admin dashboard </li>
-  <li> Web related technologies used - JavaScript, jQuery, Bootstrap 4.0, AJAX </li>
-</ul>
+
+- ASP.NET - For UI and back-end connections 
+- MSSQL - As the relational database management system
+- RDLC - Report Definition Language Client-side was used for reports in the application
+- Web Services - Asp.net web services were used to connect the core application with the MSSQL database
+- ASP.NET Charts - Charts were used as a visual display in the admin dashboard
+- Web related technologies used - JavaScript, jQuery, Bootstrap 4.0, AJAX and JSON
+
 
 ## Main Dependencies 
 
-<ul>
-  <li> DLib (Python dependency)- Machine learning platform for face detection using Convolutional Neural Network and prediction using an existing trained model </li>
-  <li> iText PDF and its packages  - For PDF generation using Java application </li>
-</ul>
+- DLib (Python dependency)- Machine learning platform for face detection using Convolutional Neural Network and prediction using an existing trained model
+- iText PDF and its packages  - For PDF generation using Java application
+- Microsoft Report Viewer - For report generation using RDLC
+
 
 ## Basic Overview
 
-<a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a Java based shopping cart (desktop) application where registered users could buy products. The  uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. 
+<a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a shopping cart application where registered users could buy products, admin can administrator sellers, manage product categories and view sales reports,  and sellers can sell their products. 
+
+There are three systems in this project : 
+1. Consumer view  - This uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. 
+2. Admin view - This uses <a href="https://www.asp.net/">ASP.NET</a> as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. Reports are created using RDLC.
+3. Seller view 
 
 ## Table of Contents
 
