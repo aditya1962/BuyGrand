@@ -8,11 +8,22 @@
 
 ## Technologies used
 
+### Customer view
 <ul>
   <li> Java - For front-end GUI display using JFrame and File writing during invoice generation </li>
   <li> Python  - For face detection during the invoice generation process </li>
   <li> MSSQL - As the relational database management system </li>
   <li> OpenCV - For opening and capturing video streams using the web camera </li>
+</ul>
+
+### Admin view
+<ul>
+  <li> ASP.NET - For UI and back-end connections  </li>
+  <li> MSSQL - As the relational database management system </li>
+  <li> RDLC - Report Definition Language Client-side was used for reports in the application </li>
+  <li> Web Services - Asp.net web services were used to connect the core application with the MSSQL database </li>
+  <li> ASP.NET Charts - Charts were used as a visual display in the admin dashboard </li>
+  <li> Web related technologies used - JavaScript, jQuery, Bootstrap 4.0, AJAX </li>
 </ul>
 
 ## Main Dependencies 
