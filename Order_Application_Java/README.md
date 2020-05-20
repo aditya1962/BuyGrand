@@ -79,7 +79,7 @@ In your favorite IDE click on libraries and right click and select Add JAR. (Not
 If any project errors occur due to missing libraries follow the same procedure in Resolve Project Problems.
 </p>
 
-<h2 id="#system-architecture"> System Architecture</h2>
+<h2 id="system-architecture"> System Architecture</h2>
 <br>
 
 <div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
