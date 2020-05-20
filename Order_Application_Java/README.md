@@ -9,6 +9,7 @@
 <h2> Table of Contents </h2>
 
 - <a href="#overview"> Overview </a>
+- <a href="#features"> Features </a>
 - <a href="#technologies"> Technologies used </a>
 - <a href="#installation"> Installation </a>
     - <a href="#prerequisites"> Prerequisites </a>
@@ -19,6 +20,8 @@
 <h2 id="overview"> Overview </h2>
 
 This is the customer view of the system. This view is used by customers to buy products and place orders. Each customer needs to be a registered user before using the system and once logged in they can purchase products and create an invoice for the order.
+
+<h2 id="features">Features</h2>
 
 
 <h2 id="technologies"> Technologies used </h2>
