@@ -37,21 +37,15 @@
 <a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a shopping cart application where registered users could buy products, admin can administrator sellers, manage product categories and view sales reports,  and sellers can sell their products. 
 
 There are three systems in this project : 
+
 1. Consumer view  - This uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. 
 2. Admin view - This uses <a href="https://www.asp.net/">ASP.NET</a> as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. Reports are created using RDLC.
 3. Seller view 
 
-## Table of Contents
-
-<ol>
-  <li> <a href="#installation">Installation </a></li>
-  <li> <a href="#system-architecture">System Architecture</a></li>
-  <li> <a href="#license">License</a></li>
-</ol>
 
 
-<h3 id="installation">Installation</h3>
-<br/>
+## Installation
+
 <b> Prerequisites </b>
 <br/>
 <p>Make sure Java and Python (version 3.0 upwards) are installed and class path set. Also Git Bash should be installed to clone and perform git related operations
@@ -100,10 +94,11 @@ In your favorite IDE click on libraries and right click and select Add JAR. (Not
 
 If any project errors occur due to missing libraries follow the same procedure in Resolve Project Problems.
 </p>
-<h3 id="system-architecture">System Architecture</h3>
+
+##  System Architecture
 
 <div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
 
-<h3 id="license">License</h3>
+## License
 
 <p>The <a href="https://github.com/aditya1962/BuyGrand">repository </a> is licensed under MIT license </p>
