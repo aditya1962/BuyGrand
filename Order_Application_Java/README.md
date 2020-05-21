@@ -41,6 +41,8 @@ This is the customer view of the system. This view is used by customers to buy p
 -  MSSQL - As the relational database management system 
 -  OpenCV - For opening and capturing video streams using the web camera 
 
+<a href="#user-content--table-of-contents-">Back to contents </a>
+
 <h2 id="installation"> Installation </h2>
 
 <h3 id="prerequisites"> Prerequisites </h3>
@@ -58,6 +60,8 @@ Then navigate to BuyGrand Folder
 cd BuyGrand
 ```
 Then open project (Order_Application_Java) using your favorite Java IDE or editor
+
+<a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h3 id="python"> Installing dependencies - Python </h3>
 
@@ -81,6 +85,8 @@ Then install dependencies using "pip install"
 pip install dlib, numpy, cv2, imageio, PIL, CMake
 ```
 
+<a href="#user-content--table-of-contents-">Back to contents </a>
+
 <h3 id="java"> Installing dependencies  - Java </h3>
 
 Java dependencies include iText PDF libraries. These are packaged in the project and can be found at BuyGrand\Order_Application_Java\dist\lib
@@ -96,3 +102,5 @@ If any project errors occur due to missing libraries follow the same procedure i
 <br>
 
 <div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
+
+<a href="#user-content--table-of-contents-">Back to contents </a>
