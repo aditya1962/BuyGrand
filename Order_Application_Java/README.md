@@ -57,7 +57,7 @@ Then navigate to BuyGrand Folder
 ```cmd
 cd BuyGrand
 ```
-Then open project using your favorite Java IDE or editor
+Then open project (Order_Application_Java) using your favorite Java IDE or editor
 
 <h3 id="python"> Installing dependencies - Python </h3>
 
