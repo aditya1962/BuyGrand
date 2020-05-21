@@ -6,6 +6,16 @@
 
 :star: Star BuyGrand on Github. It helps a lot.
 
+## Basic Overview
+
+<a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a shopping cart application where registered users could buy products, admin can administrator sellers, manage product categories and view sales reports,  and sellers can sell their products. 
+
+There are three systems in this project : 
+
+1. <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Java">Customer view</a>  - This uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. You can read more <a href="https://github.com/aditya1962/BuyGrand/blob/master/Order_Application_Java/README.md"> here </a>.
+2. <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Admin">Admin view</a> - This uses <a href="https://www.asp.net/">ASP.NET</a> as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. Reports are created using RDLC.
+3. Seller view 
+
 ## Technologies used
 
 ### Customer view
@@ -30,18 +40,6 @@
 - DLib (Python dependency)- Machine learning platform for face detection using Convolutional Neural Network and prediction using an existing trained model
 - iText PDF and its packages  - For PDF generation using Java application
 - Microsoft Report Viewer - For report generation using RDLC
-
-
-## Basic Overview
-
-<a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a shopping cart application where registered users could buy products, admin can administrator sellers, manage product categories and view sales reports,  and sellers can sell their products. 
-
-There are three systems in this project : 
-
-1. <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Java">Customer view</a>  - This uses <a href="https://www.java.com/">Java </a>as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. The invoice generation process includes digital authentication which is performed using <a href="https://www.python.org/">Python</a> (using a Convolutional Neural Network) with a web camera stream using <a href="https://opencv.org/">OpenCV</a>. You can read more <a href="https://github.com/aditya1962/BuyGrand/blob/master/Order_Application_Java/README.md"> here </a>.
-2. Admin view - This uses <a href="https://www.asp.net/">ASP.NET</a> as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. Reports are created using RDLC.
-3. Seller view 
-
 
 ##  System Architecture
 
