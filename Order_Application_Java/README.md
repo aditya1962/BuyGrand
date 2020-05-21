@@ -22,6 +22,16 @@
 This is the customer view of the system. This view is used by customers to buy products and place orders. Each customer needs to be a registered user before using the system and once logged in they can purchase products and create an invoice for the order.
 
 <h2 id="features">Features</h2>
+<ol>
+<li>Login</li> 
+<li>Register</li> 
+<li>Forgot Password</li> 
+<li>View categories and subcategories</li> 
+<li>View products</li> 
+<li>Change account settings</li> 
+<li>Add to cart</li> 
+<li>View cart and print invoice</li> 
+</ol>
 
 
 <h2 id="technologies"> Technologies used </h2>
@@ -35,7 +45,7 @@ This is the customer view of the system. This view is used by customers to buy p
 
 <h3 id="prerequisites"> Prerequisites </h3>
 <br/>
-<p>Make sure Java and Python (version 3.0 upwards) are installed and class path set. Also Git Bash should be installed to clone and perform git related operations
+<p>Make sure Java and Python 3.0+ are installed and class path set. Also Git Bash should be installed to clone and perform git related operations
 <br/><br/>
 The latest version of BuyGrand can be cloned using
 
