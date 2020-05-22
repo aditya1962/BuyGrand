@@ -16,19 +16,37 @@
 - <a href="#system-architecture"> System Architecture </a>
 
 <h2 id="overview"> Overview </h2>
-
+This is the administrator view of the system. The administrator view is used by the admin to manage sellers, product categories and subcategories, and view sales. This view is a microlithic 2-tier application. Other than authentication at Login all other database calls are made through ASP.NET web services. For more details see <a href="#system-arhcitecture"> System Architecture </a>.
 
 
 <h2 id="features">Features</h2>
 <ol>
-    <li> </li>
+    <li>Dashboard</li>
+    <li>Add Category </li>
+    <li>Add Sub Category </li>
+    <li>Approve Seller </li>
+    <li>View Feedbacks </li>
+    <li>Login </li>
+    <li>Manage Sellers </li>
+    <li>Add Category </li>
+    <li>View Sales </li>
 </ol>
 
 
 <h2 id="technologies"> Technologies used </h2>
 
--  
-
+-  ASP.NET 4.7 - Web forms were used in the classic web application project type for UI and backend contectivity.
+-  MSSQL (SQL Server 2019) - Two databases were used (one for read-optimized operations (a Read-Replica) and another for all other operations). Additionally, databases were tuned for optimal performance using indexing and related operations using execution plans.
+- ASP.NET Web Services - Web Services were used to provide connectivity between the core application and the database. 
+- RDLC Reporting - Report Definition Language Client Side was used to generate sales reports given the time range.
+- Other ASP.NET web components 
+    - Charts - Charts were used as graphical illustrations to view sales in the dashboard.
+    - Web User Controls - Web user controls were used as templates for the header and footer sections for a logged in user.
+- Other web technologies
+    - Vanilla JavaScript, jQuery and AJAX
+    - BootStrap 4.0
+    - JSON
+    
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h2 id="installation"> Installation </h2>
