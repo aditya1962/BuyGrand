@@ -73,8 +73,9 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h3 id="#website-installation">Website Installation </h3>
-Website installation includes pointing the application to the database. To do this, go to /Order_Application_Admin/Order_Application_Admin/Web.Config
-Locate the following code in this file.
+Website installation includes pointing the application to the database. To do this, go to /Order_Application_Admin/Order_Application_Admin/Web.Config and locate the following code in this file.
+
+
 ```
 <configuration>
   <connectionStrings>
