@@ -13,6 +13,7 @@
 - <a href="#technologies"> Technologies used </a>
 - <a href="#installation"> Installation </a>
     - <a href="#prerequisites"> Prerequisites </a>
+    - <a href="#database-installation"> Database installation </a>
 - <a href="#system-architecture"> System Architecture </a>
 
 <h2 id="overview"> Overview </h2>
@@ -61,13 +62,16 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
 <ol>
 <li> Open SQL Server Management Studio (SSMS), Login using <b>SQL Authentication</b></li>
 <li> Create the Administrator Database, Indexes and Stored Procedures</li>
-    -Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)</li>
-    -Open the file located in the step above above </li>
-    -Execute the file (or click F5 in your keyboard)</li>
+    <br/>
+    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)
+    - Open the file located in the step above
+    - Execute the file (or click F5 in your keyboard)
+    
 <li> Create the Administrator Read Replica Database, Indexes and Stored Procedures</li>
-    -Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)</li>
-    -Open the file located in the step above above </li>
-    -Execute the file (or click F5 in your keyboard)</li>
+<br/>
+    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)
+    - Open the file located in the step above
+    - Execute the file (or click F5 in your keyboard)
 </ol>
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
