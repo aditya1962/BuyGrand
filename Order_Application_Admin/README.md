@@ -14,6 +14,7 @@
 - <a href="#installation"> Installation </a>
     - <a href="#prerequisites"> Prerequisites </a>
     - <a href="#database-installation"> Database installation </a>
+    - <a href="#website-installation"> Website installation </a>
 - <a href="#system-architecture"> System Architecture </a>
 
 <h2 id="overview"> Overview </h2>
@@ -56,8 +57,6 @@ This is the administrator view of the system. The administrator view is used by 
 
 Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or above is installed. This is required as the .NET application was development using version 4.0 and in SQL databases some queries were created specifically for versions 2012 and above.
 
-<br/>
-
 <h3 id="#database-installation">Database installation </h3>
 <ol>
 <li> Open SQL Server Management Studio (SSMS), Login using <b>SQL Authentication</b></li>
@@ -73,6 +72,21 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
 </ol>
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
+<h3 id="#website-installation">Website Installation </h3>
+Website installation includes pointing the application to the database. To do this, go to /Order_Application_Admin/Order_Application_Admin/Web.Config
+Locate the following code in this file.
+```
+<configuration>
+  <connectionStrings>
+    <add name="SqlConnectionString" connectionString="Data Source=ADITYA_PC;Initial Catalog=BuyGrandAdministrator;Persist Security Info=True;User ID=sa;Password=password@123" providerName="System.Data.SqlClient"/>
+    <add name="SqlReadReplicaConnectionString" connectionString="Data Source=ADITYA_PC;Initial Catalog=BuyGrandAdministratorReadReplica;Persist Security Info=True;User ID=sa;Password=password@123" providerName="System.Data.SqlClient"/>
+  </connectionStrings>
+...
+```
+
+In the connectionString in both SqlConnectionString and SqlReadReplicaConnectionString nodes change the Data Source (in the above snippet "ADITYA_PC") to the server name of your SQL Server.
+
+<a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h2 id="system-architecture"> System Architecture</h2>
 <br>
