@@ -72,9 +72,9 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
 </ol>
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
-<h3 id="#website-installation">Website Installation </h3>
+<h3 id="website-installation">Website Installation </h3>
 Website installation includes pointing the application to the database. To do this, go to /Order_Application_Admin/Order_Application_Admin/Web.Config and locate the following code in this file.
-
+<br/>
 
 ```
 <configuration>
@@ -85,7 +85,7 @@ Website installation includes pointing the application to the database. To do th
 ...
 ```
 
-In the connectionString in both SqlConnectionString and SqlReadReplicaConnectionString nodes change the Data Source (in the above snippet "ADITYA_PC") to the server name of your SQL Server.
+In the connectionString in both SqlConnectionString and SqlReadReplicaConnectionString nodes change the Data Source (in the above snippet "ADITYA_PC") to the server name of your SQL Server, User ID to the username and the password to the password of the SQL Server Authentication account of the SQL Server.
 
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
