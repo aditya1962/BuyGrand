@@ -62,15 +62,13 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
 <ol>
 <li> Open SQL Server Management Studio (SSMS), Login using <b>SQL Authentication</b></li>
 <li> Create the Administrator Database, Indexes and Stored Procedures</li>
-    <br/>
-    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)
-    - Open the file located in the step above
+    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)<br/>
+    - Open the file located in the step above<br/>
     - Execute the file (or click F5 in your keyboard)
     
 <li> Create the Administrator Read Replica Database, Indexes and Stored Procedures</li>
-<br/>
-    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)
-    - Open the file located in the step above
+    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)<br/>
+    - Open the file located in the step above<br/>
     - Execute the file (or click F5 in your keyboard)
 </ol>
 <a href="#user-content--table-of-contents-">Back to contents </a>
