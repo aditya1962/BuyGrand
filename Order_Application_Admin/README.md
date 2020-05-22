@@ -52,7 +52,7 @@ This is the administrator view of the system. The administrator view is used by 
 <h2 id="installation"> Installation </h2>
 
 <h3 id="prerequisites"> Prerequisites </h3>
-<br/>
+
 Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or above is installed. This is required as the .NET application was development using version 4.0 and in SQL databases some queries were created specifically for versions 2012 and above.
 
 <br/>
@@ -61,24 +61,14 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
 <ol>
 <li> Open SQL Server Management Studio (SSMS), Login using <b>SQL Authentication</b></li>
 <li> Create the Administrator Database, Indexes and Stored Procedures</li>
-    <ul>
-        <li> Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)</li>
-        <li> Open the file located in the step above above </li>
-        <li>Execute the file (or click F5 in your keyboard)</li>
-    </ul>
-    <br/>
-=== At this stage the Administrator database with its tables will be created ===
-<br/>
-    <li> Create the Administrator Read Replica Database, Indexes and Stored Procedures</li>
-    <ul>
-        <li> Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)</li>
-        <li> Open the file located in the step above above </li>
-        <li>Execute the file (or click F5 in your keyboard)</li>
-    </ul>
-    <br/>
-=== At this stage the Administrator Read Replica database with its tables will be created ===
-    <br/>
-
+    -Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)</li>
+    -Open the file located in the step above above </li>
+    -Execute the file (or click F5 in your keyboard)</li>
+<li> Create the Administrator Read Replica Database, Indexes and Stored Procedures</li>
+    -Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)</li>
+    -Open the file located in the step above above </li>
+    -Execute the file (or click F5 in your keyboard)</li>
+</ol>
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
 
