@@ -57,7 +57,7 @@ This is the administrator view of the system. The administrator view is used by 
 
 Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or above is installed. This is required as the .NET application was development using version 4.0 and in SQL databases some queries were created specifically for versions 2012 and above.
 
-<h3 id="#database-installation">Database installation </h3>
+<h3 id="database-installation">Database installation </h3>
 <ol>
 <li> Open SQL Server Management Studio (SSMS), Login using <b>SQL Authentication</b></li>
 <li> Create the Administrator Database, Indexes and Stored Procedures</li>
