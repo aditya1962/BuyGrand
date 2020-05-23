@@ -46,9 +46,8 @@ This is the customer view of the system. This view is used by customers to buy p
 <h2 id="installation"> Installation </h2>
 <br/>
 
-{{% notice warning %}}
-Following installation procedures are for Microsoft Windows systems only. Please follow similar steps when installing in other operating systems
-{{% /notice %}}
+> ** WARNING **: Following installation procedures are for Microsoft Windows systems only. Please follow similar steps when installing in other operating systems
+
 
 <br/>
 <h3 id="prerequisites"> Prerequisites </h3>
