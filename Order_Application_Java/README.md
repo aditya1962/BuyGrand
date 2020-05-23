@@ -44,9 +44,13 @@ This is the customer view of the system. This view is used by customers to buy p
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h2 id="installation"> Installation </h2>
-{{% tip class="warning" %}}
-Warning Body
-{{% /tip %}}
+<br/>
+
+{{% notice warning %}}
+Following installation procedures are for Microsoft Windows systems only. Please follow similar steps when installing in other operating systems
+{{% /notice %}}
+
+<br/>
 <h3 id="prerequisites"> Prerequisites </h3>
 <br/>
 <p>Make sure Java and Python 3.0+ are installed and class path set. Also Git Bash should be installed to clone and perform git related operations
