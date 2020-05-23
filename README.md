@@ -6,7 +6,17 @@
 
 :star: Star BuyGrand on Github. It helps a lot.
 
-## Basic Overview
+## Table of Contents
+
+- <a href="#basic-overview">Basic Overview</a>
+- <a href="#technologies">Technologies</a>
+    - <a href="#customer-view">Customer View</a>
+    - <a href="#admin-view">Admin View</a>
+- <a href="#main-dependencies">Main Dependencies</a>
+- <a href="#system-architecture">System Architecture</a>
+- <a href="#license">License</a>
+
+<h2 id="basic-overview"> Basic Overview </h2>
 
 <a href="https://github.com/aditya1962/BuyGrand/">BuyGrand </a>is a shopping cart application where registered users could buy products, admin can administrator sellers, manage product categories and view sales reports,  and sellers can sell their products. 
 
@@ -16,16 +26,18 @@ There are three systems in this project :
 2. <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Admin">Admin view</a> - This uses <a href="https://www.asp.net/">ASP.NET</a> as the UI render and <a href="https://www.microsoft.com/en-us/sql-server/sql-server-2019">MSSQL </a> as the database model. Reports are created using RDLC. You can read more <a href="https://github.com/aditya1962/BuyGrand/blob/master/Order_Application_Admin/README.md"> here </a>.
 3. Seller view 
 
-## Technologies used
+<h2 id="technologies">Technologies used</h2>
 
-### Customer view
+<h2 id="customer-view">Customer view</h3>
 
 -  Java - For front-end GUI display using JFrame and File writing during invoice generation 
 -  Python  - For face detection during the invoice generation process 
 -  MSSQL - As the relational database management system 
 -  OpenCV - For opening and capturing video streams using the web camera 
 
-### Admin view
+For more details <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Java#technologies">see here </a>
+
+<h3 id="admin-view">Admin view</h3>
 
 - ASP.NET - For UI and back-end connections 
 - MSSQL - As the relational database management system
@@ -34,17 +46,26 @@ There are three systems in this project :
 - ASP.NET Charts - Charts were used as a visual display in the admin dashboard
 - Web related technologies used - JavaScript, jQuery, Bootstrap 4.0, AJAX and JSON
 
+For more details <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Admin#technologies">see here </a>
 
-## Main Dependencies 
+<h2 id="main-dependencies">Main Dependencies</h2>
 
 - DLib (Python dependency)- Machine learning platform for face detection using Convolutional Neural Network and prediction using an existing trained model
 - iText PDF and its packages  - For PDF generation using Java application
 - Microsoft Report Viewer - For report generation using RDLC
 
-##  System Architecture
+<h2 id="system-architecture">System Architecture</h2>
 
-<div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
+The system architecture of the overall system is three microlithic sub systems composed of the customer system, the admin system and the seller system. 
 
-## License
+<div align="center"><img src="https://github.com/aditya1962/BuyGrand/blob/master/assets/images/Overall%20System%20Architecture.png" alt="System Architecture"></div>
+
+<br/>
+For more details on the system architecture of the customer system <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Java#-system-architecture"> see here </a>.
+<br/>
+For more details on the system architecture of the admin system <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Admin#system-architecture"> see here </a>.
+
+
+<h2 id="license">License</h2>
 
 <p>The <a href="https://github.com/aditya1962/BuyGrand">repository </a> is licensed under MIT license </p>
