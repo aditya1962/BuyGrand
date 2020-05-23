@@ -28,7 +28,7 @@ There are three systems in this project :
 
 <h2 id="technologies">Technologies used</h2>
 
-<h2 id="customer-view">Customer view</h3>
+<h3 id="customer-view">Customer view</h3>
 
 -  Java - For front-end GUI display using JFrame and File writing during invoice generation 
 -  Python  - For face detection during the invoice generation process 
@@ -48,11 +48,15 @@ For more details <a href="https://github.com/aditya1962/BuyGrand/tree/master/Ord
 
 For more details <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Admin#technologies">see here </a>
 
+<a href="#user-content-table-of-contents"> Back to Top </a>
+
 <h2 id="main-dependencies">Main Dependencies</h2>
 
 - DLib (Python dependency)- Machine learning platform for face detection using Convolutional Neural Network and prediction using an existing trained model
 - iText PDF and its packages  - For PDF generation using Java application
 - Microsoft Report Viewer - For report generation using RDLC
+
+<a href="#user-content-table-of-contents"> Back to Top </a>
 
 <h2 id="system-architecture">System Architecture</h2>
 
@@ -65,7 +69,10 @@ For more details on the system architecture of the customer system <a href="http
 <br/>
 For more details on the system architecture of the admin system <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Admin#system-architecture"> see here </a>.
 
+<a href="#user-content-table-of-contents"> Back to Top </a>
 
 <h2 id="license">License</h2>
 
 <p>The <a href="https://github.com/aditya1962/BuyGrand">repository </a> is licensed under MIT license </p>
+
+<a href="#user-content-table-of-contents"> Back to Top </a>
