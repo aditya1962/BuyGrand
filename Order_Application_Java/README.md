@@ -44,7 +44,13 @@ This is the customer view of the system. This view is used by customers to buy p
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h2 id="installation"> Installation </h2>
+<br/>
 
+> **WARNING**: Following installation procedures are for Microsoft&#174; Windows&#174;
+ systems only. Please follow similar steps when installing in other operating systems.
+
+
+<br/>
 <h3 id="prerequisites"> Prerequisites </h3>
 <br/>
 <p>Make sure Java and Python 3.0+ are installed and class path set. Also Git Bash should be installed to clone and perform git related operations
@@ -102,7 +108,6 @@ If any project errors occur due to missing libraries follow the same procedure i
 
 <h2 id="system-architecture"> System Architecture</h2>
 <br>
-
-<div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
+<div align="center"><img src="https://github.com/aditya1962/BuyGrand/blob/master/assets/images/Customer%20System%20Architecture.png" alt="System Architecture"></div>
 
 <a href="#user-content--table-of-contents-">Back to contents </a>

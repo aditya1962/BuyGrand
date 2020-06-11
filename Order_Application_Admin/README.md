@@ -92,6 +92,6 @@ In the connectionString in both SqlConnectionString and SqlReadReplicaConnection
 <h2 id="system-architecture"> System Architecture</h2>
 <br>
 
-<div align="center"><img src="https://raw.githubusercontent.com/aditya1962/BuyGrand/master/System%20Architecture.png" alt="System Architecture"></div>
+<p align="center"><img src="https://github.com/aditya1962/BuyGrand/blob/master/assets/images/Admin%20System%20Architecture.png" alt="System Architecture" Width="50%"></p>
 
 <a href="#user-content--table-of-contents-">Back to contents </a>
