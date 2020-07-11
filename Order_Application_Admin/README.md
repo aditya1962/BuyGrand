@@ -23,7 +23,7 @@ This is the administrator view of the system. The administrator view is used by 
 
 <h2 id="features">Features</h2>
 <ol>
-    <li>Dashboard</li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Dashboard-(Index-page)">Dashboard</a></li>
     <li>Add Category </li>
     <li>Add Sub Category </li>
     <li>Approve Seller </li>
