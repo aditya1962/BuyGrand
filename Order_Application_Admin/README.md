@@ -23,15 +23,14 @@ This is the administrator view of the system. The administrator view is used by 
 
 <h2 id="features">Features</h2>
 <ol>
-    <li>Dashboard</li>
-    <li>Add Category </li>
-    <li>Add Sub Category </li>
-    <li>Approve Seller </li>
-    <li>View Feedbacks </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Dashboard-(Index-page)">Dashboard</a></li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Category">Add Category</a> </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Sub-Category">Add Sub Category</a> </li>
+    <li><a href="">Approve Seller </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Feedbacks">View Feedbacks</a> </li>
     <li>Login </li>
-    <li>Manage Sellers </li>
-    <li>Add Category </li>
-    <li>View Sales </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Manage-Seller">Manage Sellers</a> </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-View-Sales">View Sales</a> </li>
 </ol>
 
 
