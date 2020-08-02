@@ -44,12 +44,13 @@ create table dbo.item
 	rating int default 0,
 	available bit,
 	orderCount int default 0,
-	categoryID varchar(10) constraint cateogryID_item_category references dbo.itemCategory(categoryID)
+	categoryID varchar(10) constraint categoryID_item_category references dbo.itemCategory(categoryID)
 );
 
 create table dbo.userCart
 (
-	username varchar(15) primary key constraint username_userCart_loggedUser references dbo.loggedUser(username),
+	cartID varchar(15) primary key,
+	username varchar(15) constraint username_userCart_loggedUser references dbo.loggedUser(username),
 	itemID varchar(10) not null constraint itemID_userCart_item references dbo.item(itemID),
 	quantity int not null,
 	dateAdded datetime not null,
@@ -59,6 +60,7 @@ create table dbo.userCart
 create table dbo.feedback
 (
 	feedbackID varchar(15) primary key,
+	originalFeedbackID varchar(15) not null,
 	username varchar(15) not null constraint username_feedback_loggedUser references dbo.loggedUser(username),
 	message varchar(250) not null,
 	submittedDate datetime not null
@@ -69,12 +71,4 @@ create table dbo.itemReport
 	reportID varchar(15) primary key,
 	username varchar(15) not null constraint username_itemReport_loggedUser references dbo.loggedUser(username),
 	generatedTime datetime not null
-);
-
-create table dbo.feedbackAdmin
-(
-	feedbackID varchar(15) primary key,
-	username varchar(15) not null constraint username_feedbackAdmin_loggedUser references dbo.loggedUser(username),
-	message varchar(250) not null,
-	submittedDate datetime not null
 );

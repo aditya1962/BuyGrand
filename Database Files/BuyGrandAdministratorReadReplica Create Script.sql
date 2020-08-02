@@ -9,7 +9,7 @@ create table dbo.login
 	secretQuestion varchar(150) not null,
 	answer varchar(100) not null,
 	role varchar(15) not null,
-	activated bit not null,
+	activated int not null,
 	loginTime datetime not null,
 	loginCount int not null
 );
@@ -38,7 +38,8 @@ create table dbo.item
 create table dbo.viewFeedback
 (
 	feedbackID varchar(15) primary key,
-	username varchar(15) not null,
+	originalFeedbackID varchar(15) not null,
+	username varchar(15) not null constraint username_viewFeedback_login references dbo.login(username),
 	message varchar(250) not null,
 	submittedDate datetime not null
 );
@@ -46,7 +47,7 @@ create table dbo.viewFeedback
 create table dbo.userReport
 (
 	rowID varchar(15) primary key,
-	username varchar(15) not null,
+	username varchar(15) not null constraint username_userReport_login references dbo.login(username),
 	numberOfItems int not null,
 	totalPrice numeric(10,2) not null,
 	submittedDate datetime not null 
@@ -62,12 +63,4 @@ create table dbo.loggedUser
 	emailAddress varchar(50),
 	gender varchar(8),
 	country varchar(50)
-);
-
-create table dbo.feedbackAdmin
-(
-	feedbackID varchar(15) primary key,
-	username varchar(15) not null constraint username_feedbackAdmin_login references dbo.login(username),
-	message varchar(250) not null,
-	submittedDate datetime not null
 );
