@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6FCFECE8-3040-446C-BA83-B86871F449CD}</ProjectGuid>
+    <ProjectGuid>{B601E8CE-EABA-420E-975A-E30D0CD72BF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Order_Application_Seller.Tests</RootNamespace>
@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Order_Application_Seller\Order_Application_Seller.csproj">
-      <Project>{88734630-EEAE-4B49-B53C-C35AC879BE6A}</Project>
+      <Project>{18C2A7C2-2B38-4B51-BDDF-F1B63E1AB941}</Project>
       <Name>Order_Application_Seller</Name>
     </ProjectReference>
   </ItemGroup>
