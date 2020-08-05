@@ -5,7 +5,7 @@ use BuyGrandAdministrator;
 create table dbo.login
 (
 	username varchar(15) primary key,
-	password varchar(120) not null,
+	password varchar(250) not null,
 	secretQuestion varchar(150) not null,
 	answer varchar(100) not null,
 	role varchar(15) not null,
@@ -16,38 +16,41 @@ create table dbo.login
 
 create table dbo.itemCategory
 (
-	categoryID varchar(10) primary key,
-	category varchar(15) not null,
-	subcategory varchar(15) not null
+	categoryID int identity(1,1) primary key,
+	category varchar(100) not null,
+	subcategory varchar(100) not null
 );
 
 create table dbo.item
 (
-	itemID varchar(10) primary key,
-	description varchar(200) not null,
-	name varchar(50) not null,
-	price numeric(5,2) not null,
-	imagePath varchar(100) not null,
+	itemID int identity(1,1) primary key,
+	description varchar(500) not null,
+	name varchar(90) not null,
+	price numeric(10,2) not null,
+	imagePath varchar(200) not null,
 	discount numeric(5,2) default 0,
 	rating int default 0,
-	available bit,
+	available int default 0,
 	orderCount int default 0,
-	categoryID varchar(10) constraint cateogryID_item_category references dbo.itemCategory(categoryID)
+	categoryID int constraint cateogryID_item_category references dbo.itemCategory(categoryID)
+		on delete cascade on update cascade
 );
 
 create table dbo.viewFeedback
 (
-	feedbackID varchar(15) primary key,
-	originalFeedbackID varchar(15) not null,
-	username varchar(15) not null constraint username_viewFeedback_login references dbo.login(username),
-	message varchar(250) not null,
+	feedbackID int identity(1,1) primary key,
+	originalFeedbackID int not null,
+	username varchar(15) not null constraint username_viewFeedback_login references dbo.login(username)
+		on delete cascade on update cascade,
+	message varchar(max) not null,
 	submittedDate datetime not null
 );
 
 create table dbo.userReport
 (
-	rowID varchar(15) primary key,
-	username varchar(15) not null constraint username_userReport_login references dbo.login(username),
+	rowID int identity(1,1) primary key,
+	username varchar(15) not null constraint username_userReport_login references dbo.login(username)
+		on delete cascade on update cascade,
 	numberOfItems int not null,
 	totalPrice numeric(10,2) not null,
 	submittedDate datetime not null 
@@ -55,12 +58,13 @@ create table dbo.userReport
 
 create table dbo.loggedUser
 (
-	username varchar(15) primary key constraint username_loggedUser_login references dbo.login(username),
-	firstName varchar(100),
-	lastName varchar(100),
-	address varchar(150),
-	phoneNumber varchar(15),
-	emailAddress varchar(50),
-	gender varchar(8),
-	country varchar(50)
+	username varchar(15) primary key constraint username_loggedUser_login references dbo.login(username)
+		on delete cascade on update cascade,
+	firstName varchar(100) not null,
+	lastName varchar(100) not null,
+	address varchar(500) not null,
+	phoneNumber varchar(15) not null,
+	emailAddress varchar(50) not null,
+	gender varchar(8) not null,
+	country varchar(40) not null
 );
