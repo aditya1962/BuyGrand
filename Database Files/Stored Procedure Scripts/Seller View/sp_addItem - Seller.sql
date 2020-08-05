@@ -29,17 +29,20 @@ BEGIN
 		ELSE
 			SAVE TRANSACTION sp_addItem
 
-		DECLARE @itemID int, @categoryID int;
+		DECLARE @itemID int, @categoryID int, @rows int;
 		SELECT @itemID = (select top(1) itemID from dbo.item order by itemID desc);
 		SET @itemID = @itemID + 1;
+		SET @rows = 0;
 		SELECT @categoryID = (select categoryID from dbo.itemCategory where category=@categoryName and subcategory=@subcategoryName);
 
 
 		insert into dbo.item(itemID,description,name,price,imagePath,quantityAvailable,categoryID)
 					values(@itemID,@description,@name,@price,@imagePath,@quantityAvailable,@categoryID);
+		SET @rows = @rows + 1;
 
 		IF @transactionCount=0
 			COMMIT TRANSACTION;
+			return @rows;
 	END TRY
 	BEGIN CATCH
 		DECLARE @errorNo int, @message varchar(max), @xstate int
