@@ -71,3 +71,4 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Admin\ServiceApplicationBuy
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Admin\ServiceApplicationBuyGrandAdmin\obj\Debug\ServiceApplicationBuyGrandAdmin.csproj.CopyComplete
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Admin\ServiceApplicationBuyGrandAdmin\obj\Debug\ServiceApplicationBuyGrandAdmin.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Admin\ServiceApplicationBuyGrandAdmin\obj\Debug\ServiceApplicationBuyGrandAdmin.pdb
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Admin\ServiceApplicationBuyGrandAdmin\obj\Debug\ServiceApplicationBuyGrandAdmin.csproj.CoreCompileInputs.cache

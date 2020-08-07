@@ -13,6 +13,7 @@ namespace ServiceApplicationBuyGrandSeller
     public class AddProduct : System.Web.Services.WebService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["SellerConnectionString"].ConnectionString;
+
         [WebMethod]
         public int AddItem(string description, string name, double price,string imagePath, 
                             int quantity, string category, string subcategory)
@@ -36,6 +37,7 @@ namespace ServiceApplicationBuyGrandSeller
             }
             catch(Exception ex)
             {
+                Logging.WriteLog(ex, "Error", ex.Message);
                 return -1;
             }
         }
