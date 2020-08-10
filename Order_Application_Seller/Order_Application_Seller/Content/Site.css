@@ -11,13 +11,10 @@ body {
     padding-right: 15px;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+[type=text], [type=number], textarea.form-control, select.form-control,
+[type=submit], [type=file] {
+    font-size: 15px;
 }
-
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -28,4 +25,9 @@ textarea {
     .body-content {
         padding: 0;
     }
+}
+
+.addItemCard {
+    font-size: 15px;
+    padding: 2% 1%;
 }

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order_Application_Seller", "Order_Application_Seller\Order_Application_Seller.csproj", "{18C2A7C2-2B38-4B51-BDDF-F1B63E1AB941}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FE286F48-7FFD-4061-8019-F4B160D20014} = {FE286F48-7FFD-4061-8019-F4B160D20014}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order_Application_Seller.Tests", "Order_Application_Seller.Tests\Order_Application_Seller.Tests.csproj", "{B601E8CE-EABA-420E-975A-E30D0CD72BF3}"
 EndProject
