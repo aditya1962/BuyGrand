@@ -13,6 +13,7 @@ namespace ServiceApplicationBuyGrandSeller
     public class AddProduct : System.Web.Services.WebService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["SellerConnectionString"].ConnectionString;
+        string rrConnectionString = ConfigurationManager.ConnectionStrings["SellerReadReplicaConnectionString"].ConnectionString;
 
         [WebMethod]
         public int AddItem(string description, string name, double price,string imagePath, 
@@ -39,6 +40,40 @@ namespace ServiceApplicationBuyGrandSeller
             {
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return -1;
+            }
+        }
+
+        [WebMethod]
+        public Category[] getCategoryNames()
+        {
+            try
+            {
+                using(SqlConnection connection= new SqlConnection(rrConnectionString))
+                {
+                    DataTable table = new DataTable("CategoryNames");
+                    SqlDataAdapter adapter = new SqlDataAdapter("sp_getCategories", connection);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    adapter.Fill(table);
+                    Category[] categories = new Category[table.Rows.Count];
+                    if (table.Rows.Count > 0)
+                    {
+                        int i = 0;
+                        foreach (DataRow row in table.Rows)
+                        {
+                            Category category = new Category();
+                            category.categoryName = row["category"].ToString();
+                            category.subcategoryName = row["subcategory"].ToString();
+                            categories[i] = category;
+                            i++;
+                        }
+                    }
+                    return categories;
+                }
+            }
+            catch(Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return null;
             }
         }
     }

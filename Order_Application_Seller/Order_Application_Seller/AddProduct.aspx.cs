@@ -10,5 +10,9 @@ namespace Order_Application_Seller
             //addProduct.AddItem();
         }
 
+        protected void CategorySelected(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

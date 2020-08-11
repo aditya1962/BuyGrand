@@ -8,8 +8,8 @@ namespace ServiceApplicationBuyGrandSeller
     {
         public static void WriteLog(Exception ex, string type, string message)
         {
-            string file = "Logging-" + DateTime.Now.ToString("YYYY-MM-DD") + ".txt";
-            string destination = AppDomain.CurrentDomain.BaseDirectory + "\\Logging\\";
+            string file = "Logging-" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
+            string destination = AppDomain.CurrentDomain.BaseDirectory + "Logging\\";
             string path = destination + file;
             try
             {
@@ -18,12 +18,12 @@ namespace ServiceApplicationBuyGrandSeller
                     string logMessage = "";
                     if (ex==null)
                     {
-                        logMessage = DateTime.Now.ToString("HH:MM:SS") + "| " + type + " | " + message;
+                        logMessage = DateTime.Now.ToString("HH:MM:ss") + "| " + type + " | " + message;
                     }
                     else
                     {
-                        logMessage = DateTime.Now.ToString("HH:MM:SS") + "| " + 
-                            ex + " | " + type + " | " + message;
+                        logMessage = DateTime.Now.ToString("HH:MM:ss") + "| " + 
+                             type + " | " + ex + " | " + message;
                     }
                     writer.WriteLine(logMessage);
                 }
