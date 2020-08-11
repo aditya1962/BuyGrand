@@ -9,7 +9,70 @@
 //------------------------------------------------------------------------------
 
 namespace Order_Application_Seller.AddProductReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://localhost/AddProduct.asmx/")]
+    [System.SerializableAttribute()]
+    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string categoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string subcategoryNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string categoryName {
+            get {
+                return this.categoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoryNameField, value) != true)) {
+                    this.categoryNameField = value;
+                    this.RaisePropertyChanged("categoryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string subcategoryName {
+            get {
+                return this.subcategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.subcategoryNameField, value) != true)) {
+                    this.subcategoryNameField = value;
+                    this.RaisePropertyChanged("subcategoryName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/AddProduct.asmx/", ConfigurationName="AddProductReference.AddProductSoap")]
@@ -21,6 +84,13 @@ namespace Order_Application_Seller.AddProductReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/AddProduct.asmx/AddItem", ReplyAction="*")]
         System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.AddItemResponse> AddItemAsync(Order_Application_Seller.AddProductReference.AddItemRequest request);
+        
+        // CODEGEN: Generating message contract since element name getCategoryNamesResult from namespace http://localhost/AddProduct.asmx/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/AddProduct.asmx/getCategoryNames", ReplyAction="*")]
+        Order_Application_Seller.AddProductReference.getCategoryNamesResponse getCategoryNames(Order_Application_Seller.AddProductReference.getCategoryNamesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/AddProduct.asmx/getCategoryNames", ReplyAction="*")]
+        System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.getCategoryNamesResponse> getCategoryNamesAsync(Order_Application_Seller.AddProductReference.getCategoryNamesRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -115,6 +185,67 @@ namespace Order_Application_Seller.AddProductReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getCategoryNamesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCategoryNames", Namespace="http://localhost/AddProduct.asmx/", Order=0)]
+        public Order_Application_Seller.AddProductReference.getCategoryNamesRequestBody Body;
+        
+        public getCategoryNamesRequest() {
+        }
+        
+        public getCategoryNamesRequest(Order_Application_Seller.AddProductReference.getCategoryNamesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class getCategoryNamesRequestBody {
+        
+        public getCategoryNamesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getCategoryNamesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCategoryNamesResponse", Namespace="http://localhost/AddProduct.asmx/", Order=0)]
+        public Order_Application_Seller.AddProductReference.getCategoryNamesResponseBody Body;
+        
+        public getCategoryNamesResponse() {
+        }
+        
+        public getCategoryNamesResponse(Order_Application_Seller.AddProductReference.getCategoryNamesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/AddProduct.asmx/")]
+    public partial class getCategoryNamesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Order_Application_Seller.AddProductReference.Category[] getCategoryNamesResult;
+        
+        public getCategoryNamesResponseBody() {
+        }
+        
+        public getCategoryNamesResponseBody(Order_Application_Seller.AddProductReference.Category[] getCategoryNamesResult) {
+            this.getCategoryNamesResult = getCategoryNamesResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface AddProductSoapChannel : Order_Application_Seller.AddProductReference.AddProductSoap, System.ServiceModel.IClientChannel {
     }
@@ -177,6 +308,29 @@ namespace Order_Application_Seller.AddProductReference {
             inValue.Body.category = category;
             inValue.Body.subcategory = subcategory;
             return ((Order_Application_Seller.AddProductReference.AddProductSoap)(this)).AddItemAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Order_Application_Seller.AddProductReference.getCategoryNamesResponse Order_Application_Seller.AddProductReference.AddProductSoap.getCategoryNames(Order_Application_Seller.AddProductReference.getCategoryNamesRequest request) {
+            return base.Channel.getCategoryNames(request);
+        }
+        
+        public Order_Application_Seller.AddProductReference.Category[] getCategoryNames() {
+            Order_Application_Seller.AddProductReference.getCategoryNamesRequest inValue = new Order_Application_Seller.AddProductReference.getCategoryNamesRequest();
+            inValue.Body = new Order_Application_Seller.AddProductReference.getCategoryNamesRequestBody();
+            Order_Application_Seller.AddProductReference.getCategoryNamesResponse retVal = ((Order_Application_Seller.AddProductReference.AddProductSoap)(this)).getCategoryNames(inValue);
+            return retVal.Body.getCategoryNamesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.getCategoryNamesResponse> Order_Application_Seller.AddProductReference.AddProductSoap.getCategoryNamesAsync(Order_Application_Seller.AddProductReference.getCategoryNamesRequest request) {
+            return base.Channel.getCategoryNamesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.getCategoryNamesResponse> getCategoryNamesAsync() {
+            Order_Application_Seller.AddProductReference.getCategoryNamesRequest inValue = new Order_Application_Seller.AddProductReference.getCategoryNamesRequest();
+            inValue.Body = new Order_Application_Seller.AddProductReference.getCategoryNamesRequestBody();
+            return ((Order_Application_Seller.AddProductReference.AddProductSoap)(this)).getCategoryNamesAsync(inValue);
         }
     }
 }

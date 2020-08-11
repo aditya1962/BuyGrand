@@ -118,6 +118,12 @@
     <Content Include="Connected Services\AddProductReference\Order_Application_Seller.AddProductReference.AddItemResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\AddProductReference\Order_Application_Seller.AddProductReference.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\AddProductReference\Order_Application_Seller.AddProductReference.getCategoryNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\AddProductReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
