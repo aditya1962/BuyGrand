@@ -34,7 +34,7 @@
                                             <asp:Label runat="server">Category</asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:DropDownList ID="CategoryList" CssClass="form-control" runat="server" OnSelectedIndexChanged="CategorySelected"></asp:DropDownList>
+                                            <asp:DropDownList ID="CategoryList" CssClass="form-control" runat="server" OnSelectedIndexChanged="CategorySelected" AutoPostBack="true"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <br />

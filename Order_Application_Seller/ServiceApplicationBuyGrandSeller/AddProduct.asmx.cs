@@ -54,8 +54,8 @@ namespace ServiceApplicationBuyGrandSeller
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_getCategories", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     adapter.Fill(table);
-                    //Category[] categories = new Category[2];
-                    Category[] categories = new Category[table.Rows.Count];
+                    Category[] categories = new Category[3];
+                    //Category[] categories = new Category[table.Rows.Count];
                     if (table.Rows.Count > 0)
                     {
                         int i = 0;
@@ -68,20 +68,20 @@ namespace ServiceApplicationBuyGrandSeller
                             i++;
                         }
                     }
-                    /*
+                    
                     Category category1 = new Category();
                     category1.categoryName = "abc";
                     category1.subcategoryName = "abcdef";
                     categories[0] = category1;
                     Category category2 = new Category();
                     category2.categoryName = "abcd";
-                    category2.subcategoryName = "abcdef";
+                    category2.subcategoryName = "abcde";
                     categories[1] = category2;
                     Category category3 = new Category();
                     category3.categoryName = "abc";
                     category3.subcategoryName = "abcdefg";
-                    categories[1] = category3;
-                    */
+                    categories[2] = category3;
+                    
                     return categories;
                 }
             }
