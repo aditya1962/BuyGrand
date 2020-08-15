@@ -12,6 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Order_Application_Seller.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceApplicationBuyGrandSeller", "ServiceApplicationBuyGrandSeller\ServiceApplicationBuyGrandSeller.csproj", "{FE286F48-7FFD-4061-8019-F4B160D20014}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A15F433E-AB41-4976-9D2F-FEC39D44DD8F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

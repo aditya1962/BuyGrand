@@ -72,3 +72,5 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Se
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.csproj.CopyComplete
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.pdb
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Order_Application_Seller.dll.CodeAnalysisLog.xml
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Order_Application_Seller.dll.lastcodeanalysissucceeded

@@ -27,14 +27,14 @@
                             <div class="col-md-12 col-lg-12">
                                 <h1>Add Product</h1>
                                 <br />
-                                <asp:Label ID="FormLoadError" runat="server" Text="" Visible="false"></asp:Label>
-                                <div id="addItem">                                    
+                                <asp:Label ID="FormLoadError" runat="server" Visible="False" ForeColor="Red"></asp:Label>
+                                <div id="AddItemFormDiv" runat="server">
                                     <div class="row">
                                         <div class="col-md-2 col-lg-2">
                                             <asp:Label runat="server">Category</asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:DropDownList ID="CategoryList" CssClass="form-control" runat="server" OnSelectedIndexChanged="CategorySelected" AutoPostBack="true"></asp:DropDownList>
+                                            <asp:DropDownList ID="Category" CssClass="form-control" runat="server" OnSelectedIndexChanged="CategorySelected" AutoPostBack="true"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <br />
@@ -43,7 +43,7 @@
                                             <asp:Label runat="server">Sub Category</asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:DropDownList ID="SubCategoryList" CssClass="form-control" runat="server"></asp:DropDownList>
+                                            <asp:DropDownList ID="SubCategory" CssClass="form-control" runat="server"></asp:DropDownList>
                                         </div>
                                     </div>
                                     <br />
@@ -53,6 +53,8 @@
                                         </div>
                                         <div class="col-md-8 col-lg-8">
                                             <asp:TextBox ID="Name" placeholder="Enter name" CssClass="form-control" runat="server"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="NameValidate" runat="server" ErrorMessage="Name cannot be empty" ControlToValidate="Name" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator><br />
+                                            <asp:RegularExpressionValidator ID="NameNum" runat="server" ErrorMessage="Name cannot be a number" ControlToValidate="Name" ForeColor="Red" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddItemValidate"></asp:RegularExpressionValidator>
                                         </div>
                                     </div>
                                     <br />
@@ -62,6 +64,8 @@
                                         </div>
                                         <div class="col-md-8 col-lg-8">
                                             <asp:TextBox ID="Description" placeholder="Enter description" CssClass="form-control" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="DescriptionValidate" runat="server" ErrorMessage="Description cannot be empty" ControlToValidate="Description" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator><br />
+                                            <asp:RegularExpressionValidator ID="DescriptionNum" runat="server" ErrorMessage="Description cannot be a number" ControlToValidate="Description" ForeColor="Red" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddItemValidate"></asp:RegularExpressionValidator>
                                         </div>
                                     </div>
                                     <br />
@@ -71,6 +75,7 @@
                                         </div>
                                         <div class="col-md-8 col-lg-8">
                                             <asp:TextBox ID="Price" placeholder="Enter price" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="PriceValidate" runat="server" ErrorMessage="Price cannot be empty" ControlToValidate="Price" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <br />
@@ -80,6 +85,7 @@
                                         </div>
                                         <div class="col-md-8 col-lg-8">
                                             <asp:TextBox ID="Quantity" placeholder="Enter quantity" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="QuantityValidate" runat="server" ErrorMessage="Quantity cannot be empty" ControlToValidate="Quantity" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <br />
@@ -89,6 +95,7 @@
                                         </div>
                                         <div class="col-md-4 col-lg-4">
                                             <asp:FileUpload ID="ImageFile" CssClass="form-control" runat="server" Style="height: 35px;" />
+                                            <asp:Label ID="FileError" runat="server" Visible="False" ForeColor="Red"></asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
                                             <asp:Image ID="Image" Visible="false" runat="server" />
@@ -97,9 +104,9 @@
                                     <br />
                                     <div class="row">
                                         <div class="col-md-2 col-lg-2 offset-md-2 offset-lg-2">
-                                            <asp:Button ID="AddItemBtn" runat="server" CssClass="btn btn-primary" Text="Add Item" />
+                                            <asp:Button ID="AddItemBtn" runat="server" CssClass="btn btn-primary" Text="Add Item" OnClick="AddItemBtn_Click" ValidationGroup="AddItemValidate" />
                                             <br />
-                                            <asp:Label ID="AddItemStatus" runat="server" Text="" Visible="false"></asp:Label>
+                                            <asp:Label ID="AddItemStatus" runat="server" Visible="False" ForeColor="#339933"></asp:Label>
                                         </div>
                                     </div>
                                 </div>
