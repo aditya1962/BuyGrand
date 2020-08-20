@@ -6,7 +6,7 @@
    <Modules>
     <Module Name="order_application_seller.dll">
      <Messages>
-      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2020-08-15 17:18:02Z" FixCategory="NonBreaking">
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2020-08-20 10:25:00Z" FixCategory="NonBreaking">
        <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'Order_Application_Seller.dll' with a strong name key.</Issue>
       </Message>
      </Messages>

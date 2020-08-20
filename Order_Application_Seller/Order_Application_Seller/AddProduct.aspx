@@ -98,7 +98,7 @@
                                             <asp:Label ID="FileError" runat="server" Visible="False" ForeColor="Red"></asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:Image ID="Image" Visible="false" runat="server" />
+                                            <asp:Image ID="Image"  runat="server" Width="200px" />
                                         </div>
                                     </div>
                                     <br />
@@ -117,5 +117,20 @@
             </div>
         </div>
     </form>
+    <script type="text/javascript">
+        $("#ImageFile").change(function () {
+            readImageSrc(this);
+        })
+        function readImageSrc(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $("#Image").attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>   
 </body>
 </html>
