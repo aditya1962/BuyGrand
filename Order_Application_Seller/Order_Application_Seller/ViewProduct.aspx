@@ -28,6 +28,20 @@
                                 <h1>View Products</h1>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
+                                <label for="FilterList">Filter</label>
+                            </div>
+                            <div class="col-md-2 col-lg-2">
+                                <asp:DropDownList ID="FilterList" runat="server" CssClass="form-control" OnSelectedIndexChanged="FilterList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                        <div class="row">
+                            <div id="pages" runat="server"></div>
+                        </div>
                     </div>
                 </div>
             </div>
