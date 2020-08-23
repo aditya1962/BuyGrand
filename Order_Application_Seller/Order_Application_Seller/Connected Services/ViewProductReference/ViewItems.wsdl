@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/ViewItems.asmx/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/ViewItems.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ViewItems.asmx/">
+      <s:element name="items">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="page" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="filter" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="itemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="itemsResult" type="tns:ArrayOfItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Item">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="image_path" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="discount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="rating" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="order_count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="quantity_available" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="subcategory" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="itemsSoapIn">
+    <wsdl:part name="parameters" element="tns:items" />
+  </wsdl:message>
+  <wsdl:message name="itemsSoapOut">
+    <wsdl:part name="parameters" element="tns:itemsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ViewItemsSoap">
+    <wsdl:operation name="items">
+      <wsdl:input message="tns:itemsSoapIn" />
+      <wsdl:output message="tns:itemsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ViewItemsSoap" type="tns:ViewItemsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="items">
+      <soap:operation soapAction="http://localhost/ViewItems.asmx/items" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ViewItemsSoap12" type="tns:ViewItemsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="items">
+      <soap12:operation soapAction="http://localhost/ViewItems.asmx/items" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ViewItems">
+    <wsdl:port name="ViewItemsSoap" binding="tns:ViewItemsSoap">
+      <soap:address location="http://localhost:53823/ViewItems.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ViewItemsSoap12" binding="tns:ViewItemsSoap12">
+      <soap12:address location="http://localhost:53823/ViewItems.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
