@@ -60,8 +60,7 @@ namespace Order_Application_Seller
 
         public void Pagination()
         {
-            int previous, current, next;
-            
+         
         }
     }
 }

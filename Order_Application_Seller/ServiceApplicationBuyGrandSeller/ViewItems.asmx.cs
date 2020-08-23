@@ -24,8 +24,9 @@ namespace ServiceApplicationBuyGrandSeller
             page = page - 1;
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(rrConnectionString))
                 {
+                    connection.Open();
                     DataTable table = new DataTable("ItemDetails");
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_getItems", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -56,6 +57,27 @@ namespace ServiceApplicationBuyGrandSeller
             {
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
+            }
+        }
+
+        [WebMethod]
+        public int itemCount()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(rrConnectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("sp_getItemCount", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    int items = Convert.ToInt32(command.ExecuteScalar());
+                    return items;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -1;
             }
         }
     }
