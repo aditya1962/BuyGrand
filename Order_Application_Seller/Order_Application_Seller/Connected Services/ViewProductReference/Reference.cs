@@ -207,6 +207,12 @@ namespace Order_Application_Seller.ViewProductReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ViewItems.asmx/items", ReplyAction="*")]
         System.Threading.Tasks.Task<Order_Application_Seller.ViewProductReference.itemsResponse> itemsAsync(Order_Application_Seller.ViewProductReference.itemsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ViewItems.asmx/itemCount", ReplyAction="*")]
+        int itemCount();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ViewItems.asmx/itemCount", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> itemCountAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -333,6 +339,14 @@ namespace Order_Application_Seller.ViewProductReference {
             inValue.Body.page = page;
             inValue.Body.filter = filter;
             return ((Order_Application_Seller.ViewProductReference.ViewItemsSoap)(this)).itemsAsync(inValue);
+        }
+        
+        public int itemCount() {
+            return base.Channel.itemCount();
+        }
+        
+        public System.Threading.Tasks.Task<int> itemCountAsync() {
+            return base.Channel.itemCountAsync();
         }
     }
 }

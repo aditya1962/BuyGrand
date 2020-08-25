@@ -31,3 +31,14 @@ body {
     font-size: 15px;
     padding: 2% 1%;
 }
+
+#pagesDiv
+{
+    margin:auto;
+}
+
+.page-button, a:hover{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+}

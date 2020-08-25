@@ -23,6 +23,7 @@ namespace Order_Application_Seller
                 {
                     FilterList.Items.Add(filtered.ToString());
                 }
+                filter = Convert.ToInt32(FilterList.SelectedValue);
             }
         }
 
@@ -60,7 +61,37 @@ namespace Order_Application_Seller
 
         public void Pagination()
         {
-         
+            int itemsCount = viewItemsRef.itemCount();
+            //itemsCount = 50;
+            int pages = (int) Math.Ceiling((double)itemsCount / filter);
+            int pagesDisplay = pages;
+            if(pages > 5)
+            {
+                pagesDisplay = 5;
+            }
+            int previous = (page - 1), next = (page + 1);
+            if(page==1)
+            {
+                previous = 1;
+                next = 1;
+            }
+            if(page==pagesDisplay)
+            {
+                next = page;
+            }
+            string pagesHtml = "<div style='display:flex;'>";
+            pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + previous + 
+                        "&filter=" + filter + "' class='page-button'>Previous</a></button>";
+            for(int i = 1; i <= pagesDisplay; i++)
+            {
+                pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + i +
+                        "&filter=" + filter + "' class='page-button'>"+ i + "</a></button>";
+            }
+
+            pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + next +
+                        "&filter=" + filter + "' class='page-button'>Next</a></button>";
+            pagesHtml += "</div>";
+            pagesDiv.InnerHtml = pagesHtml;
         }
     }
 }

@@ -40,7 +40,7 @@
 
                         </div>
                         <div class="row">
-                            <div id="pages" runat="server"></div>
+                            <div id="pagesDiv" runat="server"></div>
                         </div>
                     </div>
                 </div>
