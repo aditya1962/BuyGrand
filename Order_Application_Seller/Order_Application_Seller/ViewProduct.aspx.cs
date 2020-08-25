@@ -11,6 +11,7 @@ namespace Order_Application_Seller
     {
         ViewProductReference.ViewItemsSoapClient viewItemsRef;
         int page, filter;
+        ViewProductReference.Item[] items;
 
         protected void Page_Preload(object sender, EventArgs e)
         {
@@ -56,7 +57,19 @@ namespace Order_Application_Seller
 
         public void LoadItem(int page, int filter)
         {
+            items = viewItemsRef.items(page, filter);
+            for(int i=0; i < items.Length; i++)
+            {
+                if(i%4==0)
+                {
+                    itemsListDiv.InnerHtml += "<div class='row'>";
+                }
+                if(i%4==3)
+                {
+                    itemsListDiv.InnerHtml += "</div>";
+                }
 
+            }
         }
 
         public void Pagination()

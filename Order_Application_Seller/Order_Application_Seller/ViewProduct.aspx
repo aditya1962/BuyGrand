@@ -36,9 +36,7 @@
                                 <asp:DropDownList ID="FilterList" runat="server" CssClass="form-control" OnSelectedIndexChanged="FilterList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                             </div>
                         </div>
-                        <div class="row">
-
-                        </div>
+                        <div id="itemsListDiv" runat="server" visible="false"></div>
                         <div class="row">
                             <div id="pagesDiv" runat="server"></div>
                         </div>
