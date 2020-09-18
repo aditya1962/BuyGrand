@@ -152,6 +152,22 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Connected Services\ViewProductReference\ViewItems1.disco" />
+    <Content Include="Connected Services\YourItemReference\Order_Application_Seller.YourItemReference.Item.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\YourItemReference\Order_Application_Seller.YourItemReference.itemCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\YourItemReference\Order_Application_Seller.YourItemReference.itemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\YourItemReference\UserItem.disco" />
+    <None Include="Connected Services\YourItemReference\configuration91.svcinfo" />
+    <None Include="Connected Services\YourItemReference\configuration.svcinfo" />
+    <None Include="Connected Services\YourItemReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -169,6 +185,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Connected Services\ViewProductReference\ViewItems1.wsdl" />
+    <None Include="Connected Services\YourItemReference\UserItem.wsdl" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\Background-Large.jpg" />
     <Content Include="images\logo.ico" />
@@ -205,6 +222,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="ViewItems.aspx" />
     <Content Include="ViewProduct.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -227,6 +245,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\ViewProductReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\YourItemReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -262,6 +285,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewItems.aspx.cs">
+      <DependentUpon>ViewItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewItems.aspx.designer.cs">
+      <DependentUpon>ViewItems.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewProduct.aspx.cs">
       <DependentUpon>ViewProduct.aspx</DependentUpon>
@@ -299,6 +329,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AddProductReference\" />
     <WCFMetadataStorage Include="Connected Services\ViewProductReference\" />
+    <WCFMetadataStorage Include="Connected Services\YourItemReference\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.6\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />

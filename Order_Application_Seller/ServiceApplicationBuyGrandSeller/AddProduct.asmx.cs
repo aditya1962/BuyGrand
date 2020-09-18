@@ -6,7 +6,7 @@ using System.Web.Services;
 
 namespace ServiceApplicationBuyGrandSeller
 {
-    [WebService(Namespace = "http://localhost/AddProduct.asmx/")]
+    [WebService(Namespace = "http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)] 
     [System.Web.Script.Services.ScriptService]

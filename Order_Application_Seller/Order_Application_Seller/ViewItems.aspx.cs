@@ -3,17 +3,18 @@ using System.Web.UI;
 
 namespace Order_Application_Seller
 {
-    public partial class ViewProduct : System.Web.UI.Page
+    public partial class ViewItems : System.Web.UI.Page
     {
-        ViewProductReference.ViewItemsSoapClient viewItemsRef;
+        YourItemReference.UserItemSoapClient viewItemsRef;
         int page, filter;
-        ViewProductReference.Item[] items;
+        YourItemReference.Item[] items;
+        string username;
 
         protected void Page_Preload(object sender, EventArgs e)
         {
-            viewItemsRef = new ViewProductReference.ViewItemsSoapClient();
-         
-            if(!IsPostBack)
+            viewItemsRef = new YourItemReference.UserItemSoapClient();
+
+            if (!IsPostBack)
             {
                 int[] filters = (int[])Enum.GetValues(typeof(Data.Enums.Filters));
                 foreach (int filtered in filters)
@@ -26,7 +27,7 @@ namespace Order_Application_Seller
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            username = Session["username"].ToString();
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
@@ -41,11 +42,11 @@ namespace Order_Application_Seller
                 filter = Convert.ToInt32(Request["filter"]);
             }
             FilterList.SelectedValue = filter.ToString();
-            int items = LoadItem(page,filter);
+            int items = LoadItem(page, filter);
             if (items > 0)
             {
                 Pagination();
-            }            
+            }
         }
 
         protected void FilterList_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,10 +56,10 @@ namespace Order_Application_Seller
         }
 
         public int LoadItem(int page, int filter)
-        {           
-            items = viewItemsRef.items(page, filter);
+        {
+            items = viewItemsRef.items(page, filter,username);
 
-            if(items.Length==0)
+            if (items.Length == 0)
             {
                 itemsListDiv.InnerHtml = "<label> There are no items to display </label>";
             }
@@ -79,30 +80,30 @@ namespace Order_Application_Seller
 
         public void Pagination()
         {
-            int itemsCount = viewItemsRef.itemCount();
-            int pages = (int) Math.Ceiling((double)itemsCount / filter);
+            int itemsCount = viewItemsRef.itemCount(username);
+            int pages = (int)Math.Ceiling((double)itemsCount / filter);
             int pagesDisplay = pages;
-            if(pages > 5)
+            if (pages > 5)
             {
                 pagesDisplay = 5;
             }
             int previous = (page - 1), next = (page + 1);
-            if(page==1)
+            if (page == 1)
             {
                 previous = 1;
                 next = 1;
             }
-            if(page==pagesDisplay)
+            if (page == pagesDisplay)
             {
                 next = page;
             }
             string pagesHtml = "<div style='display:flex;'>";
-            pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + previous + 
+            pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + previous +
                         "&filter=" + filter + "' class='page-button'>Previous</a></button>";
-            for(int i = 1; i <= pagesDisplay; i++)
+            for (int i = 1; i <= pagesDisplay; i++)
             {
                 pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + i +
-                        "&filter=" + filter + "' class='page-button'>"+ i + "</a></button>";
+                        "&filter=" + filter + "' class='page-button'>" + i + "</a></button>";
             }
 
             pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + next +
