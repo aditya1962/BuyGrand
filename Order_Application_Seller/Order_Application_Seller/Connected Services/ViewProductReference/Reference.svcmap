@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:53823/ViewItems.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ViewItems.wsdl" MetadataType="Wsdl" ID="b06309e2-3199-43d2-bb79-2b6e52b55a17" SourceId="1" SourceUrl="http://localhost:53823/ViewItems.asmx?wsdl" />
-    <MetadataFile FileName="ViewItems.disco" MetadataType="Disco" ID="3a2232ec-329a-4747-a0dd-0dab6439a6cc" SourceId="1" SourceUrl="http://localhost:53823/ViewItems.asmx?disco" />
+    <MetadataFile FileName="ViewItems1.disco" MetadataType="Disco" ID="92fa20d6-de92-477d-9061-a14bcc4a198d" SourceId="1" SourceUrl="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx?disco" />
+    <MetadataFile FileName="ViewItems1.wsdl" MetadataType="Wsdl" ID="55a584a9-462e-4927-8bec-b3a846be2212" SourceId="1" SourceUrl="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

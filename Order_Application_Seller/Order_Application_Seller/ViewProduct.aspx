@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewProduct.aspx.cs" Inherits="Order_Application_Seller.ViewProduct" %>
 
+<%@ Register Src="~/Item.ascx" TagPrefix="UserControl" TagName="Item" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,7 +38,11 @@
                                 <asp:DropDownList ID="FilterList" runat="server" CssClass="form-control" OnSelectedIndexChanged="FilterList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                             </div>
                         </div>
-                        <div id="itemsListDiv" runat="server" visible="false"></div>
+                        <div id="itemsListDiv" runat="server">
+                            <asp:PlaceHolder ID="ItemsHolder" runat="server">
+                                
+                            </asp:PlaceHolder>
+                        </div>
                         <div class="row">
                             <div id="pagesDiv" runat="server"></div>
                         </div>

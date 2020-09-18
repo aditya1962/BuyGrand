@@ -122,9 +122,10 @@
     <Content Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </Content>
-    <None Include="Connected Services\AddProductReference\AddProduct.disco" />
+    <None Include="Connected Services\AddProductReference\AddProduct1.wsdl" />
     <None Include="Connected Services\AddProductReference\configuration91.svcinfo" />
     <None Include="Connected Services\AddProductReference\configuration.svcinfo" />
+    <None Include="Connected Services\AddProductReference\AddProduct1.disco" />
     <Content Include="Connected Services\AddProductReference\Order_Application_Seller.AddProductReference.AddItemResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -144,13 +145,13 @@
     <Content Include="Connected Services\ViewProductReference\Order_Application_Seller.ViewProductReference.itemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\ViewProductReference\ViewItems.disco" />
     <None Include="Connected Services\ViewProductReference\configuration91.svcinfo" />
     <None Include="Connected Services\ViewProductReference\configuration.svcinfo" />
     <None Include="Connected Services\ViewProductReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\ViewProductReference\ViewItems1.disco" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -167,13 +168,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Connected Services\AddProductReference\AddProduct.wsdl" />
-    <None Include="Connected Services\ViewProductReference\ViewItems.wsdl" />
+    <None Include="Connected Services\ViewProductReference\ViewItems1.wsdl" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\Background-Large.jpg" />
     <Content Include="images\logo.ico" />
     <Content Include="images\Logo.png" />
     <Content Include="Index.aspx" />
+    <Content Include="Item.ascx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -240,6 +241,12 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Item.ascx.cs">
+      <DependentUpon>Item.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Item.ascx.designer.cs">
+      <DependentUpon>Item.ascx</DependentUpon>
     </Compile>
     <Compile Include="Logging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

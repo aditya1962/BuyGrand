@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Item.ascx.cs" Inherits="Order_Application_Seller.Item" %>
 <div class="col-md-3 col-lg-3">
-    <asp:Image ImageUrl="<%= imagePath %>" ID="" AlternateText="ItemImage" runat="server" Height="100px"/>
+    <asp:Image AlternateText="ItemImage" runat="server" Height="100px" ClientIDMode="AutoID" ID="ItemImage" />
     <br />
-    <asp:Label Text="<%= name %>" runat="server" />
+    <asp:Label ID="ItemName" runat="server" ClientIDMode="AutoID" />
     <br />
-    <asp:Label Text="<%= price %>" runat="server" />
+    <asp:Label runat="server" ClientIDMode="AutoID" ID="ItemPrice" />
 </div>

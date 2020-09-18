@@ -20,3 +20,9 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Se
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\obj\Debug\Order_Application_Seller.Tests.csproj.CopyComplete
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\obj\Debug\Order_Application_Seller.Tests.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\obj\Debug\Order_Application_Seller.Tests.pdb
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Order_Application_Seller.Tests.dll.config
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\WebGrease.dll
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Antlr3.Runtime.dll
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Newtonsoft.Json.xml

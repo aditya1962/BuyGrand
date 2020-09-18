@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="zbkckfYvfDeE8vsh/0Jyc9T5yo9lBVk9ElVRDMzDlXU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="nS5ZO/ybXPm/Tsw4vu4i0llEDca0IZidgOLjRAo9sZI=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="ViewItemsSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ViewItemsSoap" contract="ViewProductReference.ViewItemsSoap" bindingType="basicHttpBinding" address="http://localhost:53823/ViewItems.asmx" bindingConfiguration="ViewItemsSoap">
+    <endpoint name="ViewItemsSoap" contract="ViewProductReference.ViewItemsSoap" bindingType="basicHttpBinding" address="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx" bindingConfiguration="ViewItemsSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:53823/ViewItems.asmx</serializedValue>
+          <serializedValue>http://localhost/ServiceBuyGrandSeller/ViewItems.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

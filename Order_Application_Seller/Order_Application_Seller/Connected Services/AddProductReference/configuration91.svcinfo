@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="4c0XPvJHIliDCsoj8FW1cmEVpe63xd501Vtg0ecJwM4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="yT3xkHOR/m2WA+9OX15TLSyx+ihkL8DG+T5BEvMKMeM=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="AddProductSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="AddProductSoap" contract="AddProductReference.AddProductSoap" bindingType="basicHttpBinding" address="http://localhost:53823/AddProduct.asmx" bindingConfiguration="AddProductSoap">
+    <endpoint name="AddProductSoap" contract="AddProductReference.AddProductSoap" bindingType="basicHttpBinding" address="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx" bindingConfiguration="AddProductSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:53823/AddProduct.asmx</serializedValue>
+          <serializedValue>http://localhost/ServiceBuyGrandSeller/AddProduct.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

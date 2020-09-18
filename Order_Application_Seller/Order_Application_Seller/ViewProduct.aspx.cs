@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -26,6 +27,7 @@ namespace Order_Application_Seller
                 }
                 filter = Convert.ToInt32(FilterList.SelectedValue);
             }
+            //itemsListDiv.InnerHtml = "";
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -45,8 +47,11 @@ namespace Order_Application_Seller
                 filter = Convert.ToInt32(Request["filter"]);
             }
             FilterList.SelectedValue = filter.ToString();
-            LoadItem(page,filter);
-            Pagination();
+            int items = LoadItem(page,filter);
+            if (items > 0)
+            {
+                Pagination();
+            }            
         }
 
         protected void FilterList_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,21 +60,27 @@ namespace Order_Application_Seller
             Response.Redirect(url);
         }
 
-        public void LoadItem(int page, int filter)
-        {
+        public int LoadItem(int page, int filter)
+        {           
             items = viewItemsRef.items(page, filter);
-            for(int i=0; i < items.Length; i++)
-            {
-                if(i%4==0)
-                {
-                    itemsListDiv.InnerHtml += "<div class='row'>";
-                }
-                if(i%4==3)
-                {
-                    itemsListDiv.InnerHtml += "</div>";
-                }
 
+            if(items.Length==0)
+            {
+                itemsListDiv.InnerHtml = "<label> There are no items to display </label>";
             }
+            else
+            {
+                for (int i = 0; i < items.Length; i++)
+                {
+                    Item item = (Item)Page.LoadControl("~/Item.ascx");
+                    item.Name = items[i].name;
+                    item.ImagePath = items[i].image_path;
+                    item.Price = items[i].price;
+                    ItemsHolder.Controls.Add(item);
+                    item.Visible = true;
+                }
+            }
+            return items.Length;
         }
 
         public void Pagination()

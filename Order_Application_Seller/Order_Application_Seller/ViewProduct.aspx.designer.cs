@@ -42,6 +42,15 @@ namespace Order_Application_Seller
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl itemsListDiv;
 
         /// <summary>
+        /// ItemsHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ItemsHolder;
+
+        /// <summary>
         /// pagesDiv control.
         /// </summary>
         /// <remarks>
