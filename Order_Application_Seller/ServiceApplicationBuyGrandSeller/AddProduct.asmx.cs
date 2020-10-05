@@ -17,7 +17,7 @@ namespace ServiceApplicationBuyGrandSeller
 
         [WebMethod]
         public int AddItem(string description, string name, double price,string imagePath, 
-                            int quantity, string category, string subcategory)
+                            int quantity, string category, string subcategory, string username)
         {
             try
             {
@@ -32,6 +32,7 @@ namespace ServiceApplicationBuyGrandSeller
                     command.Parameters.AddWithValue("quantityAvailable", quantity);
                     command.Parameters.AddWithValue("categoryName", category);
                     command.Parameters.AddWithValue("subcategoryName", subcategory);
+                    command.Parameters.AddWithValue("username", username);
                     int result = command.ExecuteNonQuery();
                     return result;
                 }
