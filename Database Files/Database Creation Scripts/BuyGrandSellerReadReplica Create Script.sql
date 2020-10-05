@@ -56,6 +56,8 @@ create table dbo.item
 	rating int default 0,
 	quantityAvailable int,
 	orderCount int default 0,
+	username varchar(15) constraint username_item_login references dbo.login(username)
+		on delete cascade on update cascade,
 	categoryID int constraint categoryID_item_category references dbo.itemCategory(categoryID)
 		on delete cascade on update cascade
 );
