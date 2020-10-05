@@ -67,7 +67,7 @@ namespace Order_Application_Seller
             {
                 for (int i = 0; i < items.Length; i++)
                 {
-                    Item item = (Item)Page.LoadControl("~/Item.ascx");
+                    UserItem item = (UserItem)Page.LoadControl("~/UserItems.ascx");
                     item.Name = items[i].name;
                     item.ImagePath = items[i].image_path;
                     item.Price = items[i].price;
