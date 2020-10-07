@@ -42,3 +42,32 @@ body {
     color: #ffffff;
     font-size: 15px;
 }
+
+.product #ItemName {
+    font-size: 20px;
+}
+
+.product span,a {
+    font-size: 15px;
+}
+
+.product button {
+    font-size: 15px;
+    margin:0px 5px;
+}
+
+.product .itemRows div {
+    margin:0px 0px 10px 0px;
+}
+
+#ManageItem
+{
+    color:white;
+    display:flex;   
+    padding:0px 15px;
+}
+
+.product .categoryLink
+{
+    display:flex;
+}

@@ -15,7 +15,7 @@ namespace Order_Application_Seller.AddProductReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://localhost/AddProduct.asmx/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/")]
     [System.SerializableAttribute()]
     public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -75,21 +75,21 @@ namespace Order_Application_Seller.AddProductReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/AddProduct.asmx/", ConfigurationName="AddProductReference.AddProductSoap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/", ConfigurationName="AddProductReference.AddProductSoap")]
     public interface AddProductSoap {
         
-        // CODEGEN: Generating message contract since element name description from namespace http://localhost/AddProduct.asmx/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/AddProduct.asmx/AddItem", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name description from namespace http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/AddItem", ReplyAction="*")]
         Order_Application_Seller.AddProductReference.AddItemResponse AddItem(Order_Application_Seller.AddProductReference.AddItemRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/AddProduct.asmx/AddItem", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/AddItem", ReplyAction="*")]
         System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.AddItemResponse> AddItemAsync(Order_Application_Seller.AddProductReference.AddItemRequest request);
         
-        // CODEGEN: Generating message contract since element name getCategoryNamesResult from namespace http://localhost/AddProduct.asmx/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/AddProduct.asmx/getCategoryNames", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name getCategoryNamesResult from namespace http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/getCategoryNames", ReplyAction="*")]
         Order_Application_Seller.AddProductReference.getCategoryNamesResponse getCategoryNames(Order_Application_Seller.AddProductReference.getCategoryNamesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/AddProduct.asmx/getCategoryNames", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/getCategoryNames", ReplyAction="*")]
         System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.getCategoryNamesResponse> getCategoryNamesAsync(Order_Application_Seller.AddProductReference.getCategoryNamesRequest request);
     }
     
@@ -99,7 +99,7 @@ namespace Order_Application_Seller.AddProductReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddItemRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddItem", Namespace="http://localhost/AddProduct.asmx/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddItem", Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/", Order=0)]
         public Order_Application_Seller.AddProductReference.AddItemRequestBody Body;
         
         public AddItemRequest() {
@@ -113,7 +113,7 @@ namespace Order_Application_Seller.AddProductReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/AddProduct.asmx/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/")]
     public partial class AddItemRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -157,7 +157,7 @@ namespace Order_Application_Seller.AddProductReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class AddItemResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddItemResponse", Namespace="http://localhost/AddProduct.asmx/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddItemResponse", Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/", Order=0)]
         public Order_Application_Seller.AddProductReference.AddItemResponseBody Body;
         
         public AddItemResponse() {
@@ -171,7 +171,7 @@ namespace Order_Application_Seller.AddProductReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/AddProduct.asmx/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/")]
     public partial class AddItemResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -191,7 +191,7 @@ namespace Order_Application_Seller.AddProductReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getCategoryNamesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCategoryNames", Namespace="http://localhost/AddProduct.asmx/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCategoryNames", Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/", Order=0)]
         public Order_Application_Seller.AddProductReference.getCategoryNamesRequestBody Body;
         
         public getCategoryNamesRequest() {
@@ -218,7 +218,7 @@ namespace Order_Application_Seller.AddProductReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getCategoryNamesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCategoryNamesResponse", Namespace="http://localhost/AddProduct.asmx/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getCategoryNamesResponse", Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/", Order=0)]
         public Order_Application_Seller.AddProductReference.getCategoryNamesResponseBody Body;
         
         public getCategoryNamesResponse() {
@@ -232,7 +232,7 @@ namespace Order_Application_Seller.AddProductReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/AddProduct.asmx/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx/")]
     public partial class getCategoryNamesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]

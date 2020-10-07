@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/ViewItems.asmx/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/ViewItems.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ViewItems.asmx/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/">
       <s:element name="items">
         <s:complexType>
           <s:sequence>
@@ -73,7 +73,7 @@
   <wsdl:binding name="ViewItemsSoap" type="tns:ViewItemsSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="items">
-      <soap:operation soapAction="http://localhost/ViewItems.asmx/items" style="document" />
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/items" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -82,7 +82,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="itemCount">
-      <soap:operation soapAction="http://localhost/ViewItems.asmx/itemCount" style="document" />
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/itemCount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -94,7 +94,7 @@
   <wsdl:binding name="ViewItemsSoap12" type="tns:ViewItemsSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="items">
-      <soap12:operation soapAction="http://localhost/ViewItems.asmx/items" style="document" />
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/items" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -103,7 +103,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="itemCount">
-      <soap12:operation soapAction="http://localhost/ViewItems.asmx/itemCount" style="document" />
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/itemCount" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

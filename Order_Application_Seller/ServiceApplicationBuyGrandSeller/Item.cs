@@ -7,6 +7,7 @@ namespace ServiceApplicationBuyGrandSeller
 {
     public class Item
     {
+        public int id { get; set; }
         public String description { get; set; }
         public String name { get; set; }
         public double price { get; set; }

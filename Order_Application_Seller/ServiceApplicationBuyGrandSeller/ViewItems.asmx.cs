@@ -19,11 +19,13 @@ namespace ServiceApplicationBuyGrandSeller
         public Item[] items(int page,int filter)
         {
             page = page - 1;
-            try
+            Item[] itemsOne = new Item[1];
+            /*try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
                 {
                     connection.Open();
+                    Logging.WriteLog(null, "", "Connection");
                     DataTable table = new DataTable("ItemDetails");
                     SqlDataAdapter adapter = new SqlDataAdapter("sp_getItems", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -38,6 +40,7 @@ namespace ServiceApplicationBuyGrandSeller
                         foreach (DataRow row in table.Rows)
                         {
                             Item item = new Item();
+                            item.id = Convert.ToInt32(row["itemID"].ToString());
                             item.description = row["description"].ToString();
                             item.name = row["name"].ToString();
                             item.price = Convert.ToInt32(row["price"].ToString());
@@ -47,7 +50,7 @@ namespace ServiceApplicationBuyGrandSeller
                         }
                     }
 
-                    return items;
+                    //return items;
                 }
             }
             catch (Exception ex)
@@ -55,6 +58,16 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
+            */
+            Item itemOne = new Item();
+
+            itemOne.id = 1;
+            itemOne.description = "abc";
+            itemOne.name = "abcde";
+            itemOne.price = 1;
+            itemOne.image_path = "abcdef";
+            itemsOne[0] = itemOne;
+            return itemsOne;
         }
 
         [WebMethod]

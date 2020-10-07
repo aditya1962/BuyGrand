@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using System.Web;
 
 namespace ServiceApplicationBuyGrandSeller
 {
@@ -9,7 +10,7 @@ namespace ServiceApplicationBuyGrandSeller
         public static void WriteLog(Exception ex, string type, string message)
         {
             string file = "Logging-" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
-            string destination = AppDomain.CurrentDomain.BaseDirectory + "Logging\\";
+            string destination = HttpContext.Current.Server.MapPath("~") ;
             string path = destination + file;
             try
             {

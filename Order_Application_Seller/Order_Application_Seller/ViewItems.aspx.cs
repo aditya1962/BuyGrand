@@ -27,7 +27,8 @@ namespace Order_Application_Seller
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            username = Session["username"].ToString();
+            //username = Session["username"].ToString();
+            username = "abcde";
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace Order_Application_Seller
 
         protected void FilterList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string url = "ViewProduct.aspx?page=1&filter=" + FilterList.SelectedValue;
+            string url = "ViewItems.aspx?page=1&filter=" + FilterList.SelectedValue;
             Response.Redirect(url);
         }
 
@@ -67,7 +68,8 @@ namespace Order_Application_Seller
             {
                 for (int i = 0; i < items.Length; i++)
                 {
-                    UserItem item = (UserItem)Page.LoadControl("~/UserItems.ascx");
+                    UserItem item = (UserItem)Page.LoadControl("~/UserItem.ascx");
+                    item.Id = items[i].id;
                     item.Name = items[i].name;
                     item.ImagePath = items[i].image_path;
                     item.Price = items[i].price;
@@ -80,7 +82,8 @@ namespace Order_Application_Seller
 
         public void Pagination()
         {
-            int itemsCount = viewItemsRef.itemCount(username);
+            //int itemsCount = viewItemsRef.itemCount(username);
+            int itemsCount = 20;
             int pages = (int)Math.Ceiling((double)itemsCount / filter);
             int pagesDisplay = pages;
             if (pages > 5)
@@ -98,15 +101,15 @@ namespace Order_Application_Seller
                 next = page;
             }
             string pagesHtml = "<div style='display:flex;'>";
-            pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + previous +
+            pagesHtml += "<button class='btn btn-primary'><a href='ViewItems.aspx?page=" + previous +
                         "&filter=" + filter + "' class='page-button'>Previous</a></button>";
             for (int i = 1; i <= pagesDisplay; i++)
             {
-                pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + i +
+                pagesHtml += "<button class='btn btn-primary'><a href='ViewItems.aspx?page=" + i +
                         "&filter=" + filter + "' class='page-button'>" + i + "</a></button>";
             }
 
-            pagesHtml += "<button class='btn btn-primary'><a href='ViewProduct.aspx?page=" + next +
+            pagesHtml += "<button class='btn btn-primary'><a href='ViewItems.aspx?page=" + next +
                         "&filter=" + filter + "' class='page-button'>Next</a></button>";
             pagesHtml += "</div>";
             pagesDiv.InnerHtml = pagesHtml;

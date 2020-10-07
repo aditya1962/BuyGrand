@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost/ServiceBuyGrandSeller/UserItem.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserItem.disco" MetadataType="Disco" ID="472ed910-0b3d-4d60-abbc-2eb359167395" SourceId="1" SourceUrl="http://localhost/ServiceBuyGrandSeller/UserItem.asmx?disco" />
-    <MetadataFile FileName="UserItem.wsdl" MetadataType="Wsdl" ID="503b7627-141e-4525-a249-a931c8194057" SourceId="1" SourceUrl="http://localhost/ServiceBuyGrandSeller/UserItem.asmx?wsdl" />
+    <MetadataFile FileName="UserItem1.disco" MetadataType="Disco" ID="3387d6ab-9f3f-486d-96aa-3226ee4f8954" SourceId="1" SourceUrl="http://localhost/ServiceBuyGrandSeller/UserItem.asmx?disco" />
+    <MetadataFile FileName="UserItem1.wsdl" MetadataType="Wsdl" ID="bbaae728-1d35-40ba-8444-0394e2b2adf0" SourceId="1" SourceUrl="http://localhost/ServiceBuyGrandSeller/UserItem.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

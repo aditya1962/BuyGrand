@@ -20,6 +20,7 @@ namespace ServiceApplicationBuyGrandSeller
         public Item[] items(int page, int filter, string username)
         {
             page = page - 1;
+            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
@@ -58,6 +59,17 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
+            */
+            Item[] itemsOne = new Item[1];
+            Item itemOne = new Item();
+
+            itemOne.id = 1;
+            itemOne.description = "abc";
+            itemOne.name = "abcde";
+            itemOne.price = 1;
+            itemOne.image_path = "abcdef";
+            itemsOne[0] = itemOne;
+            return itemsOne;
         }
 
         [WebMethod]

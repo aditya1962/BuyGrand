@@ -15,7 +15,7 @@ namespace Order_Application_Seller.ViewProductReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Item", Namespace="http://localhost/ViewItems.asmx/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Item", Namespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/")]
     [System.SerializableAttribute()]
     public partial class Item : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -198,20 +198,20 @@ namespace Order_Application_Seller.ViewProductReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/ViewItems.asmx/", ConfigurationName="ViewProductReference.ViewItemsSoap")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/", ConfigurationName="ViewProductReference.ViewItemsSoap")]
     public interface ViewItemsSoap {
         
-        // CODEGEN: Generating message contract since element name itemsResult from namespace http://localhost/ViewItems.asmx/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ViewItems.asmx/items", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name itemsResult from namespace http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/items", ReplyAction="*")]
         Order_Application_Seller.ViewProductReference.itemsResponse items(Order_Application_Seller.ViewProductReference.itemsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ViewItems.asmx/items", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/items", ReplyAction="*")]
         System.Threading.Tasks.Task<Order_Application_Seller.ViewProductReference.itemsResponse> itemsAsync(Order_Application_Seller.ViewProductReference.itemsRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ViewItems.asmx/itemCount", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/itemCount", ReplyAction="*")]
         int itemCount();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ViewItems.asmx/itemCount", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/itemCount", ReplyAction="*")]
         System.Threading.Tasks.Task<int> itemCountAsync();
     }
     
@@ -221,7 +221,7 @@ namespace Order_Application_Seller.ViewProductReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class itemsRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="items", Namespace="http://localhost/ViewItems.asmx/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="items", Namespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/", Order=0)]
         public Order_Application_Seller.ViewProductReference.itemsRequestBody Body;
         
         public itemsRequest() {
@@ -235,7 +235,7 @@ namespace Order_Application_Seller.ViewProductReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ViewItems.asmx/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/")]
     public partial class itemsRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -259,7 +259,7 @@ namespace Order_Application_Seller.ViewProductReference {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class itemsResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="itemsResponse", Namespace="http://localhost/ViewItems.asmx/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="itemsResponse", Namespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/", Order=0)]
         public Order_Application_Seller.ViewProductReference.itemsResponseBody Body;
         
         public itemsResponse() {
@@ -273,7 +273,7 @@ namespace Order_Application_Seller.ViewProductReference {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ViewItems.asmx/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/ViewItems.asmx/")]
     public partial class itemsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]

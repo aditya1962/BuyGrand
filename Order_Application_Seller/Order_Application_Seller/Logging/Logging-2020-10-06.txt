@@ -1,0 +1,25 @@
+22:10:44| Error | System.Security.Cryptography.CryptographicException: Length of the data to decrypt is invalid.
+   at System.Security.Cryptography.RijndaelManagedTransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   at System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   at System.Security.Cryptography.CryptoStream.Dispose(Boolean disposing)
+   at System.IO.Stream.Close()
+   at System.IO.StreamReader.Dispose(Boolean disposing)
+   at System.IO.TextReader.Dispose()
+   at Order_Application_Seller.Data.EncryptUrl.Decrypt(String encryptedId) in C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\Data\EncryptUrl.cs:line 80 | Length of the data to decrypt is invalid.
+23:10:34| Error | System.Security.Cryptography.CryptographicException: Padding is invalid and cannot be removed.
+   at System.Security.Cryptography.RijndaelManagedTransform.DecryptData(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode paddingMode, Boolean fLast)
+   at System.Security.Cryptography.RijndaelManagedTransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   at System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   at System.Security.Cryptography.CryptoStream.Dispose(Boolean disposing)
+   at System.IO.Stream.Close()
+   at System.IO.StreamReader.Dispose(Boolean disposing)
+   at System.IO.TextReader.Dispose()
+   at Order_Application_Seller.Data.EncryptUrl.Decrypt(String encryptedId) in C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\Data\EncryptUrl.cs:line 86 | Padding is invalid and cannot be removed.
+23:10:29| Error | System.Security.Cryptography.CryptographicException: Length of the data to decrypt is invalid.
+   at System.Security.Cryptography.RijndaelManagedTransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   at System.Security.Cryptography.CryptoStream.FlushFinalBlock()
+   at System.Security.Cryptography.CryptoStream.Dispose(Boolean disposing)
+   at System.IO.Stream.Close()
+   at System.IO.StreamReader.Dispose(Boolean disposing)
+   at System.IO.TextReader.Dispose()
+   at Order_Application_Seller.Data.EncryptUrl.Decrypt(String encryptedId) in C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\Data\EncryptUrl.cs:line 87 | Length of the data to decrypt is invalid.
