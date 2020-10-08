@@ -192,6 +192,7 @@
     <Content Include="images\Logo.png" />
     <Content Include="Index.aspx" />
     <Content Include="Item.ascx" />
+    <Content Include="ItemReview.ascx" />
     <Content Include="Product.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -272,6 +273,13 @@
     </Compile>
     <Compile Include="Item.ascx.designer.cs">
       <DependentUpon>Item.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemReview.ascx.cs">
+      <DependentUpon>ItemReview.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemReview.ascx.designer.cs">
+      <DependentUpon>ItemReview.ascx</DependentUpon>
     </Compile>
     <Compile Include="Logging.cs" />
     <Compile Include="Product.aspx.cs">
