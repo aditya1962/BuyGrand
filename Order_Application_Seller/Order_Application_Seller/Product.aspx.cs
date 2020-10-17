@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Order_Application_Seller
 {
@@ -72,7 +67,19 @@ namespace Order_Application_Seller
 
         public void LoadReviews(int productID)
         {
-            
+            ReviewsReference.ReviewsSoapClient reviewSoap = new ReviewsReference.ReviewsSoapClient();
+            ReviewsReference.Review [] review = reviewSoap.GetTopReviews(productID);
+            for(int i=0; i<5; i++)
+            {
+                Review itemReview = (Review)Page.LoadControl("~/Review.ascx");
+                itemReview.ImagePath = review[i].imagePath;
+                itemReview.ReviewId = review[i].reviewID;
+                itemReview.Name = review[i].name;
+                itemReview.Description = review[i].reviewDesc;
+                itemReview.Datestamp = review[i].datetime;
+                itemReview.SubReviews = review[i].subReviewCount;
+                ReviewsPlaceHolder.Controls.Add(itemReview);
+            }
         }
     }
 }

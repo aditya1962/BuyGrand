@@ -94,7 +94,7 @@
                         <asp:Button ID="AddComment" CssClass="btn btn-primary" runat="server" Text="Send" />
                         <br />
                         <div id="reviewDiv" runat="server">
-                            
+                            <asp:PlaceHolder ID="ReviewsPlaceHolder" runat="server"></asp:PlaceHolder>
                         </div>
                     </div>
                 </div>
