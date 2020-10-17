@@ -191,10 +191,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2018 12:18:16</publishTime>
     </File>
     <File Include="bin/ServiceApplicationBuyGrandSeller.dll">
-      <publishTime>10/17/2020 11:13:57</publishTime>
+      <publishTime>10/17/2020 19:10:30</publishTime>
     </File>
     <File Include="bin/ServiceApplicationBuyGrandSeller.pdb">
-      <publishTime>10/17/2020 11:13:57</publishTime>
+      <publishTime>10/17/2020 19:10:30</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>02/11/2014 15:26:04</publishTime>
@@ -255,6 +255,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="ProductView.asmx">
       <publishTime>10/08/2020 14:48:45</publishTime>
+    </File>
+    <File Include="Reviews.asmx">
+      <publishTime>10/17/2020 17:06:16</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>08/05/2020 23:18:50</publishTime>

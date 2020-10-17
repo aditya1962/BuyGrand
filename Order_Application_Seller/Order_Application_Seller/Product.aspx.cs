@@ -48,6 +48,7 @@ namespace Order_Application_Seller
             }
             quantity_available = product.quantity_available;
 
+            LoadReviews(productID);
         }
 
         [WebMethod]
@@ -67,6 +68,11 @@ namespace Order_Application_Seller
                 RatingError.Text = "You cannot rate your own product";
                 RatingError.Visible = true;
             }
+        }
+
+        public void LoadReviews(int productID)
+        {
+            
         }
     }
 }

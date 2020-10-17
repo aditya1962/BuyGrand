@@ -155,6 +155,22 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Connected Services\ReviewsReference\Order_Application_Seller.ReviewsReference.GetSubReviewsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ReviewsReference\Order_Application_Seller.ReviewsReference.GetTopReviewsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ReviewsReference\Order_Application_Seller.ReviewsReference.Review.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ReviewsReference\Reviews.disco" />
+    <None Include="Connected Services\ReviewsReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ReviewsReference\configuration.svcinfo" />
+    <None Include="Connected Services\ReviewsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\ViewProductReference\Order_Application_Seller.ViewProductReference.Item.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -162,6 +178,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ProductDetailsReference\ProductView.wsdl" />
+    <None Include="Connected Services\ReviewsReference\Reviews.wsdl" />
     <None Include="Connected Services\ViewProductReference\configuration91.svcinfo" />
     <None Include="Connected Services\ViewProductReference\configuration.svcinfo" />
     <None Include="Connected Services\ViewProductReference\Reference.svcmap">
@@ -211,6 +228,7 @@
     <Content Include="Item.ascx" />
     <Content Include="ItemReview.ascx" />
     <Content Include="Product.aspx" />
+    <Content Include="Review.ascx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -269,6 +287,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ReviewsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ViewProductReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -312,6 +335,13 @@
       <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Review.ascx.cs">
+      <DependentUpon>Review.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Review.ascx.designer.cs">
+      <DependentUpon>Review.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,6 +405,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AddProductReference\" />
     <WCFMetadataStorage Include="Connected Services\ProductDetailsReference\" />
+    <WCFMetadataStorage Include="Connected Services\ReviewsReference\" />
     <WCFMetadataStorage Include="Connected Services\ViewProductReference\" />
     <WCFMetadataStorage Include="Connected Services\YourItemReference\" />
   </ItemGroup>

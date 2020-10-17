@@ -89,8 +89,12 @@
                         <br />
                         <h2>Customer Feedbacks</h2>
                         <br />
+                        <asp:TextBox ID="Review" runat="server" TextMode="MultiLine" placeholder="Enter Review"></asp:TextBox>
+                        <br />
+                        <asp:Button ID="AddComment" CssClass="btn btn-primary" runat="server" Text="Send" />
+                        <br />
                         <div id="reviewDiv" runat="server">
-
+                            
                         </div>
                     </div>
                 </div>
