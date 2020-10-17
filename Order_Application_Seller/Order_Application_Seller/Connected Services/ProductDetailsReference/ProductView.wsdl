@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/">
+      <s:element name="getItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemResult" type="tns:Item" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="image_path" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="discount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="rating" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ratingCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="order_count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="quantity_available" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="subcategory" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="addRating">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="rating" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addRatingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addRatingResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getItemSoapIn">
+    <wsdl:part name="parameters" element="tns:getItem" />
+  </wsdl:message>
+  <wsdl:message name="getItemSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="addRatingSoapIn">
+    <wsdl:part name="parameters" element="tns:addRating" />
+  </wsdl:message>
+  <wsdl:message name="addRatingSoapOut">
+    <wsdl:part name="parameters" element="tns:addRatingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProductViewSoap">
+    <wsdl:operation name="getItem">
+      <wsdl:input message="tns:getItemSoapIn" />
+      <wsdl:output message="tns:getItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addRating">
+      <wsdl:input message="tns:addRatingSoapIn" />
+      <wsdl:output message="tns:addRatingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductViewSoap" type="tns:ProductViewSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getItem">
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/getItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRating">
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/addRating" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductViewSoap12" type="tns:ProductViewSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getItem">
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/getItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRating">
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/addRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductView">
+    <wsdl:port name="ProductViewSoap" binding="tns:ProductViewSoap">
+      <soap:address location="http://localhost/ServiceApplicationBuyGrandSeller/ProductView.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductViewSoap12" binding="tns:ProductViewSoap12">
+      <soap12:address location="http://localhost/ServiceApplicationBuyGrandSeller/ProductView.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

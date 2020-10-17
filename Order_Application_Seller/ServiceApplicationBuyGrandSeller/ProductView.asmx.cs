@@ -38,7 +38,7 @@ namespace ServiceApplicationBuyGrandSeller
                         DataRow row = table.Rows[0];
                         item.description = row["description"].ToString();
                         item.name = row["name"].ToString();
-                        item.price = Convert.ToInt32(row["price"].ToString());
+                        item.price = Convert.ToDouble(row["price"].ToString());
                         item.image_path = row["imagePath"].ToString();
                         item.discount = Convert.ToDouble(row["discount"].ToString());
                         item.rating = Convert.ToDouble(row["rating"].ToString());

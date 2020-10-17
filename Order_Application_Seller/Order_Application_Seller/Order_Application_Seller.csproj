@@ -139,12 +139,26 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Connected Services\ProductDetailsReference\Order_Application_Seller.ProductDetailsReference.getItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ProductDetailsReference\Order_Application_Seller.ProductDetailsReference.Item.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ProductDetailsReference\ProductView.disco" />
+    <None Include="Connected Services\ProductDetailsReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ProductDetailsReference\configuration.svcinfo" />
+    <None Include="Connected Services\ProductDetailsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\ViewProductReference\Order_Application_Seller.ViewProductReference.Item.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ViewProductReference\Order_Application_Seller.ViewProductReference.itemsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ProductDetailsReference\ProductView.wsdl" />
     <None Include="Connected Services\ViewProductReference\configuration91.svcinfo" />
     <None Include="Connected Services\ViewProductReference\configuration.svcinfo" />
     <None Include="Connected Services\ViewProductReference\Reference.svcmap">
@@ -243,6 +257,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connected Services\AddProductReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProductDetailsReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -352,6 +371,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AddProductReference\" />
+    <WCFMetadataStorage Include="Connected Services\ProductDetailsReference\" />
     <WCFMetadataStorage Include="Connected Services\ViewProductReference\" />
     <WCFMetadataStorage Include="Connected Services\YourItemReference\" />
   </ItemGroup>

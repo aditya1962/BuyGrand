@@ -26,50 +26,50 @@
                         <div id="itemDiv" runat="server">
                             <div class="row">
                                 <div class="col-md-4 col-lg-4">
-                                    <asp:Image ID="ItemImage" AlternateText="Item Image" runat="server" Height="400px" />
+                                    <asp:Image ID="ItemImage" AlternateText="Item Image" ImageUrl="<%=image_path %>" runat="server" Height="400px" />
                                 </div>
                                 <div class="col-md-7 col-lg-7 offset-md-1 offset-lg-1">
                                     <div class="row itemRows">
                                         <div class="col-md-12 col-lg-12">
-                                            <asp:Label ID="ItemName" runat="server" Text="Item Name" Font-Bold="True"></asp:Label>
+                                            <asp:Label ID="ItemName" runat="server" Text="<%=name %>" Font-Bold="True"></asp:Label>
                                         </div>
                                         <br />
                                         <div class="col-md-12 col-lg-12 CategoryLink">
-                                            <asp:HyperLink ID="Category" runat="server">Category</asp:HyperLink>
+                                            <asp:HyperLink ID="Category" runat="server"><%=category %></asp:HyperLink>
                                             <asp:Label ID="Label1" runat="server" Text=">"></asp:Label>
-                                            <asp:HyperLink ID="Subcategory" runat="server">Sub Category</asp:HyperLink>
+                                            <asp:HyperLink ID="Subcategory" runat="server"><%=subcategory %></asp:HyperLink>
                                         </div>
                                         <div class="col-md-2 col-lg-2">
                                             <asp:Label ID="ItemPriceLbl" runat="server" Text="Price" Font-Bold="True"></asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:Label ID="ItemPrice" runat="server" Text="Item Price"></asp:Label>
+                                            <asp:Label ID="ItemPrice" runat="server" Text="<%=price %>"></asp:Label>
                                         </div>
                                         <div class="col-md-2 col-lg-2">
                                             <asp:Label ID="ItemRatingLbl" runat="server" Text="Rating" Font-Bold="True"></asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:Label ID="ItemRating" runat="server" Text="Item Rating"></asp:Label>
+                                            <asp:Label ID="ItemRating" runat="server" Text="<%=rating %>"></asp:Label>
                                         </div>
                                         <br />
                                         <div class="col-md-2 col-lg-2">
                                             <asp:Label ID="ItemQuantityAvailable" runat="server" Text="Quantity Available" Font-Bold="True"></asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:Label ID="Quantity" runat="server" Text="Quantity"></asp:Label>
+                                            <asp:Label ID="Quantity" runat="server" Text="<%=quantity_available %>"></asp:Label>
                                         </div>
                                         <div class="col-md-2 col-lg-2">
                                             <asp:Label ID="ItemOrderCount" runat="server" Text="Order Count" Font-Bold="True"></asp:Label>
                                         </div>
                                         <div class="col-md-4 col-lg-4">
-                                            <asp:Label ID="OrderCount" runat="server" Text="Orders"></asp:Label>
+                                            <asp:Label ID="OrderCount" runat="server" Text="<%=order_count %>"></asp:Label>
                                         </div>
                                         <br />
                                         <div class="col-md-2 col-lg-2">
                                             <asp:Label ID="ItemDiscountLbl" runat="server" Text="Discount" Font-Bold="True"></asp:Label>
                                         </div>
                                         <div class="col-md-10 col-lg-10">
-                                            <asp:Label ID="ItemDiscount" runat="server" Text="Item Discount"></asp:Label>
+                                            <asp:Label ID="ItemDiscount" runat="server" Text="<%=discount %>"></asp:Label>
                                         </div>
                                         <br />
                                         <div id="ManageItem" runat="server">
@@ -77,7 +77,7 @@
                                             <button class="btn btn-danger">Delete</button>
                                         </div>
                                         <div class="col-md-12 col-lg-12">
-                                            <asp:Label ID="Description" runat="server" Text="Description"></asp:Label>
+                                            <asp:Label ID="Description" runat="server" Text="<%=description %>"></asp:Label>
                                         </div>
                                     </div>
                                 </div>
