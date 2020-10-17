@@ -51,6 +51,7 @@
                                         <div class="col-md-4 col-lg-4">
                                             <asp:Label ID="ItemRating" runat="server" Text="<%=rating %>"></asp:Label>
                                         </div>
+                                        <asp:Label ID="RatingError" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
                                         <br />
                                         <div class="col-md-2 col-lg-2">
                                             <asp:Label ID="ItemQuantityAvailable" runat="server" Text="Quantity Available" Font-Bold="True"></asp:Label>

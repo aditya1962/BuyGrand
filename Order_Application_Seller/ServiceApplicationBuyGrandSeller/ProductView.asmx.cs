@@ -79,5 +79,28 @@ namespace ServiceApplicationBuyGrandSeller
                 return -1;
             }
         }
+
+        [WebMethod]
+        public int loggedInUser(int id,string username)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("sp_verifyUserForRating", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("id", id);
+                    command.Parameters.AddWithValue("username", username);
+                    int rows = command.ExecuteNonQuery();
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -1;
+            }
+        }
     }
 }

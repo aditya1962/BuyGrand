@@ -145,6 +145,9 @@
     <Content Include="Connected Services\ProductDetailsReference\Order_Application_Seller.ProductDetailsReference.Item.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ProductDetailsReference\Order_Application_Seller.ProductDetailsReference.loggedInUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ProductDetailsReference\ProductView.disco" />
     <None Include="Connected Services\ProductDetailsReference\configuration91.svcinfo" />
     <None Include="Connected Services\ProductDetailsReference\configuration.svcinfo" />

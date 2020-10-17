@@ -243,6 +243,13 @@ namespace Order_Application_Seller.ProductDetailsReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/addRating", ReplyAction="*")]
         System.Threading.Tasks.Task<int> addRatingAsync(int id, int rating);
+        
+        // CODEGEN: Generating message contract since element name username from namespace http://localhost/ServiceBuyGrandSeller/ProductView.asmx/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/loggedInUser", ReplyAction="*")]
+        Order_Application_Seller.ProductDetailsReference.loggedInUserResponse loggedInUser(Order_Application_Seller.ProductDetailsReference.loggedInUserRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/loggedInUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<Order_Application_Seller.ProductDetailsReference.loggedInUserResponse> loggedInUserAsync(Order_Application_Seller.ProductDetailsReference.loggedInUserRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -313,6 +320,78 @@ namespace Order_Application_Seller.ProductDetailsReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class loggedInUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="loggedInUser", Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/", Order=0)]
+        public Order_Application_Seller.ProductDetailsReference.loggedInUserRequestBody Body;
+        
+        public loggedInUserRequest() {
+        }
+        
+        public loggedInUserRequest(Order_Application_Seller.ProductDetailsReference.loggedInUserRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/")]
+    public partial class loggedInUserRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string username;
+        
+        public loggedInUserRequestBody() {
+        }
+        
+        public loggedInUserRequestBody(int id, string username) {
+            this.id = id;
+            this.username = username;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class loggedInUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="loggedInUserResponse", Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/", Order=0)]
+        public Order_Application_Seller.ProductDetailsReference.loggedInUserResponseBody Body;
+        
+        public loggedInUserResponse() {
+        }
+        
+        public loggedInUserResponse(Order_Application_Seller.ProductDetailsReference.loggedInUserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/")]
+    public partial class loggedInUserResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int loggedInUserResult;
+        
+        public loggedInUserResponseBody() {
+        }
+        
+        public loggedInUserResponseBody(int loggedInUserResult) {
+            this.loggedInUserResult = loggedInUserResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductViewSoapChannel : Order_Application_Seller.ProductDetailsReference.ProductViewSoap, System.ServiceModel.IClientChannel {
     }
@@ -371,6 +450,33 @@ namespace Order_Application_Seller.ProductDetailsReference {
         
         public System.Threading.Tasks.Task<int> addRatingAsync(int id, int rating) {
             return base.Channel.addRatingAsync(id, rating);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Order_Application_Seller.ProductDetailsReference.loggedInUserResponse Order_Application_Seller.ProductDetailsReference.ProductViewSoap.loggedInUser(Order_Application_Seller.ProductDetailsReference.loggedInUserRequest request) {
+            return base.Channel.loggedInUser(request);
+        }
+        
+        public int loggedInUser(int id, string username) {
+            Order_Application_Seller.ProductDetailsReference.loggedInUserRequest inValue = new Order_Application_Seller.ProductDetailsReference.loggedInUserRequest();
+            inValue.Body = new Order_Application_Seller.ProductDetailsReference.loggedInUserRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.username = username;
+            Order_Application_Seller.ProductDetailsReference.loggedInUserResponse retVal = ((Order_Application_Seller.ProductDetailsReference.ProductViewSoap)(this)).loggedInUser(inValue);
+            return retVal.Body.loggedInUserResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Order_Application_Seller.ProductDetailsReference.loggedInUserResponse> Order_Application_Seller.ProductDetailsReference.ProductViewSoap.loggedInUserAsync(Order_Application_Seller.ProductDetailsReference.loggedInUserRequest request) {
+            return base.Channel.loggedInUserAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Order_Application_Seller.ProductDetailsReference.loggedInUserResponse> loggedInUserAsync(int id, string username) {
+            Order_Application_Seller.ProductDetailsReference.loggedInUserRequest inValue = new Order_Application_Seller.ProductDetailsReference.loggedInUserRequest();
+            inValue.Body = new Order_Application_Seller.ProductDetailsReference.loggedInUserRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.username = username;
+            return ((Order_Application_Seller.ProductDetailsReference.ProductViewSoap)(this)).loggedInUserAsync(inValue);
         }
     }
 }

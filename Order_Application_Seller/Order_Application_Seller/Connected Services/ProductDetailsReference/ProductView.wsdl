@@ -47,6 +47,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="loggedInUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loggedInUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="loggedInUserResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="getItemSoapIn">
@@ -61,6 +76,12 @@
   <wsdl:message name="addRatingSoapOut">
     <wsdl:part name="parameters" element="tns:addRatingResponse" />
   </wsdl:message>
+  <wsdl:message name="loggedInUserSoapIn">
+    <wsdl:part name="parameters" element="tns:loggedInUser" />
+  </wsdl:message>
+  <wsdl:message name="loggedInUserSoapOut">
+    <wsdl:part name="parameters" element="tns:loggedInUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="ProductViewSoap">
     <wsdl:operation name="getItem">
       <wsdl:input message="tns:getItemSoapIn" />
@@ -69,6 +90,10 @@
     <wsdl:operation name="addRating">
       <wsdl:input message="tns:addRatingSoapIn" />
       <wsdl:output message="tns:addRatingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="loggedInUser">
+      <wsdl:input message="tns:loggedInUserSoapIn" />
+      <wsdl:output message="tns:loggedInUserSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ProductViewSoap" type="tns:ProductViewSoap">
@@ -91,6 +116,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="loggedInUser">
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/loggedInUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ProductViewSoap12" type="tns:ProductViewSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -105,6 +139,15 @@
     </wsdl:operation>
     <wsdl:operation name="addRating">
       <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/addRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loggedInUser">
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/loggedInUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

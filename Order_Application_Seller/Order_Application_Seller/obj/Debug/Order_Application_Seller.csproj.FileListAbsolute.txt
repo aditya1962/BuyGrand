@@ -50,6 +50,8 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Se
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\roslyn\vbc.rsp
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\roslyn\VBCSCompiler.exe
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Order_Application_Seller.dll.CodeAnalysisLog.xml
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Order_Application_Seller.dll.lastcodeanalysissucceeded
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Antlr3.Runtime.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\AspNet.ScriptManager.bootstrap.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\AspNet.ScriptManager.jQuery.dll
@@ -67,10 +69,8 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Se
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Antlr3.Runtime.pdb
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.csprojAssemblyReference.cache
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.csproj.CoreCompileInputs.cache
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.csproj.CopyComplete
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.pdb
-C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Order_Application_Seller.dll.CodeAnalysisLog.xml
-C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Order_Application_Seller.dll.lastcodeanalysissucceeded
-C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\Order_Application_Seller.csprojAssemblyReference.cache
