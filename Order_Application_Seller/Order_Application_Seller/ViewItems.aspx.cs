@@ -29,6 +29,7 @@ namespace Order_Application_Seller
         {
             //username = Session["username"].ToString();
             username = "abcde";
+            Session["username"] = username;
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)

@@ -21,6 +21,7 @@ namespace ServiceApplicationBuyGrandSeller
         [WebMethod]
         public Item getItem(int id)
         {
+            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
@@ -55,6 +56,20 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
+            */
+
+            Item item = new Item();
+            item.description = "abc";
+            item.name = "abc";
+            item.price = 14;
+            item.image_path = "abc";
+            item.discount = 2.3;
+            item.rating = 3.4;
+            item.order_count = 1;
+            item.quantity_available = 5;
+            item.category = "abc";
+            item.subcategory = "abcd";
+            return item;
         }
 
         [WebMethod]

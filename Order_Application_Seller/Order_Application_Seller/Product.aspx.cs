@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Web.Services;
 
 namespace Order_Application_Seller
@@ -6,44 +7,72 @@ namespace Order_Application_Seller
     public partial class Product : System.Web.UI.Page
     {
         string username;
-        int productID,users;
+        int item,users;
 
         ProductDetailsReference.ProductViewSoapClient productRef;
-        public string description,name,image_path,category,subcategory;
+        public string description,name,image_path,productCategory,productSubcategory;
         public double price,discount,rating;
         public int order_count,quantity_available;
-
+        AddProductReference.Category[] categoryList;
         protected void Page_Load(object sender, EventArgs e)
         {
             username = Session["username"].ToString();
             string id = Session["itemid"].ToString();
-            productID = Convert.ToInt32(id);
+            item = Convert.ToInt32(id);
+
+            ProductValue.Value = item.ToString();
 
             productRef = new ProductDetailsReference.ProductViewSoapClient();
-            ProductDetailsReference.Item product = productRef.getItem(productID);
+            ProductDetailsReference.Item product = productRef.getItem(item);
 
-            users = productRef.loggedInUser(productID, username);
+            AddProductReference.AddProductSoapClient addProductReference = new AddProductReference.AddProductSoapClient();
+            /*
+            categoryList = addProductReference.getCategoryNames();
 
-            description = product.description;
-            name = product.name;
-            image_path = product.image_path;
-            category = product.category;
-            subcategory = product.subcategory;
-            price = product.price;
-            discount = product.discount;
-            rating = product.rating;
+            if (categoryList.Length > 0)
+            {
+                ArrayList category = new ArrayList();
+                for (int i = 0; i < categoryList.Length; i++)
+                {
+                    string categoryName = categoryList[i].categoryName;
+                    if (!(category.Contains(categoryName)))
+                    {
+                        category.Add(categoryName);
+                    }
+                    if (categoryList[i].categoryName.Equals(categoryList[0].categoryName))
+                    {
+                        SubcategoryDropdown.Items.Add(categoryList[i].subcategoryName);
+                    }
+                }
+                foreach (string categoryValue in category)
+                {
+                    CategoryDropdown.Items.Add(categoryValue);
+                }
+            }
+            */
+            //users = productRef.loggedInUser(item, username);
+            users = 1; //sample value for testing 
+
+            DescriptionLabel.Text = product.description;
+            ItemName.Text = product.name;
+            ItemImage.ImageUrl = product.image_path;
+            productCategory = product.category;
+            productSubcategory = product.subcategory;
+            ItemPrice.Text = product.price.ToString();
+            ItemDiscount.Text = product.discount.ToString();
+            ItemRating.Text = product.rating.ToString();
             if(users == 1)
             {
-                order_count = product.order_count;
+                OrderCount.Text = product.order_count.ToString();
             }
             else
             {
                 ItemOrderCount.Visible = false;
                 OrderCount.Visible = false;
             }
-            quantity_available = product.quantity_available;
+            Quantity.Text = product.quantity_available.ToString();
 
-            LoadReviews(productID);
+            LoadReviews(item);
         }
 
         [WebMethod]
@@ -51,7 +80,7 @@ namespace Order_Application_Seller
         {           
             if (users == 0)
             {
-                productRef.addRating(productID, rating);
+                productRef.addRating(item, rating);
             }
             else if(users==-1)
             {
@@ -65,11 +94,23 @@ namespace Order_Application_Seller
             }
         }
 
-        public void LoadReviews(int productID)
+        protected void CategorySelected(object sender, EventArgs e)
+        {
+            SubcategoryDropdown.Items.Clear();
+            for (int i = 0; i < categoryList.Length; i++)
+            {
+                if (categoryList[i].categoryName.Equals(CategoryDropdown.SelectedItem.Value))
+                {
+                    SubcategoryDropdown.Items.Add(categoryList[i].subcategoryName);
+                }
+            }
+        }
+
+        public void LoadReviews(int item)
         {
             ReviewsReference.ReviewsSoapClient reviewSoap = new ReviewsReference.ReviewsSoapClient();
-            ReviewsReference.Review [] review = reviewSoap.GetTopReviews(productID);
-            for(int i=0; i<5; i++)
+            ReviewsReference.Review [] review = reviewSoap.GetTopReviews(item);
+            for(int i=0; i<review.Length; i++)
             {
                 Review itemReview = (Review)Page.LoadControl("~/Review.ascx");
                 itemReview.ImagePath = review[i].imagePath;

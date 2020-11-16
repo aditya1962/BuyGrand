@@ -67,7 +67,6 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBu
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\bin\Antlr3.Runtime.pdb
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.csprojAssemblyReference.cache
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.csproj.CoreCompileInputs.cache
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.csproj.CopyComplete
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.dll

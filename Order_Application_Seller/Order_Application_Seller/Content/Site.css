@@ -71,3 +71,36 @@ body {
 {
     display:flex;
 }
+
+#reviewDiv
+{
+    margin:4%;
+}
+
+.productReview 
+{
+    margin:2% 0%;
+}
+
+.productReview a {
+    color: #007bff;
+}
+
+.productReview label {
+    font-weight: 400;
+}
+
+.subreviews
+{
+    width:100%;
+}
+
+.subreviewProduct{
+    margin:4%;
+}
+
+.subreviewProduct label
+{
+    font-weight:400;
+}
+

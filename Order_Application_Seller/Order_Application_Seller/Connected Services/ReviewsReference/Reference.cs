@@ -9,120 +9,131 @@
 //------------------------------------------------------------------------------
 
 namespace Order_Application_Seller.ReviewsReference {
-    using System.Runtime.Serialization;
-    using System;
+    using System.Data;
     
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Review", Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx")]
-    [System.SerializableAttribute()]
-    public partial class Review : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx", ConfigurationName="ReviewsReference.ReviewsSoap")]
+    public interface ReviewsSoap {
         
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetTopReviews", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Order_Application_Seller.ReviewsReference.Review[] GetTopReviews(int item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetTopReviews", ReplyAction="*")]
+        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetTopReviewsAsync(int item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetSubReviews", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Order_Application_Seller.ReviewsReference.Review[] GetSubReviews(int productID, int reviewID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetSubReviews", ReplyAction="*")]
+        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetSubReviewsAsync(int productID, int reviewID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/addReview", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int addReview(int itemID, int originalID, string username, string review);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/addReview", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> addReviewAsync(int itemID, int originalID, string username, string review);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/getUser", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable getUser(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/getUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> getUserAsync(string username);
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx")]
+    public partial class Review : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int reviewIDField;
         
         private int subReviewCountField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string imagePathField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string datetimeField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string reviewDescField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public int reviewID {
             get {
                 return this.reviewIDField;
             }
             set {
-                if ((this.reviewIDField.Equals(value) != true)) {
-                    this.reviewIDField = value;
-                    this.RaisePropertyChanged("reviewID");
-                }
+                this.reviewIDField = value;
+                this.RaisePropertyChanged("reviewID");
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
         public int subReviewCount {
             get {
                 return this.subReviewCountField;
             }
             set {
-                if ((this.subReviewCountField.Equals(value) != true)) {
-                    this.subReviewCountField = value;
-                    this.RaisePropertyChanged("subReviewCount");
-                }
+                this.subReviewCountField = value;
+                this.RaisePropertyChanged("subReviewCount");
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
         public string imagePath {
             get {
                 return this.imagePathField;
             }
             set {
-                if ((object.ReferenceEquals(this.imagePathField, value) != true)) {
-                    this.imagePathField = value;
-                    this.RaisePropertyChanged("imagePath");
-                }
+                this.imagePathField = value;
+                this.RaisePropertyChanged("imagePath");
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
         public string name {
             get {
                 return this.nameField;
             }
             set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
         public string datetime {
             get {
                 return this.datetimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.datetimeField, value) != true)) {
-                    this.datetimeField = value;
-                    this.RaisePropertyChanged("datetime");
-                }
+                this.datetimeField = value;
+                this.RaisePropertyChanged("datetime");
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
         public string reviewDesc {
             get {
                 return this.reviewDescField;
             }
             set {
-                if ((object.ReferenceEquals(this.reviewDescField, value) != true)) {
-                    this.reviewDescField = value;
-                    this.RaisePropertyChanged("reviewDesc");
-                }
+                this.reviewDescField = value;
+                this.RaisePropertyChanged("reviewDesc");
             }
         }
         
@@ -133,165 +144,6 @@ namespace Order_Application_Seller.ReviewsReference {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx", ConfigurationName="ReviewsReference.ReviewsSoap")]
-    public interface ReviewsSoap {
-        
-        // CODEGEN: Generating message contract since element name GetTopReviewsResult from namespace http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetTopReviews", ReplyAction="*")]
-        Order_Application_Seller.ReviewsReference.GetTopReviewsResponse GetTopReviews(Order_Application_Seller.ReviewsReference.GetTopReviewsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetTopReviews", ReplyAction="*")]
-        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.GetTopReviewsResponse> GetTopReviewsAsync(Order_Application_Seller.ReviewsReference.GetTopReviewsRequest request);
-        
-        // CODEGEN: Generating message contract since element name GetSubReviewsResult from namespace http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetSubReviews", ReplyAction="*")]
-        Order_Application_Seller.ReviewsReference.GetSubReviewsResponse GetSubReviews(Order_Application_Seller.ReviewsReference.GetSubReviewsRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetSubReviews", ReplyAction="*")]
-        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.GetSubReviewsResponse> GetSubReviewsAsync(Order_Application_Seller.ReviewsReference.GetSubReviewsRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetTopReviewsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTopReviews", Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx", Order=0)]
-        public Order_Application_Seller.ReviewsReference.GetTopReviewsRequestBody Body;
-        
-        public GetTopReviewsRequest() {
-        }
-        
-        public GetTopReviewsRequest(Order_Application_Seller.ReviewsReference.GetTopReviewsRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx")]
-    public partial class GetTopReviewsRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int productID;
-        
-        public GetTopReviewsRequestBody() {
-        }
-        
-        public GetTopReviewsRequestBody(int productID) {
-            this.productID = productID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetTopReviewsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTopReviewsResponse", Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx", Order=0)]
-        public Order_Application_Seller.ReviewsReference.GetTopReviewsResponseBody Body;
-        
-        public GetTopReviewsResponse() {
-        }
-        
-        public GetTopReviewsResponse(Order_Application_Seller.ReviewsReference.GetTopReviewsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx")]
-    public partial class GetTopReviewsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Order_Application_Seller.ReviewsReference.Review[] GetTopReviewsResult;
-        
-        public GetTopReviewsResponseBody() {
-        }
-        
-        public GetTopReviewsResponseBody(Order_Application_Seller.ReviewsReference.Review[] GetTopReviewsResult) {
-            this.GetTopReviewsResult = GetTopReviewsResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetSubReviewsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSubReviews", Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx", Order=0)]
-        public Order_Application_Seller.ReviewsReference.GetSubReviewsRequestBody Body;
-        
-        public GetSubReviewsRequest() {
-        }
-        
-        public GetSubReviewsRequest(Order_Application_Seller.ReviewsReference.GetSubReviewsRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx")]
-    public partial class GetSubReviewsRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int productID;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public int reviewID;
-        
-        public GetSubReviewsRequestBody() {
-        }
-        
-        public GetSubReviewsRequestBody(int productID, int reviewID) {
-            this.productID = productID;
-            this.reviewID = reviewID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetSubReviewsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSubReviewsResponse", Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx", Order=0)]
-        public Order_Application_Seller.ReviewsReference.GetSubReviewsResponseBody Body;
-        
-        public GetSubReviewsResponse() {
-        }
-        
-        public GetSubReviewsResponse(Order_Application_Seller.ReviewsReference.GetSubReviewsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx")]
-    public partial class GetSubReviewsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Order_Application_Seller.ReviewsReference.Review[] GetSubReviewsResult;
-        
-        public GetSubReviewsResponseBody() {
-        }
-        
-        public GetSubReviewsResponseBody(Order_Application_Seller.ReviewsReference.Review[] GetSubReviewsResult) {
-            this.GetSubReviewsResult = GetSubReviewsResult;
         }
     }
     
@@ -322,56 +174,36 @@ namespace Order_Application_Seller.ReviewsReference {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Order_Application_Seller.ReviewsReference.GetTopReviewsResponse Order_Application_Seller.ReviewsReference.ReviewsSoap.GetTopReviews(Order_Application_Seller.ReviewsReference.GetTopReviewsRequest request) {
-            return base.Channel.GetTopReviews(request);
+        public Order_Application_Seller.ReviewsReference.Review[] GetTopReviews(int item) {
+            return base.Channel.GetTopReviews(item);
         }
         
-        public Order_Application_Seller.ReviewsReference.Review[] GetTopReviews(int productID) {
-            Order_Application_Seller.ReviewsReference.GetTopReviewsRequest inValue = new Order_Application_Seller.ReviewsReference.GetTopReviewsRequest();
-            inValue.Body = new Order_Application_Seller.ReviewsReference.GetTopReviewsRequestBody();
-            inValue.Body.productID = productID;
-            Order_Application_Seller.ReviewsReference.GetTopReviewsResponse retVal = ((Order_Application_Seller.ReviewsReference.ReviewsSoap)(this)).GetTopReviews(inValue);
-            return retVal.Body.GetTopReviewsResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.GetTopReviewsResponse> Order_Application_Seller.ReviewsReference.ReviewsSoap.GetTopReviewsAsync(Order_Application_Seller.ReviewsReference.GetTopReviewsRequest request) {
-            return base.Channel.GetTopReviewsAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.GetTopReviewsResponse> GetTopReviewsAsync(int productID) {
-            Order_Application_Seller.ReviewsReference.GetTopReviewsRequest inValue = new Order_Application_Seller.ReviewsReference.GetTopReviewsRequest();
-            inValue.Body = new Order_Application_Seller.ReviewsReference.GetTopReviewsRequestBody();
-            inValue.Body.productID = productID;
-            return ((Order_Application_Seller.ReviewsReference.ReviewsSoap)(this)).GetTopReviewsAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Order_Application_Seller.ReviewsReference.GetSubReviewsResponse Order_Application_Seller.ReviewsReference.ReviewsSoap.GetSubReviews(Order_Application_Seller.ReviewsReference.GetSubReviewsRequest request) {
-            return base.Channel.GetSubReviews(request);
+        public System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetTopReviewsAsync(int item) {
+            return base.Channel.GetTopReviewsAsync(item);
         }
         
         public Order_Application_Seller.ReviewsReference.Review[] GetSubReviews(int productID, int reviewID) {
-            Order_Application_Seller.ReviewsReference.GetSubReviewsRequest inValue = new Order_Application_Seller.ReviewsReference.GetSubReviewsRequest();
-            inValue.Body = new Order_Application_Seller.ReviewsReference.GetSubReviewsRequestBody();
-            inValue.Body.productID = productID;
-            inValue.Body.reviewID = reviewID;
-            Order_Application_Seller.ReviewsReference.GetSubReviewsResponse retVal = ((Order_Application_Seller.ReviewsReference.ReviewsSoap)(this)).GetSubReviews(inValue);
-            return retVal.Body.GetSubReviewsResult;
+            return base.Channel.GetSubReviews(productID, reviewID);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.GetSubReviewsResponse> Order_Application_Seller.ReviewsReference.ReviewsSoap.GetSubReviewsAsync(Order_Application_Seller.ReviewsReference.GetSubReviewsRequest request) {
-            return base.Channel.GetSubReviewsAsync(request);
+        public System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetSubReviewsAsync(int productID, int reviewID) {
+            return base.Channel.GetSubReviewsAsync(productID, reviewID);
         }
         
-        public System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.GetSubReviewsResponse> GetSubReviewsAsync(int productID, int reviewID) {
-            Order_Application_Seller.ReviewsReference.GetSubReviewsRequest inValue = new Order_Application_Seller.ReviewsReference.GetSubReviewsRequest();
-            inValue.Body = new Order_Application_Seller.ReviewsReference.GetSubReviewsRequestBody();
-            inValue.Body.productID = productID;
-            inValue.Body.reviewID = reviewID;
-            return ((Order_Application_Seller.ReviewsReference.ReviewsSoap)(this)).GetSubReviewsAsync(inValue);
+        public int addReview(int itemID, int originalID, string username, string review) {
+            return base.Channel.addReview(itemID, originalID, username, review);
+        }
+        
+        public System.Threading.Tasks.Task<int> addReviewAsync(int itemID, int originalID, string username, string review) {
+            return base.Channel.addReviewAsync(itemID, originalID, username, review);
+        }
+        
+        public System.Data.DataTable getUser(string username) {
+            return base.Channel.getUser(username);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> getUserAsync(string username) {
+            return base.Channel.getUserAsync(username);
         }
     }
 }
