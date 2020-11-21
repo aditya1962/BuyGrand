@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Order_Application_Seller.Index" %>
 <%@ Register Src="~/UserControls/VerticalNavigation.ascx" TagPrefix="uc1" TagName="VerticalNavigation" %>
+<%@ Register Src="~/UserControls/Navigation.ascx" TagPrefix="uc1" TagName="Navigation" %>
 
 <!DOCTYPE html>
 
@@ -16,7 +17,7 @@
 </head>
 <body>
     <form id="DashboardForm" runat="server">
-        <!-- Menu bar -->
+        <uc1:Navigation runat="server" id="Navigation" />
         <div class="row">
             <div class="col-md-2 col-lg-2">
                 <uc1:VerticalNavigation runat="server" id="VerticalNavigation" />

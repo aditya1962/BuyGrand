@@ -16,7 +16,7 @@
 </head>
 <body>
     <form id="ViewItemForm" runat="server">
-        <!-- Menu bar -->
+        <uc1:Navigation runat="server" ID="Navigation" />
         <div class="row">
             <div class="col-md-2 col-lg-2">
                 <uc1:VerticalNavigation runat="server" ID="VerticalNavigation" />

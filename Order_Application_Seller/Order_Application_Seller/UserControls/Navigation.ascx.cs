@@ -14,7 +14,7 @@ namespace Order_Application_Seller.UserControls
             }
             else
             {
-                Response.Redirect("~/Login.aspx");
+                //Response.Redirect("~/Login.aspx");
             }
         }
     }
