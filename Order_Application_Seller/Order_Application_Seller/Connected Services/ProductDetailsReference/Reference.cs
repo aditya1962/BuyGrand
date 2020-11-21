@@ -250,6 +250,19 @@ namespace Order_Application_Seller.ProductDetailsReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/loggedInUser", ReplyAction="*")]
         System.Threading.Tasks.Task<Order_Application_Seller.ProductDetailsReference.loggedInUserResponse> loggedInUserAsync(Order_Application_Seller.ProductDetailsReference.loggedInUserRequest request);
+        
+        // CODEGEN: Generating message contract since element name category from namespace http://localhost/ServiceBuyGrandSeller/ProductView.asmx/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/editProductDetail", ReplyAction="*")]
+        Order_Application_Seller.ProductDetailsReference.editProductDetailResponse editProductDetail(Order_Application_Seller.ProductDetailsReference.editProductDetailRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/editProductDetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<Order_Application_Seller.ProductDetailsReference.editProductDetailResponse> editProductDetailAsync(Order_Application_Seller.ProductDetailsReference.editProductDetailRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/deleteProduct", ReplyAction="*")]
+        int deleteProduct(int productVal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/deleteProduct", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> deleteProductAsync(int productVal);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -392,6 +405,106 @@ namespace Order_Application_Seller.ProductDetailsReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class editProductDetailRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="editProductDetail", Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/", Order=0)]
+        public Order_Application_Seller.ProductDetailsReference.editProductDetailRequestBody Body;
+        
+        public editProductDetailRequest() {
+        }
+        
+        public editProductDetailRequest(Order_Application_Seller.ProductDetailsReference.editProductDetailRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/")]
+    public partial class editProductDetailRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int productVal;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string category;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string subcategory;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string name;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string description;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public double price;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public double discount;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public int quantity;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        public string filePath;
+        
+        public editProductDetailRequestBody() {
+        }
+        
+        public editProductDetailRequestBody(int productVal, string category, string subcategory, string name, string description, double price, double discount, int quantity, string filePath) {
+            this.productVal = productVal;
+            this.category = category;
+            this.subcategory = subcategory;
+            this.name = name;
+            this.description = description;
+            this.price = price;
+            this.discount = discount;
+            this.quantity = quantity;
+            this.filePath = filePath;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class editProductDetailResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="editProductDetailResponse", Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/", Order=0)]
+        public Order_Application_Seller.ProductDetailsReference.editProductDetailResponseBody Body;
+        
+        public editProductDetailResponse() {
+        }
+        
+        public editProductDetailResponse(Order_Application_Seller.ProductDetailsReference.editProductDetailResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/ProductView.asmx/")]
+    public partial class editProductDetailResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int editProductDetailResult;
+        
+        public editProductDetailResponseBody() {
+        }
+        
+        public editProductDetailResponseBody(int editProductDetailResult) {
+            this.editProductDetailResult = editProductDetailResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ProductViewSoapChannel : Order_Application_Seller.ProductDetailsReference.ProductViewSoap, System.ServiceModel.IClientChannel {
     }
@@ -477,6 +590,55 @@ namespace Order_Application_Seller.ProductDetailsReference {
             inValue.Body.id = id;
             inValue.Body.username = username;
             return ((Order_Application_Seller.ProductDetailsReference.ProductViewSoap)(this)).loggedInUserAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Order_Application_Seller.ProductDetailsReference.editProductDetailResponse Order_Application_Seller.ProductDetailsReference.ProductViewSoap.editProductDetail(Order_Application_Seller.ProductDetailsReference.editProductDetailRequest request) {
+            return base.Channel.editProductDetail(request);
+        }
+        
+        public int editProductDetail(int productVal, string category, string subcategory, string name, string description, double price, double discount, int quantity, string filePath) {
+            Order_Application_Seller.ProductDetailsReference.editProductDetailRequest inValue = new Order_Application_Seller.ProductDetailsReference.editProductDetailRequest();
+            inValue.Body = new Order_Application_Seller.ProductDetailsReference.editProductDetailRequestBody();
+            inValue.Body.productVal = productVal;
+            inValue.Body.category = category;
+            inValue.Body.subcategory = subcategory;
+            inValue.Body.name = name;
+            inValue.Body.description = description;
+            inValue.Body.price = price;
+            inValue.Body.discount = discount;
+            inValue.Body.quantity = quantity;
+            inValue.Body.filePath = filePath;
+            Order_Application_Seller.ProductDetailsReference.editProductDetailResponse retVal = ((Order_Application_Seller.ProductDetailsReference.ProductViewSoap)(this)).editProductDetail(inValue);
+            return retVal.Body.editProductDetailResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Order_Application_Seller.ProductDetailsReference.editProductDetailResponse> Order_Application_Seller.ProductDetailsReference.ProductViewSoap.editProductDetailAsync(Order_Application_Seller.ProductDetailsReference.editProductDetailRequest request) {
+            return base.Channel.editProductDetailAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Order_Application_Seller.ProductDetailsReference.editProductDetailResponse> editProductDetailAsync(int productVal, string category, string subcategory, string name, string description, double price, double discount, int quantity, string filePath) {
+            Order_Application_Seller.ProductDetailsReference.editProductDetailRequest inValue = new Order_Application_Seller.ProductDetailsReference.editProductDetailRequest();
+            inValue.Body = new Order_Application_Seller.ProductDetailsReference.editProductDetailRequestBody();
+            inValue.Body.productVal = productVal;
+            inValue.Body.category = category;
+            inValue.Body.subcategory = subcategory;
+            inValue.Body.name = name;
+            inValue.Body.description = description;
+            inValue.Body.price = price;
+            inValue.Body.discount = discount;
+            inValue.Body.quantity = quantity;
+            inValue.Body.filePath = filePath;
+            return ((Order_Application_Seller.ProductDetailsReference.ProductViewSoap)(this)).editProductDetailAsync(inValue);
+        }
+        
+        public int deleteProduct(int productVal) {
+            return base.Channel.deleteProduct(productVal);
+        }
+        
+        public System.Threading.Tasks.Task<int> deleteProductAsync(int productVal) {
+            return base.Channel.deleteProductAsync(productVal);
         }
     }
 }
