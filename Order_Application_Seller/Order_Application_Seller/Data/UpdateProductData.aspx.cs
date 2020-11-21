@@ -16,7 +16,7 @@ namespace Order_Application_Seller.Data
                 string subcategory = Request.QueryString["subcategory"];
                 string name = Request.QueryString["name"];
                 string description = Request.QueryString["description"];
-                int price = Convert.ToInt32(Request.QueryString["price"]);
+                double price = Convert.ToInt32(Request.QueryString["price"]);
                 double discount = Convert.ToDouble(Request.QueryString["discount"]);
                 int quantity = Convert.ToInt32(Request.QueryString["quantity"]);
                 string filename = Request.QueryString["filename"];

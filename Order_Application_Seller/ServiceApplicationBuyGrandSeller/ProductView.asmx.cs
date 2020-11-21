@@ -117,5 +117,57 @@ namespace ServiceApplicationBuyGrandSeller
                 return -1;
             }
         }
+
+        [WebMethod]
+        public int editProductDetail(int productVal, string category, string subcategory, string name, string description, double price, double discount, int quantity, string filePath)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("sp_editProduct", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("productVal", productVal);
+                    command.Parameters.AddWithValue("category", category);
+                    command.Parameters.AddWithValue("subcategory", subcategory);
+                    command.Parameters.AddWithValue("name", name);
+                    command.Parameters.AddWithValue("description", description);
+                    command.Parameters.AddWithValue("price", price);
+                    command.Parameters.AddWithValue("discount", discount);
+                    command.Parameters.AddWithValue("quantity", quantity);
+                    command.Parameters.AddWithValue("filePath", filePath);
+                    int rows = command.ExecuteNonQuery();
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -1;
+            }
+        }
+
+        [WebMethod]
+        public int deleteProduct(int productVal)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("sp_deleteProduct", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("productVal", productVal);
+                    int rows = command.ExecuteNonQuery();
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -1;
+            }
+        }
     }
 }
