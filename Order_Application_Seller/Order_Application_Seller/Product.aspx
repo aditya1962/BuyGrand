@@ -79,6 +79,10 @@
                                             <button class="btn btn-success" style="margin-left: 0px;" type="button" data-toggle="modal" data-target="#editProductModal">Edit</button>
                                             <button class="btn btn-danger" data-toggle="modal" type="button" data-target="#deleteModal">Delete</button>
                                         </div>
+                                        <br />
+                                        <div>
+                                            <label id="UpdateMessage"></label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-12">
@@ -105,7 +109,7 @@
             <div class="modal-dialog" role="document" style="max-width:600px; font-size:15px;">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editProductLabel">Edit Product</h5>
+                        <h5 class="modal-title" id="editProductLabel" style="font-size:15px;">Edit Product</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -114,7 +118,7 @@
                         <div id="EditItemFormDiv" runat="server">
                             <div class="row">
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:Label runat="server">Category</asp:Label>
+                                    <label>Category</label>
                                 </div>
                                 <div class="col-md-8 col-lg-8">
                                     <asp:DropDownList ID="CategoryDropdown" CssClass="form-control" runat="server" OnSelectedIndexChanged="CategorySelected" AutoPostBack="true"></asp:DropDownList>
@@ -123,7 +127,7 @@
                             <br />
                             <div class="row">
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:Label runat="server">Sub Category</asp:Label>
+                                    <label>Sub Category</label>
                                 </div>
                                 <div class="col-md-8 col-lg-8">
                                     <asp:DropDownList ID="SubcategoryDropdown" CssClass="form-control" runat="server"></asp:DropDownList>
@@ -132,65 +136,68 @@
                             <br />
                             <div class="row">
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:Label runat="server">Name</asp:Label>
+                                    <label>Name</label>
                                 </div>
                                 <div class="col-md-8 col-lg-8">
-                                    <asp:TextBox ID="EditName" placeholder="Enter name" CssClass="form-control" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="NameValidate" runat="server" ErrorMessage="Name cannot be empty" ControlToValidate="EditName" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator><br />
-                                    <asp:RegularExpressionValidator ID="NameNum" runat="server" ErrorMessage="Name cannot be a number" ControlToValidate="EditName" ForeColor="Red" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddItemValidate"></asp:RegularExpressionValidator>
+                                    <input type="text" id="EditName" placeholder="Enter name" class="form-control" required="required"/>
                                 </div>
                             </div>
                             <br />
                             <div class="row">
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:Label runat="server">Description</asp:Label>
+                                    <label>Description</label>
                                 </div>
                                 <div class="col-md-8 col-lg-8">
-                                    <asp:TextBox ID="EditDescription" placeholder="Enter description" CssClass="form-control" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="DescriptionValidate" runat="server" ErrorMessage="Description cannot be empty" ControlToValidate="EditDescription" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator><br />
-                                    <asp:RegularExpressionValidator ID="DescriptionNum" runat="server" ErrorMessage="Description cannot be a number" ControlToValidate="EditDescription" ForeColor="Red" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddItemValidate"></asp:RegularExpressionValidator>
+                                    <textarea id="EditDescription" placeholder="Enter description" class="form-control" rows="5" required="required"></textarea>
                                 </div>
                             </div>
                             <br />
                             <div class="row">
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:Label runat="server">Price</asp:Label>
+                                    <label>Price</label>
                                 </div>
                                 <div class="col-md-8 col-lg-8">
-                                    <asp:TextBox ID="EditPrice" placeholder="Enter price" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="PriceValidate" runat="server" ErrorMessage="Price cannot be empty" ControlToValidate="EditPrice" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator>
+                                    <input type="number" id="EditPrice" placeholder="Enter price" class="form-control"  required="required" min="0" />
                                 </div>
                             </div>
                             <br />
                             <div class="row">
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:Label runat="server">Quantity</asp:Label>
+                                    <label>Quantity</label>
                                 </div>
                                 <div class="col-md-8 col-lg-8">
-                                    <asp:TextBox ID="EditQuantity" placeholder="Enter quantity" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="QuantityValidate" runat="server" ErrorMessage="Quantity cannot be empty" ControlToValidate="EditQuantity" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator>
+                                    <input type="number" id="EditQuantity" placeholder="Enter quantity" class="form-control" required="required" min="0" />
                                 </div>
                             </div>
                             <br />
                             <div class="row">
                                 <div class="col-md-2 col-lg-2">
-                                    <asp:Label runat="server">Image</asp:Label>
+                                    <label>Discount</label>
+                                </div>
+                                <div class="col-md-8 col-lg-8">
+                                    <input type="number" id="EditDiscount" placeholder="Enter discount" class="form-control" required="required" min="0" />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-2 col-lg-2">
+                                    <label>Image</label>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <asp:FileUpload ID="ImageFile" CssClass="form-control" runat="server" Style="height: 35px;" />
-                                    <asp:Label ID="FileError" runat="server" Visible="False" ForeColor="Red"></asp:Label>
+                                    <input type="file" id="ImageFile" class="form-control" style="height: 35px;" />
                                 </div>
                                 <div class="col-md-4 col-lg-4">
-                                    <asp:Image ID="Image" runat="server" Width="200px" />
+                                    <img id="Image" style="width:140px" />
                                 </div>
-                            </div>
+                            </div>                            
                             <br />
                             <br />
+                            <label id="EditModalError" style="visibility:hidden; color:red;"></label>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size:15px;">Close</button>
-                        <button type="button" class="btn btn-primary" style="font-size:15px;">Update</button>
+                        <button type="button" class="btn btn-primary" style="font-size:15px;" onclick="update()">Update</button>
                     </div>
                 </div>
             </div>
@@ -199,17 +206,17 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteProductLabel">Delete Product</h5>
+                        <h5 class="modal-title" id="deleteProductLabel" style="font-size:15px;">Delete Product</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <asp:Label ID="Label2" runat="server" Text="Are you sure you want to delete the product?" Font-Size="15px"></asp:Label>
+                        <label style="font-size:15px;">Are you sure you want to delete the product?</label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size:15px;">Close</button>
-                        <button type="button" class="btn btn-primary" style="font-size:15px;">Delete</button>
+                        <button type="button" class="btn btn-primary" style="font-size:15px;" onclick="deleteProduct()">Delete</button>
                     </div>
                 </div>
             </div>

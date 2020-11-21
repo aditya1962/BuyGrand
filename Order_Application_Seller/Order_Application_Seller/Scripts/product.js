@@ -167,9 +167,11 @@ function addSubReview(e) {
     $(parentDiv).find(".subreviewComment").remove();
 }
 
-$("#ImageFile").change(function () {
-    readImageSrc(this);
-})
+$(function () {
+    $("#ImageFile").change(function () {
+        readImageSrc(this);
+    })
+});
 
 function readImageSrc(input) {
     if (input.files && input.files[0]) {
@@ -180,4 +182,98 @@ function readImageSrc(input) {
         }
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+function update() {
+    var productValue = $("#ProductValue").val();
+    var category = $("#CategoryDropdown").val();
+    var subcategory = $("#SubcategoryDropdown").val();
+    var name = $("#EditName").val();
+    var description = $("#EditDescription").val();
+    var price = $("#EditPrice").val();
+    var discount = $("#EditDiscount").val();
+    var quantity = $("#EditQuantity").val();
+    var filename = "";
+    if (($("#ImageFile"))[0].files[0] != undefined)
+    {
+        filename = ($("#ImageFile"))[0].files[0]["name"];
+    }    
+    var checkValArray = [ name, description, price, discount, quantity, filename ];
+    var error = checkValues(checkValArray);
+    if (!error) {
+        $.ajax({
+            url: "Data/UpdateProductData.aspx",
+            dataType: "json",
+            data: {
+                productVal: productValue, category: category, subcategory: subcategory, name: name, description: description,
+                price: price, discount: discount, quantity: quantity, filename: filename
+            },
+            method: "get",
+            contentType: "application/json",
+            success: function (data) {
+                $("#UpdateMessage").text("Updated product");
+            },
+            error: function (err) {
+                $("#UpdateMessage").text("Could not update product");
+            }
+        })
+        $("#editProductModal").modal('toggle');
+    }
+    else {
+        $("#EditModalError").text(error);
+        $("#EditModalError").css("visibility", "visible");
+    }
+    
+}
+
+function deleteProduct() {
+    var productValue = $("#ProductValue").val();
+    $.ajax({
+        url: "Data/DeleteProduct.aspx",
+        dataType: "json",
+        data: {
+            productVal: productValue
+        },
+        method: "get",
+        contentType: "application/json",
+        success: function (data) {
+            $("#UpdateMessage").text("Deleted product");
+        },
+        error: function (err) {
+            $("#UpdateMessage").text("Could not delete product");
+        }
+    })
+    $("#deleteModal").modal('toggle');
+}
+
+function checkValues(array) {
+    var error = "";
+    if (array.includes(undefined) || array.includes("")) {
+        error = "One or more fields have not been filled";
+    }
+    else if (array[2] < 0 || array[3] < 0 || array[4] < 0)
+    {
+        error = "One or more fields have a negative value";
+    }
+    else if (array[2] < array[3])
+    {
+        error = "Discount can't be greater than the price";
+    }
+    else {
+    var size = ($("#ImageFile"))[0].files[0]["size"];  
+    var fileName = ($("#ImageFile"))[0].files[0]["name"];
+    var filenameSize = fileName.length;
+    var type = fileName.substr(fileName.lastIndexOf('.') + 1);
+    
+    if (size > 3145728) {
+        error = "File size should be less than 3 MB";
+    }
+    else if (filenameSize > 170) {
+        error = "File name should be less than 170 characters";
+    }
+    else if (type != "jpg" && type != "png") {
+        error = "File should be either in JPEG or PNG format";
+        }
+    }
+    return error;
 }

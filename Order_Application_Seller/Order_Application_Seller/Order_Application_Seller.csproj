@@ -202,7 +202,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Data\AddComment.aspx" />
+    <Content Include="Data\DeleteProduct.aspx" />
     <Content Include="Data\GetReviews.aspx" />
+    <Content Include="Data\UpdateProductData.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -307,6 +309,13 @@
     <Compile Include="Data\AddComment.aspx.designer.cs">
       <DependentUpon>AddComment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Data\DeleteProduct.aspx.cs">
+      <DependentUpon>DeleteProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Data\DeleteProduct.aspx.designer.cs">
+      <DependentUpon>DeleteProduct.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Data\Enums.cs" />
     <Compile Include="Data\GetReviews.aspx.cs">
       <DependentUpon>GetReviews.aspx</DependentUpon>
@@ -314,6 +323,13 @@
     </Compile>
     <Compile Include="Data\GetReviews.aspx.designer.cs">
       <DependentUpon>GetReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UpdateProductData.aspx.cs">
+      <DependentUpon>UpdateProductData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Data\UpdateProductData.aspx.designer.cs">
+      <DependentUpon>UpdateProductData.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

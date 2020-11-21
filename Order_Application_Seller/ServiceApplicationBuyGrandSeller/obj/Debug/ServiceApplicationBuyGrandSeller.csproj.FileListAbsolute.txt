@@ -71,3 +71,4 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBu
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.csproj.CopyComplete
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.pdb
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\ServiceApplicationBuyGrandSeller\obj\Debug\ServiceApplicationBuyGrandSeller.csprojAssemblyReference.cache
