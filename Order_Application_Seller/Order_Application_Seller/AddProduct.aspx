@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddProduct.aspx.cs" Inherits="Order_Application_Seller.AddProduct" %>
+<%@ Register Src="~/UserControls/VerticalNavigation.ascx" TagPrefix="uc1" TagName="VerticalNavigation" %>
 
 <!DOCTYPE html>
 
@@ -18,7 +19,7 @@
         <!-- Menu bar -->
         <div class="row">
             <div class="col-md-2 col-lg-2">
-                <!-- Navigation-->
+                <uc1:VerticalNavigation runat="server" id="VerticalNavigation" />
             </div>
             <div class="col-md-9 col-lg-9 addItemCard">
                 <div class="card">

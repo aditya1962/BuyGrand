@@ -12,7 +12,7 @@ body {
 }
 
 [type=text], [type=number], textarea.form-control, select.form-control,
-[type=submit], [type=file],label {
+[type=submit], [type=file], label {
     font-size: 15px;
 }
 
@@ -27,17 +27,16 @@ body {
     }
 }
 
-.addItemCard,.viewItemCard {
+.addItemCard, .viewItemCard, .indexItemCard {
     font-size: 15px;
     padding: 2% 1%;
 }
 
-#pagesDiv
-{
-    margin:auto;
+#pagesDiv {
+    margin: auto;
 }
 
-.page-button, a:hover{
+.page-button, a:hover {
     text-decoration: none;
     color: #ffffff;
     font-size: 15px;
@@ -47,39 +46,35 @@ body {
     font-size: 20px;
 }
 
-.product span,a {
+.product span, a {
     font-size: 15px;
 }
 
 .product button {
     font-size: 15px;
-    margin:0px 5px;
+    margin: 0px 5px;
 }
 
 .product .itemRows div {
-    margin:0px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
-#ManageItem
-{
-    color:white;
-    display:flex;   
-    padding:0px 15px;
+#ManageItem {
+    color: white;
+    display: flex;
+    padding: 0px 15px;
 }
 
-.product .categoryLink
-{
-    display:flex;
+.product .categoryLink {
+    display: flex;
 }
 
-#reviewDiv
-{
-    margin:4%;
+#reviewDiv {
+    margin: 4%;
 }
 
-.productReview 
-{
-    margin:2% 0%;
+.productReview {
+    margin: 2% 0%;
 }
 
 .productReview a {
@@ -90,17 +85,71 @@ body {
     font-weight: 400;
 }
 
-.subreviews
-{
-    width:100%;
+.subreviews {
+    width: 100%;
 }
 
-.subreviewProduct{
-    margin:4%;
+.subreviewProduct {
+    margin: 4%;
 }
 
-.subreviewProduct label
-{
-    font-weight:400;
+.subreviewProduct label {
+    font-weight: 400;
 }
 
+.navigation-vertical {
+    background-color: #7ac943;
+    color: white;
+    padding: 15% 3% 15% 15%;
+    margin: 0%;
+    font-size: 17px;
+    height: 100%;
+    min-height: 480px;
+}
+
+.navigation-vertical a {
+    color: white;
+    text-decoration: none;
+}
+
+.navigation-vertical .row {
+    height: 55px;
+    align-items: center;
+}
+
+.navigation-vertical .flex {
+    display: flex;
+}
+
+.navigation-vertical .icon {
+    margin: 0% 7% 0% 0%;
+}
+
+.navigation-vertical img {
+    width: 20px;
+    height: 20px;
+}
+
+.navigation-horizontal {
+    padding: 0% 0% 0% 3%;
+    background-color: white;
+}
+
+.user-icon {
+    border: 0;
+    background-color: transparent;
+    text-align: left;
+}
+
+.navigation-dropdown {
+    width: 50%;
+    z-index: 500;
+    position: absolute;
+    display: none;
+}
+
+.navigation-dropdown a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}

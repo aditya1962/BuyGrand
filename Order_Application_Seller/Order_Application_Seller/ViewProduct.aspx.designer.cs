@@ -24,6 +24,15 @@ namespace Order_Application_Seller
         protected global::System.Web.UI.HtmlControls.HtmlForm ViewItemForm;
 
         /// <summary>
+        /// VerticalNavigation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Order_Application_Seller.UserControls.VerticalNavigation VerticalNavigation;
+
+        /// <summary>
         /// FilterList control.
         /// </summary>
         /// <remarks>

@@ -148,6 +148,9 @@
     <Content Include="Connected Services\ProductDetailsReference\Order_Application_Seller.ProductDetailsReference.loggedInUserResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ProductDetailsReference\Order_Application_Seller.ProductDetailsReference.editProductDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ProductDetailsReference\ProductView.disco" />
     <None Include="Connected Services\ProductDetailsReference\configuration91.svcinfo" />
     <None Include="Connected Services\ProductDetailsReference\configuration.svcinfo" />
@@ -259,6 +262,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="UserControls\VerticalNavigation.ascx" />
     <Content Include="UserItem.ascx" />
     <Content Include="ViewItems.aspx" />
     <Content Include="ViewProduct.aspx" />
@@ -382,6 +386,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VerticalNavigation.ascx.cs">
+      <DependentUpon>VerticalNavigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\VerticalNavigation.ascx.designer.cs">
+      <DependentUpon>VerticalNavigation.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserItem.ascx.cs">
       <DependentUpon>UserItem.ascx</DependentUpon>
