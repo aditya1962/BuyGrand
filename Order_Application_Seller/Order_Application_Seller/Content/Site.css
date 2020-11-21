@@ -1,4 +1,10 @@
-﻿/* Wrapping element */
+﻿body
+{
+    font-size:15px;
+    min-height:650px;
+}
+
+/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -146,4 +152,9 @@
     text-decoration: none;
     color: black;
     font-size: 15px;
+}
+
+.footer
+{
+    padding:4% 0% 1% 0%;
 }

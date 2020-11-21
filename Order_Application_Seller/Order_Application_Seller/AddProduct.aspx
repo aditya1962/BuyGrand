@@ -2,7 +2,7 @@
 
 <%@ Register Src="~/UserControls/VerticalNavigation.ascx" TagPrefix="uc1" TagName="VerticalNavigation" %>
 <%@ Register Src="~/UserControls/Navigation.ascx" TagPrefix="uc1" TagName="Navigation" %>
-
+<%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
 
 <!DOCTYPE html>
 
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="footer">
-                
+                <uc1:Footer runat="server" id="Footer" />
             </div>
         </div>
     </form>

@@ -1,11 +1,14 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewItems.aspx.cs" Inherits="Order_Application_Seller.ViewItems" %>
+
 <%@ Register Src="~/UserControls/VerticalNavigation.ascx" TagPrefix="uc1" TagName="VerticalNavigation" %>
+<%@ Register Src="~/UserControls/Navigation.ascx" TagPrefix="uc1" TagName="Navigation" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <title>View Items</title>
+    <title>View Items</title>
     <link rel="stylesheet" href="Content/bootstrap.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link href="Content/Site.css" rel="stylesheet" />
@@ -16,38 +19,41 @@
 </head>
 <body>
     <form id="ViewItemForm" runat="server">
-        <uc1:Navigation runat="server" ID="Navigation" />
-        <div class="row">
-            <div class="col-md-2 col-lg-2">
-                <uc1:VerticalNavigation runat="server" ID="VerticalNavigation" />
-            </div>
-            <div class="col-md-9 col-lg-9 viewItemCard">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                                <h1>View Products</h1>
+        <div>
+            <uc1:Navigation runat="server" ID="Navigation" />
+            <div class="row">
+                <div class="col-md-2 col-lg-2">
+                    <uc1:VerticalNavigation runat="server" ID="VerticalNavigation" />
+                </div>
+                <div class="col-md-9 col-lg-9 viewItemCard">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    <h1>View Products</h1>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
-                                <label for="FilterList">Filter</label>
+                            <div class="row">
+                                <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
+                                    <label for="FilterList">Filter</label>
+                                </div>
+                                <div class="col-md-2 col-lg-2">
+                                    <asp:DropDownList ID="FilterList" runat="server" CssClass="form-control" OnSelectedIndexChanged="FilterList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                </div>
                             </div>
-                            <div class="col-md-2 col-lg-2">
-                                <asp:DropDownList ID="FilterList" runat="server" CssClass="form-control" OnSelectedIndexChanged="FilterList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                            <div id="itemsListDiv" runat="server">
+                                <asp:PlaceHolder ID="ItemsHolder" runat="server"></asp:PlaceHolder>
                             </div>
-                        </div>
-                        <div id="itemsListDiv" runat="server">
-                            <asp:PlaceHolder ID="ItemsHolder" runat="server">
-                                
-                            </asp:PlaceHolder>
-                        </div>
-                        <div class="row">
-                            <div id="pagesDiv" runat="server"></div>
-                        </div>
+                            <div class="row">
+                                <div id="pagesDiv" runat="server"></div>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="footer">
+                <uc1:Footer runat="server" id="Footer" />
             </div>
         </div>
     </form>

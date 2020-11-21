@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewProduct.aspx.cs" Inherits="Order_Application_Seller.ViewProduct" %>
+
 <%@ Register Src="~/Item.ascx" TagPrefix="UserControl" TagName="Item" %>
 <%@ Register Src="~/UserControls/VerticalNavigation.ascx" TagPrefix="UserControl" TagName="VerticalNavigation" %>
 <%@ Register Src="~/UserControls/Navigation.ascx" TagPrefix="UserControl" TagName="Navigation" %>
+<%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="UserControl" TagName="Footer" %>
 
 <!DOCTYPE html>
 
@@ -18,37 +20,40 @@
 </head>
 <body>
     <form id="ViewItemForm" runat="server">
-        <UserControl:Navigation runat="server" ID="Navigation" />
-        <div class="row">
-            <div class="col-md-2 col-lg-2">
-               <UserControl:VerticalNavigation runat="server" ID="VerticalNavigation" />
-            </div>
-            <div class="col-md-9 col-lg-9 viewItemCard">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                                <h1>View Products</h1>
+        <div>
+            <UserControl:Navigation runat="server" ID="Navigation" />
+            <div class="row">
+                <div class="col-md-2 col-lg-2">
+                    <UserControl:VerticalNavigation runat="server" ID="VerticalNavigation" />
+                </div>
+                <div class="col-md-9 col-lg-9 viewItemCard">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    <h1>View Products</h1>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
-                                <label for="FilterList">Filter</label>
+                            <div class="row">
+                                <div class="col-md-1 col-lg-1 offset-md-8 offset-lg-8">
+                                    <label for="FilterList">Filter</label>
+                                </div>
+                                <div class="col-md-2 col-lg-2">
+                                    <asp:DropDownList ID="FilterList" runat="server" CssClass="form-control" OnSelectedIndexChanged="FilterList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                                </div>
                             </div>
-                            <div class="col-md-2 col-lg-2">
-                                <asp:DropDownList ID="FilterList" runat="server" CssClass="form-control" OnSelectedIndexChanged="FilterList_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                            <div id="itemsListDiv" runat="server">
+                                <asp:PlaceHolder ID="ItemsHolder" runat="server"></asp:PlaceHolder>
                             </div>
-                        </div>
-                        <div id="itemsListDiv" runat="server">
-                            <asp:PlaceHolder ID="ItemsHolder" runat="server">
-                                
-                            </asp:PlaceHolder>
-                        </div>
-                        <div class="row">
-                            <div id="pagesDiv" runat="server"></div>
+                            <div class="row">
+                                <div id="pagesDiv" runat="server"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="footer">
+                <UserControl:Footer runat="server" id="Footer" />
             </div>
         </div>
     </form>
