@@ -266,6 +266,7 @@
     <Content Include="UserControls\Navigation.ascx" />
     <Content Include="UserControls\VerticalNavigation.ascx" />
     <Content Include="UserItem.ascx" />
+    <Content Include="ViewFeedbacks.aspx" />
     <Content Include="ViewItems.aspx" />
     <Content Include="ViewProduct.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -417,6 +418,13 @@
     </Compile>
     <Compile Include="UserItem.ascx.designer.cs">
       <DependentUpon>UserItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFeedbacks.aspx.cs">
+      <DependentUpon>ViewFeedbacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFeedbacks.aspx.designer.cs">
+      <DependentUpon>ViewFeedbacks.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewItems.aspx.cs">
       <DependentUpon>ViewItems.aspx</DependentUpon>
