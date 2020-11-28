@@ -22,6 +22,8 @@ namespace Order_Application_Seller.FeedbacksReference {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private int idField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string usernameField;
         
@@ -41,6 +43,19 @@ namespace Order_Application_Seller.FeedbacksReference {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string username {
             get {
@@ -54,7 +69,7 @@ namespace Order_Application_Seller.FeedbacksReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string message {
             get {
                 return this.messageField;
@@ -67,7 +82,7 @@ namespace Order_Application_Seller.FeedbacksReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string submittedDate {
             get {
                 return this.submittedDateField;
@@ -100,6 +115,13 @@ namespace Order_Application_Seller.FeedbacksReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/ViewFeedbacks", ReplyAction="*")]
         System.Threading.Tasks.Task<Order_Application_Seller.FeedbacksReference.ViewFeedbacksResponse> ViewFeedbacksAsync(Order_Application_Seller.FeedbacksReference.ViewFeedbacksRequest request);
+        
+        // CODEGEN: Generating message contract since element name reply from namespace http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/addReplyToFeedback", ReplyAction="*")]
+        Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponse addReplyToFeedback(Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/addReplyToFeedback", ReplyAction="*")]
+        System.Threading.Tasks.Task<Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponse> addReplyToFeedbackAsync(Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -170,6 +192,86 @@ namespace Order_Application_Seller.FeedbacksReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addReplyToFeedbackRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addReplyToFeedback", Namespace="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/", Order=0)]
+        public Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequestBody Body;
+        
+        public addReplyToFeedbackRequest() {
+        }
+        
+        public addReplyToFeedbackRequest(Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/")]
+    public partial class addReplyToFeedbackRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int originalID;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string reply;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string username;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string datetime;
+        
+        public addReplyToFeedbackRequestBody() {
+        }
+        
+        public addReplyToFeedbackRequestBody(int originalID, string reply, string username, string datetime) {
+            this.originalID = originalID;
+            this.reply = reply;
+            this.username = username;
+            this.datetime = datetime;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addReplyToFeedbackResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addReplyToFeedbackResponse", Namespace="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/", Order=0)]
+        public Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponseBody Body;
+        
+        public addReplyToFeedbackResponse() {
+        }
+        
+        public addReplyToFeedbackResponse(Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/")]
+    public partial class addReplyToFeedbackResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int addReplyToFeedbackResult;
+        
+        public addReplyToFeedbackResponseBody() {
+        }
+        
+        public addReplyToFeedbackResponseBody(int addReplyToFeedbackResult) {
+            this.addReplyToFeedbackResult = addReplyToFeedbackResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface GetFeedbacksSoapChannel : Order_Application_Seller.FeedbacksReference.GetFeedbacksSoap, System.ServiceModel.IClientChannel {
     }
@@ -220,6 +322,37 @@ namespace Order_Application_Seller.FeedbacksReference {
             inValue.Body = new Order_Application_Seller.FeedbacksReference.ViewFeedbacksRequestBody();
             inValue.Body.username = username;
             return ((Order_Application_Seller.FeedbacksReference.GetFeedbacksSoap)(this)).ViewFeedbacksAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponse Order_Application_Seller.FeedbacksReference.GetFeedbacksSoap.addReplyToFeedback(Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest request) {
+            return base.Channel.addReplyToFeedback(request);
+        }
+        
+        public int addReplyToFeedback(int originalID, string reply, string username, string datetime) {
+            Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest inValue = new Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest();
+            inValue.Body = new Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequestBody();
+            inValue.Body.originalID = originalID;
+            inValue.Body.reply = reply;
+            inValue.Body.username = username;
+            inValue.Body.datetime = datetime;
+            Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponse retVal = ((Order_Application_Seller.FeedbacksReference.GetFeedbacksSoap)(this)).addReplyToFeedback(inValue);
+            return retVal.Body.addReplyToFeedbackResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponse> Order_Application_Seller.FeedbacksReference.GetFeedbacksSoap.addReplyToFeedbackAsync(Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest request) {
+            return base.Channel.addReplyToFeedbackAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponse> addReplyToFeedbackAsync(int originalID, string reply, string username, string datetime) {
+            Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest inValue = new Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequest();
+            inValue.Body = new Order_Application_Seller.FeedbacksReference.addReplyToFeedbackRequestBody();
+            inValue.Body.originalID = originalID;
+            inValue.Body.reply = reply;
+            inValue.Body.username = username;
+            inValue.Body.datetime = datetime;
+            return ((Order_Application_Seller.FeedbacksReference.GetFeedbacksSoap)(this)).addReplyToFeedbackAsync(inValue);
         }
     }
 }

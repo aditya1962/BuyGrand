@@ -7,6 +7,8 @@ namespace ServiceApplicationBuyGrandSeller
 {
     public class Feedback
     {
+        public int id { get; set; }
+
         public string username { get; set; }
 
         public string message { get; set; }

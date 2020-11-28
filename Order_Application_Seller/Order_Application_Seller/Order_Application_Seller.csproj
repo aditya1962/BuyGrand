@@ -148,6 +148,9 @@
     <Content Include="Connected Services\FeedbacksReference\Order_Application_Seller.FeedbacksReference.ViewFeedbacksResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\FeedbacksReference\Order_Application_Seller.FeedbacksReference.addReplyToFeedbackResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\FeedbacksReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

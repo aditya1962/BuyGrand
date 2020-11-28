@@ -23,11 +23,29 @@
       </s:complexType>
       <s:complexType name="Feedback">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="submittedDate" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="addReplyToFeedback">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="originalID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reply" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datetime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addReplyToFeedbackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addReplyToFeedbackResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="ViewFeedbacksSoapIn">
@@ -36,10 +54,20 @@
   <wsdl:message name="ViewFeedbacksSoapOut">
     <wsdl:part name="parameters" element="tns:ViewFeedbacksResponse" />
   </wsdl:message>
+  <wsdl:message name="addReplyToFeedbackSoapIn">
+    <wsdl:part name="parameters" element="tns:addReplyToFeedback" />
+  </wsdl:message>
+  <wsdl:message name="addReplyToFeedbackSoapOut">
+    <wsdl:part name="parameters" element="tns:addReplyToFeedbackResponse" />
+  </wsdl:message>
   <wsdl:portType name="GetFeedbacksSoap">
     <wsdl:operation name="ViewFeedbacks">
       <wsdl:input message="tns:ViewFeedbacksSoapIn" />
       <wsdl:output message="tns:ViewFeedbacksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addReplyToFeedback">
+      <wsdl:input message="tns:addReplyToFeedbackSoapIn" />
+      <wsdl:output message="tns:addReplyToFeedbackSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="GetFeedbacksSoap" type="tns:GetFeedbacksSoap">
@@ -53,11 +81,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addReplyToFeedback">
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/addReplyToFeedback" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="GetFeedbacksSoap12" type="tns:GetFeedbacksSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ViewFeedbacks">
       <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/ViewFeedbacks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addReplyToFeedback">
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/addReplyToFeedback" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

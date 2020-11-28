@@ -6,16 +6,18 @@ using System.Web.Services;
 
 namespace ServiceApplicationBuyGrandSeller
 {
-    
+
     [WebService(Namespace = "http://localhost/ServiceBuyGrandSeller/GetFeedbacks.asmx/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     [System.Web.Script.Services.ScriptService]
     public class GetFeedbacks : System.Web.Services.WebService
     {
+        string connectionString = ConfigurationManager.ConnectionStrings["SellerConnectionString"].ConnectionString;
         string rrConnectionString = ConfigurationManager.ConnectionStrings["SellerReadReplicaConnectionString"].ConnectionString;
+
         [WebMethod]
-        public Feedback [] ViewFeedbacks(string username)
+        public Feedback[] ViewFeedbacks(string username)
         {
             /*
             try
@@ -37,6 +39,7 @@ namespace ServiceApplicationBuyGrandSeller
                         {
                             DataRow row in table.Rows[i];
                             Feedback feedback = new Feedback();
+                            feedback.id = row["feedbackID"].ToString();
                             feedback.username = row["username"].ToString();
                             feedback.message = row["message"].ToString();
                             feedback.submittedDate = row["submittedDate"].ToString();
@@ -60,11 +63,37 @@ namespace ServiceApplicationBuyGrandSeller
             */
             Feedback[] feedbacks = new Feedback[1];
             Feedback feedback = new Feedback();
+            feedback.id = 1;
             feedback.username = "abc";
             feedback.message = "abcd";
             feedback.submittedDate = "2020/11/22";
             feedbacks[0] = feedback;
             return feedbacks;
+        }
+
+        [WebMethod]
+        public int addReplyToFeedback(int originalID, string reply, string username, string datetime)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("sp_addFeedback", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("originalID", originalID);
+                    command.Parameters.AddWithValue("reply", reply);
+                    command.Parameters.AddWithValue("username", username);
+                    command.Parameters.AddWithValue("datetime", datetime);
+                    int rows = command.ExecuteNonQuery();
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -1;
+            }
         }
     }
 }
