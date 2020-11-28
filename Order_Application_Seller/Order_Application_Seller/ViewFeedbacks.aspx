@@ -29,9 +29,21 @@
                     <div class="card product">
                         <div class="card-body">
                             <label id="ReplyStatus" style="visibility:hidden;"></label>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-1 col-lg-1 col-md-offset-8 col-lg-offset-8">
+                                    <label>Filter</label>
+                                </div>                                
+                                <div class="col-md-3 col-lg-3">
+                                    <asp:DropDownList ID="FilterDropdown" runat="server" Width="100%" OnSelectedIndexChanged="ValueFiltered" AutoPostBack="true"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <br />
                             <div id="feedbackDiv" runat="server">
                                 <asp:Label ID="NoFeedbacks" runat="server" Text="There are no feedbacks to be displayed" Visible="false"></asp:Label>                                
                             </div>
+                            <br />
+                            <div id="pagination" runat="server"></div>
                             <input id="FeedbackID" value="" type="hidden" />
                         </div>
                     </div>

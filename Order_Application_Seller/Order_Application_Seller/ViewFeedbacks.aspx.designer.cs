@@ -33,6 +33,15 @@ namespace Order_Application_Seller
         protected global::Order_Application_Seller.UserControls.VerticalNavigation VerticalNavigation;
 
         /// <summary>
+        /// FilterDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList FilterDropdown;
+
+        /// <summary>
         /// feedbackDiv control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace Order_Application_Seller
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label NoFeedbacks;
+
+        /// <summary>
+        /// pagination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pagination;
 
         /// <summary>
         /// Footer control.
