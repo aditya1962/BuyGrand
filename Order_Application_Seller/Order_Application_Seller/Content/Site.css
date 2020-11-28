@@ -158,3 +158,13 @@
 {
     padding:4% 0% 1% 0%;
 }
+
+.feedbacksTable{
+    border: 1px solid;
+    width: 100%;
+}
+
+.feedbacksTable td, .feedbacksTable th {
+    border: 1px solid;
+    width:15%;
+}

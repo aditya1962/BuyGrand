@@ -17,6 +17,7 @@ namespace ServiceApplicationBuyGrandSeller
         [WebMethod]
         public Feedback [] ViewFeedbacks(string username)
         {
+            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
@@ -32,12 +33,14 @@ namespace ServiceApplicationBuyGrandSeller
                     {
                         Feedback[] feedbacks = new Feedback[table.Rows.Count];
 
-                        foreach (DataRow row in table.Rows)
+                        for(int i=0; i < table.Rows; i++)
                         {
+                            DataRow row in table.Rows[i];
                             Feedback feedback = new Feedback();
                             feedback.username = row["username"].ToString();
                             feedback.message = row["message"].ToString();
                             feedback.submittedDate = row["submittedDate"].ToString();
+                            feedbacks[i] = feedback;
                         }
 
                         return feedbacks;
@@ -54,6 +57,14 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
+            */
+            Feedback[] feedbacks = new Feedback[1];
+            Feedback feedback = new Feedback();
+            feedback.username = "abc";
+            feedback.message = "abcd";
+            feedback.submittedDate = "2020/11/22";
+            feedbacks[0] = feedback;
+            return feedbacks;
         }
     }
 }
