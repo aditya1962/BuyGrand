@@ -112,6 +112,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Dashboard.asmx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GetFeedbacks.asmx" />
@@ -172,6 +173,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Dashboard.asmx.cs">
+      <DependentUpon>Dashboard.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Feedback.cs" />
     <Compile Include="GetFeedbacks.asmx.cs">
       <DependentUpon>GetFeedbacks.asmx</DependentUpon>
