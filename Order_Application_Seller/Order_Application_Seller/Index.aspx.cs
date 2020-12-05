@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,7 +18,14 @@ namespace Order_Application_Seller
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            DashboardReference.DashboardSoapClient dashboard = new DashboardReference.DashboardSoapClient();
+            DataTable data = dashboard.GetDashboard();
+            DataRow row = data.Rows[0];
+            items = row["items"].ToString();
+            categories = row["categories"].ToString();
+            subcategories = row["subcategories"].ToString();
+            orders = row["orders"].ToString();
+            sales = row["sales"].ToString();
         }
     }
 }
