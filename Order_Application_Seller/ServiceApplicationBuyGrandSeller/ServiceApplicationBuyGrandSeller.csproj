@@ -127,6 +127,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="ProductView.asmx" />
     <Content Include="Reviews.asmx" />
+    <Content Include="SalesDetails.asmx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -189,6 +190,10 @@
     <Compile Include="Review.cs" />
     <Compile Include="Reviews.asmx.cs">
       <DependentUpon>Reviews.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SalesDetails.asmx.cs">
+      <DependentUpon>SalesDetails.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Site.Master.cs">
