@@ -39,6 +39,7 @@ namespace ServiceApplicationBuyGrandSeller
             }
         }
 
+        [WebMethod]
         public DataTable GetChart()
         {
             try

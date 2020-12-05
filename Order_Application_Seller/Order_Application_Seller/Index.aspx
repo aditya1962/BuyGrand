@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Order_Application_Seller.Index" %>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
 <%@ Register Src="~/UserControls/VerticalNavigation.ascx" TagPrefix="uc1" TagName="VerticalNavigation" %>
 <%@ Register Src="~/UserControls/Navigation.ascx" TagPrefix="uc1" TagName="Navigation" %>
 <%@ Register Src="~/UserControls/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
@@ -77,6 +79,16 @@
                         </div>
                     </div>
                 </div>
+                <br />
+                <h2 style="margin:0% 6%;">Sales</h2>
+                    <br />
+                    <asp:Chart ID="SalesChart" runat="server" style="margin:0% 5% 0% 6%; width:40%;height:500px;">
+                        <Titles>
+                            <asp:Title Text="Sales Data"></asp:Title>
+                        </Titles> 
+                        <Series><asp:Series Name="SalesSeries" ChartType="Line" ChartArea="ChartArea1" Color="Green"></asp:Series></Series>
+                        <chartareas><asp:ChartArea Name="ChartArea1"></asp:ChartArea></chartareas>
+                    </asp:Chart>
             </div>
             <div class="footer">
                 <uc1:Footer runat="server" ID="Footer" />

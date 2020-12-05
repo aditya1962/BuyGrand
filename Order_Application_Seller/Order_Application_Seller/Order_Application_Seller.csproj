@@ -65,6 +65,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DataVisualization">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -141,9 +144,17 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\DashboardReference\Dashboard.wsdl" />
     <None Include="Connected Services\FeedbacksReference\GetFeedbacks.disco" />
     <None Include="Connected Services\FeedbacksReference\configuration91.svcinfo" />
     <None Include="Connected Services\FeedbacksReference\configuration.svcinfo" />
+    <None Include="Connected Services\DashboardReference\Dashboard.disco" />
+    <None Include="Connected Services\DashboardReference\configuration91.svcinfo" />
+    <None Include="Connected Services\DashboardReference\configuration.svcinfo" />
+    <None Include="Connected Services\DashboardReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\FeedbacksReference\Order_Application_Seller.FeedbacksReference.Feedback.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -315,6 +326,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Connected Services\AddProductReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\DashboardReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -541,6 +557,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AddProductReference\" />
+    <WCFMetadataStorage Include="Connected Services\DashboardReference\" />
     <WCFMetadataStorage Include="Connected Services\FeedbacksReference\" />
     <WCFMetadataStorage Include="Connected Services\ProductDetailsReference\" />
     <WCFMetadataStorage Include="Connected Services\ReviewsReference\" />
