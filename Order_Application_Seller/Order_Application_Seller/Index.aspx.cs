@@ -9,6 +9,12 @@ namespace Order_Application_Seller
 {
     public partial class Index : System.Web.UI.Page
     {
+        public string items;
+        public string categories;
+        public string subcategories; 
+        public string orders;
+        public string sales;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

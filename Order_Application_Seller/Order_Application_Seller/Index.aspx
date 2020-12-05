@@ -26,14 +26,60 @@
                     <uc1:VerticalNavigation runat="server" ID="VerticalNavigation" />
                 </div>
                 <div class="col-md-9 col-lg-9 indexItemCard">
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="row" style="margin: 0% 3%;">
+                        <div class="dashboard col-md-3 col-lg-3">
+                            <div class="icon">
+                                <img src="images/icons/items.png" alt="items" /></div>
+                            <div class="content">
+                                <h3>Items</h3>
+                                <br />
+                                <h3><%= items %></h3>
+                            </div>
+                        </div>
+                        <div class="dashboard col-md-3 col-lg-3">
+                            <div class="icon">
+                                <img src="images/icons/addcategory.png" alt="categories" /></div>
+                            <div class="content">
+                                <h3>Categories</h3>
+                                <br />
+                                <h3><%= categories %></h3>
+                            </div>
+                        </div>
+                        <div class="dashboard col-md-3 col-lg-3">
+                            <div class="icon">
+                                <img src="images/icons/addsubcategory.png" alt="subcategories" /></div>
+                            <div class="content">
+                                <h3>Subcategories</h3>
+                                <br />
+                                <h3><%= subcategories %></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row" style="margin: 0% 3%;">
+                        <div class="dashboard col-md-3 col-lg-3">
+                            <div class="icon">
+                                <img src="images/icons/orders.png" alt="orders" /></div>
+                            <div class="content">
+                                <h3>Orders</h3>
+                                <br />
+                                <h3><%= orders %></h3>
+                            </div>
+                        </div>
+                        <div class="dashboard col-md-3 col-lg-3">
+                            <div class="icon">
+                                <img src="images/icons/viewsales.png" alt="sales" /></div>
+                            <div class="content">
+                                <h3>Sales</h3>
+                                <br />
+                                <h3><%= sales %></h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer">
-                <uc1:Footer runat="server" id="Footer" />
+                <uc1:Footer runat="server" ID="Footer" />
             </div>
         </div>
     </form>

@@ -32,6 +32,29 @@
     padding: 2% 1%;
 }
 
+.dashboard {
+    background-color: white;
+    min-height: 70px;
+    margin: 0% 3%;
+    padding: 0px;
+    display: flex;
+}
+
+.dashboard .icon {
+    background-color: #f15a24;
+    width: 30%;
+    padding: 15% 7%;
+}
+
+.dashboard .icon img {
+    width: 100%;
+}
+
+.dashboard .content {
+    width: 70%;
+    padding: 6%;
+}
+
 #pagesDiv {
     margin: auto;
 }
