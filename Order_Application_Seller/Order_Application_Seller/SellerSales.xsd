@@ -17,9 +17,9 @@
             <xs:sequence>
               <xs:element name="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" msprop:Generator_UserColumnName="Category" type="xs:string" minOccurs="0" />
               <xs:element name="Subcategory" msprop:Generator_ColumnVarNameInTable="columnSubcategory" msprop:Generator_ColumnPropNameInRow="Subcategory" msprop:Generator_ColumnPropNameInTable="SubcategoryColumn" msprop:Generator_UserColumnName="Subcategory" type="xs:string" minOccurs="0" />
-              <xs:element name="Item_x0020_name" msprop:Generator_ColumnVarNameInTable="columnItem_name" msprop:Generator_ColumnPropNameInRow="Item_name" msprop:Generator_ColumnPropNameInTable="Item_nameColumn" msprop:Generator_UserColumnName="Item name" type="xs:string" minOccurs="0" />
-              <xs:element name="Orders_x0020_" msprop:Generator_ColumnVarNameInTable="columnOrders_" msprop:Generator_ColumnPropNameInRow="Orders_" msprop:Generator_ColumnPropNameInTable="Orders_Column" msprop:Generator_UserColumnName="Orders " type="xs:string" minOccurs="0" />
-              <xs:element name="Ordered_x0020_Date" msprop:Generator_ColumnVarNameInTable="columnOrdered_Date" msprop:Generator_ColumnPropNameInRow="Ordered_Date" msprop:Generator_ColumnPropNameInTable="Ordered_DateColumn" msprop:Generator_UserColumnName="Ordered Date" type="xs:string" minOccurs="0" />
+              <xs:element name="ItemName" msprop:Generator_ColumnVarNameInTable="columnItemName" msprop:Generator_ColumnPropNameInRow="ItemName" msprop:Generator_ColumnPropNameInTable="ItemNameColumn" msprop:Generator_UserColumnName="ItemName" type="xs:string" minOccurs="0" />
+              <xs:element name="Order" msprop:Generator_ColumnVarNameInTable="columnOrder" msprop:Generator_ColumnPropNameInRow="Order" msprop:Generator_ColumnPropNameInTable="OrderColumn" msprop:Generator_UserColumnName="Order" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderedDate" msprop:Generator_ColumnVarNameInTable="columnOrderedDate" msprop:Generator_ColumnPropNameInRow="OrderedDate" msprop:Generator_ColumnPropNameInTable="OrderedDateColumn" msprop:Generator_UserColumnName="OrderedDate" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

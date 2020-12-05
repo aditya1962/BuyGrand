@@ -78,3 +78,5 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Se
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Microsoft.ReportViewer.WebForms.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Microsoft.SqlServer.Types.dll
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\RdlCompile.cache
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller\obj\Debug\RdlCompile.compiled

@@ -187,6 +187,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\SalesReference\SalesDetails.disco" />
+    <None Include="Connected Services\SalesReference\configuration91.svcinfo" />
+    <None Include="Connected Services\SalesReference\configuration.svcinfo" />
+    <None Include="Connected Services\SalesReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\ViewProductReference\Order_Application_Seller.ViewProductReference.Item.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -195,6 +202,7 @@
     </Content>
     <None Include="Connected Services\ProductDetailsReference\ProductView.wsdl" />
     <None Include="Connected Services\ReviewsReference\Reviews.wsdl" />
+    <None Include="Connected Services\SalesReference\SalesDetails.wsdl" />
     <None Include="Connected Services\ViewProductReference\configuration91.svcinfo" />
     <None Include="Connected Services\ViewProductReference\configuration.svcinfo" />
     <None Include="Connected Services\ViewProductReference\Reference.svcmap">
@@ -326,6 +334,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\SalesReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ViewProductReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -412,6 +425,11 @@
     </Compile>
     <Compile Include="Review.ascx.designer.cs">
       <DependentUpon>Review.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SellerSales.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SellerSales.xsd</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -500,6 +518,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="SellerSales.xsc">
+      <DependentUpon>SellerSales.xsd</DependentUpon>
+    </Content>
+    <None Include="SellerSales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SellerSales.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="SellerSales.xss">
+      <DependentUpon>SellerSales.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -515,6 +544,7 @@
     <WCFMetadataStorage Include="Connected Services\FeedbacksReference\" />
     <WCFMetadataStorage Include="Connected Services\ProductDetailsReference\" />
     <WCFMetadataStorage Include="Connected Services\ReviewsReference\" />
+    <WCFMetadataStorage Include="Connected Services\SalesReference\" />
     <WCFMetadataStorage Include="Connected Services\ViewProductReference\" />
     <WCFMetadataStorage Include="Connected Services\YourItemReference\" />
   </ItemGroup>
@@ -528,6 +558,9 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.6\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\Sales.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

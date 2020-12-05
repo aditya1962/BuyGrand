@@ -283,11 +283,11 @@ namespace Order_Application_Seller {
             
             private global::System.Data.DataColumn columnSubcategory;
             
-            private global::System.Data.DataColumn columnItem_name;
+            private global::System.Data.DataColumn columnItemName;
             
-            private global::System.Data.DataColumn columnOrders_;
+            private global::System.Data.DataColumn columnOrder;
             
-            private global::System.Data.DataColumn columnOrdered_Date;
+            private global::System.Data.DataColumn columnOrderedDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -340,25 +340,25 @@ namespace Order_Application_Seller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Item_nameColumn {
+            public global::System.Data.DataColumn ItemNameColumn {
                 get {
-                    return this.columnItem_name;
+                    return this.columnItemName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Orders_Column {
+            public global::System.Data.DataColumn OrderColumn {
                 get {
-                    return this.columnOrders_;
+                    return this.columnOrder;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn Ordered_DateColumn {
+            public global::System.Data.DataColumn OrderedDateColumn {
                 get {
-                    return this.columnOrdered_Date;
+                    return this.columnOrderedDate;
                 }
             }
             
@@ -399,14 +399,14 @@ namespace Order_Application_Seller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string Category, string Subcategory, string Item_name, string Orders_, string Ordered_Date) {
+            public DataTable1Row AddDataTable1Row(string Category, string Subcategory, string ItemName, string Order, string OrderedDate) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Category,
                         Subcategory,
-                        Item_name,
-                        Orders_,
-                        Ordered_Date};
+                        ItemName,
+                        Order,
+                        OrderedDate};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -431,9 +431,9 @@ namespace Order_Application_Seller {
             internal void InitVars() {
                 this.columnCategory = base.Columns["Category"];
                 this.columnSubcategory = base.Columns["Subcategory"];
-                this.columnItem_name = base.Columns["Item name"];
-                this.columnOrders_ = base.Columns["Orders "];
-                this.columnOrdered_Date = base.Columns["Ordered Date"];
+                this.columnItemName = base.Columns["ItemName"];
+                this.columnOrder = base.Columns["Order"];
+                this.columnOrderedDate = base.Columns["OrderedDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -443,12 +443,12 @@ namespace Order_Application_Seller {
                 base.Columns.Add(this.columnCategory);
                 this.columnSubcategory = new global::System.Data.DataColumn("Subcategory", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubcategory);
-                this.columnItem_name = new global::System.Data.DataColumn("Item name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItem_name);
-                this.columnOrders_ = new global::System.Data.DataColumn("Orders ", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrders_);
-                this.columnOrdered_Date = new global::System.Data.DataColumn("Ordered Date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrdered_Date);
+                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemName);
+                this.columnOrder = new global::System.Data.DataColumn("Order", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrder);
+                this.columnOrderedDate = new global::System.Data.DataColumn("OrderedDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrderedDate);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -623,49 +623,49 @@ namespace Order_Application_Seller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Item_name {
+            public string ItemName {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.Item_nameColumn]));
+                        return ((string)(this[this.tableDataTable1.ItemNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Item name\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemName\' in table \'DataTable1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.Item_nameColumn] = value;
+                    this[this.tableDataTable1.ItemNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Orders_ {
+            public string Order {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.Orders_Column]));
+                        return ((string)(this[this.tableDataTable1.OrderColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Orders \' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Order\' in table \'DataTable1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.Orders_Column] = value;
+                    this[this.tableDataTable1.OrderColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Ordered_Date {
+            public string OrderedDate {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.Ordered_DateColumn]));
+                        return ((string)(this[this.tableDataTable1.OrderedDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Ordered Date\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'OrderedDate\' in table \'DataTable1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.Ordered_DateColumn] = value;
+                    this[this.tableDataTable1.OrderedDateColumn] = value;
                 }
             }
             
@@ -695,38 +695,38 @@ namespace Order_Application_Seller {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsItem_nameNull() {
-                return this.IsNull(this.tableDataTable1.Item_nameColumn);
+            public bool IsItemNameNull() {
+                return this.IsNull(this.tableDataTable1.ItemNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetItem_nameNull() {
-                this[this.tableDataTable1.Item_nameColumn] = global::System.Convert.DBNull;
+            public void SetItemNameNull() {
+                this[this.tableDataTable1.ItemNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrders_Null() {
-                return this.IsNull(this.tableDataTable1.Orders_Column);
+            public bool IsOrderNull() {
+                return this.IsNull(this.tableDataTable1.OrderColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrders_Null() {
-                this[this.tableDataTable1.Orders_Column] = global::System.Convert.DBNull;
+            public void SetOrderNull() {
+                this[this.tableDataTable1.OrderColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrdered_DateNull() {
-                return this.IsNull(this.tableDataTable1.Ordered_DateColumn);
+            public bool IsOrderedDateNull() {
+                return this.IsNull(this.tableDataTable1.OrderedDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrdered_DateNull() {
-                this[this.tableDataTable1.Ordered_DateColumn] = global::System.Convert.DBNull;
+            public void SetOrderedDateNull() {
+                this[this.tableDataTable1.OrderedDateColumn] = global::System.Convert.DBNull;
             }
         }
         

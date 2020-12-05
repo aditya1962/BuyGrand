@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>ff178e17-7554-42c6-8ab1-b97ff7c2497b</rd:DataSourceID>
+      <rd:DataSourceID>8f44a120-99a9-4e88-a87f-550bbd4024f7</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -25,16 +25,16 @@
           <DataField>Subcategory</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Item name">
-          <DataField>Item name</DataField>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Orders ">
-          <DataField>Orders </DataField>
+        <Field Name="Order">
+          <DataField>Order</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Ordered Date">
-          <DataField>Ordered Date</DataField>
+        <Field Name="OrderedDate">
+          <DataField>OrderedDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -78,7 +78,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Item name</Value>
+                                  <Value>Item Name</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -199,14 +199,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Itemname">
+                        <Textbox Name="ItemName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Item name.Value</Value>
+                                  <Value>=Fields!ItemName.Value</Value>
                                   <Style>
                                     <FontWeight>Normal</FontWeight>
                                     <Color>#333333</Color>
@@ -216,7 +216,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Itemname</rd:DefaultName>
+                          <rd:DefaultName>ItemName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -232,14 +232,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Orders">
+                        <Textbox Name="Order">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Orders .Value</Value>
+                                  <Value>=Fields!Order.Value</Value>
                                   <Style>
                                     <FontWeight>Normal</FontWeight>
                                     <Color>#333333</Color>
@@ -249,7 +249,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Orders</rd:DefaultName>
+                          <rd:DefaultName>Order</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -272,7 +272,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Ordered Date.Value</Value>
+                                  <Value>=Fields!OrderedDate.Value</Value>
                                   <Style>
                                     <FontWeight>Normal</FontWeight>
                                     <Color>#333333</Color>
@@ -462,7 +462,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!Orders .Value)</Value>
+                                  <Value>=Sum(Fields!Order .Value)</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>#333333</Color>
@@ -826,7 +826,7 @@
             <Top>2.375in</Top>
             <Left>0.63542in</Left>
             <Height>1in</Height>
-            <Width>7.07292in</Width>
+            <Width>7.0729in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
