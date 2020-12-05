@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/ServiceBuyGrandSeller/Dashboard.asmx/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/ServiceBuyGrandSeller/Dashboard.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ServiceBuyGrandSeller/Dashboard.asmx/">
+      <s:element name="GetDashboard">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDashboardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDashboardResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDashboardSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDashboard" />
+  </wsdl:message>
+  <wsdl:message name="GetDashboardSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDashboardResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DashboardSoap">
+    <wsdl:operation name="GetDashboard">
+      <wsdl:input message="tns:GetDashboardSoapIn" />
+      <wsdl:output message="tns:GetDashboardSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DashboardSoap" type="tns:DashboardSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDashboard">
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/Dashboard.asmx/GetDashboard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DashboardSoap12" type="tns:DashboardSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDashboard">
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/Dashboard.asmx/GetDashboard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Dashboard">
+    <wsdl:port name="DashboardSoap" binding="tns:DashboardSoap">
+      <soap:address location="http://localhost/ServiceApplicationBuyGrandSeller/Dashboard.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DashboardSoap12" binding="tns:DashboardSoap12">
+      <soap12:address location="http://localhost/ServiceApplicationBuyGrandSeller/Dashboard.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
