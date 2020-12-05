@@ -26,3 +26,7 @@ C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Se
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\obj\Debug\Order_Application_Seller.Tests.csproj.CopyComplete
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\obj\Debug\Order_Application_Seller.Tests.dll
 C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\obj\Debug\Order_Application_Seller.Tests.pdb
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.ReportViewer.WebForms.dll
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\aditya\Documents\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.SqlServer.Types.dll
