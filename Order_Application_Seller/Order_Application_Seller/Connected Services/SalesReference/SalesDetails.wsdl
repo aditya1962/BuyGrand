@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/ServiceBuyGrandSeller/SalesDetails.asmx/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/ServiceBuyGrandSeller/SalesDetails.asmx/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/ServiceBuyGrandSeller/SalesDetails.asmx/">
+      <s:element name="Sales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SalesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SalesSoapIn">
+    <wsdl:part name="parameters" element="tns:Sales" />
+  </wsdl:message>
+  <wsdl:message name="SalesSoapOut">
+    <wsdl:part name="parameters" element="tns:SalesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SalesDetailsSoap">
+    <wsdl:operation name="Sales">
+      <wsdl:input message="tns:SalesSoapIn" />
+      <wsdl:output message="tns:SalesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SalesDetailsSoap" type="tns:SalesDetailsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sales">
+      <soap:operation soapAction="http://localhost/ServiceBuyGrandSeller/SalesDetails.asmx/Sales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SalesDetailsSoap12" type="tns:SalesDetailsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sales">
+      <soap12:operation soapAction="http://localhost/ServiceBuyGrandSeller/SalesDetails.asmx/Sales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesDetails">
+    <wsdl:port name="SalesDetailsSoap" binding="tns:SalesDetailsSoap">
+      <soap:address location="http://localhost/ServiceApplicationBuyGrandSeller/SalesDetails.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SalesDetailsSoap12" binding="tns:SalesDetailsSoap12">
+      <soap12:address location="http://localhost/ServiceApplicationBuyGrandSeller/SalesDetails.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

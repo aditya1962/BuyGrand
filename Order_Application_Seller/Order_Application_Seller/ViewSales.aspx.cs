@@ -50,7 +50,9 @@ namespace Order_Application_Seller
 
         public DataTable GetSales(string startDate, string endDate)
         {
-            
+            SalesReference.SalesDetailsSoapClient sales = new SalesReference.SalesDetailsSoapClient();
+            DataTable salesDataTable = sales.Sales(startDate, endDate);
+            return salesDataTable;
         }
     }
 }
