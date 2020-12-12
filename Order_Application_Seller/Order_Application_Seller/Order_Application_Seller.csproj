@@ -260,6 +260,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Connected Services\ViewProductReference\ViewItems1.wsdl" />
     <None Include="Connected Services\YourItemReference\UserItem1.wsdl" />
+    <Content Include="Login.aspx" />
     <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\Background-Large.jpg" />
@@ -427,6 +428,13 @@
       <DependentUpon>ItemReview.ascx</DependentUpon>
     </Compile>
     <Compile Include="Logging.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
