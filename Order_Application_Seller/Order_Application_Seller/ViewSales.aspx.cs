@@ -8,7 +8,10 @@ namespace Order_Application_Seller
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"]==null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
         protected void View_Click(object sender, EventArgs e)

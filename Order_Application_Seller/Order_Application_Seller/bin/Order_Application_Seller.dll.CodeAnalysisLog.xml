@@ -6,7 +6,7 @@
    <Modules>
     <Module Name="order_application_seller.dll">
      <Messages>
-      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2020-12-12 11:45:45Z" FixCategory="NonBreaking">
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2020-12-12 14:04:58Z" FixCategory="NonBreaking">
        <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'Order_Application_Seller.dll' with a strong name key.</Issue>
       </Message>
      </Messages>
@@ -17,14 +17,14 @@
          <Members>
           <Member Name="#getUsersName(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2020-12-12 11:45:45Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2020-12-12 14:04:58Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Aditya\Documents\BuyGrand\BuyGrand\Order_Application_Seller\Order_Application_Seller\Data" File="DataAccess.cs" Line="59">The query string passed to 'SqlDataAdapter.SqlDataAdapter(string, SqlConnection)' in 'DataAccess.getUsersName(string)' could contain the following variables 'username'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#validateUser(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2020-12-12 11:45:45Z" FixCategory="DependsOnFix">
+            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2020-12-12 14:04:58Z" FixCategory="DependsOnFix">
              <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Aditya\Documents\BuyGrand\BuyGrand\Order_Application_Seller\Order_Application_Seller\Data" File="DataAccess.cs" Line="24">The query string passed to 'SqlDataAdapter.SqlDataAdapter(string, SqlConnection)' in 'DataAccess.validateUser(string, string)' could contain the following variables 'username', 'password'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
             </Message>
            </Messages>

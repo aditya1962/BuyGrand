@@ -27,9 +27,14 @@ namespace Order_Application_Seller
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //username = Session["username"].ToString();
-            username = "abcde";
-            Session["username"] = username;
+            if (Session["username"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                username = Session["username"].ToString();
+            }
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)

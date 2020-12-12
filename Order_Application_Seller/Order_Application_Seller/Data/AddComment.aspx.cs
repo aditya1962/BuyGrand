@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Web.Script.Serialization;
 
 namespace Order_Application_Seller.Data
@@ -15,7 +16,6 @@ namespace Order_Application_Seller.Data
 
                 string username = Session["username"].ToString();
 
-                /*
                 ReviewsReference.ReviewsSoapClient reviews = new ReviewsReference.ReviewsSoapClient();
 
                 int added = reviews.addReview(product, originalReview, username, review);
@@ -23,9 +23,6 @@ namespace Order_Application_Seller.Data
                 DataTable table = reviews.getUser(username);
 
                 string[] dataArr = { added.ToString(), table.Rows[0]["name"].ToString(), table.Rows[0]["imagePath"].ToString() };
-                */
-
-                string[] dataArr = { "1", "abc", "abcd" };
 
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 Response.ContentType = "application/json";

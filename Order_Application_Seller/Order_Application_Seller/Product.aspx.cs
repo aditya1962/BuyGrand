@@ -14,65 +14,71 @@ namespace Order_Application_Seller
         public double price,discount,rating;
         public int order_count,quantity_available;
         AddProductReference.Category[] categoryList;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            username = Session["username"].ToString();
-            string id = Session["itemid"].ToString();
-            item = Convert.ToInt32(id);
-
-            ProductValue.Value = item.ToString();
-
-            productRef = new ProductDetailsReference.ProductViewSoapClient();
-            ProductDetailsReference.Item product = productRef.getItem(item);
-
-            AddProductReference.AddProductSoapClient addProductReference = new AddProductReference.AddProductSoapClient();
-            /*
-            categoryList = addProductReference.getCategoryNames();
-
-            if (categoryList.Length > 0)
+            if (Session["username"] == null)
             {
-                ArrayList category = new ArrayList();
-                for (int i = 0; i < categoryList.Length; i++)
-                {
-                    string categoryName = categoryList[i].categoryName;
-                    if (!(category.Contains(categoryName)))
-                    {
-                        category.Add(categoryName);
-                    }
-                    if (categoryList[i].categoryName.Equals(categoryList[0].categoryName))
-                    {
-                        SubcategoryDropdown.Items.Add(categoryList[i].subcategoryName);
-                    }
-                }
-                foreach (string categoryValue in category)
-                {
-                    CategoryDropdown.Items.Add(categoryValue);
-                }
-            }
-            */
-            //users = productRef.loggedInUser(item, username);
-            users = 1; //sample value for testing 
-
-            DescriptionLabel.Text = product.description;
-            ItemName.Text = product.name;
-            ItemImage.ImageUrl = product.image_path;
-            productCategory = product.category;
-            productSubcategory = product.subcategory;
-            ItemPrice.Text = product.price.ToString();
-            ItemDiscount.Text = product.discount.ToString();
-            ItemRating.Text = product.rating.ToString();
-            if(users == 1)
-            {
-                OrderCount.Text = product.order_count.ToString();
+                Response.Redirect("~/Login.aspx");
             }
             else
             {
-                ItemOrderCount.Visible = false;
-                OrderCount.Visible = false;
-            }
-            Quantity.Text = product.quantity_available.ToString();
+                username = Session["username"].ToString();
+                string id = Session["itemid"].ToString();
+                item = Convert.ToInt32(id);
 
-            LoadReviews(item);
+                ProductValue.Value = item.ToString();
+
+                productRef = new ProductDetailsReference.ProductViewSoapClient();
+                ProductDetailsReference.Item product = productRef.getItem(item);
+
+                AddProductReference.AddProductSoapClient addProductReference = new AddProductReference.AddProductSoapClient();
+                categoryList = addProductReference.getCategoryNames();
+
+                if (categoryList.Length > 0)
+                {
+                    ArrayList category = new ArrayList();
+                    for (int i = 0; i < categoryList.Length; i++)
+                    {
+                        string categoryName = categoryList[i].categoryName;
+                        if (!(category.Contains(categoryName)))
+                        {
+                            category.Add(categoryName);
+                        }
+                        if (categoryList[i].categoryName.Equals(categoryList[0].categoryName))
+                        {
+                            SubcategoryDropdown.Items.Add(categoryList[i].subcategoryName);
+                        }
+                    }
+                    foreach (string categoryValue in category)
+                    {
+                        CategoryDropdown.Items.Add(categoryValue);
+                    }
+                }
+
+                users = productRef.loggedInUser(item, username);
+
+                DescriptionLabel.Text = product.description;
+                ItemName.Text = product.name;
+                ItemImage.ImageUrl = product.image_path;
+                productCategory = product.category;
+                productSubcategory = product.subcategory;
+                ItemPrice.Text = product.price.ToString();
+                ItemDiscount.Text = product.discount.ToString();
+                ItemRating.Text = product.rating.ToString();
+                if (users == 1)
+                {
+                    OrderCount.Text = product.order_count.ToString();
+                }
+                else
+                {
+                    ItemOrderCount.Visible = false;
+                    OrderCount.Visible = false;
+                }
+                Quantity.Text = product.quantity_available.ToString();
+
+                LoadReviews(item);
+            }
         }
 
         [WebMethod]

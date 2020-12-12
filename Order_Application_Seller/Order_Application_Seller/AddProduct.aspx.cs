@@ -11,37 +11,41 @@ namespace Order_Application_Seller
         AddProductReference.Category[] categoryList;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //the following initialization is used for testing only. 
-            Session["username"] = "abc";
-
-            categoryList = addProductReference.getCategoryNames();
-            if (!IsPostBack)
+            if(Session["username"]==null)
             {
-                if (categoryList.Length > 0)
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+            {
+                categoryList = addProductReference.getCategoryNames();
+                if (!IsPostBack)
                 {
-                    ArrayList category = new ArrayList();
-                    for (int i = 0; i < categoryList.Length; i++)
+                    if (categoryList.Length > 0)
                     {
-                        string categoryName = categoryList[i].categoryName;
-                        if (!(category.Contains(categoryName)))
+                        ArrayList category = new ArrayList();
+                        for (int i = 0; i < categoryList.Length; i++)
                         {
-                            category.Add(categoryName);
+                            string categoryName = categoryList[i].categoryName;
+                            if (!(category.Contains(categoryName)))
+                            {
+                                category.Add(categoryName);
+                            }
+                            if (categoryList[i].categoryName.Equals(categoryList[0].categoryName))
+                            {
+                                SubCategory.Items.Add(categoryList[i].subcategoryName);
+                            }
                         }
-                        if (categoryList[i].categoryName.Equals(categoryList[0].categoryName))
+                        foreach (string categoryValue in category)
                         {
-                            SubCategory.Items.Add(categoryList[i].subcategoryName);
+                            Category.Items.Add(categoryValue);
                         }
                     }
-                    foreach (string categoryValue in category)
+                    else
                     {
-                        Category.Items.Add(categoryValue);
+                        FormLoadError.Text = "Error in loading form for adding an item";
+                        FormLoadError.Visible = true;
+                        AddItemFormDiv.Visible = false;
                     }
-                }
-                else
-                {
-                    FormLoadError.Text = "Error in loading form for adding an item";
-                    FormLoadError.Visible = true;
-                    AddItemFormDiv.Visible = false;
                 }
             }
         }
@@ -67,12 +71,12 @@ namespace Order_Application_Seller
             }
             else
             {
-                Tuple<int,String> result = UploadFile();
-                if(result.Item1==1)
+                Tuple<int, String> result = UploadFile();
+                if (result.Item1 == 1)
                 {
                     int status = addProductReference.AddItem(Description.Text, Name.Text, Convert.ToInt32(Price.Text),
-                        result.Item2,Convert.ToInt32(Quantity.Text), Category.SelectedValue, SubCategory.SelectedValue);
-                    if(status==0)
+                        result.Item2, Convert.ToInt32(Quantity.Text), Category.SelectedValue, SubCategory.SelectedValue);
+                    if (status == 0)
                     {
                         AddItemStatus.Text = "Could not add item";
                         AddItemStatus.Visible = true;
@@ -86,10 +90,10 @@ namespace Order_Application_Seller
             }
         }
 
-        private Tuple<int,string> UploadFile()
+        private Tuple<int, string> UploadFile()
         {
             int status = 0;
-            string fileName="";
+            string fileName = "";
             if (!(ImageFile.PostedFile.ContentType.Equals("image/jpeg") ||
                     ImageFile.PostedFile.ContentType.Equals("image/png")))
             {
@@ -112,19 +116,19 @@ namespace Order_Application_Seller
                     FileError.Text = "File name should be less than 170 characters";
                     FileError.Visible = true;
                 }
-                else if(File.Exists(filePath))
+                else if (File.Exists(filePath))
                 {
                     FileError.Text = "Please choose a different file name";
                     FileError.Visible = true;
                 }
                 else
-                {                    
+                {
                     try
                     {
                         ImageFile.PostedFile.SaveAs(filePath);
                         status = 1;
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         string message = "Could not upload file during adding item by user: " + Session["username"] + "\n" + ex.Message;
                         Logging.WriteLog(ex, "Error", message);

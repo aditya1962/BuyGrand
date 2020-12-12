@@ -9,8 +9,7 @@ namespace Order_Application_Seller.Data
         protected void Page_Load(object sender, EventArgs e)
         {
             try
-            {
-                
+            {              
                 int productVal = Convert.ToInt32(Request.QueryString["productVal"]);
                 string category = Request.QueryString["category"];
                 string subcategory = Request.QueryString["subcategory"];
@@ -24,14 +23,9 @@ namespace Order_Application_Seller.Data
                 string filePath = Server.MapPath("~") + ConfigurationManager.ConnectionStrings["UserFileUploadString"].ConnectionString +
                                     filename;
 
-                /*
                 ProductDetailsReference.ProductViewSoapClient product = new ProductDetailsReference.ProductViewSoapClient();
 
                 int edited = product.editProductDetail(productVal, category, subcategory, name, description, price, discount, quantity, filePath);
-                
-                */
-
-                int edited = 1;
 
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 Response.ContentType = "application/json";

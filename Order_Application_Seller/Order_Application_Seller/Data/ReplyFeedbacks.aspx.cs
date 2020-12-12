@@ -12,18 +12,12 @@ namespace Order_Application_Seller.Data
 
                 string reply = Request.QueryString["reply"];
                 int originalID = Convert.ToInt32(Request.QueryString["originalID"]);
-                //string username = Session["username"].ToString();
-                string username = "abc";
+                string username = Session["username"].ToString();
                 string datetime = DateTime.Now.ToString();
 
-                /*
                 FeedbacksReference.GetFeedbacksSoapClient feedback = new FeedbacksReference.GetFeedbacksSoapClient();
 
                 int added = feedback.addReplyToFeedback(originalID,reply,username,datetime);
-                
-                */
-
-                int added = 1;
 
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 Response.ContentType = "application/json";

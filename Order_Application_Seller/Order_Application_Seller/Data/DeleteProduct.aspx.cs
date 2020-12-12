@@ -11,14 +11,9 @@ namespace Order_Application_Seller.Data
             {
                 int productVal = Convert.ToInt32(Request.QueryString["productVal"]);
 
-                /*
                 ProductDetailsReference.ProductViewSoapClient product = new ProductDetailsReference.ProductViewSoapClient();
 
                 int deleted = product.deleteProduct(productVal);
-                
-                */
-
-                int deleted = 1;
 
                 JavaScriptSerializer serializer = new JavaScriptSerializer();
                 Response.ContentType = "application/json";

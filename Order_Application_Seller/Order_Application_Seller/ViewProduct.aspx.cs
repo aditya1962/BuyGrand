@@ -26,7 +26,10 @@ namespace Order_Application_Seller
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"]==null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
