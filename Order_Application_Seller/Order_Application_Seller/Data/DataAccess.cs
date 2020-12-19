@@ -11,13 +11,14 @@ namespace Order_Application_Seller.Data
 {
     public class DataAccess
     {
-        private String connectionString = ConfigurationManager.ConnectionStrings["SellerReadReplicaConnectionString"].ConnectionString;
+        private String rrConnectionString = ConfigurationManager.ConnectionStrings["SellerReadReplicaConnectionString"].ConnectionString;
+        private String connectionString = ConfigurationManager.ConnectionStrings["SellerConnectionString"].ConnectionString;
 
         public int validateUser(string username, string password)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(rrConnectionString))
                 {
                     connection.Open();
                     string query = "select * from dbo.login where username='" + username + "' and password='" + password + "'";
@@ -35,7 +36,6 @@ namespace Order_Application_Seller.Data
                             validate = 1;
                         }
                     }
-                    connection.Close();
                     return validate;
                 }
             }
@@ -52,7 +52,7 @@ namespace Order_Application_Seller.Data
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(rrConnectionString))
                 {
                     connection.Open();
                     string query = "select * from dbo.loggedUser where username='" + username + "'";
@@ -61,7 +61,6 @@ namespace Order_Application_Seller.Data
                     adapter.Fill(table);
                     DataRow row = table.Rows[0];
                     string name = row["firstName"].ToString() + " " + row["lastName"].ToString();
-                    connection.Close();
                     return name;
                 }
             }
@@ -108,6 +107,62 @@ namespace Order_Application_Seller.Data
                 }
             }
             return true;
+        }
+
+        public int insertLogin(string username, string password, string secretQuestion, string secretAnswer)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand("addLogin", connection);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("username", username);
+                    string hashed = Hash(password);
+                    sqlCommand.Parameters.AddWithValue("password", hashed);
+                    sqlCommand.Parameters.AddWithValue("secretQuestion", secretQuestion);
+                    sqlCommand.Parameters.AddWithValue("secretAnswer", secretAnswer);
+
+                    int rows = sqlCommand.ExecuteNonQuery();
+
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -99;
+            }
+        }
+
+        public int insertUser(string firstName, string lastName, string address, string emailAddress, string phoneNumber, string gender, string country)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand("addUser", connection);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("firstName", firstName);
+                    sqlCommand.Parameters.AddWithValue("lastName", lastName);
+                    sqlCommand.Parameters.AddWithValue("address", address);
+                    sqlCommand.Parameters.AddWithValue("emailAddress", emailAddress);
+                    sqlCommand.Parameters.AddWithValue("phoneNumber", phoneNumber);
+                    sqlCommand.Parameters.AddWithValue("gender", gender);
+                    sqlCommand.Parameters.AddWithValue("country", country);
+
+                    int rows = sqlCommand.ExecuteNonQuery();
+
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -99;
+            }
         }
 
     }

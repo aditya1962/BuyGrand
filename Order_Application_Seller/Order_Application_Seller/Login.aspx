@@ -54,6 +54,9 @@
                     </div>
                     <br />
                     <asp:Label ID="ValidationError" runat="server" Text="Username/Password is incorrect" Visible="false"></asp:Label>
+                    <div class="row loginRegRow" style="margin:0% 45%;">
+                        <asp:Button ID="Register" runat="server" Text="Register" CssClass="btn btn-primary" style="font-size:15px;" PostBackUrl="~/Register.aspx" />
+                    </div>
                 </div>
             </div>
         </div>

@@ -40,7 +40,14 @@
     background-color:white;
 }
 
-.login-card #Logo
+.register-card {
+    width: 45%;
+    margin: 10% 27%;
+    padding: 2% 0%;
+    background-color: white;
+}
+
+.login-card #Logo, .register-card #Logo
 {
     width:30%;
     margin:auto;

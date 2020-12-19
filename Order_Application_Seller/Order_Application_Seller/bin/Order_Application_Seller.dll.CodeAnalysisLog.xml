@@ -1,65 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
-<FxCopReport Version="11.0">
- <Targets>
-  <Target Name="C:\Users\Aditya\Documents\BuyGrand\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Order_Application_Seller.dll">
-   <Modules>
-    <Module Name="order_application_seller.dll">
-     <Messages>
-      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2020-12-12 14:56:50Z" FixCategory="NonBreaking">
-       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'Order_Application_Seller.dll' with a strong name key.</Issue>
-      </Message>
-     </Messages>
-     <Namespaces>
-      <Namespace Name="Order_Application_Seller.Data">
-       <Types>
-        <Type Name="DataAccess" Kind="Class" Accessibility="Public" ExternallyVisible="True">
-         <Members>
-          <Member Name="#getUsersName(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2020-12-12 14:56:50Z" FixCategory="DependsOnFix">
-             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Aditya\Documents\BuyGrand\BuyGrand\Order_Application_Seller\Order_Application_Seller\Data" File="DataAccess.cs" Line="59">The query string passed to 'SqlDataAdapter.SqlDataAdapter(string, SqlConnection)' in 'DataAccess.getUsersName(string)' could contain the following variables 'username'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#validateUser(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
-           <Messages>
-            <Message TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100" Status="Active" Created="2020-12-12 14:56:50Z" FixCategory="DependsOnFix">
-             <Issue Name="WithNonLiterals" Certainty="75" Level="Warning" Path="c:\Users\Aditya\Documents\BuyGrand\BuyGrand\Order_Application_Seller\Order_Application_Seller\Data" File="DataAccess.cs" Line="24">The query string passed to 'SqlDataAdapter.SqlDataAdapter(string, SqlConnection)' in 'DataAccess.validateUser(string, string)' could contain the following variables 'username', 'password'. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-         </Members>
-        </Type>
-       </Types>
-      </Namespace>
-     </Namespaces>
-    </Module>
-   </Modules>
-  </Target>
- </Targets>
- <Rules>
-  <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
-   <Name>Assemblies should have valid strong names</Name>
-   <Description>Either the assembly has no strong name, an invalid one, or the strong name is valid only because of the computer configuration. The assembly should not be deployed in this state. The most common causes of this are: 1) The assembly's contents were modified after it was signed. 2) The signing process failed. 3) The assembly was delay-signed. 4) A registry key existed that allowed the check to pass (where it would not have otherwise).</Description>
-   <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
-   <Owner />
-   <Url>http://msdn.microsoft.com/library/ms182127(VS.100).aspx</Url>
-   <Email>[none]</Email>
-   <MessageLevel Certainty="95">CriticalError</MessageLevel>
-   <File Name="designrules.dll" Version="11.0.0.0" />
-  </Rule>
-  <Rule TypeName="Review SQL queries for security vulnerabilities" Category="Microsoft.Security" CheckId="CA2100">
-   <Name>Review SQL queries for security vulnerabilities</Name>
-   <Description>A SQL command string built from user input is vulnerable to SQL injection attacks. Microsoft SQL Server and other database servers support stored procedures and parameterized SQL queries, which reduce the risk of injection attacks.</Description>
-   <Resolution Name="WithNonLiterals">The query string passed to {0} in {1} could contain the following variables {2}. If any of these variables could come from user input, consider using a stored procedure or a parameterized SQL query instead of building the query with string concatenations.</Resolution>
-   <Owner>RuleOwner</Owner>
-   <Url>http://msdn.microsoft.com/library/ms182310(VS.100).aspx</Url>
-   <Email />
-   <MessageLevel Certainty="75">Warning</MessageLevel>
-   <File Name="dataflowrules.dll" Version="11.0.0.0" />
-  </Rule>
- </Rules>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2019\community\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="16.0">
  <Localized>
   <String Key="Category">Category</String>
   <String Key="Certainty">Certainty</String>

@@ -262,6 +262,7 @@
     <None Include="Connected Services\YourItemReference\UserItem1.wsdl" />
     <Content Include="Login.aspx" />
     <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
+    <Content Include="Data\countrylistjson.json" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="images\Background-Large.jpg" />
     <Content Include="images\logo.ico" />
@@ -407,6 +408,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
