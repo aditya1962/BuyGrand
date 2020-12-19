@@ -165,5 +165,31 @@ namespace Order_Application_Seller.Data
             }
         }
 
+        public int updateLogin(string username, string password, string secretQuestion, string secretAnswer)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand("updateLogin", connection);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("username", username);
+                    string hashed = Hash(password);
+                    sqlCommand.Parameters.AddWithValue("password", hashed);
+                    sqlCommand.Parameters.AddWithValue("secretQuestion", secretQuestion);
+                    sqlCommand.Parameters.AddWithValue("secretAnswer", secretAnswer);
+
+                    int rows = sqlCommand.ExecuteNonQuery();
+
+                    return rows;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex, "Error", ex.Message);
+                return -99;
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Order_Application_Seller
 {
 
 
-	public partial class Login
+	public partial class ForgotPassword
 	{
 
 		/// <summary>
@@ -96,13 +96,85 @@ namespace Order_Application_Seller
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator PasswordType;
 
 		/// <summary>
-		/// LoginButton control.
+		/// ConfirmPassword control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button LoginButton;
+		protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+
+		/// <summary>
+		/// ConfirmPasswordBlank control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator ConfirmPasswordBlank;
+
+		/// <summary>
+		/// ConfirmPasswordType control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator ConfirmPasswordType;
+
+		/// <summary>
+		/// ConfirmPasswordEqual control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.CompareValidator ConfirmPasswordEqual;
+
+		/// <summary>
+		/// SecretQuestion control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList SecretQuestion;
+
+		/// <summary>
+		/// SecretAnswer control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox SecretAnswer;
+
+		/// <summary>
+		/// SecretAnswerBlank control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RequiredFieldValidator SecretAnswerBlank;
+
+		/// <summary>
+		/// SecretAnswerType control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator SecretAnswerType;
+
+		/// <summary>
+		/// ForgotPasswordButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button ForgotPasswordButton;
 
 		/// <summary>
 		/// ValidationError control.
@@ -114,21 +186,12 @@ namespace Order_Application_Seller
 		protected global::System.Web.UI.WebControls.Label ValidationError;
 
 		/// <summary>
-		/// Register control.
+		/// ForgotStatus control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Register;
-
-		/// <summary>
-		/// ForgotPassword control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink ForgotPassword;
+		protected global::System.Web.UI.WebControls.Label ForgotStatus;
 	}
 }
