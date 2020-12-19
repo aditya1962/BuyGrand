@@ -13,7 +13,7 @@
     <script src="Scripts/Site.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
 </head>
-<body style="height:460px;">
+<body>
     <form id="form1" runat="server">
         <div style="background-image:url(images/Background-Large.jpg);background-size:100%;
                     background-repeat:no-repeat; min-height:460px;">
@@ -31,9 +31,9 @@
                             <asp:TextBox ID="Username" CssClass="form-control" placeholder="Enter username" runat="server" style="font-size:15px;"></asp:TextBox>
                         </div>
                         <br />
-                        <asp:RequiredFieldValidator ID="UsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="Username" ValidationGroup="UserValidationGroup" Font-Size="15px" BackColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="UsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="Username" ValidationGroup="UserValidationGroup" Font-Size="15px"></asp:RequiredFieldValidator>
                         <br />
-                        <asp:RegularExpressionValidator ID="UsernameType" runat="server" ErrorMessage="Username cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="Username" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$" BackColor="Red"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="UsernameType" runat="server" ErrorMessage="Username cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="Username" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                     </div>
                     <br />
                     <div class="row" style="padding:3% 0%;">
@@ -44,9 +44,9 @@
                             <asp:TextBox ID="Password" CssClass="form-control" type="Password" placeholder="Enter password" runat="server" style="font-size:15px;"></asp:TextBox>
                         </div>
                         <br />
-                        <asp:RequiredFieldValidator ID="PasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="Password" ValidationGroup="UserValidationGroup" Font-Size="15px" BackColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="PasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="Password" ValidationGroup="UserValidationGroup" Font-Size="15px"></asp:RequiredFieldValidator>
                         <br />
-                        <asp:RegularExpressionValidator ID="PasswordType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="Password" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$" BackColor="Red"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="PasswordType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="Password" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                     </div>
                     <br />
                     <div class="row" style="padding:3% 0%;">
@@ -57,11 +57,11 @@
                             <asp:TextBox ID="ConfirmPassword" CssClass="form-control" type="Password" placeholder="Confirm password" runat="server" style="font-size:15px;"></asp:TextBox>
                         </div>
                         <br />
-                        <asp:RequiredFieldValidator ID="ConfirmPasswordBlank" runat="server" ErrorMessage="Confirm password cannot be blank" ControlToValidate="ConfirmPassword" ValidationGroup="UserValidationGroup" Font-Size="15px" BackColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="ConfirmPasswordBlank" runat="server" ErrorMessage="Confirm password cannot be blank" ControlToValidate="ConfirmPassword" ValidationGroup="UserValidationGroup" Font-Size="15px"></asp:RequiredFieldValidator>
                         <br />
-                        <asp:RegularExpressionValidator ID="ConfirmPasswordType" runat="server" ErrorMessage="Confirm password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="ConfirmPassword" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$" BackColor="Red"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="ConfirmPasswordType" runat="server" ErrorMessage="Confirm password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="ConfirmPassword" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                         <br />
-                        <asp:CompareValidator ID="ConfirmPasswordEqual" runat="server" ErrorMessage="Password and confirm password must be equal" ControlToCompare="Password" ControlToValidate="ConfirmPassword" ValidationGroup="UserValidationGroup" BackColor="Red"></asp:CompareValidator>
+                        <asp:CompareValidator ID="ConfirmPasswordEqual" runat="server" ErrorMessage="Password and confirm password must be equal" ControlToCompare="Password" ControlToValidate="ConfirmPassword" ValidationGroup="UserValidationGroup"></asp:CompareValidator>
                     </div>
                     <br />
                     <div class="row" style="padding:3% 0%;">
@@ -82,9 +82,9 @@
                             <asp:TextBox ID="SecretAnswer" CssClass="form-control" placeholder="Enter secret answer" runat="server" style="font-size:15px;"></asp:TextBox>
                         </div>
                         <br />
-                        <asp:RequiredFieldValidator ID="SecretAnswerBlank" runat="server" ErrorMessage="Secret answer cannot be blank" ControlToValidate="SecretAnswer" ValidationGroup="UserValidationGroup" Font-Size="15px" BackColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="SecretAnswerBlank" runat="server" ErrorMessage="Secret answer cannot be blank" ControlToValidate="SecretAnswer" ValidationGroup="UserValidationGroup" Font-Size="15px"></asp:RequiredFieldValidator>
                         <br />
-                        <asp:RegularExpressionValidator ID="SecretAnswerType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="SecretAnswer" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$" BackColor="Red"></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ID="SecretAnswerType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="SecretAnswer" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                     </div>
                     <br />
                     <div class="row" style="margin:0% 45%;">

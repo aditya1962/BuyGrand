@@ -53,10 +53,23 @@
     padding: 2% 0%;
     background-color: white;
 }
+
 .login-card #Logo, .register-card #Logo, .forgot-card #Logo
 {
     width:30%;
     margin:auto;
+}
+
+.login-card a:hover 
+{
+    text-decoration:none;
+    color:inherit;
+}
+
+.login-card span, .register-card span, .forgot-card span
+{
+    color:red;
+    margin:0% 4%;
 }
 
 .dashboard {

@@ -6,8 +6,18 @@ namespace Order_Application_Seller
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+            String[] questions = {
+                "What is your favorite car?",
+                "What is your favorite pet?",
+                "What is your uncle's maiden name?",
+                "What is your favorite holiday location?"
+            };
 
-		}
+            foreach (string question in questions)
+            {
+                SecretQuestion.Items.Add(question);
+            }
+        }
 
 		protected void ForgotButton_Click(object sender, EventArgs e)
 		{
