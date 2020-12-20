@@ -33,6 +33,8 @@ create table dbo.feedback
 	originalFeedbackID int not null,
 	username nvarchar(15) not null constraint username_feedback_login references dbo.login(username)
 		on delete cascade on update cascade,
+	originalUsername nvarchar(15) not null constraint username_feedback_login references dbo.login(username)
+				on delete cascade on update cascade,
 	message nvarchar(max) not null,
 	submittedDate datetime not null
 );
@@ -69,6 +71,8 @@ create table dbo.review
 	originalReviewID int not null,
 	username nvarchar(15) not null constraint username_review_login references dbo.login(username)
 		on delete cascade on update cascade,
+	originalUsername nvarchar(15) not null constraint username_feedback_login references dbo.login(username)
+				on delete cascade on update cascade,
 	message nvarchar(max) not null,
 	submittedDate datetime not null
 );

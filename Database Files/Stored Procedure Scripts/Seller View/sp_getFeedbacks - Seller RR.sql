@@ -1,17 +1,19 @@
 USE [BuyGrandSellerReadReplica]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_getCategories]    Script Date: 8/11/2020 6:55:38 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_getFeedbacks]    Script Date: 12/20/2020 10:20:38 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
 -- Author:		Aditya Abeysinghe
--- Create date: 2020/08/11
--- Description:	Stored procedure for retrieving category and subcategory names in seller view
+-- Create date: 2020/12/20
+-- Description:	Stored procedure for retrieving feedbacks in seller view
 -- =============================================
-CREATE OR ALTER PROCEDURE [dbo].[sp_getCategories]
-
+CREATE OR ALTER PROCEDURE [dbo].[sp_getFeedbacks]
+(
+    @username nvarchar(15)
+)
 AS
 BEGIN
 
@@ -22,9 +24,12 @@ BEGIN
 		IF @transactionCount=0
 			BEGIN TRANSACTION;
 		ELSE
-			SAVE TRANSACTION sp_getCategories
+			SAVE TRANSACTION sp_getFeedbacks
 
-		select category,subcategory from dbo.itemCategory;
+		select concat(firstName,' ', lastName) as 'username', feedbackID, message, submittedDate
+      from dbo.login l inner join dbo.feedback f
+        on l.username=f.username
+          where f.username=@username;
 
 		IF @transactionCount=0
 			COMMIT TRANSACTION;
@@ -37,7 +42,7 @@ BEGIN
 			ROLLBACK TRANSACTION;
 		ELSE
 			IF @xstate = 1
-				ROLLBACK TRANSACTION sp_getCategories;
+				ROLLBACK TRANSACTION sp_getFeedbacks;
 			ELSE
 				ROLLBACK TRANSACTION;
 	END CATCH
