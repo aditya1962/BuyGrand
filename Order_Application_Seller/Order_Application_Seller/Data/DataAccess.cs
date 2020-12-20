@@ -21,8 +21,10 @@ namespace Order_Application_Seller.Data
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
                 {
                     connection.Open();
-                    string query = "select * from dbo.login where username='" + username + "' and password='" + password + "'";
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter("sp_validateUser", connection);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;;
+                    adapter.SelectCommand.Parameters.AddWithValue("username",username);
+                    adapter.SelectCommand.Parameters.AddWithValue("password", password);
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     int rows = table.Rows.Count;
@@ -55,8 +57,10 @@ namespace Order_Application_Seller.Data
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
                 {
                     connection.Open();
-                    string query = "select * from dbo.loggedUser where username='" + username + "'";
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter("sp_getUsersName", connection);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;;
+                    adapter.SelectCommand.Parameters.AddWithValue("username",username);
+
                     DataTable table = new DataTable();
                     adapter.Fill(table);
                     DataRow row = table.Rows[0];
