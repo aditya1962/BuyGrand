@@ -11,13 +11,12 @@ create table dbo.login
 	role nvarchar(15) not null,
 	activated int not null,
 	loginTime datetime not null,
-	loginCount int not null,
-	initialLoginEncrypted nvarchar(150) not null
+	loginCount int not null
 );
 
 create table dbo.loggedUser
 (
-	username nvarchar(15) primary key constraint username_loggedUser_login references dbo.login(username) 
+	username nvarchar(15) primary key constraint username_loggedUser_login references dbo.login(username)
 		on delete cascade on update cascade,
 	firstName nvarchar(100) not null,
 	lastName nvarchar(100) not null,
@@ -82,5 +81,5 @@ create table dbo.sales
 		on delete cascade on update cascade,
 	numberOfItems int not null,
 	totalPrice numeric(12,2) not null,
-	submittedDate datetime not null 
+	submittedDate datetime not null
 );
