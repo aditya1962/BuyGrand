@@ -120,7 +120,7 @@ namespace Order_Application_Seller.Data
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlCommand sqlCommand = new SqlCommand("addLogin", connection);
+                    SqlCommand sqlCommand = new SqlCommand("sp_addLogin", connection);
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("username", username);
                     string hashed = Hash(password);
@@ -147,7 +147,7 @@ namespace Order_Application_Seller.Data
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlCommand sqlCommand = new SqlCommand("addUser", connection);
+                    SqlCommand sqlCommand = new SqlCommand("sp_addUser", connection);
                     sqlCommand.CommandType = CommandType.StoredProcedure;
                     sqlCommand.Parameters.AddWithValue("firstName", firstName);
                     sqlCommand.Parameters.AddWithValue("lastName", lastName);
