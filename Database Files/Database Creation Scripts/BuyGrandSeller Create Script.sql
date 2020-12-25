@@ -24,7 +24,8 @@ create table dbo.loggedUser
 	phoneNumber nvarchar(15) not null,
 	emailAddress nvarchar(50) not null,
 	gender nvarchar(8) not null,
-	country nvarchar(40) not null
+	country nvarchar(40) not null,
+	imagePath nvarchar(200)
 );
 
 create table dbo.feedback

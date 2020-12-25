@@ -11,7 +11,7 @@ namespace ServiceApplicationBuyGrandSeller
 {
     [WebService(Namespace = "http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    [System.ComponentModel.ToolboxItem(false)] 
+    [System.ComponentModel.ToolboxItem(false)]
     [System.Web.Script.Services.ScriptService]
     public class Reviews : System.Web.Services.WebService
     {
@@ -43,7 +43,7 @@ namespace ServiceApplicationBuyGrandSeller
                             review.reviewID = Convert.ToInt32(row["reviewID"].ToString());
                             review.reviewDesc = row["description"].ToString();
                             review.imagePath = row["imagePath"].ToString();
-                            review.datetime = row["datetime"].ToString();
+                            review.datetime = row["submittedDate"].ToString();
                             review.name = row["name"].ToString();
                             review.subReviewCount = Convert.ToInt32(row["subReviewCount"].ToString());
                             reviews[i] = review;
@@ -107,7 +107,7 @@ namespace ServiceApplicationBuyGrandSeller
                             review.reviewID = Convert.ToInt32(row["reviewID"].ToString());
                             review.reviewDesc = row["description"].ToString();
                             review.imagePath = row["imagePath"].ToString();
-                            review.datetime = row["datetime"].ToString();
+                            review.datetime = row["submittedDate"].ToString();
                             review.name = row["name"].ToString();
                             reviews[i] = review;
                             i++;
@@ -155,7 +155,7 @@ namespace ServiceApplicationBuyGrandSeller
                     SqlCommand command = new SqlCommand("sp_AddComment", connection);
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("itemID", itemID);
-                    command.Parameters.AddWithValue("originalID", originalID); 
+                    command.Parameters.AddWithValue("originalID", originalID);
                     command.Parameters.AddWithValue("username", username);
                     command.Parameters.AddWithValue("review", review);
                     int added = command.ExecuteNonQuery();
