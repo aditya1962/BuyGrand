@@ -1,4 +1,4 @@
-create database BuyGrandSeller;
+ create database BuyGrandSeller;
 
 use BuyGrandSeller;
 

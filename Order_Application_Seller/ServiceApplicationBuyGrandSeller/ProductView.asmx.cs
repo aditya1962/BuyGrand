@@ -17,7 +17,7 @@ namespace ServiceApplicationBuyGrandSeller
     {
         string connectionString = ConfigurationManager.ConnectionStrings["SellerConnectionString"].ConnectionString;
         string rrConnectionString = ConfigurationManager.ConnectionStrings["SellerReadReplicaConnectionString"].ConnectionString;
-        
+
         [WebMethod]
         public Item getItem(int id)
         {
@@ -103,11 +103,13 @@ namespace ServiceApplicationBuyGrandSeller
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlCommand command = new SqlCommand("sp_verifyUserForRating", connection);
-                    command.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter adapter = new SqlAdapter("sp_verifyUserForRating", connection);
+                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("id", id);
                     command.Parameters.AddWithValue("username", username);
-                    int rows = command.ExecuteNonQuery();
+                    DataTable table = new DataTable();
+                    adapter.Fill(table)
+                    int rows = table.Rows.count;
                     return rows;
                 }
             }
