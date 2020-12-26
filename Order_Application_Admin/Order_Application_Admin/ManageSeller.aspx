@@ -73,7 +73,7 @@
                                                     <label>Enter account username</label>
                                                 </div>
                                                 <div class="col-md-5 col-lg-5">
-                                                    <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" Style="font-size: 15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" Style="font-size: 15px;" MaxLength="15"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RegularExpressionValidator ID="DeleteUsernameType" runat="server" ErrorMessage="Username cannot be an integer" Display="Dynamic" ControlToValidate="DeleteUsername" ValidationGroup="DeleteModal" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
@@ -85,7 +85,7 @@
                                                     <label>Enter account password</label>
                                                 </div>
                                                 <div class="col-md-5 col-lg-5">
-                                                    <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" Style="font-size: 15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" Style="font-size: 15px;" MaxLength="250"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RegularExpressionValidator ID="DeletePasswordType" runat="server" ErrorMessage="Password cannot be an integer" Display="Dynamic" ControlToValidate="DeletePassword" ValidationGroup="DeleteModal" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
@@ -139,7 +139,7 @@
                                                     <label>Enter account username</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="Username" placeholder="Enter account username" runat="server" class="form-control" Style="font-size: 15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="Username" placeholder="Enter account username" runat="server" class="form-control" Style="font-size: 15px;" MaxLength="15"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RegularExpressionValidator ID="UsernameValidateType" runat="server" ErrorMessage="Username cannot be an integer" Display="Dynamic" ControlToValidate="Username" ValidationGroup="SendMessageModal" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
@@ -151,7 +151,7 @@
                                                     <label>Enter account password</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="Password" placeholder="Enter account password" type="password" runat="server" class="form-control" Style="font-size: 15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="Password" placeholder="Enter account password" type="password" runat="server" class="form-control" Style="font-size: 15px;" MaxLength="250"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RegularExpressionValidator ID="PasswordValidateType" runat="server" ErrorMessage="Password cannot be an integer" Display="Dynamic" ControlToValidate="Password" ValidationGroup="SendMessageModal" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>

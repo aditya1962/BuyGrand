@@ -61,7 +61,7 @@
                                     <label>Sub Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
-                                    <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory" style="font-size:15px;" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory" style="font-size:15px;" runat="server" MaxLength="100"></asp:TextBox>
                                     <br />
                                     <asp:RequiredFieldValidator ID="SubCategoryBlank" runat="server" ErrorMessage="Sub category cannot be blank" ControlToValidate="subcategory" ValidationGroup="AddSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
                                     <br />
@@ -118,7 +118,7 @@
                                                     <label>Sub Category Name</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="EditSubCategoryName" placeholder="Enter Sub category name" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="EditSubCategoryName" placeholder="Enter Sub category name" runat="server" class="form-control" style="font-size:15px;" MaxLength="100"></asp:TextBox>
                                                     <br />
                                                     <asp:RequiredFieldValidator ID="EditNameBlank" runat="server" ErrorMessage="Subcategory cannot be blank" ControlToValidate="EditSubcategoryName" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
                                                     <br />
@@ -132,7 +132,7 @@
                                                     <label>Enter account username</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="EditUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="EditUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;" MaxLength="15"></asp:TextBox>
                                                     <br />
                                                     <asp:RequiredFieldValidator ID="EditUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="EditUsername" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
                                                     <br />
@@ -145,7 +145,7 @@
                                                     <label>Enter account password</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="EditPassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="EditPassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;" MaxLength="250"></asp:TextBox>
                                                     <br />
                                                     <asp:RequiredFieldValidator ID="EditPasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="EditPassword" ValidationGroup="EditSubcategory" Font-Size="15px"></asp:RequiredFieldValidator>
                                                     <br />
@@ -179,7 +179,7 @@
                                                     <label>Enter account username</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;" MaxLength="15"></asp:TextBox>
                                                     <br />
                                                     <asp:RequiredFieldValidator ID="DeleteUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="DeleteUsername" ValidationGroup="DeleteSubCategory" Font-Size="15px"></asp:RequiredFieldValidator>
                                                     <br />
@@ -192,7 +192,7 @@
                                                     <label>Enter account password</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;" MaxLength="250"></asp:TextBox>
                                                     <br />
                                                     <asp:RequiredFieldValidator ID="DeletePasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="DeletePassword" Font-Size="15px" ValidationGroup="DeleteSubCategory"></asp:RequiredFieldValidator>
                                                     <br />

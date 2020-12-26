@@ -133,6 +133,7 @@
     <Content Include="AddSubcategory.aspx" />
     <Content Include="AddCategory.aspx" />
     <Content Include="ApproveSeller.aspx" />
+    <Content Include="Admin Key.snk" />
     <None Include="Connected Services\CategoryReference\Category.disco" />
     <None Include="Connected Services\CategoryReference\configuration91.svcinfo" />
     <None Include="Connected Services\CategoryReference\configuration.svcinfo" />
@@ -503,6 +504,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Admin Key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

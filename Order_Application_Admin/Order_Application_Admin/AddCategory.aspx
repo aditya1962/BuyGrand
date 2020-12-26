@@ -46,7 +46,7 @@
                                     <label style="font-size: 17px;">Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
-                                    <asp:TextBox ID="category" class="form-control" placeholder="Enter category name" Style="font-size: 15px;" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="category" class="form-control" placeholder="Enter category name" Style="font-size: 15px;" runat="server" MaxLength="100"></asp:TextBox>
                                 </div>
                                 <div class="col-md-5 col-lg-5 offset-md-1 offset-lg-1">
                                     <asp:RequiredFieldValidator ID="CategoryBlank" runat="server" ErrorMessage="Category cannot be blank" ValidationGroup="AddCategory" ControlToValidate="category"></asp:RequiredFieldValidator>
@@ -60,7 +60,7 @@
                                     <label style="font-size: 17px; ">Sub Category</label>
                                 </div>
                                 <div class="col-md-4 col-lg-4">
-                                    <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory name" Style="font-size: 15px;" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="subcategory" class="form-control" placeholder="Enter subcategory name" Style="font-size: 15px;" runat="server" MaxLength="100"></asp:TextBox>
                                 </div>
                                 <div class="col-md-5 col-lg-5 offset-md-1 offset-lg-1">
                                     <asp:RequiredFieldValidator ID="SubCategoryBlank" runat="server" ErrorMessage="Sub category cannot be blank" ControlToValidate="subcategory" ValidationGroup="AddCategory"></asp:RequiredFieldValidator>
@@ -114,7 +114,7 @@
                                                     <label>Category Name</label>
                                                 </div>
                                                 <div class="col-md-5 col-lg-5">
-                                                    <asp:TextBox ID="EditCategoryName" placeholder="Enter category name" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="EditCategoryName" placeholder="Enter category name" runat="server" class="form-control" style="font-size:15px;" MaxLength="100"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RequiredFieldValidator ID="EditCategoryBlank" runat="server" ErrorMessage="Category name cannot be blank" ControlToValidate="EditCategoryName" ValidationGroup="EditCategory"></asp:RequiredFieldValidator>
@@ -127,7 +127,7 @@
                                                     <label>Enter account username</label>
                                                 </div>
                                                 <div class="col-md-5 col-lg-5">
-                                                    <asp:TextBox ID="EditUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="EditUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;" MaxLength="15"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RequiredFieldValidator ID="EditUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="EditUsername" ValidationGroup="EditCategory"></asp:RequiredFieldValidator>
@@ -140,7 +140,7 @@
                                                     <label>Enter account password</label>
                                                 </div>
                                                 <div class="col-md-5 col-lg-5">
-                                                    <asp:TextBox ID="EditPassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="EditPassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;" MaxLength="250"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RequiredFieldValidator ID="EditPasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="EditPassword" ValidationGroup="EditCategory"></asp:RequiredFieldValidator>
@@ -174,7 +174,7 @@
                                                     <label>Enter account username</label>
                                                 </div>
                                                 <div class="col-md-5 col-lg-5">
-                                                    <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="DeleteUsername" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;" MaxLength="15"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RequiredFieldValidator ID="DeleteUsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="DeleteUsername" ValidationGroup="DeleteCategory"></asp:RequiredFieldValidator>
@@ -187,7 +187,7 @@
                                                     <label>Enter account password</label>
                                                 </div>
                                                 <div class="col-md-5 col-lg-5">
-                                                    <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="DeletePassword" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;" MaxLength="250"></asp:TextBox>
                                                 </div>
                                                 <br />
                                                 <asp:RequiredFieldValidator ID="DeletePasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="DeletePassword" ValidationGroup="DeleteCategory"></asp:RequiredFieldValidator>

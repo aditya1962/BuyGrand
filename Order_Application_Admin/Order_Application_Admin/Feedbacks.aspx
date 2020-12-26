@@ -85,7 +85,7 @@
                                                     <label>Enter account username</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="Username" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="Username" placeholder="Enter account username" runat="server" class="form-control" style="font-size:15px;" MaxLength="15"></asp:TextBox>
                                                     <br />
                                                     <asp:RequiredFieldValidator ID="UsernameBlank" runat="server" ErrorMessage="Username cannot be blank" ControlToValidate="Username" Font-Size="15px" ValidationGroup="SendFeedback"></asp:RequiredFieldValidator>
                                                     <br />
@@ -98,7 +98,7 @@
                                                     <label>Enter account password</label>
                                                 </div>
                                                 <div class="col-md-7 col-lg-7">
-                                                    <asp:TextBox ID="Password" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;"></asp:TextBox>
+                                                    <asp:TextBox ID="Password" placeholder="Enter account password" type="password" runat="server" class="form-control" style="font-size:15px;" MaxLength="250"></asp:TextBox>
                                                     <br />
                                                     <asp:RequiredFieldValidator ID="PasswordBlank" runat="server" ErrorMessage="Password cannot be blank" Font-Size="15px" ControlToValidate="Password" ValidationGroup="SendFeedback"></asp:RequiredFieldValidator>
                                                     <br />
