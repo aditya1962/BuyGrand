@@ -18,10 +18,10 @@ namespace Order_Application_Seller.ReviewsReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetTopReviews", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        Order_Application_Seller.ReviewsReference.Review[] GetTopReviews(int item);
+        Order_Application_Seller.ReviewsReference.Review[] GetTopReviews(int productID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetTopReviews", ReplyAction="*")]
-        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetTopReviewsAsync(int item);
+        System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetTopReviewsAsync(int productID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://localhost/ServiceApplicationBuyGrandSeller/Review.asmx/GetSubReviews", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -174,12 +174,12 @@ namespace Order_Application_Seller.ReviewsReference {
                 base(binding, remoteAddress) {
         }
         
-        public Order_Application_Seller.ReviewsReference.Review[] GetTopReviews(int item) {
-            return base.Channel.GetTopReviews(item);
+        public Order_Application_Seller.ReviewsReference.Review[] GetTopReviews(int productID) {
+            return base.Channel.GetTopReviews(productID);
         }
         
-        public System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetTopReviewsAsync(int item) {
-            return base.Channel.GetTopReviewsAsync(item);
+        public System.Threading.Tasks.Task<Order_Application_Seller.ReviewsReference.Review[]> GetTopReviewsAsync(int productID) {
+            return base.Channel.GetTopReviewsAsync(productID);
         }
         
         public Order_Application_Seller.ReviewsReference.Review[] GetSubReviews(int productID, int reviewID) {

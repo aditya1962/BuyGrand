@@ -137,10 +137,13 @@ namespace Order_Application_Seller.AddProductReference {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
         public string subcategory;
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string username;
+        
         public AddItemRequestBody() {
         }
         
-        public AddItemRequestBody(string description, string name, double price, string imagePath, int quantity, string category, string subcategory) {
+        public AddItemRequestBody(string description, string name, double price, string imagePath, int quantity, string category, string subcategory, string username) {
             this.description = description;
             this.name = name;
             this.price = price;
@@ -148,6 +151,7 @@ namespace Order_Application_Seller.AddProductReference {
             this.quantity = quantity;
             this.category = category;
             this.subcategory = subcategory;
+            this.username = username;
         }
     }
     
@@ -278,7 +282,7 @@ namespace Order_Application_Seller.AddProductReference {
             return base.Channel.AddItem(request);
         }
         
-        public int AddItem(string description, string name, double price, string imagePath, int quantity, string category, string subcategory) {
+        public int AddItem(string description, string name, double price, string imagePath, int quantity, string category, string subcategory, string username) {
             Order_Application_Seller.AddProductReference.AddItemRequest inValue = new Order_Application_Seller.AddProductReference.AddItemRequest();
             inValue.Body = new Order_Application_Seller.AddProductReference.AddItemRequestBody();
             inValue.Body.description = description;
@@ -288,6 +292,7 @@ namespace Order_Application_Seller.AddProductReference {
             inValue.Body.quantity = quantity;
             inValue.Body.category = category;
             inValue.Body.subcategory = subcategory;
+            inValue.Body.username = username;
             Order_Application_Seller.AddProductReference.AddItemResponse retVal = ((Order_Application_Seller.AddProductReference.AddProductSoap)(this)).AddItem(inValue);
             return retVal.Body.AddItemResult;
         }
@@ -297,7 +302,7 @@ namespace Order_Application_Seller.AddProductReference {
             return base.Channel.AddItemAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.AddItemResponse> AddItemAsync(string description, string name, double price, string imagePath, int quantity, string category, string subcategory) {
+        public System.Threading.Tasks.Task<Order_Application_Seller.AddProductReference.AddItemResponse> AddItemAsync(string description, string name, double price, string imagePath, int quantity, string category, string subcategory, string username) {
             Order_Application_Seller.AddProductReference.AddItemRequest inValue = new Order_Application_Seller.AddProductReference.AddItemRequest();
             inValue.Body = new Order_Application_Seller.AddProductReference.AddItemRequestBody();
             inValue.Body.description = description;
@@ -307,6 +312,7 @@ namespace Order_Application_Seller.AddProductReference {
             inValue.Body.quantity = quantity;
             inValue.Body.category = category;
             inValue.Body.subcategory = subcategory;
+            inValue.Body.username = username;
             return ((Order_Application_Seller.AddProductReference.AddProductSoap)(this)).AddItemAsync(inValue);
         }
         

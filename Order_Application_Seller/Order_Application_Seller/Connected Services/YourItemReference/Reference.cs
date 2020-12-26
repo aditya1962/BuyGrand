@@ -37,7 +37,9 @@ namespace Order_Application_Seller.YourItemReference {
         
         private double discountField;
         
-        private int ratingField;
+        private double ratingField;
+        
+        private int ratingCountField;
         
         private int order_countField;
         
@@ -138,7 +140,7 @@ namespace Order_Application_Seller.YourItemReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
-        public int rating {
+        public double rating {
             get {
                 return this.ratingField;
             }
@@ -151,6 +153,19 @@ namespace Order_Application_Seller.YourItemReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public int ratingCount {
+            get {
+                return this.ratingCountField;
+            }
+            set {
+                if ((this.ratingCountField.Equals(value) != true)) {
+                    this.ratingCountField = value;
+                    this.RaisePropertyChanged("ratingCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
         public int order_count {
             get {
                 return this.order_countField;
@@ -163,7 +178,7 @@ namespace Order_Application_Seller.YourItemReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
         public int quantity_available {
             get {
                 return this.quantity_availableField;
@@ -176,7 +191,7 @@ namespace Order_Application_Seller.YourItemReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
         public string category {
             get {
                 return this.categoryField;
@@ -189,7 +204,7 @@ namespace Order_Application_Seller.YourItemReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
         public string subcategory {
             get {
                 return this.subcategoryField;

@@ -12,6 +12,7 @@
             <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="category" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="subcategory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -111,10 +112,10 @@
   </wsdl:binding>
   <wsdl:service name="AddProduct">
     <wsdl:port name="AddProductSoap" binding="tns:AddProductSoap">
-      <soap:address location="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx" />
+      <soap:address location="http://localhost/ServiceApplicationBuyGrandSeller/AddProduct.asmx" />
     </wsdl:port>
     <wsdl:port name="AddProductSoap12" binding="tns:AddProductSoap12">
-      <soap12:address location="http://localhost/ServiceBuyGrandSeller/AddProduct.asmx" />
+      <soap12:address location="http://localhost/ServiceApplicationBuyGrandSeller/AddProduct.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

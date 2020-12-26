@@ -22,6 +22,8 @@ namespace Order_Application_Seller.ViewProductReference {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        private int idField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string descriptionField;
         
@@ -35,7 +37,9 @@ namespace Order_Application_Seller.ViewProductReference {
         
         private double discountField;
         
-        private int ratingField;
+        private double ratingField;
+        
+        private int ratingCountField;
         
         private int order_countField;
         
@@ -57,7 +61,20 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string description {
             get {
                 return this.descriptionField;
@@ -70,7 +87,7 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string name {
             get {
                 return this.nameField;
@@ -83,7 +100,7 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
         public double price {
             get {
                 return this.priceField;
@@ -96,7 +113,7 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
         public string image_path {
             get {
                 return this.image_pathField;
@@ -109,7 +126,7 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public double discount {
             get {
                 return this.discountField;
@@ -122,8 +139,8 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
-        public int rating {
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public double rating {
             get {
                 return this.ratingField;
             }
@@ -135,7 +152,20 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public int ratingCount {
+            get {
+                return this.ratingCountField;
+            }
+            set {
+                if ((this.ratingCountField.Equals(value) != true)) {
+                    this.ratingCountField = value;
+                    this.RaisePropertyChanged("ratingCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
         public int order_count {
             get {
                 return this.order_countField;
@@ -148,7 +178,7 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
         public int quantity_available {
             get {
                 return this.quantity_availableField;
@@ -161,7 +191,7 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
         public string category {
             get {
                 return this.categoryField;
@@ -174,7 +204,7 @@ namespace Order_Application_Seller.ViewProductReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
         public string subcategory {
             get {
                 return this.subcategoryField;
