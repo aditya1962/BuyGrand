@@ -144,7 +144,7 @@
                                         <label>Name</label>
                                     </div>
                                     <div class="col-md-8 col-lg-8">
-                                        <input type="text" id="EditName" placeholder="Enter name" class="form-control" required="required" />
+                                        <input type="text" id="EditName" placeholder="Enter name" class="form-control" required="required" maxlength="90" />
                                     </div>
                                 </div>
                                 <br />
@@ -153,7 +153,7 @@
                                         <label>Description</label>
                                     </div>
                                     <div class="col-md-8 col-lg-8">
-                                        <textarea id="EditDescription" placeholder="Enter description" class="form-control" rows="5" required="required"></textarea>
+                                        <textarea id="EditDescription" placeholder="Enter description" class="form-control" rows="5" required="required" maxlength="500"></textarea>
                                     </div>
                                 </div>
                                 <br />
@@ -162,7 +162,7 @@
                                         <label>Price</label>
                                     </div>
                                     <div class="col-md-8 col-lg-8">
-                                        <input type="number" id="EditPrice" placeholder="Enter price" class="form-control" required="required" min="0" />
+                                        <input type="number" id="EditPrice" placeholder="Enter price" class="form-control" required="required" min="0" maxlength="13" />
                                     </div>
                                 </div>
                                 <br />
@@ -180,7 +180,7 @@
                                         <label>Discount</label>
                                     </div>
                                     <div class="col-md-8 col-lg-8">
-                                        <input type="number" id="EditDiscount" placeholder="Enter discount" class="form-control" required="required" min="0" />
+                                        <input type="number" id="EditDiscount" placeholder="Enter discount" class="form-control" required="required" min="0" maxlength="10" />
                                     </div>
                                 </div>
                                 <br />

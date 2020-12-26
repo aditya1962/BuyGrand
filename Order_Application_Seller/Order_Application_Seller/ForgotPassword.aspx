@@ -41,7 +41,7 @@
                             <label style="font-size:15px;">Password</label>
                         </div>
                         <div class="col-md-9 col-lg-9">
-                            <asp:TextBox ID="Password" CssClass="form-control" type="Password" placeholder="Enter password" runat="server" style="font-size:15px;"></asp:TextBox>
+                            <asp:TextBox ID="Password" CssClass="form-control" type="Password" placeholder="Enter password" runat="server" style="font-size:15px;" MaxLength="250"></asp:TextBox>
                         </div>
                         <br />
                         <asp:RequiredFieldValidator ID="PasswordBlank" runat="server" ErrorMessage="Password cannot be blank" ControlToValidate="Password" ValidationGroup="UserValidationGroup" Font-Size="15px"></asp:RequiredFieldValidator>
@@ -49,12 +49,12 @@
                         <asp:RegularExpressionValidator ID="PasswordType" runat="server" ErrorMessage="Password cannot be a number" Display="Dynamic" Font-Size="15px" ControlToValidate="Password" ValidationGroup="UserValidationGroup" ValidationExpression="(?!^\d+$)^.+$"></asp:RegularExpressionValidator>
                     </div>
                     <br />
-                    <div class="row" style="padding:3% 0%;">
+                    <div class="right" style="padding:3% 0%;">
                         <div class="col-md-3 col-lg-3">
                             <label style="font-size:15px;">Confirm Password</label>
                         </div>
                         <div class="col-md-9 col-lg-9">
-                            <asp:TextBox ID="ConfirmPassword" CssClass="form-control" type="Password" placeholder="Confirm password" runat="server" style="font-size:15px;"></asp:TextBox>
+                            <asp:TextBox ID="ConfirmPassword" CssClass="form-control" type="Password" placeholder="Confirm password" runat="server" style="font-size:15px;" MaxLength="250"></asp:TextBox>
                         </div>
                         <br />
                         <asp:RequiredFieldValidator ID="ConfirmPasswordBlank" runat="server" ErrorMessage="Confirm password cannot be blank" ControlToValidate="ConfirmPassword" ValidationGroup="UserValidationGroup" Font-Size="15px"></asp:RequiredFieldValidator>
@@ -79,7 +79,7 @@
                             <label style="font-size:15px;">Secret Answer</label>
                         </div>
                         <div class="col-md-9 col-lg-9">
-                            <asp:TextBox ID="SecretAnswer" CssClass="form-control" placeholder="Enter secret answer" runat="server" style="font-size:15px;"></asp:TextBox>
+                            <asp:TextBox ID="SecretAnswer" CssClass="form-control" placeholder="Enter secret answer" runat="server" style="font-size:15px;" MaxLength="100"></asp:TextBox>
                         </div>
                         <br />
                         <asp:RequiredFieldValidator ID="SecretAnswerBlank" runat="server" ErrorMessage="Secret answer cannot be blank" ControlToValidate="SecretAnswer" ValidationGroup="UserValidationGroup" Font-Size="15px"></asp:RequiredFieldValidator>

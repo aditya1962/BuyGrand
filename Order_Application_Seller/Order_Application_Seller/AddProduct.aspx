@@ -57,7 +57,7 @@
                                                 <asp:Label runat="server">Name</asp:Label>
                                             </div>
                                             <div class="col-md-8 col-lg-8">
-                                                <asp:TextBox ID="Name" placeholder="Enter name" CssClass="form-control" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="Name" placeholder="Enter name" CssClass="form-control" runat="server" MaxLength="90"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="NameValidate" runat="server" ErrorMessage="Name cannot be empty" ControlToValidate="Name" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator><br />
                                                 <asp:RegularExpressionValidator ID="NameNum" runat="server" ErrorMessage="Name cannot be a number" ControlToValidate="Name" ForeColor="Red" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddItemValidate"></asp:RegularExpressionValidator>
                                             </div>
@@ -68,7 +68,7 @@
                                                 <asp:Label runat="server">Description</asp:Label>
                                             </div>
                                             <div class="col-md-8 col-lg-8">
-                                                <asp:TextBox ID="Description" placeholder="Enter description" CssClass="form-control" runat="server" Rows="5" TextMode="MultiLine"></asp:TextBox>
+                                                <asp:TextBox ID="Description" placeholder="Enter description" CssClass="form-control" runat="server" Rows="5" TextMode="MultiLine" MaxLength="500"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="DescriptionValidate" runat="server" ErrorMessage="Description cannot be empty" ControlToValidate="Description" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator><br />
                                                 <asp:RegularExpressionValidator ID="DescriptionNum" runat="server" ErrorMessage="Description cannot be a number" ControlToValidate="Description" ForeColor="Red" ValidationExpression="(?!^\d+$)^.+$" ValidationGroup="AddItemValidate"></asp:RegularExpressionValidator>
                                             </div>
@@ -79,7 +79,7 @@
                                                 <asp:Label runat="server">Price</asp:Label>
                                             </div>
                                             <div class="col-md-8 col-lg-8">
-                                                <asp:TextBox ID="Price" placeholder="Enter price" CssClass="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                                                <asp:TextBox ID="Price" placeholder="Enter price" CssClass="form-control" runat="server" TextMode="Number" MaxLength="13"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="PriceValidate" runat="server" ErrorMessage="Price cannot be empty" ControlToValidate="Price" ForeColor="Red" ValidationGroup="AddItemValidate"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>

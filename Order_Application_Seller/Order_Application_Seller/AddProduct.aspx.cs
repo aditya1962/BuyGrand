@@ -9,6 +9,9 @@ namespace Order_Application_Seller
     {
         AddProductReference.AddProductSoapClient addProductReference = new AddProductReference.AddProductSoapClient();
         AddProductReference.Category[] categoryList;
+
+        string username;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["username"]==null)
@@ -17,6 +20,8 @@ namespace Order_Application_Seller
             }
             else
             {
+                username = Session["username"].ToString();
+
                 categoryList = addProductReference.getCategoryNames();
                 if (!IsPostBack)
                 {
@@ -75,7 +80,7 @@ namespace Order_Application_Seller
                 if (result.Item1 == 1)
                 {
                     int status = addProductReference.AddItem(Description.Text, Name.Text, Convert.ToInt32(Price.Text),
-                        result.Item2, Convert.ToInt32(Quantity.Text), Category.SelectedValue, SubCategory.SelectedValue);
+                        result.Item2, Convert.ToInt32(Quantity.Text), Category.SelectedValue, SubCategory.SelectedValue,username);
                     if (status == 0)
                     {
                         AddItemStatus.Text = "Could not add item";
