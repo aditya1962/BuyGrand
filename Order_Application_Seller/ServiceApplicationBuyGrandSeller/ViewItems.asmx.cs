@@ -20,7 +20,7 @@ namespace ServiceApplicationBuyGrandSeller
         {
             page = page - 1;
             Item[] itemsOne = new Item[1];
-            /*try
+            try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
                 {
@@ -50,7 +50,7 @@ namespace ServiceApplicationBuyGrandSeller
                         }
                     }
 
-                    //return items;
+                    return items;
                 }
             }
             catch (Exception ex)
@@ -58,16 +58,6 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
-            */
-            Item itemOne = new Item();
-
-            itemOne.id = 1;
-            itemOne.description = "abc";
-            itemOne.name = "abcde";
-            itemOne.price = 1;
-            itemOne.image_path = "abcdef";
-            itemsOne[0] = itemOne;
-            return itemsOne;
         }
 
         [WebMethod]

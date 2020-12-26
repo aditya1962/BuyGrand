@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 
 namespace ServiceApplicationBuyGrandSeller
@@ -21,7 +18,6 @@ namespace ServiceApplicationBuyGrandSeller
         [WebMethod]
         public Item getItem(int id)
         {
-            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
@@ -56,20 +52,6 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
-            */
-
-            Item item = new Item();
-            item.description = "abc";
-            item.name = "abc";
-            item.price = 14;
-            item.image_path = "abc";
-            item.discount = 2.3;
-            item.rating = 3.4;
-            item.order_count = 1;
-            item.quantity_available = 5;
-            item.category = "abc";
-            item.subcategory = "abcd";
-            return item;
         }
 
         [WebMethod]
@@ -103,13 +85,13 @@ namespace ServiceApplicationBuyGrandSeller
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    SqlDataAdapter adapter = new SqlAdapter("sp_verifyUserForRating", connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter("sp_verifyUserForRating", connection);
                     adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("id", id);
-                    command.Parameters.AddWithValue("username", username);
+                    adapter.SelectCommand.Parameters.AddWithValue("id", id);
+                    adapter.SelectCommand.Parameters.AddWithValue("username", username);
                     DataTable table = new DataTable();
-                    adapter.Fill(table)
-                    int rows = table.Rows.count;
+                    adapter.Fill(table);
+                    int rows = table.Rows.Count;
                     return rows;
                 }
             }

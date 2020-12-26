@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 
 namespace ServiceApplicationBuyGrandSeller
@@ -19,9 +16,8 @@ namespace ServiceApplicationBuyGrandSeller
         string rrConnectionString = ConfigurationManager.ConnectionStrings["SellerReadReplicaConnectionString"].ConnectionString;
 
         [WebMethod]
-        public Review[] GetTopReviews(int item)
+        public Review[] GetTopReviews(int productID)
         {
-            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
@@ -59,32 +55,11 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
-            */
-
-            Review[] reviewArray = new Review[2];
-            Review review = new Review();
-            review.reviewID = 1;
-            review.reviewDesc = "abc";
-            review.imagePath = "abcd";
-            review.datetime = "2020-11-08 12:30:00";
-            review.name = "abcdefgh";
-            review.subReviewCount = 1;
-            reviewArray[0] = review;
-            Review review2 = new Review();
-            review2.reviewID = 2;
-            review2.reviewDesc = "abc";
-            review2.imagePath = "abcde";
-            review2.datetime = "2020-11-08 00:30:00";
-            review2.name = "abcd";
-            review2.subReviewCount = 1;
-            reviewArray[1] = review2;
-            return reviewArray;
         }
 
         [WebMethod]
         public Review[] GetSubReviews(int productID,int reviewID)
         {
-            /*
             try
             {
                 using (SqlConnection connection = new SqlConnection(rrConnectionString))
@@ -122,26 +97,6 @@ namespace ServiceApplicationBuyGrandSeller
                 Logging.WriteLog(ex, "Error", ex.Message);
                 return null;
             }
-            */
-
-            Review[] reviewArray = new Review[2];
-            Review review = new Review();
-            review.reviewID = 1;
-            review.reviewDesc = "abc";
-            review.imagePath = "abcd";
-            review.datetime = "2020-11-08 12:30:00";
-            review.name = "abcdefgh";
-            review.subReviewCount = 1;
-            reviewArray[0] = review;
-            Review review2 = new Review();
-            review2.reviewID = 2;
-            review2.reviewDesc = "abc";
-            review2.imagePath = "abcde";
-            review2.datetime = "2020-11-08 00:30:00";
-            review2.name = "abcd";
-            review2.subReviewCount = 1;
-            reviewArray[1] = review2;
-            return reviewArray;
         }
 
         [WebMethod]

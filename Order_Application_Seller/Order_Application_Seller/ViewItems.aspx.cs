@@ -88,8 +88,8 @@ namespace Order_Application_Seller
 
         public void Pagination()
         {
-            //int itemsCount = viewItemsRef.itemCount(username);
-            int itemsCount = 20;
+            int itemsCount = viewItemsRef.itemCount(username);
+
             int pages = (int)Math.Ceiling((double)itemsCount / filter);
             int pagesDisplay = pages;
             if (pages > 5)

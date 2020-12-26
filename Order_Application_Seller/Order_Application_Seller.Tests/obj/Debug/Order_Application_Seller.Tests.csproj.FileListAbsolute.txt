@@ -70,8 +70,6 @@ C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Antlr3.Runtime.dll
-C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
-C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Order_Application_Seller.pdb
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Order_Application_Seller.dll.config
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml

@@ -226,8 +226,6 @@ C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\System.Web.DataVisualization.dll
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\System.Web.Optimization.dll
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\WebGrease.dll
-C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
-C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Microsoft.SqlServer.Types.dll
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\System.Web.Optimization.xml
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Newtonsoft.Json.xml
 C:\Users\Aditya Abeysinghe\Documents\Repository Files\BuyGrand\Order_Application_Seller\Order_Application_Seller\bin\Antlr3.Runtime.pdb

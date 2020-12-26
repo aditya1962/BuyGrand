@@ -43,8 +43,6 @@ namespace Order_Application_Seller
         {
             get { return _price; }
             set { _price = value; ItemPrice.Text = "$ " + value.ToString(); }
-        }
-
-        
+        }       
     }
 }
