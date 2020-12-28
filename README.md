@@ -49,6 +49,17 @@ For more details <a href="https://github.com/aditya1962/BuyGrand/tree/master/Ord
 
 For more details <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Admin#technologies">see here </a>
 
+<h3 id="seller-view">Seller view</h3>
+
+- ASP.NET - For UI and back-end connections 
+- MSSQL - As the relational database management system
+- RDLC - Report Definition Language Client-side was used for reports in the application
+- Web Services - Asp.net web services were used to connect the core application with the MSSQL database
+- ASP.NET Charts - Charts were used as a visual display in the admin dashboard
+- Web related technologies used - JavaScript, jQuery, Bootstrap 4.0, AJAX and JSON
+
+For more details <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Seller#technologies">see here </a>
+
 <a href="#user-content-table-of-contents"> Back to Top </a>
 
 <h2 id="main-dependencies">Main Dependencies</h2>
