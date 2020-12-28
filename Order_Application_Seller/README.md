@@ -65,15 +65,16 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
     - Execute the file (or click F5 in your keyboard)
     
 <li> Create the Seller Read Replica Database, Indexes and Stored Procedures</li>
-    - Locate the creation script at /Database Files/Database Creation Scripts/BuyGrandSellerReadReplica Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/Database%20Creation%20Scripts/BuyGrandSellerReadReplica%20Create%20Script.sql"> here </a>)<br/>
+    - Locate the creation script at /Database Files/Database Creation Scripts/BuyGrandSellerReadReplica Create Script.sql(or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/Database%20Creation%20Scripts/BuyGrandSellerReadReplica%20Create%20Script.sql"> here </a>)<br/>
     - Open the file located in the step above<br/>
     - Execute the file (or click F5 in your keyboard)
 </ol>
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h3 id="website-installation">Website Installation </h3>
-Website installation includes pointing the application to the database. To do this, go to /Order_Application_Admin/Order_Application_Seller/Web.Config and locate the following code in this file.
-<br/>
+Website installation includes pointing the application to the database. To do this, go to /Order_Application_Seller/Order_Application_Seller/Web.Config and locate the following code in this file.
+
+
 
 ```
 <configuration>
