@@ -26,7 +26,7 @@ This is the administrator view of the system. The administrator view is used by 
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Dashboard-(Index-page)">Dashboard</a></li>
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Category">Add Category</a> </li>
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Sub-Category">Add Sub Category</a> </li>
-    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Approve-Seller">Approve Seller </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Approve-Seller">Approve Seller</a> </li>
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Feedbacks">View Feedbacks</a> </li>
     <li>Login </li>
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Manage-Seller">Manage Sellers</a> </li>
@@ -60,12 +60,12 @@ Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or ab
 <ol>
 <li> Open SQL Server Management Studio (SSMS), Login using <b>SQL Authentication</b></li>
 <li> Create the Administrator Database, Indexes and Stored Procedures</li>
-    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)<br/>
+    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/tree/master/Database%20Files/Database%20Creation%20Scripts/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)<br/>
     - Open the file located in the step above<br/>
     - Execute the file (or click F5 in your keyboard)
     
 <li> Create the Administrator Read Replica Database, Indexes and Stored Procedures</li>
-    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)<br/>
+    - Locate the creation script at /Database Files/BuyGrandAdministratorReadReplica Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/Database%20Creation%20Scripts/BuyGrandAdministratorReadReplica%20Create%20Script.sql"> here </a>)<br/>
     - Open the file located in the step above<br/>
     - Execute the file (or click F5 in your keyboard)
 </ol>
@@ -78,13 +78,13 @@ Website installation includes pointing the application to the database. To do th
 ```
 <configuration>
   <connectionStrings>
-    <add name="SqlConnectionString" connectionString="Data Source=ADITYA_PC;Initial Catalog=BuyGrandAdministrator;Persist Security Info=True;User ID=sa;Password=password@123" providerName="System.Data.SqlClient"/>
-    <add name="SqlReadReplicaConnectionString" connectionString="Data Source=ADITYA_PC;Initial Catalog=BuyGrandAdministratorReadReplica;Persist Security Info=True;User ID=sa;Password=password@123" providerName="System.Data.SqlClient"/>
+    <add name="SqlConnectionString" connectionString="Data Source=.....;Initial Catalog=BuyGrandAdministrator;Persist Security Info=True;User ID=sa;Password=....." providerName="System.Data.SqlClient"/>
+    <add name="SqlReadReplicaConnectionString" connectionString="Data Source=.....;Initial Catalog=BuyGrandAdministratorReadReplica;Persist Security Info=True;User ID=sa;Password=....." providerName="System.Data.SqlClient"/>
   </connectionStrings>
 ...
 ```
 
-In the connectionString in both SqlConnectionString and SqlReadReplicaConnectionString nodes change the Data Source (in the above snippet "ADITYA_PC") to the server name of your SQL Server, User ID to the username and the password to the password of the SQL Server Authentication account of the SQL Server.
+In the connectionString in both SqlConnectionString and SqlReadReplicaConnectionString nodes change the Data Source (in the above snippet ".....") to the server name of your SQL Server, User ID to the username (in the above snippet "sa") and the password (in the above snippet ".....") to the password of the SQL Server Authentication account of the SQL Server.
 
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
