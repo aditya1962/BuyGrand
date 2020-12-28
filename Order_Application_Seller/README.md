@@ -22,16 +22,20 @@ This is the seller view of the system. The seller view is used by a seller to ad
 
 
 <h2 id="features">Features</h2>
+<!--
 <ol>
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Dashboard-(Index-page)">Dashboard</a></li>
-    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Category">Add Category</a> </li>
-    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Sub-Category">Add Sub Category</a> </li>
-    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Approve-Seller">Approve Seller </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Category">Add Product</a> </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Add-Sub-Category">
+Manage Product</a> </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View---Approve-Seller">View Items</a> </li>
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Feedbacks">View Feedbacks</a> </li>
     <li>Login </li>
-    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Manage-Seller">Manage Sellers</a> </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Manage-Seller">Register</a> </li>
+    <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-Manage-Seller">Forgot Password</a> </li>
     <li><a href="https://github.com/aditya1962/BuyGrand/wiki/Admin-View-View-Sales">View Sales</a> </li>
 </ol>
+-->
 
 
 <h2 id="technologies"> Technologies used </h2>
