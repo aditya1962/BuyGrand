@@ -42,7 +42,7 @@ This is the seller view of the system. The seller view is used by a seller to ad
 - RDLC Reporting - Report Definition Language Client Side was used to generate sales reports given the time range.
 - Other ASP.NET web components 
     - Charts - Charts were used as graphical illustrations to view sales in the dashboard.
-    - Web User Controls - Web user controls were used as templates for the header and footer sections for a logged in user.
+    - Web User Controls - Web user controls were used as templates for the header and footer sections for a logged in user and as templates for loading products and reviews.
 - Other web technologies
     - Vanilla JavaScript, jQuery and AJAX
     - Bootstrap 4.0
