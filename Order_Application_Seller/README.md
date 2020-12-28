@@ -54,37 +54,37 @@ This is the seller view of the system. The seller view is used by a seller to ad
 
 <h3 id="prerequisites"> Prerequisites </h3>
 
-Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or above is installed. This is required as the .NET application was development using version 4.0 and in SQL databases some queries were created specifically for versions 2012 and above.
+Make sure your .NET runtime environment is version 4.0 and SQL Server 2012 or above is installed. This is required as the .NET application was development using version 4.7 and in SQL databases some queries were created specifically for versions 2012 and above.
 
 <h3 id="database-installation">Database installation </h3>
 <ol>
 <li> Open SQL Server Management Studio (SSMS), Login using <b>SQL Authentication</b></li>
-<li> Create the Administrator Database, Indexes and Stored Procedures</li>
-    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)<br/>
+<li> Create the Seller Database, Indexes and Stored Procedures</li>
+    - Locate the creation script at /Database Files/Database Creation Scripts/BuyGrandSeller Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/Database%20Creation%20Scripts/BuyGrandSeller%20Create%20Script.sql"> here </a>)<br/>
     - Open the file located in the step above<br/>
     - Execute the file (or click F5 in your keyboard)
     
-<li> Create the Administrator Read Replica Database, Indexes and Stored Procedures</li>
-    - Locate the creation script at /Database Files/BuyGrandAdministrator Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/BuyGrandAdministrator%20Create%20Script.sql"> here </a>)<br/>
+<li> Create the Seller Read Replica Database, Indexes and Stored Procedures</li>
+    - Locate the creation script at /Database Files/Database Creation Scripts/BuyGrandSellerReadReplica Create Script.sql (or get the code <a href="https://github.com/aditya1962/BuyGrand/blob/master/Database%20Files/Database%20Creation%20Scripts/BuyGrandSellerReadReplica%20Create%20Script.sql"> here </a>)<br/>
     - Open the file located in the step above<br/>
     - Execute the file (or click F5 in your keyboard)
 </ol>
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
 <h3 id="website-installation">Website Installation </h3>
-Website installation includes pointing the application to the database. To do this, go to /Order_Application_Admin/Order_Application_Admin/Web.Config and locate the following code in this file.
+Website installation includes pointing the application to the database. To do this, go to /Order_Application_Admin/Order_Application_Seller/Web.Config and locate the following code in this file.
 <br/>
 
 ```
 <configuration>
   <connectionStrings>
-    <add name="SqlConnectionString" connectionString="Data Source=ADITYA_PC;Initial Catalog=BuyGrandAdministrator;Persist Security Info=True;User ID=sa;Password=password@123" providerName="System.Data.SqlClient"/>
-    <add name="SqlReadReplicaConnectionString" connectionString="Data Source=ADITYA_PC;Initial Catalog=BuyGrandAdministratorReadReplica;Persist Security Info=True;User ID=sa;Password=password@123" providerName="System.Data.SqlClient"/>
+    <add name="SellerConnectionString" connectionString="Data Source=.....;Initial Catalog=BuyGrandSeller;Persist Security Info=True;User ID=sa;Password=....." providerName="System.Data.SqlClient"/>
+    <add name="SellerReadReplicaConnectionString" connectionString="Data Source=.....;Initial Catalog=BuyGrandSellerReadReplica;Persist Security Info=True;User ID=sa;Password=....." providerName="System.Data.SqlClient"/>
   </connectionStrings>
 ...
 ```
 
-In the connectionString in both SqlConnectionString and SqlReadReplicaConnectionString nodes change the Data Source (in the above snippet "ADITYA_PC") to the server name of your SQL Server, User ID to the username and the password to the password of the SQL Server Authentication account of the SQL Server.
+In the connectionString in both SellerConnectionString and SellerReadReplicaConnectionString nodes change the Data Source (in the above snippet ".....") to the server name of your SQL Server, User ID to the username (in the above snippet "sa") and the password to the password (in the above snippet ".....") of the SQL Server Authentication account of the SQL Server.
 
 <a href="#user-content--table-of-contents-">Back to contents </a>
 
