@@ -8,6 +8,8 @@
 
 </div>
 
+<p>This repository holds the source code used in the <a href="https://github.com/aditya1962/BuyGrand/tree/master/Order_Application_Java">desktop application</a> of the <a href="https://link.springer.com/chapter/10.1007/978-981-97-0730-0_17">Use of Computer Vision to Authenticate Retail Invoices with the Convolution-Neural Networks</a> research.</p>
+
 <h2 id="basic-overview"> Basic Overview </h2>
 
 BuyGrand is a shopping cart application where registered users could buy products, admin can administrator sellers, manage product categories and view sales reports,  and sellers can sell their products. 
