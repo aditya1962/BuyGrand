@@ -5,13 +5,18 @@
  */
 package order_application_java;
 
+import controllers.FaceSignController;
 import controllers.LoginController;
 import java.awt.Color;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+import org.json.JSONObject;
 
 /**
  *
@@ -19,6 +24,8 @@ import javax.swing.ImageIcon;
  */
 public class Login extends javax.swing.JFrame {
     private int clicked = 0;
+    private int faceAttempts = 0;
+    private static final int MAX_FACE_ATTEMPTS = 3;
     /**
      * Creates new form Login
      */
@@ -32,6 +39,73 @@ public class Login extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon(getClass().getResource("/files/Logo.png"));
         this.setIconImage(icon.getImage());
     }
+    
+    private void startFaceCheck(final String username) {
+        login.setEnabled(false);
+            new SwingWorker<JSONObject, Void>() {
+                @Override protected JSONObject doInBackground() throws Exception {
+                    return FaceSignController.verifyLogin(username);
+                }
+
+                @Override protected void done() {
+                    try {
+                        JSONObject r = get();
+                        System.out.println("Face result: " + r);
+
+                        String status = r.optString("status", "");
+                        String reason = r.isNull("reason") ? "" : r.optString("reason", "");
+
+                        if ("verified".equals(status)) {               // success - check this FIRST
+                            faceAttempts = 0;
+                            UserInterface userInterface  = new UserInterface();
+                            userInterface.setUsername(username);
+                            userInterface.setVisible(true);
+                            dispose();
+                            return;
+                        }
+
+                        if ("user not enrolled".equals(reason)) {
+                            // ... offer enrolment (as before)
+                        } else if ("cancelled".equals(reason)) {
+                            // ESC pressed - do nothing
+                        } else if (++faceAttempts >= MAX_FACE_ATTEMPTS) {
+                            // ... block as before
+                        } else {
+                            JOptionPane.showMessageDialog(Login.this,
+                                    "Face not verified: " + reason + "\nAttempts left: "
+                                    + (MAX_FACE_ATTEMPTS - faceAttempts),
+                                    "Login failed", JOptionPane.WARNING_MESSAGE);
+                        }
+                    } catch (InterruptedException | ExecutionException ex) {
+                        Throwable cause = (ex instanceof ExecutionException) ? ex.getCause() : ex;
+                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, cause);
+                        JOptionPane.showMessageDialog(Login.this, "Face check error: " + cause.getMessage(),
+                                "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }.execute();
+        }
+
+        private void enrolThenVerify(final String username) {
+            login.setEnabled(false);
+            new SwingWorker<JSONObject, Void>() {
+                @Override protected JSONObject doInBackground() throws Exception {
+                    return FaceSignController.enrollFace(username);
+                }
+                @Override protected void done() {
+                    login.setEnabled(true);
+                    try {
+                        JSONObject r = get();
+                        if ("enrolled".equals(r.optString("status"))) startFaceCheck(username);
+                        else JOptionPane.showMessageDialog(Login.this,
+                                "Enrolment failed: " + r.optString("reason"));
+                    } catch (InterruptedException | ExecutionException ex) {
+                        Throwable cause = (ex instanceof ExecutionException) ? ex.getCause() : ex;
+                        JOptionPane.showMessageDialog(Login.this, "Enrolment error: " + cause.getMessage());
+                    }
+                }
+            }.execute();
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -265,13 +339,9 @@ public class Login extends javax.swing.JFrame {
         LoginController controller = new LoginController(usernameText,passwordText);
         try {
             int valid = controller.login();
-            if(valid==-1)
+            if(valid == -1 || valid == -2)
             {
-                ErrorLabel.setText("Username/ Password does not exist");
-            }
-            else if(valid==-2)
-            {
-                ErrorLabel.setText("Invalid username/password");
+                JOptionPane.showMessageDialog(null, "Username/ Password does not exist");
             }
             else if(valid==0)
             {
@@ -279,10 +349,7 @@ public class Login extends javax.swing.JFrame {
             }
             else
             {
-                UserInterface userInterface  = new UserInterface();
-                userInterface.setUsername(usernameText);
-                userInterface.setVisible(true);
-                this.dispose();
+                startFaceCheck(usernameText);                
             }
         } catch (SQLException | NoSuchAlgorithmException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

@@ -5,16 +5,21 @@
  */
 package order_application_java;
 
+import controllers.FaceSignController;
 import controllers.RegisterController;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+import org.json.JSONObject;
 
 /**
  *
@@ -342,7 +347,7 @@ public class RegisterPersonal extends javax.swing.JFrame {
         fieldValues.add(gender.getSelection().getActionCommand());
         if(countryCombo.getSelectedItem().toString().equals("Select Country"))
         {
-            JOptionPane.showMessageDialog(null,"Select a country");
+            JOptionPane.showMessageDialog(null, "Select a country");
         }
         else
         {
@@ -351,21 +356,45 @@ public class RegisterPersonal extends javax.swing.JFrame {
         RegisterController registerController = new RegisterController();
         try {
             int login = 0;
-            int user = registerController.personalInformation(fieldValues);;
+            int user = registerController.personalInformation(fieldValues);
             if(user==1)
             {
                login = registerController.loginInformation(loginFieldValues);  
             }
             if(user==0 || login ==0)
             {
-                JOptionPane.showMessageDialog(null,"Could not register user");
+                JOptionPane.showMessageDialog(null, "Could not register user");
             }
             else
             {
-                JOptionPane.showMessageDialog(null,"User added successfuly");
-                this.dispose();
-                Login loginView  = new Login();
-                loginView.setVisible(true);
+                
+                JOptionPane.showMessageDialog(null, "Opening camera... look at the camera and press SPACE 5 times.");
+                new SwingWorker<JSONObject, Void>() {
+                @Override protected JSONObject doInBackground() throws Exception {
+                return FaceSignController.enrollFace(username);          // runs face_verify.py enroll
+            }
+            @Override protected void done() {
+                try {
+                    JSONObject r = get();
+                    if ("enrolled".equals(r.optString("status"))) {
+                        JOptionPane.showMessageDialog(null, "Face enrolment complete.");
+                        JOptionPane.showMessageDialog(null, "User added successfuly");
+                        dispose();
+                        Login loginView  = new Login();
+                        loginView.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Enrolment failed: " + r.optString("reason"));
+                    }
+                } catch (HeadlessException | InterruptedException | ExecutionException ex) {
+                    try {
+                        throw ex;
+                    } catch (HeadlessException | InterruptedException | ExecutionException ex1) {
+                        Logger.getLogger(RegisterPersonal.class.getName()).log(Level.SEVERE, null, ex1);
+                    }
+                }
+            }
+        }.execute();              
+                
             }
         } catch (SQLException ex) {
             Logger.getLogger(RegisterPersonal.class.getName()).log(Level.SEVERE, null, ex);

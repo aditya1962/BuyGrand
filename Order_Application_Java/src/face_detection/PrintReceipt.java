@@ -29,6 +29,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import order_application_java.PopulateCart;
+import org.json.JSONObject;
 
 /**
  *
@@ -45,16 +46,8 @@ public class PrintReceipt {
     {
         return totalPrice;
     }
-    public void receipt(String username) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException {
-        File image = new File("submitted_image.png");
-        while(!image.isFile())
-        {
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(FaceDetect.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+    public void receipt(String username, JSONObject ev) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException {
+        
         final String DEST = "invoice_"+username+".pdf";
         File file = new File(DEST);
         file.getAbsoluteFile().getParentFile();
@@ -66,7 +59,7 @@ public class PrintReceipt {
         letterHead(doc);        
         beneficiary(doc,username);
         table(doc, file,username);
-        signature(doc);
+        signature(doc, ev);
         doc.close();
         if(Desktop.isDesktopSupported())
         {
@@ -173,11 +166,11 @@ public class PrintReceipt {
         
         doc.add(table);
     }
-    public void signature(Document doc) throws BadElementException, IOException, DocumentException
+    public void signature(Document doc, JSONObject ev) throws BadElementException, IOException, DocumentException
     {
-        Paragraph p = new Paragraph("\n\nThe following is a generated digital signature of the user. No sign in required.");
-        Image image  = Image.getInstance("submitted_image.png");
-        doc.add(p);
-        doc.add(image);
+        doc.add(new Paragraph(String.format(java.util.Locale.ROOT,
+            "Face verification: %s | user %s | %s | evidence attached",
+            ev.getString("status"), ev.getString("user_id"), ev.getString("verified_at"))));
+        doc.close();
     }
 }
