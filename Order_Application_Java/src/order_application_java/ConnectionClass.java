@@ -17,8 +17,8 @@ import java.util.logging.Logger;
  */
 public class ConnectionClass {
     final String USERNAME = "sa";
-    final String PASSWORD = "password@123";
-    final String CONNECTION_STRING = "jdbc:sqlserver://localhost:1433;databaseName=BuyGrand";
+    final String PASSWORD = "Sq1231";
+    final String CONNECTION_STRING = "jdbc:sqlserver://localhost:57614;databaseName=BuyGrand;encrypt=true;trustServerCertificate=true;";
     
     public Connection getConnection()
     {

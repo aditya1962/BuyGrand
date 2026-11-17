@@ -37,7 +37,7 @@ public class LoginController {
         {
             valid = true;
         }
-        return valid;
+        return valid; //sdfsdf, dfsdfsd
     }
     
     public int login() throws SQLException, NoSuchAlgorithmException
