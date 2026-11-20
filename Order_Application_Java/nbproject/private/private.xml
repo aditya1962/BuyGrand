@@ -6,8 +6,11 @@
             <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/build.xml</file>
             <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/order_application_java/Login.java</file>
             <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/controllers/LoginController.java</file>
-            <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/order_application_java/ConnectionClass.java</file>
-            <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/controllers/RegisterController.java</file>
+            <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/order_application_java/RegisterLogin.java</file>
+            <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/order_application_java/RegisterPersonal.java</file>
+            <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/controllers/FaceSignController.java</file>
+            <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/order_application_java/YourCart.java</file>
+            <file>file:/C:/Users/deshd/source/repos/BuyGrand/Order_Application_Java/src/face_detection/PrintReceipt.java</file>
         </group>
     </open-files>
 </project-private>

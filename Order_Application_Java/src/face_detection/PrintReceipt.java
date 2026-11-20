@@ -26,8 +26,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import order_application_java.PopulateCart;
 import org.json.JSONObject;
 
@@ -35,32 +33,36 @@ import org.json.JSONObject;
  *
  * @author Aditya
  */
-public class PrintReceipt {
+public class PrintReceipt 
+{
     private double totalPrice;
     
     public void setTotalPrice(double price)
     {
         totalPrice = price;
     }
+    
     public double getTotalPrice()
     {
         return totalPrice;
     }
-    public void receipt(String username, JSONObject ev) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException {
-        
-        final String DEST = "invoice_"+username+".pdf";
-        File file = new File(DEST);
-        file.getAbsoluteFile().getParentFile();
-
+    
+    public void printReceipt(String username, String path, JSONObject ev) throws FileNotFoundException, DocumentException, BadElementException, IOException, SQLException 
+    {
         Document doc = new Document(PageSize.A4, 25f, 18f, 18f, 5f);
-        PdfWriter.getInstance(doc,new FileOutputStream(file));
+        PdfWriter.getInstance(doc,new FileOutputStream(path));
+        
         doc.open();
+        
         addLogo(doc);
         letterHead(doc);        
         beneficiary(doc,username);
-        table(doc, file,username);
+        table(doc, username);
         signature(doc, ev);
+        
         doc.close();
+        
+        File file = new File(path);
         if(Desktop.isDesktopSupported())
         {
             try
@@ -81,34 +83,44 @@ public class PrintReceipt {
         Paragraph text = new Paragraph(dtf.format(now)+"\n\nDear "+username+",\n"+"Here is the receipt for items you ordered:\n\n");
         doc.add(text);
     }
+    
     public void letterHead(Document doc) throws DocumentException
     {
         Paragraph headerText = new Paragraph("BuyGrand \n 12/A, First Road, Park Drive, Sri Lanka \n sales@buygrand.com\n\n");
         headerText.setAlignment(Element.ALIGN_CENTER);
         doc.add(headerText);
     }
+    
     public void addLogo(Document doc) throws BadElementException, IOException, DocumentException
     {
         Image image  = Image.getInstance("Logo.png");
         image.setAlignment(Element.ALIGN_CENTER);
         doc.add(image);
     }
+    
     public PdfPTable headerRow(PdfPTable table)
     {
         String[] cols = {"Product ID","Product Description","Quantity","Unit Price", "Total Price"};
-        for (int i = 0; i < 5; i++) {
-            PdfPCell cell = new PdfPCell(new Phrase(cols[i]));
+        
+        for (String col : cols) 
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(col));
             table.addCell(cell);
         }
+        
         table.completeRow();
+        
         return table;
     }
-    public PdfPTable getData(String username,PdfPTable table) throws SQLException
+    
+    public PdfPTable getData(String username, PdfPTable table) throws SQLException
     {
         PopulateCart pc = new PopulateCart();
         ResultSet rs = pc.populate(username);
+        
         String [][] data = new String [pc.getRowCount(username)][5];
         int rowCount = 0;
+        
         while(rs.next())
         {
             data[rowCount][0] = rs.getString(1);
@@ -118,45 +130,61 @@ public class PrintReceipt {
             data[rowCount][4] = Double.toString(rs.getDouble(3));
             rowCount++;
         }
+        
         return fillRows(username,rowCount,data,table);
     }
-    public PdfPTable fillRows(String username,int rowCount,String [][]data,PdfPTable table)
+    
+    public PdfPTable fillRows(String username, int rowCount,String [][]data, PdfPTable table)
     {
         double totalPrice  = 0;
-        for (int i = 0; i < rowCount; i++) {
+        
+        for (int i = 0; i < rowCount; i++) 
+        {
             for(int j = 0; j < 5; j++)
             {
                 PdfPCell cell = new PdfPCell(new Phrase(data[i][j]));
                 cell.setBorder(Rectangle.NO_BORDER);
                 table.addCell(cell);
+                
                 if(j==4)
                 {
                     totalPrice+= Double.parseDouble(data[i][j]);
                 }
             }
+            
             table.completeRow();
         }
+        
         table.completeRow();
         this.setTotalPrice(totalPrice);
+        
         return table;
     }
+    
     public PdfPTable footerRow(PdfPTable table)
     {
         PdfPCell blankCell = new PdfPCell(new Phrase(""));
+        
         blankCell.setBorder(Rectangle.NO_BORDER);
+        
         table.addCell(blankCell);
         table.addCell(blankCell);
         table.addCell(blankCell);
+        
         PdfPCell subtotalDesc = new PdfPCell(new Phrase("Sub Total:"));
         PdfPCell subtotalValue = new PdfPCell(new Phrase(Double.toString(this.getTotalPrice())));
+        
         subtotalDesc.setBorder(Rectangle.NO_BORDER);
         subtotalValue.setBorder(Rectangle.NO_BORDER);
+        
         table.addCell(subtotalDesc);
         table.addCell(subtotalValue);
         table.completeRow();
+        
         return table;
     }
-    public void table(Document doc, File file, String username) throws FileNotFoundException, DocumentException, SQLException
+    
+    public void table(Document doc, String username) throws FileNotFoundException, DocumentException, SQLException
     {
         PdfPTable table = new PdfPTable(5);
         
@@ -166,6 +194,7 @@ public class PrintReceipt {
         
         doc.add(table);
     }
+    
     public void signature(Document doc, JSONObject ev) throws BadElementException, IOException, DocumentException
     {
         doc.add(new Paragraph(String.format(java.util.Locale.ROOT,
