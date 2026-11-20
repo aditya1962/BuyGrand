@@ -5,32 +5,41 @@
  */
 package order_application_java;
 
+import controllers.FaceSignController;
 import controllers.RegisterController;
 import java.awt.Color;
-import java.awt.Component;
+import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
+import org.json.JSONObject;
 
 /**
  *
  * @author Aditya
  */
-public class RegisterPersonal extends javax.swing.JFrame {
+public class RegisterPersonal extends javax.swing.JFrame 
+{
     private static String username;
     private List <String> loginFieldValues;
+    
     /**
      * Creates new form RegisterPersonal
      */
-    public RegisterPersonal(String username) { 
+    public RegisterPersonal(String username) 
+    { 
         initComponents();
-        this.username = username;
+        
+        RegisterPersonal.username = username;
         male.setActionCommand("Male");
         female.setActionCommand("Female");
+        
         if(username==null)
         {
             loadRegister();
@@ -43,8 +52,10 @@ public class RegisterPersonal extends javax.swing.JFrame {
             int [] backgroundBtn = UI.buttonBackground();
             previousBtn.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
             registerBtn.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
+            
             String [] countries = Locale.getISOCountries();
-            for(String country:countries)
+            
+            for(String country : countries)
             {
                 Locale countryObj = new Locale("",country);
                 countryCombo.addItem(countryObj.getDisplayCountry());
@@ -326,13 +337,12 @@ public class RegisterPersonal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void previousBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previousBtnActionPerformed
-        // TODO add your handling code here:
         loadRegister();
     }//GEN-LAST:event_previousBtnActionPerformed
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
-        // TODO add your handling code here:
-        List <String> fieldValues = new ArrayList <String>();
+        List <String> fieldValues = new ArrayList <>();
+        
         fieldValues.add(username);
         fieldValues.add(firstName.getText());
         fieldValues.add(lastName.getText());
@@ -340,34 +350,78 @@ public class RegisterPersonal extends javax.swing.JFrame {
         fieldValues.add(phoneNumber.getText());
         fieldValues.add(emailAddress.getText());
         fieldValues.add(gender.getSelection().getActionCommand());
+        
         if(countryCombo.getSelectedItem().toString().equals("Select Country"))
         {
-            JOptionPane.showMessageDialog(null,"Select a country");
+            JOptionPane.showMessageDialog(null, "Select a country");
         }
         else
         {
             fieldValues.add(countryCombo.getSelectedItem().toString());
         }
+        
         RegisterController registerController = new RegisterController();
-        try {
+        
+        try 
+        {
             int login = 0;
-            int user = registerController.personalInformation(fieldValues);;
+            int user = registerController.personalInformation(fieldValues);
+            
             if(user==1)
             {
                login = registerController.loginInformation(loginFieldValues);  
             }
+            
             if(user==0 || login ==0)
             {
-                JOptionPane.showMessageDialog(null,"Could not register user");
+                JOptionPane.showMessageDialog(null, "Could not register user");
             }
             else
-            {
-                JOptionPane.showMessageDialog(null,"User added successfuly");
-                this.dispose();
-                Login loginView  = new Login();
-                loginView.setVisible(true);
+            {               
+                JOptionPane.showMessageDialog(null, "Opening camera... look at the camera and press SPACE 5 times.");
+                new SwingWorker<JSONObject, Void>() 
+                {
+                    @Override protected JSONObject doInBackground() throws Exception 
+                    {
+                        return FaceSignController.enrollFace(username);          // runs face_verify.py enroll
+                    }
+            
+                    @Override protected void done() 
+                    {
+                        try 
+                        {
+                            JSONObject r = get();
+
+                            if (r.optString("status").equals("enrolled")) 
+                            {
+                                JOptionPane.showMessageDialog(null, "Face enrolment complete.");
+                                JOptionPane.showMessageDialog(null, "User added successfuly");
+                                dispose();
+                                Login loginView  = new Login();
+                                loginView.setVisible(true);
+                            } 
+                            else 
+                            {
+                                JOptionPane.showMessageDialog(null, "Enrolment failed: " + r.optString("reason"));
+                            }
+                        } 
+                        catch (HeadlessException | InterruptedException | ExecutionException ex) 
+                        {
+                            try 
+                            {
+                                throw ex;
+                            } 
+                            catch (HeadlessException | InterruptedException | ExecutionException exception) 
+                            {
+                                Logger.getLogger(RegisterPersonal.class.getName()).log(Level.SEVERE, null, exception);
+                            }
+                        }
+                    }
+                }.execute();                             
             }
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) 
+        {
             Logger.getLogger(RegisterPersonal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_registerBtnActionPerformed
@@ -400,16 +454,15 @@ public class RegisterPersonal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                if(username==null)
-                {
-                    new RegisterPersonal(username).setVisible(false);
-                }
-                else
-                {
-                    new RegisterPersonal(username).setVisible(true);
-                }
+        java.awt.EventQueue.invokeLater(() -> 
+        {
+            if(username.isEmpty())
+            {
+                new RegisterPersonal(username).setVisible(false);
+            }
+            else
+            {
+                new RegisterPersonal(username).setVisible(true);
             }
         });
     }

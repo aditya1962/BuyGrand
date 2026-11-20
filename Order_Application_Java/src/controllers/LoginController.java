@@ -13,14 +13,15 @@ import java.sql.SQLException;
 import order_application_java.ConnectionClass;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.ResultSetMetaData;
 /**
  *
  * @author Aditya
  */
-public class LoginController {
-    private String username;
-    private String password;
+public class LoginController 
+{
+    private final String username;
+    private final String password;
+    
     public LoginController(String username, String password)
     {
         this.username = username;
@@ -33,10 +34,12 @@ public class LoginController {
         statement.setString(1, username);
         ResultSet results = statement.executeQuery();
         boolean valid = false;
+        
         while(results.next())
         {
             valid = true;
         }
+        
         return valid;
     }
     
@@ -45,9 +48,11 @@ public class LoginController {
         int valid = 0;
         ConnectionClass connection = new ConnectionClass();
         Connection connect = connection.getConnection();
-        if(!(connect==null))
+        
+        if(connect != null)
         {
             boolean exists = validateUsername(connect,username);
+            
             if(!exists)
             {
                 valid = -1;
@@ -58,29 +63,28 @@ public class LoginController {
                 statement.setString(1, username);
                 ResultSet results = statement.executeQuery();
                 String passwordHashed = "";
+                
                 while(results.next())
                 {
                     passwordHashed = results.getString(1);                
                 }
+                
                 MessageDigest digest = MessageDigest.getInstance("SHA-256");
                 byte [] passwordBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
                 StringBuilder sb = new StringBuilder();
+                
                 for(byte b: passwordBytes)
                 {
                     sb.append(String.format("%02x", b));
                 }
-                String hashedPassword = sb.toString();
-                if(hashedPassword.equals(passwordHashed))
-                {
-                    valid = 1;
-                }
-                else
-                {
-                    valid = -2;
-                }
+                
+                String hashedPassword = sb.toString();               
+                valid = hashedPassword.equals(passwordHashed)? 1: -2;               
             }
+            
             connect.close();
         }
+        
         return valid;
     }
 }

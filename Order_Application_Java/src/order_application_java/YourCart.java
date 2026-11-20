@@ -5,13 +5,19 @@
  */
 package order_application_java;
 
-import face_detection.FaceDetect;
+import controllers.FaceSignController;
+import face_detection.PrintReceipt;
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
+import org.json.JSONObject;
 
 /**
  *
@@ -26,11 +32,14 @@ public class YourCart extends javax.swing.JFrame {
     
     private String username;
     
-    public YourCart() throws SQLException {  
-        initComponents(); 
+    public YourCart() throws SQLException 
+    {  
+        initComponents();
+        
         int [] background = UI.frameBackGround();
         this.getContentPane().setBackground(new Color(background[0],background[1],background[2]));
         int [] backgroundBtn = UI.buttonBackground();
+        
         printReceipt.setBackground(new Color(backgroundBtn[0],backgroundBtn[1],backgroundBtn[2]));
     }
     
@@ -38,9 +47,7 @@ public class YourCart extends javax.swing.JFrame {
     {
         this.username = username;
         jLabel3.setText("Hi, "+ username);
-    }
-
-
+    }   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,13 +183,76 @@ public class YourCart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void printReceiptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printReceiptActionPerformed
-        // TODO add your handling code here:
-        FaceDetect f = new FaceDetect(username);
-        f.start();
+        printReceipt.setEnabled(false);
+
+        new SwingWorker<File, Void>() 
+        {
+            String failReason;
+
+            @Override protected File doInBackground() throws Exception 
+            {
+                String hash = FaceSignController.getSha256(username);
+                JSONObject jsonObject = FaceSignController.verifyFace(username, hash);
+                System.out.println("Face result: " + jsonObject);
+
+                if (!"verified".equals(jsonObject.optString("status", ""))) 
+                {
+                    failReason = jsonObject.isNull("reason") ? "verification failed" : jsonObject.optString("reason");
+                    return null;
+                }
+
+                File dir = new File(FaceSignController.getProjectDirectory(), "invoices");
+
+                if(!dir.exists())            
+                    dir.mkdirs();
+
+                File unsigned = new File(dir, "invoice_" + username + "_" + System.currentTimeMillis() + ".pdf");
+
+                PrintReceipt receipt = new PrintReceipt();
+                receipt.printReceipt(username, unsigned.getAbsolutePath(), jsonObject);
+
+                File signed = FaceSignController.signInvoice(unsigned, jsonObject);
+
+                unsigned.delete();
+
+                return signed;
+            }
+
+            @Override protected void done() 
+            {
+                printReceipt.setEnabled(true);
+
+                try 
+                {
+                    File signed = get();
+
+                    if (signed == null) 
+                    {
+                        JOptionPane.showMessageDialog(null,
+                                "Invoice not issued - face verification failed: " + failReason,
+                                "Verification failed", JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                    JOptionPane.showMessageDialog(null, "Signed invoice saved:\n" + signed.getAbsolutePath());
+
+                    if (java.awt.Desktop.isDesktopSupported()) 
+                        java.awt.Desktop.getDesktop().open(signed);
+                } 
+                catch (InterruptedException | java.util.concurrent.ExecutionException ex) 
+                {
+                    JOptionPane.showMessageDialog(null, "Invoice error: " + ex.getMessage(),
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                } 
+                catch (IOException ex) 
+                {
+                    Logger.getLogger(YourCart.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }.execute();       
     }//GEN-LAST:event_printReceiptActionPerformed
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
-        // TODO add your handling code here:
         UserInterface frame = new UserInterface();
         frame.setUsername(username);
         frame.setVisible(true);
@@ -248,13 +318,18 @@ public class YourCart extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
+        java.awt.EventQueue.invokeLater(new Runnable() 
+        {
+            public void run() 
+            {
+                try 
+                {
                    YourCart frame = new YourCart();
                    frame.setVisible(true);
                    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                } catch (SQLException ex) {
+                } 
+                catch (SQLException ex) 
+                {
                     Logger.getLogger(YourCart.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
