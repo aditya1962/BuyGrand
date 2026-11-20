@@ -60,20 +60,7 @@ public class PrintReceipt
         table(doc, username);
         signature(doc, ev);
         
-        doc.close();
-        
-        File file = new File(path);
-        if(Desktop.isDesktopSupported())
-        {
-            try
-            {
-                Desktop.getDesktop().open(file);
-            }
-            catch(IOException e)
-            {
-                e.printStackTrace();
-            }
-        }
+        doc.close();       
     }
    
     public void beneficiary(Document doc, String username) throws DocumentException

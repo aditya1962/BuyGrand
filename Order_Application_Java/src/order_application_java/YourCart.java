@@ -278,7 +278,7 @@ public class YourCart extends javax.swing.JFrame {
         {
             items.setVisible(false);
             errorLabel.setText("You have not added any products");
-            //printReceipt.setVisible(false);
+            printReceipt.setVisible(false);
             this.repaint();
         } 
         else

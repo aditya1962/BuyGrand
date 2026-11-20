@@ -181,7 +181,7 @@ public class FaceSignController
     public static File signInvoice(File unsignedPdf, JSONObject evidence) throws Exception 
     {
         Properties cfg = loadSigningConfig();
-        File keystore = new File(getProjectDirectory(), cfg.getProperty("keystore", "keys/buygrand_shop.p12"));
+        File keystore = new File(getProjectDirectory(), cfg.getProperty("keystore", "keys/buygrand.p12"));
         char[] password = cfg.getProperty("password", "").toCharArray();
         String tsa = cfg.getProperty("tsa", "").trim();
         boolean visible = Boolean.parseBoolean(cfg.getProperty("signature.visible", "true"));
